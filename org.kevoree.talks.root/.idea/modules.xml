@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../org.kevoree.talks.adam/org.kevoree.talks.adam.iml" filepath="$PROJECT_DIR$/../org.kevoree.talks.adam/org.kevoree.talks.adam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../org.kevoree.talks.framework/org.kevoree.talks.framework.iml" filepath="$PROJECT_DIR$/../org.kevoree.talks.framework/org.kevoree.talks.framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/org.kevoree.talks.root.iml" filepath="$PROJECT_DIR$/org.kevoree.talks.root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../org.kevoree.talks.ubimob2012/org.kevoree.talks.ubimob2012.iml" filepath="$PROJECT_DIR$/../org.kevoree.talks.ubimob2012/org.kevoree.talks.ubimob2012.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../org.kevoree.talks.ubimob2012Demo/org.kevoree.talks.ubimob2012Demo.iml" filepath="$PROJECT_DIR$/../org.kevoree.talks.ubimob2012Demo/org.kevoree.talks.ubimob2012Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../org.kevoree.talks.ws/org.kevoree.talks.ws.iml" filepath="$PROJECT_DIR$/../org.kevoree.talks.ws/org.kevoree.talks.ws.iml" />
+    </modules>
+  </component>
+</project>
+
