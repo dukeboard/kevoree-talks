@@ -202,16 +202,16 @@
         <blockquote>What if A & B node emmit a new model in the same logical time for C ?</blockquote>
         <ol>
             <li class="next">
-                <div style="text-align : right;">A discover C node and send notification <span class='iconFont3 kevOrange'>e</span></div>
+                <div style="text-align : right;">A discovers C node and sends notification <span class='iconFont3 kevOrange'>e</span></div>
             </li>
             <li class="next">
-                <div style="text-align : left;">B become unreachable <span class='iconic battery_empty kevOrange'></span></div>
+                <div style="text-align : left;">B becomes unreachable <span class='iconic battery_empty kevOrange'></span></div>
             </li>
             <li class="next">
                 <div style="text-align : right;">B & A add a component to C <span class='iconFont3 kevOrange'>e</span></div>
             </li>
             <li class="next">
-                <div style="text-align : left;">B become reachable <span class='iconic battery_charging kevOrange'></span></div>
+                <div style="text-align : left;">B becomes reachable <span class='iconic battery_charging kevOrange'></span></div>
             </li>
             <li class="next">
                 <div style="text-align : right;">C must resolve configuration <span class='iconic fullscreen_exit_alt kevOrange'></span></div>
@@ -223,7 +223,7 @@
 <section class="slide shout" id="DMAR_motivations">
     <header>
         <h2 style="font-size : 70px;">
-            Similarly to P2P data managment we need efficient way to disseminate <span class='iconFont3 kevOrange'>e</span><br/>
+            Similarly to P2P data management we need efficient way to disseminate <span class='iconFont3 kevOrange'>e</span><br/>
             reconfiguration policies<span class="iconFont3 kevOrange">g</span>
         </h2>
     </header>
@@ -295,7 +295,7 @@
             <li class="next">
                 on receive <span class='iconic curved_arrow kevOrange'></span> <span class="kevOrange">model request</span> from node A
                 <ul>
-                    <li>send current vectorClock associated model <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
+                    <li>send current vectorClock and associated model <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
                 </ul>
             </li>
         </ul>
@@ -338,8 +338,11 @@
                     <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 * (nbPastFailure(A)+1))</li>
                 </ul>
             </li>
-            <li class="next">Result => node priority increase if long no sync period and decrease to avoid network error
-                impact
+            <li class="next">Result
+                <ul>
+                    <li>Sync delay increase node priority</li>
+                    <li>Unreachable node priority decrease to avoid network failure impact</li>
+                </ul>
             </li>
         </ul>
     </header>
@@ -421,8 +424,10 @@
     <header>
         <h2>Concurrency reconfiguration reconciliation</h2>
     </header>
-    <object data="figures/result_exp2.png" type="image/png" class="middle" width="600px" height="429px"
-            style="left:50%;top:55%;"></object>
+    <div style="text-align: center;">
+        <object data="figures/result_exp2.png" type="image/png" width="600px" height="429px"></object>
+    </div>
+
 </section>
 <section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_nodelink_failure">
     <header>
@@ -464,7 +469,7 @@
     <blockquote>Concurrency resolution is always the challenge for ubiquitous P2P dissemination</blockquote>
     <ul>
         <li class="next">With distributed M@R <=> Model merging</li>
-        <li class="next">Basic merge operation ease by model techniques</li>
+        <li class="next">Basic merge operation eased by model techniques</li>
         <li class="next">
             Resolution must be helped by priority rules, use case dependant
             <ul>
