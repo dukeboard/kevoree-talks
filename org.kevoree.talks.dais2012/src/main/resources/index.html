@@ -157,7 +157,7 @@
     <h2>A model abstract nodes configurations</h2>
 </header>
 
-    <img src="figures/dmar_sample.png">
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
 
 </section>
 
@@ -197,9 +197,9 @@
         <h2>(D)M@R need concurrency management</h2>
         <p>
             Ubiquitous environment => each node can modify global M@R layer<br/>
-            Mesh network <=> Sporadic nodes, high rate of failure
+            Mesh network <=> Sporadic nodes, intermittent connections
         </p>
-        <blockquote>What if A & B node emmit a new model in the same logical time for C ?</blockquote>
+        <blockquote>What if A & B node emit a new model in the same logical time for C ?</blockquote>
         <ol>
             <li class="next">
                 <div style="text-align : right;">A discovers C node and sends notification <span class='iconFont3 kevOrange'>e</span></div>
@@ -334,8 +334,11 @@
             <li class="next">Select neighbours that have the smallest score</li>
             <li class="next">On each communication with A
                 <ul>
-                    <li>if succeed <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1</li>
+                    <li>if succeed <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br />
+                        if node previously in failure => Score(A) = 0
+                    </li>
                     <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 * (nbPastFailure(A)+1))</li>
+                    <li>Score reset at overflow</li>
                 </ul>
             </li>
             <li class="next">Result
@@ -517,6 +520,8 @@
         </li>
     </ul>
 </section>
+
+<!-- TODO : Add Slide on scalability -->
 
 
 <div class="progress">
