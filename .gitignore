@@ -2,6 +2,7 @@
 **.idea
 **.iml
 **target/
+*/target/**
 /.cache
 /.classpath
 /.project
