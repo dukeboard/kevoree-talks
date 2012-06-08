@@ -3,6 +3,7 @@
 **.iml
 **target/
 */target/**
+target/
 /.cache
 /.classpath
 /.project
