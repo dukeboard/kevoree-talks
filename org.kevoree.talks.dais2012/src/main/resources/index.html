@@ -318,8 +318,9 @@
             <li class="next">Every input stored in the M@R (payload) itself to keep all dynamic without initial
                 configuration
             </li>
+            <li class="next">Inverted communication, send payload only if necessary</li>
+            <blockquote class="next"><code>Combine VectorClock (VC) + Gossiper + M@R layer</code></blockquote>
         </ul>
-        <blockquote>Combine VectorClock (VC) + Gossiper + M@R layer</blockquote>
     </header>
 </section>
 
@@ -327,6 +328,7 @@
     <header>
         <h2>Gossiper protocol for (D)M@R</h2>
         <ul>
+            <li class="next">Messages : VectorClock or Tuple(VectorCLock,Model)</li>
             <li class="next">Init : VectorClock <- (currentNode,0) & neighbourScores = 0</li>
             <li class="next">
                 On local model update <span class='iconic document_fill kevOrange'></span> <span
@@ -410,31 +412,26 @@
 <section class="slide" id="GossiperDMAR5">
     <header>
         <h2>Neighbours selection</h2>
-        <ul>
-            <li class="next">Take node topology <span class="iconFont3 kevOrange">3</span> in current model</li>
-            <li class="next">Select neighbours that have the smallest score</li>
-            <li class="next">On each communication with A
-                <ul>
-                    <li>if success <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br/>
-                        if node previously in failure or overflow => Score(A) = 0
-                    </li>
-                    <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 *
-                        (nbPastFailure(A)+1))
-                    </li>
-                </ul>
-            </li>
-            <li class="next">Result
-                <ul>
-                    <li>Sync delay: increase node priority</li>
-                    <li>Unreachable node: decrease priority to avoid network failure impact</li>
-                </ul>
-            </li>
-        </ul>
     </header>
+    <ul>
+        <li class="next">Take node topology <span class="iconFont3 kevOrange">3</span> in current model</li>
+        <li class="next">Select neighbours that have the smallest score</li>
+        <li class="next">On each communication with A
+            <ul>
+                <li>if success <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br/>
+                    if node previously in failure or overflow => Score(A) = 0
+                </li>
+                <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 *
+                    (nbPastFailure(A)+1))
+                </li>
+            </ul>
+        </li>
+        <p class="next"><code>Score management aims at reducing failures nodes impact on cluster</code></p>
+    </ul>
 </section>
 
 <section class="slide shout" id="ExperimentationCover">
-    <h2><span class="kevOrange">></span>Experimentations</h2>
+    <h2><span class="kevOrange">></span>Experiments</h2>
 </section>
 
 <section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation">
@@ -468,6 +465,7 @@
 </section>
 -->
 
+<!--
 <section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_protocol">
     <header>
         <h2>Gossiper Protocol</h2>
@@ -490,6 +488,7 @@
     </ol>
     <object data="figures/seqPushPull2.png" type="image/png" style="position:absolute;top:30%;left:35%;"></object>
 </section>
+-->
 
 <section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_propagationdelay_vs_networkload">
     <header>
@@ -519,9 +518,12 @@
     </div>
     <span class="iconraph" style="color:#ff3333;position:absolute;left:340px;font-size:50px;top:510px;">o</span>
     <span class="iconraph kevOrange" style="position:absolute;left:710px;font-size:50px;top:510px;">o</span>
-    <span class="iconraph kevOrange" id="mrrecT1" style="position:absolute;left:200px;font-size:50px;top:550px;">Ö</span>
-    <span class="iconraph" id="mrrecT2" style="color:#ff3333;position:absolute;left:330px;font-size:50px;top:550px;">×</span>
-    <span class="iconraph kevOrange" id="mrrecT3" style="position:absolute;left:740px;font-size:50px;top:550px;">Ö</span>
+    <span class="iconraph kevOrange" id="mrrecT1"
+          style="position:absolute;left:200px;font-size:50px;top:550px;">Ö</span>
+    <span class="iconraph" id="mrrecT2"
+          style="color:#ff3333;position:absolute;left:330px;font-size:50px;top:550px;">×</span>
+    <span class="iconraph kevOrange" id="mrrecT3"
+          style="position:absolute;left:740px;font-size:50px;top:550px;">Ö</span>
     <script type="text/javascript">
         jQuery.noConflict();
         jQuery(document).ready(function () {
@@ -539,10 +541,14 @@
         <object data="figures/result_exp3.png" type="image/png" class="middle" width="550px"></object>
     </div>
     <!-- Failure icons -->
-    <span class="iconraph exp2failIcon" id="exp2ico1" style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:352px;">Ë</span>
-    <span class="iconraph exp2failIcon" id="exp2ico2" style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Ë</span>
-    <span class="iconraph exp2failIcon" id="exp2ico3" style="opacity:0;color:#ff3333;position:absolute;left:155px;font-size:25px;top:350px;">Ë</span>
-    <span class="iconraph exp2failIcon" id="exp2ico4" style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Ë</span>
+    <span class="iconraph exp2failIcon" id="exp2ico1"
+          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:352px;">Ë</span>
+    <span class="iconraph exp2failIcon" id="exp2ico2"
+          style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Ë</span>
+    <span class="iconraph exp2failIcon" id="exp2ico3"
+          style="opacity:0;color:#ff3333;position:absolute;left:155px;font-size:25px;top:350px;">Ë</span>
+    <span class="iconraph exp2failIcon" id="exp2ico4"
+          style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Ë</span>
     <script type="text/javascript">
         jQuery.noConflict();
         jQuery(document).ready(function () {
@@ -656,7 +662,8 @@
             Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
         </li>
     </ul>
-    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span> , try it at kevoree.org</h2>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span> , try it at
+        kevoree.org</h2>
 </section>
 
 <!-- TODO : Add Slide on scalability -->
