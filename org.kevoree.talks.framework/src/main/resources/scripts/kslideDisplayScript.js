@@ -4,7 +4,9 @@ var views = {
         future:null,
         remote:null,
         currentSlide:0,
-        nbSlides:0
+        nbSlides:0,
+        talkIsStarted:false,
+        talkStartTime:null
     },
     notes = null,
     url = null,
@@ -109,7 +111,20 @@ function startClock () {
         document.querySelector("#hours").innerHTML = addZero(now.getHours());
         document.querySelector("#minutes").innerHTML = addZero(now.getMinutes());
         document.querySelector("#seconds").innerHTML = addZero(now.getSeconds());
+        if (views.talkIsStarted) {
+            var time = now.getTime() - views.talkStartTime.getTime();
+            var date = new Date(time);
+            document.querySelector("#talk-time").innerHTML = addZero(date.getUTCHours()) + ":" + addZero(date.getUTCMinutes()) + ":" + addZero(date.getUTCSeconds());
+        }
     }, 1000);
+}
+
+function talkTime (firstTime) {
+    views.talkIsStarted = !views.talkIsStarted;
+    views.talkStartTime = new Date();
+    if (views.talkIsStarted) {
+        document.querySelector("#talk-time").innerHTML = "00:00:00";
+    }
 }
 
 function setCursor (aCursor) {
@@ -261,8 +276,12 @@ window.onmessage = function (aEvent) {
             postMsg(views.future, "FULL")
         }
         if (argv[0] == "BACK") {
-            postMsg(views.present, "BACK");
-            postMsg(views.future, "BACK");
+            if (views.currentSlide == views.nbSlides - 1) {
+                postMsg(views.present, "BACK");
+            } else if (views.currentSlide > 0) {
+                postMsg(views.present, "BACK");
+                postMsg(views.future, "BACK");
+            }
         }
         if (argv[0] == "FORWARD") {
             postMsg(views.present, "FORWARD");
@@ -284,7 +303,8 @@ window.onmessage = function (aEvent) {
         }
         updateSlideNumbers()
     }
-};
+}
+;
 
 // allow to close the popup when the window is unload
 window.onunload = function () {
@@ -314,6 +334,7 @@ function connectWS () {
         alert(slideurl + roomId)
     }
 }
+
 // function that allow to interact with WebSocket script
 function notifyWebSocket (message) {
     try {
