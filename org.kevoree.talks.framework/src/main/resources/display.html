@@ -21,15 +21,25 @@
 <button id="popup-button" onclick="popup()">Pop-up</button>
 <button id="keynoteButton" onclick="connectWS()">Keynote</button>
 
-<script language="javascript">
-    document.querySelector('#slideidx').addEventListener("touchstart", function(e){setCursor(prompt('Go to slide...','1'));}, false);
-    document.querySelector('#popup-button').addEventListener("touchstart", function(e){popup();}, false);
-    document.querySelector('#keynoteButton').addEventListener("touchstart", function(e){connectWS();}, false);
-</script>
-
-<div id="time">
+<div id="system-time">
     <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
 </div>
+<button id="talk-time" onclick="talkTime();">00:00:00</button>
+
+<script language="javascript">
+    document.querySelector('#slideidx').addEventListener("touchstart", function (e) {
+        setCursor(prompt('Go to slide...', '1'));
+    }, false);
+    document.querySelector('#popup-button').addEventListener("touchstart", function (e) {
+        popup();
+    }, false);
+    document.querySelector('#keynoteButton').addEventListener("touchstart", function (e) {
+        connectWS();
+    }, false);
+    document.querySelector('#talk-time').addEventListener("touchstart", function (e) {
+        talkTime();
+    }, false);
+</script>
 <style>
     html, body {
         height: 100%;
@@ -73,7 +83,7 @@
         right: 0;
     }
 
-    #time {
+    #system-time {
         background: #888;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -86,6 +96,24 @@
         position: absolute;
         text-align: center;
         width: 200px;
+    }
+
+    #talk-time {
+        background: #888;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: none;
+        bottom: 0;
+        font-size: 40px;
+        font-weight: bold;
+        color: #FFF;
+        height: 52px;
+        line-height: 52px;
+        right: 230px;
+        position: absolute;
+        text-align: center;
+        width: 200px;
+        z-index: 10;
     }
 
     iframe {
@@ -153,25 +181,26 @@
         width: 200px;
         z-index: 10;
     }
+
     #keynoteButton {
-            bottom: 58px;
-            background: #888;
-            border: none;
-            border-radius: 10px;
-            color: #FFF;
-            cursor: pointer;
-            height: 52px;
-            font-size: 30px;
-            font-weight: bold;
-            position: absolute;
-            right: 20px;
-            width: 200px;
-            z-index: 10;
+        bottom: 58px;
+        background: #888;
+        border: none;
+        border-radius: 10px;
+        color: #FFF;
+        cursor: pointer;
+        height: 52px;
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        right: 20px;
+        width: 200px;
+        z-index: 10;
     }
 </style>
 <script language="JavaScript">
- var slideURL = "http://localhost:8080/";
- var wsURL = "ws://localhost:8092/keynote";
+    var slideURL = "http://localhost:8080/";
+    var wsURL = "ws://localhost:8092/keynote";
 </script>
 <script src="scripts/kslideDisplayScript.js"></script>
 <script>
