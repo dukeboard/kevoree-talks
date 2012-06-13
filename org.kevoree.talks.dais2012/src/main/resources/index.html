@@ -109,6 +109,8 @@
             distributed systems <span class="iconFont3 kevOrange">3</span><br/>
         </h2>
     </header>
+    <img style="position:absolute;top: 10px;left:10px;" src="figures/logoInria.png" width="200px"/>
+    <img style="position:absolute;top: 10px;right:10px;" src="figures/logoUniv.png" width="200px"/>
 </section>
 
 <!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
@@ -242,6 +244,26 @@
     </header>
     <img src="figures/dmar_sample.png" style="border-radius: 10px;">
 </section>
+<section class="slide" id="WiaModel2">
+    <header>
+        <h2>Each node host a model@runtime engine</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+    <span id="marDengine1" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
+    <span id="marDengine2" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
+    <span id="marDengine3" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
+        });
+    </script>
+</section>
 
 <section class="slide shout" id="DMAR_CONCEPTS2">
     <h2 style="font-size : 60px">
@@ -258,37 +280,47 @@
 <section class="slide" id="DMAR_concurrency">
     <header>
         <h2>(D)M@R need concurrency management</h2>
-
-        <p>
-            Ubiquitous environment <span class='iconic arrow_right_alt1 kevOrange'></span> each node can modify global
-            M@R layer<br/>
-            Mesh network <span class='iconic move_horizontal_alt2 kevOrange'></span> Sporadic nodes, intermittent
-            connections
-        </p>
-        <blockquote>What if A & B nodes emit a new model in the same logical time for C ?</blockquote>
-        <ol>
-            <li class="next">
-                <div style="text-align : right;">A discovers C node and sends notification <span
-                        class='iconFont3 kevOrange'>e</span></div>
-            </li>
-            <li class="next">
-                <div style="text-align : left;">B becomes unreachable <span
-                        class='iconic battery_empty kevOrange'></span></div>
-            </li>
-            <li class="next">
-                <div style="text-align : right;">B & A add a component to C <span class='iconFont3 kevOrange'>e</span>
-                </div>
-            </li>
-            <li class="next">
-                <div style="text-align : left;">B becomes reachable <span
-                        class='iconic battery_charging kevOrange'></span></div>
-            </li>
-            <li class="next">
-                <div style="text-align : right;">C must resolve configuration <span
-                        class='iconic fullscreen_exit_alt kevOrange'></span></div>
-            </li>
-        </ol>
     </header>
+    <div>
+        Ubiquitous environment <span class='iconic arrow_right_alt1 kevOrange'></span> each node can modify global
+        M@R layer<br/>
+        Mesh network <span class='iconic move_horizontal_alt2 kevOrange'></span> Sporadic nodes, intermittent
+        connections
+    </div>
+    <div style="text-align: center;">
+        <img src="figures/scluster.png" style="border-radius: 10px;"/>
+        <span class="iconraph" id="clusterSampleFailure" style="color:#ff3333;position:absolute;left:500px;font-size:50px;top:310px;">Â</span>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery(document).ready(function () {
+                setInterval("jQuery('#clusterSampleFailure').fadeOut(500);jQuery('#clusterSampleFailure').fadeIn(500);", 2000);
+            });
+        </script>
+    </div>
+    <!-- <blockquote>What if A & B nodes emit a new model in the same logical time for C ?</blockquote>   -->
+    <ol style="font-size: 22px;">
+        <li class="next">
+            <div style="text-align : right;">node0 discovers node2 node and sends notification <span
+                    class='iconFont3 kevOrange'>e</span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes unreachable <span
+                    class='iconic battery_empty kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node1 & node0 add a component to node2 <span
+                    class='iconFont3 kevOrange'>e</span>
+            </div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes reachable <span
+                    class='iconic battery_charging kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node2 must resolve configuration <span
+                    class='iconic fullscreen_exit_alt kevOrange'></span></div>
+        </li>
+    </ol>
 </section>
 
 <section class="slide shout" id="DMAR_motivations">
@@ -349,37 +381,6 @@
     </header>
 </section>
 
-<section class="slide" id="GossiperDMAR3">
-    <header>
-        <h2>Exchanges rules</h2>
-        <ul>
-            <li class="next">
-                on receive <span class='iconic curved_arrow kevOrange'></span> <span
-                    class="kevOrange">notification</span> from node A
-                <ul>
-                    <li>send vectorClock request <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
-                </ul>
-            </li>
-            <li class="next">
-                on receive <span class='iconic curved_arrow kevOrange'></span> <span class="kevOrange">vectorClock request</span>
-                from node A
-                <ul>
-                    <li>send current vectorClock <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
-                </ul>
-            </li>
-            <li class="next">
-                on receive <span class='iconic curved_arrow kevOrange'></span> <span
-                    class="kevOrange">model request</span> from node A
-                <ul>
-                    <li>send current vectorClock and associated model <span
-                            class="iconic arrow_right_alt1 kevOrange"></span> A
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-</section>
-
 <section class="slide" id="GossiperDMAR4">
     <header>
         <h2>Exchanges rules</h2>
@@ -390,7 +391,7 @@
                     <li>BEFORE or CONCURRENTLY => send model request <span
                             class="iconic arrow_right_alt1 kevOrange"></span> A
                     </li>
-                    <li>AFTER => noop ( local <span class='iconic box kevOrange'></span> already update )</li>
+                    <li>AFTER => noop (already update)</li>
                 </ul>
             </li>
             <li class="next">
@@ -402,7 +403,7 @@
                     </li>
                     <li>CONCURRENTLY => resolve and merge locally concurrent models, same operation as before
                     </li>
-                    <li>AFTER => noop ( local <span class='iconic box kevOrange'></span> already update )</li>
+                    <li>AFTER => noop (already update)</li>
                 </ul>
             </li>
         </ul>
@@ -542,13 +543,13 @@
     </div>
     <!-- Failure icons -->
     <span class="iconraph exp2failIcon" id="exp2ico1"
-          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:352px;">Ë</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:352px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico2"
-          style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Ë</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico3"
-          style="opacity:0;color:#ff3333;position:absolute;left:155px;font-size:25px;top:350px;">Ë</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:155px;font-size:25px;top:350px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico4"
-          style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Ë</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Â</span>
     <script type="text/javascript">
         jQuery.noConflict();
         jQuery(document).ready(function () {
@@ -589,7 +590,7 @@
 
 <section class="slide" id="ccl1">
     <header>
-        <h2>Gossiper for (D)MAR</h2>
+        <h2>Scalability</h2>
     </header>
     <ul>
         <li>Vector Clock size has a major impact on performance
@@ -701,6 +702,38 @@
         });
     </script>
 </section>
+
+<section class="slide" id="GossiperDMAR3">
+    <header>
+        <h2>Exchanges rules</h2>
+        <ul>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> <span
+                    class="kevOrange">notification</span> from node A
+                <ul>
+                    <li>send vectorClock request <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
+                </ul>
+            </li>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> <span class="kevOrange">vectorClock request</span>
+                from node A
+                <ul>
+                    <li>send current vectorClock <span class="iconic arrow_right_alt1 kevOrange"></span> A</li>
+                </ul>
+            </li>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> <span
+                    class="kevOrange">model request</span> from node A
+                <ul>
+                    <li>send current vectorClock and associated model <span
+                            class="iconic arrow_right_alt1 kevOrange"></span> A
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</section>
+
 
 <div class="progress">
     <div></div>
