@@ -22,6 +22,7 @@ function getTransform () {
         (body.clientHeight / window.innerHeight)
     );
 
+//    console.log('scale(' + (1 / denominator) + ')');
     return 'scale(' + (1 / denominator) + ')';
 }
 
@@ -163,32 +164,54 @@ function goToNextSlide (slideNumber) {
         goToSlide(slideNumber);
         return slideNumber
     } else {
-        var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .active');
-        var nextNode = null;
-        if (activeNodes[activeNodes.length - 1]) {
-            var childNodes = activeNodes[activeNodes.length - 1].getElementsByClassName('next');
-            nextNode = childNodes[0];
-            if (nextNode) {
-                nextNode.className = nextNode.className + ' active';
-                return slideNumber;
-            }
-            nextNode = activeNodes[activeNodes.length - 1].nextElementSibling;
-        }
-        var currentParentNode = getParentActiveNode(activeNodes);
-        if (nextNode != null) {
-            nextNode.className = nextNode.className + ' active';
-            return slideNumber;
-        } else if (currentParentNode && currentParentNode.nextElementSibling) {
-            currentParentNode.nextElementSibling.className = currentParentNode.nextElementSibling.className + ' active';
+        /*var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .active');
+         var nextNode = null;
+         if (activeNodes[activeNodes.length - 1]) {
+         var childNodes = activeNodes[activeNodes.length - 1].getElementsByClassName('next');
+         nextNode = childNodes[0];
+         if (nextNode) {
+         nextNode.className = nextNode.className + ' active';
+         return slideNumber;
+         }
+         nextNode = activeNodes[activeNodes.length - 1].nextElementSibling;
+         }
+         var currentParentNode = getParentActiveNode(activeNodes);
+         if (nextNode != null) {
+         nextNode.className = nextNode.className + ' active';
+         return slideNumber;
+         } else if (currentParentNode && currentParentNode.nextElementSibling) {
+         currentParentNode.nextElementSibling.className = currentParentNode.nextElementSibling.className + ' active';
+         return slideNumber;
+         } else if (currentParentNode) {
+         // look for an inner that is not a sibling of someone
+         getOrphanInner(currentParentNode)
+         }else {
+         // there is no next inactive inner item so we just go to the next slide
+         slideNumber++;
+         initializeInnerTransition(slideNumber);
+         goToSlide(slideNumber);
+         return slideNumber;
+         }*/
+        var newInner = getNextInner(slideNumber);
+        if (newInner) {
+            newInner.className = newInner.className + ' active';
             return slideNumber;
         } else {
-            // there is no next inactive inner item so we just go to the next slide
-            slideNumber++;
-            initializeInnerTransition(slideNumber);
-            goToSlide(slideNumber);
-            return slideNumber;
+         // there is no next inactive inner item so we just go to the next slide
+         slideNumber++;
+         initializeInnerTransition(slideNumber);
+         goToSlide(slideNumber);
+         return slideNumber;
         }
     }
+}
+
+function getNextInner (slideNumber) {
+    var slide = slides[slideNumber];
+    var inners = slide.getElementsByClassName('next');
+    var activeInners = slide.getElementsByClassName('next active');
+    var nbActiveInner = activeInners.length;
+    return inners[nbActiveInner];
 }
 
 function getParentActiveNode (activeNodes) {
@@ -196,7 +219,6 @@ function getParentActiveNode (activeNodes) {
     var i = 2;
     var isChild = false;
     while (!isChild && activeNodes.length - i >= 0) {
-
         var potentialParentNode = activeNodes[activeNodes.length - i];
         var childNodes = potentialParentNode.getElementsByClassName('next');
         var j = 0;
@@ -212,6 +234,14 @@ function getParentActiveNode (activeNodes) {
         return potentialParentNode;
     } else {
         return null;
+    }
+}
+
+function getOrphanInner (firstTopLevelInnerNode) {
+    var potentialSiblingOfOrphanInner = firstTopLevelInnerNode.parent;
+    var potentialOrphanInner = potentialSiblingOfOrphanInner.nextElementSibling;
+    while (potentialOrphanInner) {
+
     }
 
 }
