@@ -137,7 +137,7 @@ function setCursor (aCursor) {
 }
 
 function popup () {
-    views.remote = window.open(this.url, 'slides', 'width=800,height=600,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+    views.remote = window.open(this.url, 'slides', 'width=784px,height=569px,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
 }
 
 function updateSlideNumbers () {
