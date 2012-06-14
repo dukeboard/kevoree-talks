@@ -289,7 +289,7 @@
     </div>
     <div style="text-align: center;">
         <img src="figures/scluster.png" style="border-radius: 10px;"/>
-        <span class="iconraph" id="clusterSampleFailure" style="color:#ff3333;position:absolute;left:500px;font-size:50px;top:310px;">Â</span>
+        <span class="iconraph" id="clusterSampleFailure" style="color:#ff3333;position:absolute;left:508px;font-size:50px;top:310px;">Â</span>
         <script type="text/javascript">
             jQuery.noConflict();
             jQuery(document).ready(function () {
@@ -347,7 +347,7 @@
             <li class="next"><span class="kevOrange">Gossiper</span> to deal with hostile mesh network</li>
             <li class="next">Use M@R as a network topology layer</li>
             <li class="next">Enrich node selection with network faults</li>
-            <li class="next">Every input stored in the M@R (payload) itself to keep all dynamic without initial
+            <li class="next">Every input stored in the <span class="kevOrange">M@R (payload)</span> itself to keep all dynamic without initial
                 configuration
             </li>
             <li class="next">Inverted communication, send payload only if necessary</li>
@@ -364,10 +364,10 @@
             <li class="next">Init : VectorClock <- (currentNode,0) & neighbourScores = 0</li>
             <li class="next">
                 On local model update <span class='iconic document_fill kevOrange'></span> <span
-                    class='iconic curved_arrow kevOrange'></span> current node
+                    class='iconic curved_arrow kevOrange'></span>, current node
                 <ul>
                     <li class="next">increment VectorClock : (currentNode, X) => (currentNode, X+1)</li>
-                    <li class="next">notify all neighbours</li>
+                    <li class="next">notify all neighbours (optional)</li>
                 </ul>
             </li>
             <li class="next">
@@ -543,11 +543,11 @@
     </div>
     <!-- Failure icons -->
     <span class="iconraph exp2failIcon" id="exp2ico1"
-          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:352px;">Â</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:350px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico2"
           style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico3"
-          style="opacity:0;color:#ff3333;position:absolute;left:155px;font-size:25px;top:350px;">Â</span>
+          style="opacity:0;color:#ff3333;position:absolute;left:160px;font-size:25px;top:350px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico4"
           style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Â</span>
     <script type="text/javascript">
