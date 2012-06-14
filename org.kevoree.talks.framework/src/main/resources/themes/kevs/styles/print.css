@@ -22,7 +22,7 @@
         padding: 0;
         font: 12pt Garamond, Palatino, "Times New Roman", Times, serif;
         color: #000;
-        background: #fff url(none);
+        background: #fff ;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -149,7 +149,7 @@
       * @css-for  (Specifying page breaks for printing)
       * @note     auto, always, avoid
       */
-    div.slide, .page-break {
+    .slide, .page-break {
         display: block;
         page-break-after: always;
     }
