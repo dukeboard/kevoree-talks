@@ -6,7 +6,7 @@ merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 
 addNode node0 : JavaSENode {logLevel = "WARN"}
-addComponent webSrv@node0 : KTinyWebServer { port="8082" }
+addComponent webSrv@node0 : KTinyWebServer { port="8083" }
 addComponent wsSrv@node0 : WsServer
 
 addComponent annotationSlides@node0 : KevoreeSlidePageDev { urlpattern="/",templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
