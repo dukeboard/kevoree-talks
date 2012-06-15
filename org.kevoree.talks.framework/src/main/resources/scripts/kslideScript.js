@@ -21,8 +21,6 @@ function getTransform () {
         (body.clientWidth / window.innerWidth),
         (body.clientHeight / window.innerHeight)
     );
-
-//    console.log('scale(' + (1 / denominator) + ')');
     return 'scale(' + (1 / denominator) + ')';
 }
 
@@ -95,7 +93,7 @@ function getSlideHash (slideNumber) {
 }
 
 function goToSlide (slideNumber) {
-    if (-1 == slideNumber) {
+    if (-1 == slideNumber || slideNumber >= slideList.length) {
         return;
     }
     url.hash = getSlideHash(slideNumber);
@@ -139,16 +137,17 @@ function dispatchSingleSlideMode (slideId) {
 }
 
 function initializeInnerTransition (slideNumber) {
+    if (slideNumber >= slideList.length) {
+        return;
+    }
     if (slideList[slideNumber].hasInnerNavigation) {
-        // fix active inner transition => may introduce overhead
-        var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .next');
-        for (var i = 0, ii = activeNodes.length; i < ii; i++) {
-            if (activeNodes[i].className.indexOf("active") != -1) {
-                activeNodes[i].className = activeNodes[i].className.substring(0, activeNodes[i].className.length - " active".length);
+        var innerNodes = slides[slideNumber].querySelectorAll('.next');
+        for (var i = 0, ii = innerNodes.length; i < ii; i++) {
+            if (innerNodes[i].className.indexOf("active") != -1) {
+                innerNodes[i].className = innerNodes[i].className.substring(0, innerNodes[i].className.length - " active".length);
             }
         }
-        activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .next');
-        activeNodes[0].className = activeNodes[0].className + ' active';
+        innerNodes[0].className = innerNodes[0].className + ' active';
     }
 }
 
@@ -164,92 +163,32 @@ function goToNextSlide (slideNumber) {
         goToSlide(slideNumber);
         return slideNumber
     } else {
-        /*var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .active');
-         var nextNode = null;
-         if (activeNodes[activeNodes.length - 1]) {
-         var childNodes = activeNodes[activeNodes.length - 1].getElementsByClassName('next');
-         nextNode = childNodes[0];
-         if (nextNode) {
-         nextNode.className = nextNode.className + ' active';
-         return slideNumber;
-         }
-         nextNode = activeNodes[activeNodes.length - 1].nextElementSibling;
-         }
-         var currentParentNode = getParentActiveNode(activeNodes);
-         if (nextNode != null) {
-         nextNode.className = nextNode.className + ' active';
-         return slideNumber;
-         } else if (currentParentNode && currentParentNode.nextElementSibling) {
-         currentParentNode.nextElementSibling.className = currentParentNode.nextElementSibling.className + ' active';
-         return slideNumber;
-         } else if (currentParentNode) {
-         // look for an inner that is not a sibling of someone
-         getOrphanInner(currentParentNode)
-         }else {
-         // there is no next inactive inner item so we just go to the next slide
-         slideNumber++;
-         initializeInnerTransition(slideNumber);
-         goToSlide(slideNumber);
-         return slideNumber;
-         }*/
         var newInner = getNextInner(slideNumber);
         if (newInner) {
             newInner.className = newInner.className + ' active';
             return slideNumber;
         } else {
-         // there is no next inactive inner item so we just go to the next slide
-         slideNumber++;
-         initializeInnerTransition(slideNumber);
-         goToSlide(slideNumber);
-         return slideNumber;
+            // there is no next inactive inner item so we just go to the next slide
+            slideNumber++;
+            initializeInnerTransition(slideNumber);
+            goToSlide(slideNumber);
+            return slideNumber;
         }
     }
 }
 
 function getNextInner (slideNumber) {
     var slide = slides[slideNumber];
-    var inners = slide.getElementsByClassName('next');
-    var activeInners = slide.getElementsByClassName('next active');
+    var inners = slide.querySelectorAll('.next');
+    var activeInners = slide.querySelectorAll('.next.active');
     var nbActiveInner = activeInners.length;
     return inners[nbActiveInner];
-}
-
-function getParentActiveNode (activeNodes) {
-    var currentNode = activeNodes[activeNodes.length - 1];
-    var i = 2;
-    var isChild = false;
-    while (!isChild && activeNodes.length - i >= 0) {
-        var potentialParentNode = activeNodes[activeNodes.length - i];
-        var childNodes = potentialParentNode.getElementsByClassName('next');
-        var j = 0;
-        while (j < childNodes.length && !isChild) {
-            if (childNodes[j] == currentNode) {
-                isChild = true;
-            }
-            j = j + 1;
-        }
-        i = i + 1;
-    }
-    if (isChild) {
-        return potentialParentNode;
-    } else {
-        return null;
-    }
-}
-
-function getOrphanInner (firstTopLevelInnerNode) {
-    var potentialSiblingOfOrphanInner = firstTopLevelInnerNode.parent;
-    var potentialOrphanInner = potentialSiblingOfOrphanInner.nextElementSibling;
-    while (potentialOrphanInner) {
-
-    }
-
 }
 
 function rollbackInnerTransition (slideNumber) {
     // update new current slide according to innerTransition (all the inner must be displayed)
     if (slideList[slideNumber].hasInnerNavigation) {
-        var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + ' .next');
+        var activeNodes = slides[slideNumber].querySelectorAll('.next');
         for (var i = 0, ii = activeNodes.length; i < ii; i++) {
             if (activeNodes[i].className.indexOf("active") == -1) {
                 activeNodes[i].className = activeNodes[i].className + " active";
@@ -270,14 +209,9 @@ function goToPreviousSlide (slideNumber) {
         goToSlide(slideNumber);
         return slideNumber
     } else {
-        var activeNodes = document.querySelectorAll(getSlideHash(slideNumber) + " .active");
+        var activeNodes = slides[slideNumber].querySelectorAll('.next.active');
         var currentNode = activeNodes[activeNodes.length - 1];
-        var previousNode = null;
-        if (currentNode) {
-            previousNode = currentNode.previousElementSibling;
-        }
-        var currentParentNode = getParentActiveNode(activeNodes);
-        if (previousNode != null || currentParentNode) {
+        if (activeNodes.length > 1 && currentNode) {
             currentNode.className = currentNode.className.substring(0, currentNode.className.length - " active".length);
             return slideNumber;
         } else {

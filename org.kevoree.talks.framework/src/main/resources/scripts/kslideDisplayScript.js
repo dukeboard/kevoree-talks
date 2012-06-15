@@ -119,7 +119,7 @@ function startClock () {
     }, 1000);
 }
 
-function talkTime (firstTime) {
+function talkTime () {
     views.talkIsStarted = !views.talkIsStarted;
     views.talkStartTime = new Date();
     if (views.talkIsStarted) {
