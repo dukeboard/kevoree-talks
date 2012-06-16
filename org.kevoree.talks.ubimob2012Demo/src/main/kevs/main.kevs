@@ -4,10 +4,12 @@ merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChan
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.ubimob2012/{talks.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 
 addNode node0 : JavaSENode {logLevel = "INFO"}
 addComponent webSrv@node0 : KTinyWebServer
-addComponent annotationSlides@node0 : UbiMob2012Dev { urlpattern="/",templateFolder="{basedir}/src/main/resources/"}
+addComponent webSrv@node0 : WsServer
+addComponent annotationSlides@node0 : UbiMob2012Dev { urlpattern="/",templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
 addChannel req : defMSG
 addChannel res : defMSG
 bind webSrv.handler@node0 => req

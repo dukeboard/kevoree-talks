@@ -21,7 +21,7 @@
 
     <properties>
         <talks.version>2.0.1-SNAPSHOT</talks.version>
-        <kevoree.version>1.7.7</kevoree.version>
+        <kevoree.version>1.7.8-SNAPSHOT</kevoree.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
