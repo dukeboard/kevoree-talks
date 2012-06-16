@@ -19,7 +19,7 @@ body {
     width: 784px;
     height: 569px;
     /*background:#FFF url(../images/ribbon.svg) 865px 0 no-repeat;*/
-    background: #FFF url(../images/minikev.png) 865px 0 no-repeat;
+    background: #FFF /*url(../images/minikev.png) 865px 0 no-repeat*/;
     color: #000;
 }
 
@@ -67,7 +67,7 @@ body {
 .slide samp {
     padding: 3px 8px;
     -webkit-border-radius: 8px;
-    -moz-border-radius: 8px; /* deprecated since Gecko 2.0*/
+    -moz-border-radius: 8px;
     border-radius: 8px;
     background: #FAFAA2;
     color: #000;
