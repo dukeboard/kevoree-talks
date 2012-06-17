@@ -177,7 +177,7 @@ window.onmessage = function (aEvent) {
             document.querySelector("#forward").disabled = idx == count;
         }
         if (argv[0] === "REGISTERED" && argc === 3) {
-            postMsg(view, "FULL")
+            postMsg(view, "FULL");
             document.querySelector("#slidecount").innerHTML = count = argv[2];
             document.title = argv[1];
         }
@@ -188,7 +188,7 @@ window.onunload = function unload () {
     if (remote != null) {
         remote.close();
     }
-}
+};
 
 window.init = function init () {
     loadIFrame();
