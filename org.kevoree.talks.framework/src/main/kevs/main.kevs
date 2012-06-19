@@ -9,7 +9,7 @@ addNode node0 : JavaSENode {logLevel = "WARN"}
 addComponent webSrv@node0 : KTinyWebServer { port="8083" }
 addComponent wsSrv@node0 : WsServer
 
-addComponent annotationSlides@node0 : KevoreeSlidePageDev { urlpattern="/",templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
+addComponent annotationSlides@node0 : KevoreeSlidePageDev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
 //addComponent annotationSlides@node0 : KevoreeSlidePage { urlpattern="/",wsurl="ws://localhost:8092/keynote"}
 
 addChannel req : defMSG
@@ -18,5 +18,5 @@ bind webSrv.handler@node0 => req
 bind annotationSlides.request@node0 => req
 bind annotationSlides.content@node0 => res
 bind webSrv.response@node0 => res
-//addGroup sync : NanoRestGroup
-//addToGroup sync node0
+addGroup sync : NanoRestGroup
+addToGroup sync node0

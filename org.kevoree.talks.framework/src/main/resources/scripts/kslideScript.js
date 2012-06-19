@@ -225,7 +225,10 @@ function goToPreviousSlide (slideNumber) {
 }
 
 function fullscreen () {
-    var html = document.querySelector('html');
+    /* On Firefox + slide as cover  unable to switch to next slide.
+    * You need to go to fullscreen, try to go to next slide, then go back to the previous slide and then the slides work fine.
+    * */
+    var html = document.documentElement;
     var requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
     if (requestFullscreen) {
         requestFullscreen.apply(html);

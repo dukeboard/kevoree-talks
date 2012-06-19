@@ -1,6 +1,8 @@
 package org.kevoree.slides.adamSlides;
 
 import org.kevoree.annotation.ComponentType;
+import org.kevoree.annotation.DictionaryAttribute;
+import org.kevoree.annotation.DictionaryType;
 import org.kevoree.slides.framework.KevoreeSlidePage;
 
 /**
@@ -11,6 +13,7 @@ import org.kevoree.slides.framework.KevoreeSlidePage;
  * @author Erwan Daubert
  * @version 1.0
  */
+@DictionaryType(@DictionaryAttribute(name = "paperURL", defaultValue = "", optional = false))
 @ComponentType
 public class FraSCAtiKevoree2012 extends KevoreeSlidePage {
 }
