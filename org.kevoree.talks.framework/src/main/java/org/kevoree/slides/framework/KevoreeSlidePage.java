@@ -26,7 +26,7 @@ import java.util.HashMap;
 @DictionaryType({
 		@DictionaryAttribute(name = "main", defaultValue = "index.html"),
 		@DictionaryAttribute(name = "wsurl", defaultValue = "ws://localhost:8092/keynote", optional = true),
-		@DictionaryAttribute(name = "paperURL", optional = false)
+		@DictionaryAttribute(name = "paperURL", optional = false, defaultValue = "")
 })
 public class KevoreeSlidePage extends ParentAbstractPage {
 

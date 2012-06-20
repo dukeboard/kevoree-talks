@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>A Dynamic Component Model for Cyber Physical Systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
+    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="jquery.transit.min.js"></script>
+
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <style>
+        .slide {
+            background: #FFF url(figures/kevg125.svg) no-repeat right top;
+        }
+
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular';
+        }
+
+        .kevOrange {
+            color: #DF9D00;
+        }
+
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+
+        details {
+            display: none;
+        }
+
+        .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+            background-color: rgba(223, 157, 41, 0.4) !important;
+        }
+
+        .syntaxhighlighter .gutter {
+            color: #DF9D00 !important;
+        }
+
+        .syntaxhighlighter .gutter .line {
+            border-right: 3px solid #DF9D00 !important;
+        }
+
+        .syntaxhighlighter {
+            overflow: hidden !important;
+        }
+
+        .syntaxhighlighter textarea {
+            overflow: hidden !important;
+        }
+    </style>
+    <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+    <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
+    <!--<link rel="stylesheet" href="themes/kevs/styles/print.css" media="print">    -->
+    <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+
+</head>
+<body class="list">
+<header class="caption">
+    <h1>CBSE 2012 / Kevoree</h1>
+    <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
+</header>
+
+<!--Cover page  -->
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+        <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+            A Dynamic Component Model
+        </span><br/>
+            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;">
+                for Cyber Physical Systems
+            </span><br/>
+        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+            <span class="iconFont3">G</span>
+            +
+            <span class="iconFont3">g</span>
+            <span class="iconic arrow_right_alt1"></span>
+            <span class="iconFont3">3</span>
+            <span class="iconic arrow_right_alt1"></span>
+            (
+            <span class="iconic beaker_alt"></span>
+            <span class="iconic iphone"></span>
+            <span class="iconic cloud"></span>
+            )
+        </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
+<span class="iconic arrow_right"> by </span> Francois Fouquet, Brice Morin, Franck Fleurey, Olivier Barais, Noel Plouzeau, Jean-Marc Jezequel</span>
+        </div>
+    </header>
+</section>
+
+<section class="slide shout" id="Motivations">
+    <header>
+        <h2 style="font-size : 70px;">
+            Research on<br/>
+            Software engineering <span class="iconFont3 kevOrange">G</span><br/>
+            <br/>
+            to abstract <span class="iconFont3 kevOrange">g</span><br/>
+            distributed systems <span class="iconFont3 kevOrange">3</span><br/>
+        </h2>
+    </header>
+    <img style="position:absolute;top: 10px;left:10px;" src="figures/logoInria.png" width="200px"/>
+    <img style="position:absolute;top: 10px;right:10px;" src="figures/logoUniv.png" width="200px"/>
+</section>
+
+<!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
+<section class="slide" id="outline">
+    <header>
+        <h2>Talk outline</h2>
+    </header>
+    <ul>
+        <li class="next">CPS challenges and Model@Runtime to tame adaptation complexity</li>
+        <li class="next">uKevoree, adaptation for CPS</li>
+        <li class="next">Performance evaluation</li>
+        <li class="next">Open questions <span class="question_mark kevOrange"></span></li>
+    </ul>
+</section>
+
+<!-- ================== Init Context Section ================================-->
+<section class="slide shout" id="ContextCover">
+    <h2><span class="kevOrange">></span>Context</h2>
+</section>
+
+<section class="slide shout" id="Context2Cover">
+    <h2>From context ---> Distributed smal devices</h2>
+</section>
+
+<section class="slide" id="CPSContext">
+    <header><h2>CPS, mobility, IoT</h2></header>
+    <ul>
+        <li class="next">From software engineer point of view, everything are moving</li>
+        <li class="next">Boost by the mass usage of uC and SoC, low consumption, cheap</li>
+        <li class="next">FPGA (VHDL) ---> uC (C) ---> TI SOC, RaperryPI (Java, Pyhton, Javascript) ---> Android (Java) </li>
+        <li class="next">Buzz words : IoT and CPS conjointly to mobility usage</li>
+        <li class="next">Not new, Cyber physical systems (CPS) is ever growing from 2006 (IBM proposal)</li>
+        <li class="next">Time to market evolution, interconnection</li>
+    </ul>
+</section>
+
+<!-- Schema CPSQ to smartBuidling -->
+
+<!-- Schema CPSQ to smartFirefighter Tactical -->
+
+
+<section class="slide" id="CPSasDDAS">
+    <header>
+        <h2>Considering CPS as DDAS</h2>
+    </header>
+    <ul>
+        <li>CPS are versatile, many usage, many use case</li>
+        <li>Ex : your temp sensor can be use for domotique usage or emergency presence detector</li>
+        <li>Time to market to short to wait for exhautif design</li>
+        <li>Many work converge to consider CPS as DDAS to ensure evolution</li>
+        <li>How to manage distributed evolution / heterogenous evolution ?</li>
+    </ul>
+</section>
+
+<section class="slide" id="mr_dissemination_problem_overview">
+    <header>
+        <h2>Architectural abstraction needed !</h2>
+    </header>
+    <code>Claim : </code>
+    <blockquote>To address all these problems, we need to provide an abstraction to manipulate and compose
+        autonomous nodes configurations
+    </blockquote>
+    <br/>
+    <h2 style="text-align : center;">Component based design<br/></h2>
+    <h2 style="text-align : center;">Mode reflexion layer <span class="iconFont3 kevOrange">g</span><br/></h2>
+</section>
+
+<!-- DMARContext -->
+<section class="slide shout" id="ContextMARIntro">
+    <h2 style="font-size : 60px">
+        Node = Runtime
+        <span class='iconic box kevOrange'></span>
+        <span class='iconic loop_alt2'></span>
+        <span class='iconic document_alt_fill kevOrange'></span>
+        Model
+    </h2>
+</section>
+
+<section class="slide shout" id="ContextMARIntro2">
+    <h2 style="font-size : 60px">
+        Evolution = <br/>
+        <br/>
+        1 - Fork <span class='iconic fork kevOrange'></span> current <span
+            class='iconic document_alt_fill kevOrange'></span> <br/>
+        <br/>
+        2 - Modify <span class='iconic equalizer kevOrange'></span> to produce <span
+            class='iconic document_fill kevOrange'></span>
+        <br/>
+        <br/>
+        3 - Send <span class='iconic arrow_right kevOrange'></span> to <span class='iconic box kevOrange'></span>
+    </h2>
+</section>
+
+<section class="slide shout" id="ContextMARIntro3">
+    <h2 style="font-size : 60px">
+        On update <span class='iconic document_fill kevOrange'></span> <span
+            class='iconic curved_arrow kevOrange'></span> node
+        <br/>
+        <br/>
+        Compare / current <span class='iconic document_alt_fill kevOrange'></span> produce diff <span
+            class='iconic list_nested kevOrange'></span> <br/>
+        <br/>
+        Interpret on <span class='iconic box kevOrange'></span> if ok set as current <span
+            class='iconic document_fill kevOrange'></span> <br/>
+        <br/>
+        Or <span class='iconic undo kevOrange'></span> rollback
+    </h2>
+</section>
+
+<!-- Kevoree Overview -->
+<!-- Kevoree Overview -->
+<section class="slide" id="MAR_PROCESS">
+    <header>
+        <h2>Model@Runtime process</h2>
+    </header>
+    <object style="position : absolute;top: 150px;left : 150px;" data="figures/modelATruntimeFinal.png" type="image/png"
+            class="middle" height="450"></object>
+</section>
+
+<section class="slide shout" id="DMAR_CONCEPTS">
+    <h2 style="font-size : 60px">
+        Model@Runtime for distributed<br/>
+        <br/>
+        <span class='iconFont3 kevOrange'>g</span> modelling distributed <span class='iconFont3 kevOrange'>3</span><br/>
+        <br/>
+        share <span class='iconic share kevOrange'></span> distributed model itself
+    </h2>
+</section>
+
+<!-- Model@Runtime sample view -->
+<section class="slide" id="WiaModel">
+    <header>
+        <h2>A model abstract nodes configurations</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+</section>
+<section class="slide" id="WiaModel2">
+    <header>
+        <h2>Each node host a model@runtime engine</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+    <span id="marDengine1" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
+    <span id="marDengine2" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
+    <span id="marDengine3" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
+        });
+    </script>
+</section>
+
+<section class="slide shout" id="DMAR_CONCEPTS2">
+    <h2 style="font-size : 60px">
+        On update <span class='iconic document_fill kevOrange'></span> <span
+            class='iconic curved_arrow kevOrange'></span> node <br/>
+        <br/>
+        local apply <span class='iconFont3 kevOrange'>C</span><br/>
+        <br/>
+        disseminate <span class='iconFont3 kevOrange'>e</span> to peers
+    </h2>
+</section>
+
+<!-- Ubiquitous / independent node  -->
+<section class="slide" id="DMAR_concurrency">
+    <header>
+        <h2>(D)M@R need concurrency management</h2>
+    </header>
+    <div>
+        Ubiquitous environment <span class='iconic arrow_right_alt1 kevOrange'></span> each node can modify global
+        M@R layer<br/>
+        Mesh network <span class='iconic move_horizontal_alt2 kevOrange'></span> Sporadic nodes, intermittent
+        connections
+    </div>
+    <div style="text-align: center;">
+        <img src="figures/scluster.png" style="border-radius: 10px;"/>
+        <span class="iconraph" id="clusterSampleFailure"
+              style="color:#ff3333;position:absolute;left:508px;font-size:50px;top:310px;">Â</span>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery(document).ready(function () {
+                setInterval("jQuery('#clusterSampleFailure').fadeOut(500);jQuery('#clusterSampleFailure').fadeIn(500);", 2000);
+            });
+        </script>
+    </div>
+    <!-- <blockquote>What if A & B nodes emit a new model in the same logical time for C ?</blockquote>   -->
+    <ol style="font-size: 22px;">
+        <li class="next">
+            <div style="text-align : right;">node0 discovers node2 node and sends notification <span
+                    class='iconFont3 kevOrange'>e</span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes unreachable <span
+                    class='iconic battery_empty kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node1 & node0 add a component to node2 <span
+                    class='iconFont3 kevOrange'>e</span>
+            </div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes reachable <span
+                    class='iconic battery_charging kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node2 must resolve configuration <span
+                    class='iconic fullscreen_exit_alt kevOrange'></span></div>
+        </li>
+    </ol>
+</section>
+
+<section class="slide shout" id="DMAR_motivations">
+    <header>
+        <h2 style="font-size : 70px;">
+            Similarly to P2P data management we need efficient ways to disseminate <span
+                class='iconFont3 kevOrange'>e</span><br/>
+            reconfiguration policies<span class="iconFont3 kevOrange">g</span>
+        </h2>
+    </header>
+</section>
+
+
+<!-- Gossiper solution for DM@R -->
+<section class="slide shout" id="GossipCover">
+    <h2><span class="kevOrange">></span>Gossip for M@R</h2>
+</section>
+
+<section class="slide" id="GossiperDMAR">
+    <header>
+        <h2>Defining a gossiper protocol for (D)M@R</h2>
+        <ul>
+            <li class="next"><span class="kevOrange">VectorClock</span> to track branch & concurrency</li>
+            <li class="next"><span class="kevOrange">Gossiper</span> to deal with hostile mesh network</li>
+            <li class="next">Use M@R as a network topology layer</li>
+            <li class="next">Enrich node selection with network faults</li>
+            <li class="next">Every input stored in the <span class="kevOrange">M@R (payload)</span> itself to keep all
+                dynamic without initial
+                configuration
+            </li>
+            <li class="next">Inverted communication, send payload only if necessary</li>
+            <blockquote class="next"><code>Combine VectorClock (VC) + Gossiper + M@R layer</code></blockquote>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR2">
+    <header>
+        <h2>Gossiper protocol for (D)M@R</h2>
+        <ul>
+            <li class="next">Messages : VectorClock or Tuple(VectorCLock,Model)</li>
+            <li class="next">Init : VectorClock <- (currentNode,0) & neighbourScores = 0</li>
+            <li class="next">
+                On local model update <span class='iconic document_fill kevOrange'></span> <span
+                    class='iconic curved_arrow kevOrange'></span>, current node
+                <ul>
+                    <li class="next">increment VectorClock : (currentNode, X) => (currentNode, X+1)</li>
+                    <li class="next">notify all neighbours (optional)</li>
+                </ul>
+            </li>
+            <li class="next">
+                <span class="iconic kevOrange clock"></span> Periodically
+                <ul>
+                    <li>Select a neighbour</li>
+                    <li>Send VectorClock request to selected node</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR4">
+    <header>
+        <h2>Exchanges rules</h2>
+        <ul>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> vectorClock from A => compare with local
+                <ul>
+                    <li>BEFORE or CONCURRENTLY => send model request <span
+                            class="iconic arrow_right_alt1 kevOrange"></span> A
+                    </li>
+                    <li>AFTER => noop (already update)</li>
+                </ul>
+            </li>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> tuple vectorClock and model from A =>
+                compare with local
+                <ul>
+                    <li>BEFORE => update local node <span class='iconic box kevOrange'></span> with model, merge
+                        vectorClocks
+                    </li>
+                    <li>CONCURRENTLY => resolve and merge locally concurrent models, same operation as before
+                    </li>
+                    <li>AFTER => noop (already update)</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR5">
+    <header>
+        <h2>Neighbours selection</h2>
+    </header>
+    <ul>
+        <li class="next">Take node topology <span class="iconFont3 kevOrange">3</span> in current model</li>
+        <li class="next">Select neighbours that have the smallest score</li>
+        <li class="next">On each communication with A
+            <ul>
+                <li>if success <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br/>
+                    if node previously in failure or overflow => Score(A) = 0
+                </li>
+                <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 *
+                    (nbPastFailure(A)+1))
+                </li>
+            </ul>
+        </li>
+        <p class="next"><code>Score management aims at reducing failures nodes impact on cluster</code></p>
+    </ul>
+</section>
+
+<section class="slide shout" id="ExperimentationCover">
+    <h2><span class="kevOrange">></span>Experiments</h2>
+</section>
+
+
+<section class="slide" id="common_pro_exp">
+    <header>
+        <h2>Experimental protocol</h2>
+    </header>
+    <ul>
+        <li>Take != model and push periodically</li>
+        <li>Target system => ATMEGA328 and ATMEGA2560</li>
+        <li>Worst case adaptation for so small uC</li>
+    </ul>
+</section>
+
+<section class="slide" id="AdaptationSpeed">
+    <header>
+        <h2>How long adaptation freeze business logic ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object class="next" data="cbsefig/rawData3.png" type="image/png" style="width:850px;height:450px;"></object>
+        <div class="next">
+            <span class="iconraph kevOrange" style="position:absolute;left:260px;font-size:40px;top:60px;">c</span>
+            <span class="iconraph kevOrange" style="position:absolute;left:460px;font-size:40px;top:60px;">c</span>
+            <span class="iconraph kevOrange" style="position:absolute;left:670px;font-size:40px;top:60px;">c</span>
+        </div>
+    </div>
+</section>
+<section class="slide" id="AdaptationSpeedResult">
+    <header>
+        <h2>Adaptation speed distribution ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object class="next" data="cbsefig/SDRandomPercentile.png" type="image/png" style="height:450px;"></object>
+    </div>
+</section>
+<section class="slide" id="SDRAM_Result">
+    <header>
+        <h2>How many instances ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object class="next" data="cbsefig/sdramCapacity.png" type="image/png" style="height:450px;"></object>
+    </div>
+</section>
+<section class="slide" id="BootTime_Result">
+    <header>
+        <h2>Memory impact on boot time ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object class="next" data="cbsefig/PMemBootInfluence.png" type="image/png" style="height:450px;"></object>
+    </div>
+</section>
+
+<section class="slide shout" id="LessonLeranCover">
+    <h2><span class="kevOrange">></span>Open question ?</h2>
+</section>
+
+<section class="slide" id="ccl1">
+    <header>
+        <h2>Scalability</h2>
+    </header>
+    <ul>
+        <li>Vector Clock size has a major impact on performance
+            <ul>
+                <li>must manage scalability using several hierarchical groups
+                    <div style="text-align: center;">
+                        <img style="border-radius: 10px;" src="figures/groupChain.png"/>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>Hybrid approach (inverted communication and notification) reduce the impact for non reliable network</li>
+        <li>Distributed reconfiguration delay is usable for many use cases</li>
+    </ul>
+</section>
+
+<section class="slide shout" id="ThanksYouCover">
+    <h2><span class="kevOrange">></span>Thank you</h2>
+</section>
+
+
+<!-- Kevoree Publication -->
+<section class="slide" id="ref">
+    <header>
+        <h2>References</h2>
+    </header>
+    <ul style="font-size: 12px;">
+        <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
+            Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
+        </li>
+        <!--
+        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
+            Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
+            Engineering. Bertinoro, Italy, June 2012.
+        </li>
+        -->
+        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
+            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
+            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
+            2012.
+        </li>
+        <li>Nain, Grégory , Fouquet, François , Morin, Brice , Barais, Olivier and
+            Jézéquel, Jean-Marc (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of
+            the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille,
+            France.
+        </li>
+        <li>André, Francoise, Daubert, Erwan , Nain Grégory , Morin, Brice and Barais,
+            Olivier (2010) F4Plan: An Approach to build Efficient Adaptation Plans. In MobiQuitous.
+        </li>
+        <li>Brice Morin, Olivier Barais, Grégory Nain, Jean-Marc Jézéquel: Taming
+            Dynamically Adaptive Systems using models and aspects. ICSE 2009: 122-132
+        </li>
+        <li>Brice Morin, Olivier Barais, Jean-Marc Jézéquel, Franck Fleurey, Arnor
+            Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
+        </li>
+    </ul>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span> , try it at kevoree.org</h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<script src="scripts/kslideScript.js"></script>
+</body>
+</html>

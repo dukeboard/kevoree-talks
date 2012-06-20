@@ -17,6 +17,7 @@
         <module>../org.kevoree.talks.ubimob2012Demo</module>
         <module>../org.kevoree.talks.ws</module>
         <module>../org.kevoree.talks.dais2012</module>
+        <module>../org.kevoree.talks.cbse2012</module>
     </modules>
 
     <properties>

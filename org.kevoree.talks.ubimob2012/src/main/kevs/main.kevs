@@ -34,5 +34,5 @@ bind annotationSlides.request@node0 => req
 bind annotationSlides.content@node0 => res
 bind webSrv.response@node0 => res
 
-//addGroup sync : NanoRestGroup
-//addToGroup sync node0
+addGroup sync : NanoRestGroup
+addToGroup sync node0
