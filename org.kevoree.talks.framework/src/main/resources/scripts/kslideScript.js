@@ -1,3 +1,5 @@
+jQuery(document).ready(function() {
+
 var url = window.location,
     body = document.body,
     slides = document.querySelectorAll('.slide'),
@@ -166,6 +168,13 @@ function goToNextSlide (slideNumber) {
         var newInner = getNextInner(slideNumber);
         if (newInner) {
             newInner.className = newInner.className + ' active';
+            /*$(newInner).bind('nextActivate', function(event, param1, param2) {
+                alert(event+ "\n" + param1 + "\n" + param2);
+            });*/
+            try {
+                jQuery(newInner).trigger('nextActivated');
+            } catch(e) {
+            }
             return slideNumber;
         } else {
             // there is no next inactive inner item so we just go to the next slide
@@ -212,6 +221,10 @@ function goToPreviousSlide (slideNumber) {
         var activeNodes = slides[slideNumber].querySelectorAll('.next.active');
         var currentNode = activeNodes[activeNodes.length - 1];
         if (activeNodes.length > 1 && currentNode) {
+            try {
+                jQuery(currentNode).trigger('nextUnactivated');
+            } catch(e) {
+            }
             currentNode.className = currentNode.className.substring(0, currentNode.className.length - " active".length);
             return slideNumber;
         } else {
@@ -228,10 +241,9 @@ function fullscreen () {
     /* On Firefox + slide as cover  unable to switch to next slide.
     * You need to go to fullscreen, try to go to next slide, then go back to the previous slide and then the slides work fine.
     * */
-    var html = document.documentElement;
-    var requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
-    if (requestFullscreen) {
-        requestFullscreen.apply(html);
+
+    if ( screenfull ) {
+        screenfull.request();
     }
 }
 
@@ -503,3 +515,4 @@ function notifyWebSocket (message, previousSlideNumber, currentSlideNumber) {
     }
 }
 
+});
