@@ -7,14 +7,12 @@
     <meta name="viewport" content="width=1274, user-scalable=no">
     <link rel="stylesheet" href="themes/kevs/styles/screen.css">
     <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
-    <script src="scripts/jquery-1.7.2.min.js"></script>
-    <script src="scripts/screenfull.min.js"></script>
-    <script src="scripts/kslideScript.js"></script>
-    <script type="text/javascript" src="jquery.transit.min.js"></script>
     <script type="text/javascript" src="scripts/brush/shCore.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script src="scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="jquery.transit.min.js"></script>
     <style>
         .slide {
             background: #FFF url(figures/kevg125.svg) no-repeat right top;
@@ -235,7 +233,7 @@
         <li class="next">Cons: Very constrained, complicated soft development</li>
     </ul>
     <p class="next">
-        CPS devices need <code>tradeoff</code> between, consumption, computational power, cost, development cost.<br />
+        CPS devices need <code>tradeoff</code> between, consumption, computational power, cost, development cost.<br/>
         Push <code>cleverness</code> directly in &mu;C is more reliable, especially for reflex rules,
         data filtering, smoothing ...
     </p>
@@ -406,7 +404,7 @@
 
 <section class="slide" id="WiaModel3">
     <header>
-        <h2>M@R nodes exchange models</h2>
+        <h2>M@R nodes exchange models (Gossip,...)</h2>
     </header>
     <img class="next" src="figures/dmar_sample.png" style="border-radius: 10px;">
 
@@ -420,15 +418,15 @@
         jQuery("#WiaModel3_s1").bind('nextActivated', function (event, param1, param2) {
             jQuery(document).ready(function () {
                 $('#mar2Dengine1').
-                        transition({ x:'0px' }, 0).
-                        transition({ x:'0px' }, 500).
-                        transition({ y:'-60px', x:'-60px' }, 500).
-                        transition({ x:'220px' }, 500);
+                        transition({ x:'0px', y:'0px' }, 0).
+                        transition({ x:'0px' }, 800).
+                        transition({ y:'-60px', x:'-60px' }, 800).
+                        transition({ x:'220px' }, 1000);
                 $('#mar2Dengine2').
-                        transition({ x:'0px' }, 0).
-                        transition({ x:'0px' }, 500).
-                        transition({ y:'-60px', x:'-60px' }, 500).
-                        transition({ x:'220px', y:'80px' }, 500);
+                        transition({ x:'0px', y:'0px' }, 0).
+                        transition({ x:'0px' }, 800).
+                        transition({ y:'-60px', x:'-60px' }, 800).
+                        transition({ x:'220px', y:'80px' }, 1000);
             });
         });
     </script>
@@ -596,7 +594,8 @@ public class TempSensor
     <ul>
         <li class="next">Take 5 models from SmartBuilding case study</li>
         <li class="next">From 0 to 10 components instances</li>
-        <li class="next"><span class="kevOrange">Randomly</span> switch from a model to another <span class="kevOrange">periodically</span></li>
+        <li class="next"><span class="kevOrange">Randomly</span> switch from a model to another <span class="kevOrange">periodically</span>
+        </li>
         <li class="next">Tested hardware => ATMEGA328 and ATMEGA2560</li>
         <li class="next">Persistent memory (embedded EEPROM vs external SDCARD)
             <span style="text-align: center;">
@@ -615,20 +614,18 @@ public class TempSensor
     <div style="text-align: center;position:absolute;left:25px;right:25px;">
         <object class="next" data="cbsefig/rawData4.png" type="image/png" style="width:850px;height:450px;"></object>
         <div class="next" id="AdaptationSpeed_A1">
-            <script>
-                jQuery(document).ready(function () {
-                    jQuery("#AdaptationSpeed_A1").bind('nextActivated', function (event, param1, param2) {
-                        jQuery('.AdaptationSpeed_A1Sub').transition({ y:"0px" }, 0);
-                        jQuery('.AdaptationSpeed_A1Sub').transition({ y:'120px' }, 500, 'linear');
-                    })
-                });
-            </script>
-            <span class="iconraph kevOrange AdaptationSpeed_A1Sub"
-                  style="position:absolute;left:260px;font-size:40px;top:-60px;">c</span>
-            <span class="iconraph kevOrange AdaptationSpeed_A1Sub"
-                  style="position:absolute;left:460px;font-size:40px;top:-60px;">c</span>
-            <span class="iconraph kevOrange AdaptationSpeed_A1Sub"
-                  style="position:absolute;left:670px;font-size:40px;top:-60px;">c</span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:275px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:390px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:655px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:900px;font-size:25px;top:115px;"></span>
+        </div>
+        <div class="next">
+             <hr class="kevOrange" style="position:absolute;left:75px;top:238px;width: 840px; color: #DF9D00; background-color :#DF9D00; height: 2px; border: none;">
+             <span class="kevOrange" style="position:absolute;left:75px;top:200px;">mean = 234ms</span>
         </div>
     </div>
 </section>
@@ -644,7 +641,8 @@ public class TempSensor
             </ul>
         </li>
         <li>Less <code>compression</code> time</li>
-        <li>Over 1Kb gain<br /> become not significant</li>
+        <li>Over 1Kb gain<br/> become not significant</li>
+        <li>Human perception ~200ms</li>
     </ul>
     <div style="text-align: center;position:absolute;right:25px; top:160px;">
         <object class="next" data="cbsefig/SDRandomPercentile.png" type="image/png" style="height:450px;"></object>
@@ -765,6 +763,8 @@ public class TempSensor
 <div class="progress">
     <div></div>
 </div>
+<script src="scripts/screenfull.min.js"></script>
+<script src="scripts/kslideScript.js"></script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </body>
 </html>
