@@ -408,24 +408,26 @@
     <header>
         <h2>Nodes M@R exchange models</h2>
     </header>
-    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
-    <span id="mar2Dengine1" class="iconraph kevOrange"
-          style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
+    <img class="next" src="figures/dmar_sample.png" style="border-radius: 10px;">
+
+    <div class="next" id="WiaModel3_s1">
+              <span id="mar2Dengine1" class="iconraph kevOrange"
+                    style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
     <span id="mar2Dengine2" class="iconraph kevOrange"
           style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
+    </div>
     <script type="text/javascript">
-        jQuery(document).ready(function () {
-
-
-
-            $('#mar2Dengine1').
-                    transition({ x:'0px' }, 500).
-                    transition({ y:'-60px', x:'-60px' }, 500).
-                    transition({ x:'220px' }, 500);
-            $('#mar2Dengine2').
-                    transition({ x:'0px' }, 500).
-                    transition({ y:'-60px', x:'-60px' }, 500).
-                    transition({ x:'220px', y:'80px' }, 500);
+        jQuery("#WiaModel3_s1").bind('nextActivated', function (event, param1, param2) {
+            jQuery(document).ready(function () {
+                $('#mar2Dengine1').
+                        transition({ x:'0px' }, 500).
+                        transition({ y:'-60px', x:'-60px' }, 500).
+                        transition({ x:'220px' }, 500);
+                $('#mar2Dengine2').
+                        transition({ x:'0px' }, 500).
+                        transition({ y:'-60px', x:'-60px' }, 500).
+                        transition({ x:'220px', y:'80px' }, 500);
+            });
         });
     </script>
 </section>
@@ -499,7 +501,7 @@ public class TempSensor
 
 <section class="slide">
     <header><h2>Behind the scene</h2></header>
-    <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 400px; right : 50px; top:280px;" />
+    <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 400px; right : 50px; top:280px;"/>
     <ul>
         <li class="next">Asynchronous message passing
             <span class="iconic kevOrange mail" style="position: absolute; top:370px; right: 460px;"></span>
@@ -517,7 +519,8 @@ public class TempSensor
                 <li>FIFO remains size</li>
                 <li>Periodic executions</li>
             </ul>
-            <span class="kevOrange iconraph" style="position: absolute; top:220px; right: 220px; font-size: 80px;">0</span>
+            <span class="kevOrange iconraph"
+                  style="position: absolute; top:220px; right: 220px; font-size: 80px;">0</span>
         </li>
         <li class="next">Transactional <code>KevScript</code> interpreter</li>
         <li class="next">Flat generated reflexive layer for dynamic instantiations</li>
