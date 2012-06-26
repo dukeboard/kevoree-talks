@@ -452,13 +452,13 @@
     <header><h2>Challenges of adaptation on &mu;C</h2></header>
     <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
          style="position: absolute;right:100px;height:100px;top:280px;"/>
-    <span class="kevOrange">&mu;C node can't manage every adaptation capability !</span><br/>
-    Dynamic adaptation on &mu;C face of several challenges
+    <span class="kevOrange">&mu;C nodes can't manage every adaptation capability !</span><br/>
+    Dynamic adaptation on &mu;C face several challenges
     <ul>
         <li>Downtime must be minimal</li>
         <li>Volatile memory usage must fit in few kB</li>
-        <li>Limit persistent memory write</li>
-        <li>Need stateful reconfiguration, ability to recover power failure</li>
+        <li>Persistent memory writes are limited</li>
+        <li>Reconfiguration must be statefull, to recover from power failure</li>
     </ul>
     <span class="kevOrange">
         <span class="iconic arrow_right_alt1"></span> use more powerful sibling to pre-compile adaptations<br/>
@@ -472,7 +472,7 @@
 <section class="slide">
     <header><h2>&mu;Kev Component model</h2></header>
     <ul>
-        <li class="next">Type definition / instance <code>(what / where)</code></li>
+        <li class="next">Type definition/instance <code>(what/where)</code></li>
         <li class="next">Component with ports (in/out) and parameters</li>
         <li class="next">Communication channels between ports <code>(bindings)</code></li>
         <li class="next">
@@ -517,7 +517,7 @@ public class TempSensor
             <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 410px;"></span>
         </li>
         <li class="next">No OS == no multi-threading</li>
-        <li class="next">Opportunistic scheduler drive by
+        <li class="next">Opportunistic scheduler driven by
             <ul>
                 <li>FIFO pending message number</li>
                 <li>Periodic execution subscriptions</li>
