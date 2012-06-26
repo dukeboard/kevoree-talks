@@ -300,7 +300,9 @@
         autonomous nodes configurations
     </blockquote>
     <br/>
+
     <h2 style="text-align : center;">Component based design<br/></h2>
+
     <h2 style="text-align : center;">Model reflexion layer <span class="iconFont3 kevOrange">g</span><br/></h2>
 </section>
 
@@ -408,15 +410,22 @@
     </header>
     <img src="figures/dmar_sample.png" style="border-radius: 10px;">
     <span id="mar2Dengine1" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
+          style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
+    <span id="mar2Dengine2" class="iconraph kevOrange"
+          style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
     <script type="text/javascript">
-        //jQuery.noConflict();
         jQuery(document).ready(function () {
+
+
+
             $('#mar2Dengine1').
-                    transition({ x: '-300px' }, 500).
-                    transition({ x: '0px' }, 500).
-                    transition({ y: '-300px' }, 500).
-                    transition({ y: '300px' }, 500);
+                    transition({ x:'0px' }, 500).
+                    transition({ y:'-60px', x:'-60px' }, 500).
+                    transition({ x:'220px' }, 500);
+            $('#mar2Dengine2').
+                    transition({ x:'0px' }, 500).
+                    transition({ y:'-60px', x:'-60px' }, 500).
+                    transition({ x:'220px', y:'80px' }, 500);
         });
     </script>
 </section>
