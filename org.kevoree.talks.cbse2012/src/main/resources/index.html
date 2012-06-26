@@ -150,11 +150,11 @@
                  style="position: absolute;right:420px;height:80px;top:280px;"/>
         </li>
         <li class="next">System on chip (SoC)<br/>
-            (Rasperry project, Java, Python, Javascript)
+            (Raspberry project, Java, Python, Javascript)
             <img src="cbsefig/RasperryPi.jpg"
                  style="position: absolute;right:190px;height:150px;top:350px;border-radius: 10px;"/>
         </li>
-        <li class="next">Smartphone (android, Java)
+        <li class="next">Smartphones (android, Java)
             <img src="cbsefig/chrome-android.png"
                  style="position: absolute;right:10px;height:150px;top:480px;border-radius: 10px;"/>
         </li>
@@ -420,10 +420,12 @@
         jQuery("#WiaModel3_s1").bind('nextActivated', function (event, param1, param2) {
             jQuery(document).ready(function () {
                 $('#mar2Dengine1').
+                        transition({ x:'0px' }, 0).
                         transition({ x:'0px' }, 500).
                         transition({ y:'-60px', x:'-60px' }, 500).
                         transition({ x:'220px' }, 500);
                 $('#mar2Dengine2').
+                        transition({ x:'0px' }, 0).
                         transition({ x:'0px' }, 500).
                         transition({ y:'-60px', x:'-60px' }, 500).
                         transition({ x:'220px', y:'80px' }, 500);
@@ -476,6 +478,7 @@
         <li class="next">
             Write code (C/Processing/Java)
             <span class="iconic arrow_right_alt1 kevOrange"></span>
+            Instantiate in a model
 <pre class="brush:java toolbar:false;">
 @ComponentType
 @DictionaryType({
