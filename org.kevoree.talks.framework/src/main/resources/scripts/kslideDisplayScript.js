@@ -60,7 +60,7 @@ function back () {
     }
 }
 
-function forward () {
+var forward = function() {
     // If the current slide is the last one => we do nothing
     if (views.currentSlide != (views.nbSlides - 1)) {
         postMsg(views.present, "FORWARD");

@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+//jQuery(document).ready(function() {
 
 var url = window.location,
     body = document.body,
@@ -515,4 +515,4 @@ function notifyWebSocket (message, previousSlideNumber, currentSlideNumber) {
     }
 }
 
-});
+//});

@@ -7,7 +7,7 @@ merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.ubimob2012/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 
-addNode node0 : JavaSENode {logLevel = "INFO"}
+addNode node0 : JavaSENode {logLevel = "DEBUG"}
 addComponent webSrv@node0 : KTinyWebServer
 addComponent webSockSrv@node0 : WsServer
 addComponent webSockGateway@node0 : TalkGateway

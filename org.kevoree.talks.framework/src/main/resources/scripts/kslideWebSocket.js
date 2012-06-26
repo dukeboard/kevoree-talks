@@ -1,3 +1,4 @@
+//$(document).ready(function(){
 try {
     var wsClient = new WebSocket('{wsurl}');
     wsClient.onopen = function (e) {
@@ -57,3 +58,4 @@ try {
 window.postMessage("FULL", "*");
 
 // TODO set the current slides when a client joins
+//});
