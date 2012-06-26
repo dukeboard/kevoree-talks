@@ -510,17 +510,17 @@ public class TempSensor
             <span class="iconic kevOrange mail" style="position: absolute; top:370px; right: 460px;"></span>
             <span class="iconic kevOrange mail" style="position: absolute; top:325px; right: 15px;"></span>
         </li>
-        <li class="next">FIFO on each ports (Actor semantic)
+        <li class="next">FIFO on each ports (Actor semantics)
             <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 65px;"></span>
             <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 65px;"></span>
             <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 410px;"></span>
             <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 410px;"></span>
         </li>
         <li class="next">No OS == no multi-threading</li>
-        <li class="next">Opportunistic scheduler
+        <li class="next">Opportunistic scheduler drive by
             <ul>
-                <li>FIFO remains size</li>
-                <li>Periodic executions</li>
+                <li>FIFO pending message number</li>
+                <li>Periodic execution subscriptions</li>
             </ul>
             <span class="kevOrange iconraph"
                   style="position: absolute; top:220px; right: 220px; font-size: 80px;">0</span>
@@ -610,7 +610,7 @@ public class TempSensor
 
 <section class="slide" id="AdaptationSpeed">
     <header>
-        <h2>How long adaptation freeze business logic ?</h2>
+        <h2>Experiment raw result</h2>
     </header>
     <div style="text-align: center;position:absolute;left:25px;right:25px;">
         <object class="next" data="cbsefig/rawData4.png" type="image/png" style="width:850px;height:450px;"></object>
@@ -643,7 +643,8 @@ public class TempSensor
                 <li>reduce mean and min</li>
             </ul>
         </li>
-        <li>Less compression</li>
+        <li>Less <code>compression</code> time</li>
+        <li>Over 1Kb gain<br /> become not significant</li>
     </ul>
     <div style="text-align: center;position:absolute;right:25px; top:160px;">
         <object class="next" data="cbsefig/SDRandomPercentile.png" type="image/png" style="height:450px;"></object>
@@ -657,10 +658,17 @@ public class TempSensor
         <li>Protocol : each run
             <ul>
                 <li>Inject one component</li>
-                <li>Probes monitor RAM</li>
+                <li>Probes monitor <code>RAM</code></li>
             </ul>
         </li>
-        <li>Instances capacity<br/> ~= pin numbers</li>
+        <li><code>Instances</code> capacity<br/> ~= pin numbers</li>
+        <li>Common usage
+            <ul>
+                <li>1 component by *pin</li>
+                <li>[1-3] rules engines</li>
+                <li><span class="kevOrange iconic arrow_right_alt1"></span> Acceptable</li>
+            </ul>
+        </li>
     </ul>
     <div style="text-align: center;position:absolute;right:25px;top:160px;">
         <object data="cbsefig/sdramCapacity.png" type="image/png" style="height:450px;"></object>
