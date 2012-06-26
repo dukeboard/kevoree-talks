@@ -499,9 +499,13 @@ public class TempSensor
 
 <section class="slide">
     <header><h2>Behind the scene</h2></header>
+    <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 400px; right : 50px; top:280px;" />
     <ul>
-        <li class="next">Asynchronous message passing</li>
-        <li class="next">FIFO semantic on each ports</li>
+        <li class="next">Asynchronous message passing
+            <span class="iconic kevOrange mail" style="position: absolute; top:325px; right: 400px;"></span>
+            <span class="iconic kevOrange mail" style="position: absolute; top:350px; right: 30px;"></span>
+        </li>
+        <li class="next">FIFO on each ports (Actor semantic)</li>
         <li class="next">No OS == no multi-threading</li>
         <li class="next">Opportunistic scheduler
             <ul>
