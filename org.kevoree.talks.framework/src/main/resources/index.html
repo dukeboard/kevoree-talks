@@ -67,6 +67,22 @@
         }
         details { display: none; }
     </style>
+
+
+
+    <link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
+
+    <script src="aloha/lib/require.js"></script>
+    <script src="aloha/lib/aloha.js"
+            data-aloha-plugins="
+            common/ui,
+            common/format,
+            common/highlighteditables,
+            common/link,
+            common/undo">
+    </script>
+
+
 </head>
 <body class="list">
 <header class="caption">
@@ -207,5 +223,41 @@ then a little list
 <script src="scripts/jquery-1.7.2.min.js"></script>
 <script src="scripts/kslideScript.js"></script>
 <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+
+<script type="text/javascript">
+    Aloha = window.Aloha || {};
+    Aloha.settings = {
+        logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
+        errorhandling: false,
+        ribbon: {enable: true},
+        locale: 'en',
+        plugins: {
+            format: {
+                config: [  'b', 'i', 'p', 'sub', 'sup', 'del', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat' ]
+            }
+        },
+        sidebar: {
+            disabled: true
+        }
+    };
+    Aloha.ready( function() {
+        Aloha.jQuery('.slide').aloha();
+        Aloha.bind('aloha-editable-deactivated', function() {
+            document.addEventListener('keydown', keyEventListener, false);
+            document.addEventListener('touchstart', touchStartEvent, false);
+            document.addEventListener('touchmove', touchMoveEvent, false);
+            document.addEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
+            document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
+        });
+        Aloha.bind('aloha-editable-activated', function() {
+            document.removeEventListener('keydown', keyEventListener, false);
+            document.removeEventListener('touchstart', touchStartEvent, false);
+            document.removeEventListener('touchmove', touchMoveEvent, false);
+            document.removeEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
+            document.removeEventListener('click', dispatchSingleSlideModeFromEvent, false);
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -12,8 +12,11 @@
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
     <style>
-        .slide {
-        background: #FFF url(figures/kevg125.svg) no-repeat right top;
+        .slide:not(.cover):not(.shout):before{
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top:5px;
+            right:5px;
         }
         .iconFont3 {
         font-family:'HeydingsCommonIconsRegular';

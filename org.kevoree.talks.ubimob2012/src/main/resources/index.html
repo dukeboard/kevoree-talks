@@ -11,9 +11,14 @@
     <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+
+
     <style>
-        .slide {
-        background: #FFF url(figures/kevg125.svg) no-repeat right top;
+        .slide:not(.cover):not(.shout):before{
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top:5px;
+            right:5px;
         }
         .iconFont3 {
             font-family:'HeydingsCommonIconsRegular';
@@ -44,7 +49,6 @@
     <link rel="stylesheet" href="iconic_fill/iconic_fill.css" type="text/css"/>
     <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
     <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
-    <!--<link rel="stylesheet" href="themes/kevs/styles/print.css" media="print">    -->
 
 </head>
 <body class="list">
@@ -58,10 +62,10 @@
          style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
     <header>
         <div style="text-align: center;">
-        <span style="text-align : justify;color: #DF9D00;font:bold 70px/70px 'PT Sans Narrow', sans-serif;">
+        <span style="text-align : justify; color: #DF9D00; font:bold 70px/70px 'PT Sans Narrow', sans-serif;">
 Model@Runtime
         </span><br/>
-            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;">for ubiquitous systems</span><br/>
+            <span style="text-align : justify; color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;">for ubiquitous systems</span><br/>
         <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
             <span class="iconFont3">G</span>
             +

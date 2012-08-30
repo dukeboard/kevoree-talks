@@ -5,7 +5,6 @@
     <title>A Dynamic Component Model for Cyber Physical Systems</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1274, user-scalable=no">
-    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
     <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
     <script type="text/javascript" src="scripts/brush/shCore.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
@@ -14,8 +13,11 @@
     <script src="scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="jquery.transit.min.js"></script>
     <style>
-        .slide {
-            background: #FFF url(figures/kevg125.svg) no-repeat right top;
+        .slide:not(.cover):not(.shout):before{
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top:5px;
+            right:5px;
         }
 
         .iconFont3 {
@@ -33,7 +35,6 @@
         details {
             display: none;
         }
-
         .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
             background-color: rgba(223, 157, 41, 0.4) !important;
         }
@@ -49,7 +50,6 @@
         .syntaxhighlighter {
             overflow: hidden !important;
         }
-
         .syntaxhighlighter textarea {
             overflow: hidden !important;
         }
@@ -57,14 +57,13 @@
     <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
     <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
     <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
-    <!--<link rel="stylesheet" href="themes/kevs/styles/print.css" media="print">    -->
     <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
 </head>
 <body class="list">
 
 <header class="caption">
     <h1>CBSE 2012 / Kevoree</h1>
-
     <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
 </header>
 
@@ -285,7 +284,7 @@
             <span class='iconic iphone'></span>
         </li>
     </ul>
-    <details>Need reflexion layer is challengeable ...</details>
+    <!--<details>Need reflexion layer is challengeable ...</details>   -->
 </section>
 
 
@@ -581,8 +580,9 @@ public class TempSensor
         <li>Homogeneous reflexion layer on all CPS</li>
         <li>Allows for global reasoning and seamless adaptation</li>
     </ul>
-    <img src="cbsefig/globalKev.png" style="position: absolute; border-radius: 10px; right : 25px; top:160px;" />
-    <span class="iconic kevOrange magnifying_glass" style="position: absolute; right : 150px; top:400px; font-size: 100px;"></span>
+    <img src="cbsefig/globalKev.png" style="position: absolute; border-radius: 10px; right : 25px; top:160px;"/>
+    <span class="iconic kevOrange magnifying_glass"
+          style="position: absolute; right : 150px; top:400px; font-size: 100px;"></span>
 </section>
 
 <section class="slide shout" id="ExperimentationCover">
