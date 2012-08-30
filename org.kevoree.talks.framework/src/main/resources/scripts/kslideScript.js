@@ -84,10 +84,18 @@ function normalizeSlideNumber (slideNumber) {
 }
 
 function updateProgress (slideNumber) {
-    if (null === progress) {
-        return;
+    // TODO move this kind of style modification into css
+    var slide = slides[slideNumber];
+    if (slide.className.indexOf("cover") == -1 && slide.className.indexOf("shout") == -1) {
+
+        if (null === progress) {
+            return;
+        }
+        progress.style.width = (100 / (slideList.length - 1) * normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
+        progress.style.visibility = "visible";
+    } else {
+        progress.style.visibility = "hidden";
     }
-    progress.style.width = (100 / (slideList.length - 1) * normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
 }
 
 function getSlideHash (slideNumber) {
@@ -169,11 +177,11 @@ function goToNextSlide (slideNumber) {
         if (newInner) {
             newInner.className = newInner.className + ' active';
             /*$(newInner).bind('nextActivate', function(event, param1, param2) {
-                alert(event+ "\n" + param1 + "\n" + param2);
-            });*/
+             alert(event+ "\n" + param1 + "\n" + param2);
+             });*/
             try {
                 jQuery(newInner).trigger('nextActivated');
-            } catch(e) {
+            } catch (e) {
             }
             return slideNumber;
         } else {
@@ -223,7 +231,7 @@ function goToPreviousSlide (slideNumber) {
         if (activeNodes.length > 1 && currentNode) {
             try {
                 jQuery(currentNode).trigger('nextUnactivated');
-            } catch(e) {
+            } catch (e) {
             }
             currentNode.className = currentNode.className.substring(0, currentNode.className.length - " active".length);
             return slideNumber;
@@ -239,10 +247,10 @@ function goToPreviousSlide (slideNumber) {
 
 function fullscreen () {
     /* On Firefox + slide as cover  unable to switch to next slide.
-    * You need to go to fullscreen, try to go to next slide, then go back to the previous slide and then the slides work fine.
-    * */
+     * You need to go to fullscreen, try to go to next slide, then go back to the previous slide and then the slides work fine.
+     * */
 
-    if ( screenfull ) {
+    if (screenfull) {
         screenfull.request();
     }
 }
