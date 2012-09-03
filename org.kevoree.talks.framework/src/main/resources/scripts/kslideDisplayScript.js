@@ -46,12 +46,9 @@ function loadIframes () {
 function back () {
     // If the current slide is the first one => we do nothing
     if (views.currentSlide != 0) {
-        var moveFuture = views.currentSlide != (views.nbSlides - 1);
         postMsg(views.present, "BACK");
-        // If the current slide is the last one => we do nothing for the views.future
-        if (moveFuture) {
-            postMsg(views.future, "BACK");
-        }
+        postMsg(views.future, "BACK");
+
         updateSlideNumbers();
         if (views.remote != null) {
             postMsg(views.remote, "BACK");
@@ -60,17 +57,14 @@ function back () {
     }
 }
 
-var forward = function() {
-    // If the current slide is the last one => we do nothing
-    if (views.currentSlide != (views.nbSlides - 1)) {
-        postMsg(views.present, "FORWARD");
-        postMsg(views.future, "FORWARD");
-        updateSlideNumbers();
-        if (views.remote != null) {
-            postMsg(views.remote, "FORWARD");
-        }
-        notifyWebSocket("FORWARD");
+function forward () {
+    postMsg(views.present, "FORWARD");
+    postMsg(views.future, "FORWARD");
+    updateSlideNumbers();
+    if (views.remote != null) {
+        postMsg(views.remote, "FORWARD");
     }
+    notifyWebSocket("FORWARD");
 }
 
 function goStart () {
@@ -234,18 +228,13 @@ window.onmessage = function (aEvent) {
     argv.forEach(function (e, i, a) {
         a[i] = decodeURIComponent(e)
     });
+
     if (argv[0] === "CURSOR" && argc === 2) {
         if (aEvent.source === views.present && argv[1] != -1) {
-            if (views.currentSlide < argv[1] && ws != null) {
-                ws.send("SET_CURSOR " + argv[1]);
-            } else if (views.currentSlide > argv[1] && ws != null) {
-                ws.send("SET_CURSOR " + (+argv[1] + 1));
-                ws.send("BACK");
-            }
             views.currentSlide = argv[1];
             document.querySelector("#slideidx").innerHTML = +argv[1] == (views.nbSlides - 1) ? "END" : (+argv[1] + 1);
         } else if (aEvent.source === views.future) {
-            document.querySelector("#nextslideidx").innerHTML = +argv[1] < 0 || +argv[1] == (views.nbSlides - 1) ? "END" : (+argv[1] + 1);
+            document.querySelector("#nextslideidx").innerHTML = +argv[1] < 0 || +argv[1] >= (views.nbSlides - 1) ? "END" : (+argv[1] + 1);
         } else if (aEvent.source === views.remote) {
             postMsg(views.present, "SET_CURSOR", argv[1]);
             postMsg(views.future, "SET_CURSOR", argv[1]);
@@ -266,7 +255,8 @@ window.onmessage = function (aEvent) {
     }
     if (aEvent.source === views.future) {
         if (argv[0] === "REGISTERED" && argc === 3) {
-            postMsg(views.future, "FULL")
+            postMsg(views.future, "EMPTY_SLIDE");
+            postMsg(views.future, "FULL");
             postMsg(views.future, "FORWARD");
             updateSlideNumbers();
         }
@@ -276,30 +266,35 @@ window.onmessage = function (aEvent) {
             postMsg(views.future, "FULL")
         }
         if (argv[0] == "BACK") {
-            if (views.currentSlide == views.nbSlides - 1) {
+            if (views.currentSlide > views.nbSlides - 1) {
                 postMsg(views.present, "BACK");
             } else if (views.currentSlide > 0) {
                 postMsg(views.present, "BACK");
                 postMsg(views.future, "BACK");
             }
+            notifyWebSocket("BACK");
         }
         if (argv[0] == "FORWARD") {
             postMsg(views.present, "FORWARD");
             postMsg(views.future, "FORWARD");
+            notifyWebSocket("FORWARD");
         }
         if (argv[0] == "START") {
             postMsg(views.present, "START");
             postMsg(views.future, "START");
             postMsg(views.future, "FORWARD");
+            notifyWebSocket("START");
         }
         if (argv[0] == "END") {
             postMsg(views.present, "END");
             postMsg(views.future, "END");
+            notifyWebSocket("END");
         }
         if (argv[0] == "SET_CURSOR") {
             postMsg(views.present, "SET_CURSOR", argv[1]);
             postMsg(views.future, "SET_CURSOR", argv[1]);
             postMsg(views.future, "FORWARD");
+            notifyWebSocket("SET_CURSOR", argv[1]);
         }
         updateSlideNumbers()
     }
@@ -336,10 +331,10 @@ function connectWS () {
 }
 
 // function that allow to interact with WebSocket script
-function notifyWebSocket (message) {
+function notifyWebSocket (message, slideNumber) {
     try {
         if (typeof(ws) != 'undefined') {
-            var aMsg = [message];
+            var aMsg = [message, slideNumber];
             for (var i = 2; i < arguments.length; i++) {
                 aMsg.push(encodeURIComponent(arguments[i]));
             }

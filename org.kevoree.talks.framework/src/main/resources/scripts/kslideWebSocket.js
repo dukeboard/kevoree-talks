@@ -42,8 +42,10 @@ try {
         } else if (argv[0] === "FORWARD") {
             forward();
         } else if (argv[0] === "START") {
+            initializeInnerTransition(0);
             goToSlide(0);
         } else if (argv[0] === "END") {
+            rollbackInnerTransition(slideList.length - 1);
             goToSlide(slideList.length - 1);
         } else if (argv[0] === "SET_CURSOR") {
             goToSlide(argv[1]);

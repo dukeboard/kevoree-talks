@@ -70,22 +70,6 @@
     </style>
 
 
-
-    <!--<link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">-->
-
-<!--
-    <script src="aloha/lib/require.js"></script>
-    <script src="aloha/lib/aloha.js"
-            data-aloha-plugins="
-            common/ui,
-            common/format,
-            common/highlighteditables,
-            common/link,
-            common/undo">
-    </script>
--->
-
-
 </head>
 <body class="list">
 <header class="caption">
@@ -226,6 +210,34 @@ then a little list
 </plugin></pre>
 </section>
 
+<section class="slide" id="innerTestFin">
+    <h2>Compilation process</h2>
+
+    <p>In a nushell Kevoree compile time process is composed by these steps :</p>
+    <ul>
+        <li class="next">Parse Kevoree annotation with javax.annotation standard processor
+        <ul>
+            <li class="next">TOTO<span class="next">BLA</span></li>
+            <li class="next">TUTU</li>
+        </ul>
+        </li>
+        </ul>
+
+    <p class="next">BLA</p>
+    <ul>
+        <li class="next">Generate a lib.kev file in KEV-INF directory</li>
+        <!--<li class="next">Compile your Java or Scala classes</li>
+        <li class="next">Generate &amp; compile Kevoree Scala runtime classes</li>-->
+        <!--<li class="next">Package everything in a jar, embedded KEV-INF/lib.kev file
+            <ul class="next">
+                <li>titi</li>
+                <li>tata</li>
+            </ul>
+        </li>-->
+    </ul>
+    <details>TOTO</details>
+</section>
+
 <div class="progress">
     <div></div>
 </div>
@@ -234,7 +246,19 @@ then a little list
 <script src="scripts/kslideScript.js"></script>
 <!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
 
-<!--<script type="text/javascript">
+<!--
+<link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
+
+<script src="aloha/lib/require.js"></script>
+<script src="aloha/lib/aloha.js"
+        data-aloha-plugins="
+        common/ui,
+        common/format,
+        common/highlighteditables,
+        common/link,
+        common/undo">
+</script>
+<script type="text/javascript">
     Aloha = window.Aloha || {};
     Aloha.settings = {
         logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
