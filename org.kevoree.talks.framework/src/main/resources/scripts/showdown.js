@@ -417,3 +417,10 @@ return "~E"+_b6+"E";
 };
 };
 
+
+jQuery(document).ready(function($){
+    jQuery(".markdown").each(function(index, value) {
+        markup = new Showdown.converter().makeHtml(value.innerHTML);
+        value.innerHTML = markup;
+    });
+});

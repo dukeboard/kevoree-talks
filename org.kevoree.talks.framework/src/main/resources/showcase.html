@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Kevoree Keynote Showcase</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
+    <link rel="stylesheet" href="themes/kevs/styles/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslide.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var ks = new KSlide();
+            ks.startKeynote();
+        });
+    </script>
+
+    <style>
+        #Cover {
+            background: #474444;
+        }
+        #CoverFooter {
+            box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            color: #777;
+            padding: 10px 20px 5px 5px;
+            position: absolute;
+            bottom: 0em;
+            left: 0em;
+            right: 0em;
+            color: #CCC;
+            font-size: 0.5em;
+            text-align: right;
+            background: #00597B;
+        }
+
+        #Cover h2 {
+            font-size: 1.4em;
+            margin: 0.3em 0;
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            color: #FFFFFF;
+        }
+
+        #Cover p {
+            font-weight: normal;
+            color: #FFFFFF;
+        }
+
+        #Picture h2 {
+            color: #FFF;
+        }
+
+        details {
+            display: none;
+        }
+    </style>
+</head>
+<body class="list">
+<header class="caption">
+    <h1>Kevoree Annotation API</h1>
+
+    <p><a href="http://www.kevoree.org/">Fouquet Francois / Kevoree Team</a></p>
+</header>
+
+<section class="slide cover" id="Cover">
+    <header>
+        <h2>Kevoree Keynote showcase</h2>
+    </header>
+    <object data="figures/kevoree-logo.png" type="image/png" class="low_middle" height="227" width="400"
+            style="position:absolute;top:30%;left:30%;"></object>
+    <div id="CoverFooter">Kevoree Team - Triskell INRIA/IRISA</div>
+    <details>Some content to the speaker</details>
+</section>
+
+<section class="slide">
+    <h2>HTML5 Slide framework</h2>
+
+    <p>Simply write content in HTML</p>
+
+    <p>Hightlight some <code>content</code></p>
+</section>
+
+<section class="slide" id="innerTest">
+    <h2>Next step</h2>
+
+    <p>You can add some incremental content with the <code>next</code> CSS class</p>
+    <ul>
+        <li class="next">First point</li>
+        <li class="next">Second idea !</li>
+        <li class="next">It also work recursively !
+            <ul>
+                <li class="next">sub idea 1</li>
+                <li class="next">no idea anymore ;-)</li>
+            </ul>
+        </li>
+    </ul>
+    <p class="next">It work also for P element</p>
+    <details>Some content for speaker (not display)</details>
+</section>
+
+<section class="slide" id="image1">
+    <h2>Image is good for comprehension</h2>
+    <img src="http://kevoree.org/img/kevoree-logo.png">
+</section>
+
+<section class="slide" id="image2">
+    <h2>You can also add image incrementally</h2>
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px">
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px">
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px">
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px">
+</section>
+
+<section class="slide" id="image3">
+    <h2>You can also add image incrementally</h2>
+    <p>
+        <span>And mix image</span>
+        <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px">
+        and text !
+    </p>
+</section>
+
+<section class="slide shout">
+    <h2>Wake up !</h2>
+</section>
+
+<!-- Add Showdown plugin -->
+<script type="text/javascript" src="scripts/showdown.js"></script>
+<!-- Write some slide in markdown language -->
+<section class="slide markdown" id="markdownSample1">
+##MarkDown
+
+Markdown is a very used language for:
+
+- Common Wiki engine
+- GitHub readme file
+
+See [documentation](http://daringfireball.net/projects/markdown/) for more information
+
+MacOS user ? [This app is 4U](http://mouapp.com/).
+</section>
+
+
+
+ <!-- Add SynthaxHighlighter -->
+<script type="text/javascript" src="scripts/brush/shCore.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- Write some code in side .... -->
+
+<section class="slide">
+    <h2>You can also Highlight some code</h2>
+    <p>This is a very complexe code</p>
+    <pre class="brush: java">
+public class MyClass {
+    public static void main(String[] args){
+        //very complexe thing here...
+    }
+}
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>It also work for plain XML code</h2>
+    <p>Add XML without any modification !</p>
+          <pre class="brush: xml">
+<plugin>
+    <groupId>org.kevoree.tools</groupId>
+    <artifactId>org.kevoree.tools.annotation.mavenplugin</artifactId>
+    <version>${kevoree.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <nodeTypeNames>JavaSENode</nodeTypeNames>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+                <goal>compile</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin></pre>
+</section>
+
+
+<section class="slide shout">
+    <h2>Play !</h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+<!--<script src="scripts/kslideScript.js"></script>    -->
+<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+
+<!--
+<link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
+
+<script src="aloha/lib/require.js"></script>
+<script src="aloha/lib/aloha.js"
+        data-aloha-plugins="
+        common/ui,
+        common/format,
+        common/highlighteditables,
+        common/link,
+        common/undo">
+</script>
+<script type="text/javascript">
+    Aloha = window.Aloha || {};
+    Aloha.settings = {
+        logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
+        errorhandling: false,
+        ribbon: {enable: true},
+        locale: 'en',
+        plugins: {
+            format: {
+                config: [  'b', 'i', 'p', 'sub', 'sup', 'del', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat' ]
+            }
+        },
+        sidebar: {
+            disabled: true
+        }
+    };
+    Aloha.ready( function() {
+        Aloha.jQuery('.slide').aloha();
+        Aloha.bind('aloha-editable-deactivated', function() {
+            document.addEventListener('keydown', keyEventListener, false);
+            document.addEventListener('touchstart', touchStartEvent, false);
+            document.addEventListener('touchmove', touchMoveEvent, false);
+            document.addEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
+            document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
+        });
+        Aloha.bind('aloha-editable-activated', function() {
+            document.removeEventListener('keydown', keyEventListener, false);
+            document.removeEventListener('touchstart', touchStartEvent, false);
+            document.removeEventListener('touchmove', touchMoveEvent, false);
+            document.removeEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
+            document.removeEventListener('click', dispatchSingleSlideModeFromEvent, false);
+        });
+    });
+</script>-->
+
+</body>
+</html>
