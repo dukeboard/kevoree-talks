@@ -30,11 +30,10 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr3-maven-plugin</artifactId>
-            <version>3.3</version>
+            <version>3.4</version>
             <scope>compile</scope>
         </dependency>
         <!--
@@ -100,13 +99,19 @@
     know about the jsr14 target).
     -->
     <build>
-
-        <defaultGoal>install</defaultGoal>
-
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/target/generated-sources</directory>
+                <excludes>
+                    <exclude>antlr3/net/nextquestion/pptx2html/parser/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
         <plugins>
-
             <plugin>
-
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr3-maven-plugin</artifactId>
                 <version>3.3</version>
@@ -202,9 +207,7 @@
                         </goals>
                     </execution>
                 </executions>
-
             </plugin>
-
         </plugins>
     </build>
 
