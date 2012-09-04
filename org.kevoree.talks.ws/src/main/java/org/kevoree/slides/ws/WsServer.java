@@ -3,6 +3,8 @@ package org.kevoree.slides.ws;
 
 import org.kevoree.annotation.*;
 import org.kevoree.framework.AbstractComponentType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.webbitserver.WebServer;
 import org.webbitserver.WebServers;
 import org.webbitserver.handler.StaticFileHandler;
@@ -23,6 +25,7 @@ import org.webbitserver.handler.StaticFileHandler;
         @ProvidedPort(name = "in", type = PortType.MESSAGE)
 })
 public class WsServer extends AbstractComponentType {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private WebServer webServer = null;
     private BroadCastConf bconf = null;
@@ -39,7 +42,7 @@ public class WsServer extends AbstractComponentType {
                 .add("/keynote", bconf)
                 .add(new StaticFileHandler("/keynote"));
         webServer.start();
-        System.out.println("Server running at " + webServer.getUri());
+        logger.info("Server running at {}", webServer.getUri());
     }
 
     @Stop

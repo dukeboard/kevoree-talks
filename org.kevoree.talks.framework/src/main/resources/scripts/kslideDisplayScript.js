@@ -3,7 +3,7 @@ var views = {
         present:null,
         future:null,
         remote:null,
-        currentSlide:0,
+        currentSlide:-1,
         nbSlides:0,
         talkIsStarted:false,
         talkStartTime:null
@@ -231,6 +231,10 @@ window.onmessage = function (aEvent) {
 
     if (argv[0] === "CURSOR" && argc === 2) {
         if (aEvent.source === views.present && argv[1] != -1) {
+            /*if (views.currentSlide != argv[1]) {
+                console.warn("SEND FIX_CURSOR " + argv[1]);
+                notifyWebSocket("FIX_CURSOR", argv[1]);
+            }*/
             views.currentSlide = argv[1];
             document.querySelector("#slideidx").innerHTML = +argv[1] == (views.nbSlides - 1) ? "END" : (+argv[1] + 1);
         } else if (aEvent.source === views.future) {
@@ -323,7 +327,6 @@ function connectWS () {
             console.log('* Unexpected error');
         };
         ws.onmessage = function (aEvent) {
-
         };
         var slideurl = document.URL.replace("keynote", "ws");
         alert(slideurl + roomId)
