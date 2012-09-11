@@ -1,5 +1,7 @@
 package org.kevoree.slides.ws;
 
+import org.json.JSONException;
+import org.json.JSONStringer;
 import org.kevoree.annotation.*;
 import org.kevoree.framework.AbstractComponentType;
 import org.kevoree.framework.MessagePort;
@@ -31,12 +33,26 @@ public class TalkGateway extends AbstractComponentType {
 
     @Port(name = "prev")
     public void handlePrev(Object o) {
-        getPortByName("broad", MessagePort.class).process("BACK");
-    }
+		System.out.println("prev");
+		try {
+			String msg = new JSONStringer().object().key("type").value("BACK").endObject().toString();
+			System.out.println(msg);
+			getPortByName("broad", MessagePort.class).process(msg);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
 
     @Port(name = "next")
     public void handleNext(Object o) {
-        getPortByName("broad", MessagePort.class).process("FORWARD");
-    }
+		System.out.println("next");
+		try {
+			String msg = new JSONStringer().object().key("type").value("FORWARD").endObject().toString();
+			System.out.println(msg);
+			getPortByName("broad", MessagePort.class).process(msg);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
