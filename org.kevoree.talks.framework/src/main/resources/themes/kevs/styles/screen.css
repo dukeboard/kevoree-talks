@@ -9,7 +9,7 @@
 
 body {
     counter-reset: paging;
-    font: 25px/2, 'PT Sans', sans-serif;
+    font: 25px/2 'PT Sans', sans-serif;
 }
 
 /* Slide
