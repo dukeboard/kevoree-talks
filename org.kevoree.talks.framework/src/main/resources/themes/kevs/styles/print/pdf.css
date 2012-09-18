@@ -1,0 +1,166 @@
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and 
+   manipulate this file as you see fit. */
+
+/* SECTION 1: Set default width, margin, float, and
+   background. This prevents elements from extending 
+   beyond the edge of the printed page, and prevents
+   unnecessary background images from printing */
+@import url(../screen/reset.css);
+
+* {
+    -webkit-print-color-adjust: exact;
+}
+
+.caption {
+    page-break-after: always !important;
+}
+
+body {
+    font-size: 14pt !important;
+    width: auto;
+    height: auto;
+    border: 0;
+    margin: 0 5%;
+    padding: 0;
+    float: none !important;
+    overflow: visible;
+    background: #333;
+}
+
+html {
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+
+/* SECTION 2: Remove any elements not needed in print. 
+   This would include navigation, ads, sidebars, etc. */
+/*.nestedarrow,
+.controls a, 
+.progress, 
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display:none;
+}*/
+
+/* SECTION 3: Set body font face, size, and color.
+   Consider using a serif font for readability. */
+body, p, td, li, div, a {
+    font-size: 14pt !important;
+}
+
+/* SECTION 4: Set heading font face, sizes, and color.
+   Diffrentiate your headings from your body text.
+   Perhaps use a large sans-serif for distinction. */
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0 0 0 #000 !important;
+}
+
+/* SECTION 5: Make hyperlinks more usable.
+   Ensure links are underlined, and consider appending
+   the URL to the end of the link for usability. */
+a:link,
+a:visited {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* SECTION 6: more reveal.js specific additions by @skypanther */
+ul, ol, div, p {
+    visibility: visible;
+    position: static;
+    width: auto;
+    height: auto;
+    display: block;
+    overflow: visible;
+    margin: auto;
+}
+
+.slide {
+    position: static;
+    width: 100%;
+    height: auto;
+
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+
+    overflow: visible;
+    display: block;
+
+    text-align: center;
+    -webkit-perspective: none;
+    -moz-perspective: none;
+    -ms-perspective: none;
+    perspective: none;
+
+    -webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+    -moz-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+
+.slide {
+
+    visibility: visible;
+    position: static;
+    width: 100%;
+    height: auto;
+    /*min-height: initial;*/
+    display: block !important;
+    overflow: visible;
+    border: 0.1em;
+
+    /*left: 0%;*/
+    /*top: 0%;*/
+    /*margin-left: 0;*/
+    margin-top: 50px;
+    padding: 20px 0;
+
+    opacity: 1;
+
+    -webkit-transform-style: flat;
+    -moz-transform-style: flat;
+    -ms-transform-style: flat;
+    transform-style: flat;
+
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+
+    page-break-inside: avoid !important;
+}
+
+/*section {
+    page-break-after: always !important;
+    display: block !important;
+}*/
+/*section.stack {
+	margin: 0px !important;
+	padding: 0px !important;
+	page-break-after: avoid !important; 
+}
+section .fragment {
+	opacity: 1 !important;
+}*/
+img {
+    box-shadow: none;
+}
+
+/*.roll {
+    overflow: visible;
+    line-height: 1em;
+}
+
+small a {
+    font-size: 16pt !important;
+}*/
