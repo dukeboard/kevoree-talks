@@ -24,7 +24,7 @@ import java.util.HashMap;
 @Library(name = "KevoreeWeb")
 @ComponentType
 @DictionaryType({
-		@DictionaryAttribute(name = "main", defaultValue = "index.html"),
+		@DictionaryAttribute(name = "main", defaultValue = "showcase.html"),
 		@DictionaryAttribute(name = "wsurl", defaultValue = "ws://localhost:8092/keynote", optional = true),
 		@DictionaryAttribute(name = "paperURL", optional = false, defaultValue = "")
 })
@@ -90,9 +90,9 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 				if (!slideURL.startsWith("/")) {
 					slideURL= "/" + slideURL;
 				}
-				response.setRawContent(FileServiceHelper.convertStream(loadInternal("display.html")));
-				response.setRawContent(new String(response.getRawContent()).replace("http://localhost:8080/", completeUrl + slideURL).getBytes());
-				response.setRawContent(new String(response.getRawContent()).replace("ws://localhost:8092/keynote", getDictionary().get("wsurl").toString()).getBytes());
+				response.setRawContent(FileServiceHelper.convertStream(loadInternal("showcaseKeynote.html")));
+//				response.setRawContent(new String(response.getRawContent()).replace("{slideURL}", completeUrl + slideURL).getBytes());
+				response.setRawContent(new String(response.getRawContent()).replace("{slideurl}", completeUrl + slideURL).replace("{wsurl}", getDictionary().get("wsurl").toString()).getBytes());
 				response.getHeaders().put("Content-Type", "text/html");
 				if (useCache) {
 					cacheResponse(request, response);
@@ -127,10 +127,9 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 		if (getLastParam(request.getUrl()).contains("ws")) {
 			try {
 				String roomID = getLastParam(request.getUrl()).replace("ws", "");
-				String newScript = "<script>" + new String(FileServiceHelper.convertStream(loadInternal("scripts/kslideWebSocket.js")), "UTF-8").replace("{roomID}", roomID)
-						.replace("{wsurl}", getDictionary().get("wsurl").toString()) + "</script></body>";
+				String wsUrl = getDictionary().get("wsurl").toString();
 				response.setRawContent(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())));
-				response.setRawContent(new String(response.getRawContent()).replace("</body>", newScript).getBytes());
+				response.setRawContent(new String(response.getRawContent()).replace("{wsurl}", wsUrl).replace("{roomID}", roomID).getBytes());
 				response.getHeaders().put("Content-Type", "text/html");
 				if (useCache) {
 					cacheResponse(request, response);
@@ -143,10 +142,12 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 		if (getLastParam(request.getUrl()).contains("master")) {
 			try {
 				String roomID = getLastParam(request.getUrl()).replace("master", "");
-				String newScript = "<script>" + new String(FileServiceHelper.convertStream(loadInternal("scripts/kslideWebSocketMaster.js")), "UTF-8").replace("{roomID}", roomID)
-						.replace("{wsurl}", getDictionary().get("wsurl").toString()) + "</script></body>";
+				String wsUrl = getDictionary().get("wsurl").toString();
+				/*String newScript = "<script>" + new String(FileServiceHelper.convertStream(loadInternal("scripts/kslideWebSocketMaster.js")), "UTF-8").replace("{roomID}", roomID)
+						.replace("{wsurl}", getDictionary().get("wsurl").toString()) + "</script></body>";*/
 				response.setRawContent(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())));
-				response.setRawContent(new String(response.getRawContent()).replace("</body>", newScript).getBytes());
+				response.setRawContent(new String(response.getRawContent()).replace("{wsurl}", wsUrl).replace("{roomID}", roomID).getBytes());
+//				response.setRawContent(new String(response.getRawContent()).replace("</body>", newScript).getBytes());
 				response.getHeaders().put("Content-Type", "text/html");
 				if (useCache) {
 					cacheResponse(request, response);

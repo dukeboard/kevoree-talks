@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf8">
+
+    <link type="text/css" rel="stylesheet" href="themes/kevs/styles/display-screen.css">
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshowKeynote.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" src="scripts/plugins/popup.js"></script>
+    <script type="text/javascript" src="scripts/plugins/websocket.js"></script>
+    <script type="text/javascript" src="scripts/plugins/iframe.js"></script>
+    <script type="text/javascript" src="scripts/plugins/slidecount.js"></script>
+    <script type="text/javascript" src="scripts/plugins/notes.js"></script>
+    <script type="text/javascript" src="scripts/plugins/time.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShowKeynote();
+            var keyboardPlugin = new KKeyboard(ks);
+            var popupPlugin = new KPopupMaster(ks, "{slideurl}");
+            var websocketPlugin = new KWebsocketMaster(ks, "{wsurl}");
+            var iframePlugin = new KIFrameMaster(ks, "{slideurl}");
+            var slideCountPlugin = new KSlideCount(ks);
+            var notesPlugin = new KNotes();
+            var timePlugin = new KTime();
+            ks.addPluginListener(keyboardPlugin);
+            ks.addPluginListener(popupPlugin);
+            ks.addPluginListener(websocketPlugin);
+            ks.addPluginListener(iframePlugin);
+            ks.addPluginListener(slideCountPlugin);
+            ks.addPluginListener(notesPlugin);
+            ks.addPluginListener(timePlugin);
+            ks.startKeynote();
+
+        });
+    </script>
+    <!--<script language="JavaScript">
+        var slideURL = "http://localhost:8080/";
+        var wsURL = "ws://localhost:8092/keynote";
+    </script>
+    <script src="scripts/kslideDisplayScript.js"></script>
+    <script type="tewt/javascript">
+        window.onload = init;
+    </script>-->
+</head>
+<title>Kevoree Slide Keynote Control</title>
+
+<div id="present">
+    <iframe></iframe>
+</div>
+
+<div id="future">
+    <iframe></iframe>
+</div>
+
+<div id="slideidx">?</div>
+<div id="nextslideidx">?</div>
+<div id="notes">
+    <p id="content"></p>
+</div>
+
+<div id="slidecount">?</div>
+<button id="popup-button">Pop-up</button>
+<button id="keynote-button">Keynote</button>
+
+<div id="system-time">
+    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+</div>
+<button id="talk-time">00:00:00</button>

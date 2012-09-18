@@ -1,5 +1,7 @@
 package org.kevoree.slides.ws;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.webbitserver.BaseWebSocketHandler;
@@ -7,6 +9,7 @@ import org.webbitserver.WebSocketConnection;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Vector;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,18 +22,17 @@ public class BroadCastConf extends BaseWebSocketHandler {
 
 	private Set<WebSocketConnection> connections = new HashSet<WebSocketConnection>();
 	private static String keynoteID = "KEYID";
-	private static String joinID = "JOIN";
+	private static String joinMessageType = "JOIN";
 
-	private boolean end = false;
-	private int currentCursor = 0;
-	private int currentInner = 0;
+	private Vector<String> messageList = new Vector<String>();
 
 	@Override
 	public void onOpen (WebSocketConnection connection) throws Exception {
 		connections.add(connection);
 	}
 
-	public void sendToAll (String msg) {
+	void sendToAll (String msg) {
+		messageList.add(msg);
 		for (WebSocketConnection connection : connections) {
 			connection.send(msg);
 			logger.debug("Send to WS connection " + connection.toString());
@@ -53,47 +55,31 @@ public class BroadCastConf extends BaseWebSocketHandler {
 	}
 
 	public void onMessage (WebSocketConnection connection, String message) {
-		System.out.println("on msg " + message);
-		if (message.startsWith("FIX_CURSOR")) {
-			int cursor = Integer.parseInt(message.substring("FIX_CURSOR".length()).trim());
-			if (cursor < currentCursor) {
-				end = false;
-			}
-			currentCursor = cursor;
-			currentInner = 0;
-		} else if (connection.data(keynoteID) != null) {
-			if (message.contains("FORWARD")) {
-				System.out.println("FORWARD: increment inner");
-				currentInner = currentInner + 1;
-			} else if (message.contains("BACK")) {
-				System.out.println("FORWARD: decrement inner");
-				currentInner = currentInner - 1;
-			} else if (message.contains("START")) {
-				System.out.println("START: reinitialize");
-				currentCursor = 0;
-				currentInner = 0;
-			} else if (message.contains("END")) {
-				System.out.println("END");
-				end = true;
-			}
-			broadcast(message, connection, connection.data(keynoteID).toString());
-		} else {
-			if (message.contains(joinID)) {
-				connection.data(keynoteID, message.replace(keynoteID, ""));
-				if (end) { // corresponds to END
-					System.out.println("go to END");
-					connection.send("END ");
-					for (int i = 0; i> currentInner;i--) {
-						connection.send("BACK ");
-					}
-				} else {
-					System.out.println("update cursor: " + currentCursor + "." + currentInner);
-					connection.send("SET_CURSOR " + currentCursor);
-					for (int i = 0; i < currentInner; i++) {
-						connection.send("FORWARD");
+		try {
+			System.out.println(message);
+			JSONObject jsonReader = new JSONObject(message);
+			System.out.println("on msg " + jsonReader.get("type"));
+			if ("SET_CURSOR".equals(jsonReader.get("type").toString())) {
+				System.out.println(message);
+				messageList.clear();
+				messageList.add(message);
+				broadcast(message, connection, connection.data(keynoteID).toString());
+			} else if (connection.data(keynoteID) != null) {
+				System.out.println("store message to replay it on new connection");
+				messageList.add(message);
+				broadcast(message, connection, connection.data(keynoteID).toString());
+			} else {
+				if (joinMessageType.equals(jsonReader.get("type").toString())) {
+					connection.data(keynoteID, jsonReader.get("id"));
+					System.out.println("synchronize new participants");
+					for (String msg : messageList) {
+						System.out.println("send " + msg + " to the new participant");
+						connection.send(msg);
 					}
 				}
 			}
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
 	}
 
