@@ -42,10 +42,12 @@
     <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
     <link rel="stylesheet" href="themes/kevs/styles/screen.css">
 <script>
-    jQuery(document).ready(function ($) {
-        var ks = new KSlide();
-        ks.startKeynote();
-    });
+jQuery(document).ready(function ($) {
+var ks = new KSlideShow();
+var keyboardPlugin = new KKeyboard(ks);
+ks.addPluginListener(keyboardPlugin);
+ks.startKeynote();
+});
 </script>
 </head>
 <body class="list">
