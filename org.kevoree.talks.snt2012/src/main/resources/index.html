@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="styles/shCoreKev.css"/>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslide.js"></script>
+
+    <style>
+        body:not(.list) > .slide:not(.cover):not(.shout):before{
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top:5px;
+            right:5px;
+        }
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular';
+        }
+        .kevOrange {
+            color: #DF9D00;
+        }
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+        details {
+            display: none;
+        }
+    </style>
+    <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+    <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
+    <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
+<script>
+    jQuery(document).ready(function ($) {
+        var ks = new KSlide();
+        ks.startKeynote();
+    });
+</script>
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>CBSE 2012 / Kevoree</h1>
+    <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
+</header>
+
+<!--Cover page  -->
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+        <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+            A Dynamic Component Model
+        </span><br/>
+            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+                for Cyber Physical Systems
+            </span><br/>
+        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+            <span class="iconFont3">G</span>
+            +
+            <span class="iconFont3">g</span>
+            <span class="iconic arrow_right_alt1"></span>
+            <span class="iconFont3">3</span>
+            <span class="iconic arrow_right_alt1"></span>
+            (
+            <span class="iconic beaker_alt"></span>
+            <span class="iconic iphone"></span>
+            <span class="iconic cloud"></span>
+            )
+        </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
+<span class="iconic arrow_right"> by </span> Francois Fouquet, Brice Morin, Franck Fleurey, Olivier Barais, Noel Plouzeau, Jean-Marc Jezequel</span>
+        </div>
+    </header>
+</section>
+
+<section class="slide shout" id="Motivations">
+    <header>
+        <h2 style="font-size : 70px;">
+            Research on<br/>
+            Software engineering <span class="iconFont3 kevOrange">G</span><br/>
+            <br/>
+            to abstract <span class="iconFont3 kevOrange">g</span><br/>
+            distributed systems <span class="iconFont3 kevOrange">3</span><br/>
+        </h2>
+    </header>
+    <img style="position:absolute;top: 10px;left:10px;" src="figures/logoInria.png" width="200px"/>
+    <img style="position:absolute;top: 10px;right:10px;" src="figures/logoUniv.png" width="200px"/>
+    <img style="position:absolute;bottom: 10px;left:10px;" src="cbsefig/Sintef-logo.gif" width="200px"/>
+    <img style="position:absolute;bottom: 10px;right:10px;" src="cbsefig/logoirisa2010hd.png" width="200px"/>
+</section>
+
+
+
+<section class="slide shout" id="titleKevSmall">
+    <h2><span class="kevOrange">></span>Kevoree in the small</h2>
+</section>
+
+<section class="slide shout" id="titleKevLarge">
+    <h2><span class="kevOrange">></span>Kevoree in the large</h2>
+</section>
+
+<section class="slide shout" id="titleKevCloud">
+    <h2><span class="kevOrange">></span>Kevoree in the cloud</h2>
+</section>
+
+
+<section class="slide shout" id="ThanksYouCover">
+    <h2><span class="kevOrange">></span>Thank you</h2>
+</section>
+
+
+<!-- Kevoree Publication -->
+<section class="slide" id="ref">
+    <header>
+        <h2>References</h2>
+    </header>
+    <ul style="font-size: 12px;">
+        <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
+            Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
+        </li>
+        <!--
+        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
+            Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
+            Engineering. Bertinoro, Italy, June 2012.
+        </li>
+        -->
+        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
+            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
+            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
+            2012.
+        </li>
+        <li>Nain, Grégory , Fouquet, François , Morin, Brice , Barais, Olivier and
+            Jézéquel, Jean-Marc (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of
+            the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille,
+            France.
+        </li>
+        <li>André, Francoise, Daubert, Erwan , Nain Grégory , Morin, Brice and Barais,
+            Olivier (2010) F4Plan: An Approach to build Efficient Adaptation Plans. In MobiQuitous.
+        </li>
+        <li>Brice Morin, Olivier Barais, Grégory Nain, Jean-Marc Jézéquel: Taming
+            Dynamically Adaptive Systems using models and aspects. ICSE 2009: 122-132
+        </li>
+        <li>Brice Morin, Olivier Barais, Jean-Marc Jézéquel, Franck Fleurey, Arnor
+            Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
+        </li>
+    </ul>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
+        kevoree.org</h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+<script src="scripts/screenfull.min.js"></script>
+<script src="scripts/kslideScript.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+</body>
+</html>

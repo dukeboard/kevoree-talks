@@ -3,12 +3,13 @@ merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{k
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
-merge "mvn:org.kevoree.talks/org.kevoree.talks.dais2012/{talks.version}"
+//merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.cbse2012/{talks.version}"
 
-addNode node0 : JavaSENode {logLevel = "DEBUG"}
-addComponent webSrv@node0 : KTinyWebServer { port="8084" }
-addComponent annotationSlides@node0 : DAIS2012Dev { urlpattern="/",templateFolder="{basedir}/src/main/resources/"}
-
+addNode node0 : JavaSENode {logLevel = "INFO"}
+addComponent webSrv@node0 : KTinyWebServer { port="8080" }
+addComponent annotationSlides@node0 : CBSE2012Dev { urlpattern="/",templateFolder="{basedir}/src/main/resources/" }
+//addComponent wsSrv@node0 : WsServer
 //addComponent helloP@node0 : HelloWorldPage { urlpattern="/hello"}
 
 addChannel req : defMSG
@@ -23,5 +24,5 @@ bind webSrv.response@node0 => res
 //bind helloP.content@node0 => res
 
 
-//addGroup sync : NanoRestGroup
-//addToGroup sync node0
+addGroup sync : NanoRestGroup
+addToGroup sync node0
