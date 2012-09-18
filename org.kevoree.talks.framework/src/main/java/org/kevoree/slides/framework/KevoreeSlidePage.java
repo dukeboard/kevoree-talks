@@ -24,7 +24,7 @@ import java.util.HashMap;
 @Library(name = "KevoreeWeb")
 @ComponentType
 @DictionaryType({
-		@DictionaryAttribute(name = "main", defaultValue = "showcase.html"),
+		@DictionaryAttribute(name = "main", defaultValue = "index.html"),
 		@DictionaryAttribute(name = "wsurl", defaultValue = "ws://localhost:8092/keynote", optional = true),
 		@DictionaryAttribute(name = "paperURL", optional = false, defaultValue = "")
 })

@@ -26,7 +26,7 @@ addComponent wsSrv@node0 : WsServer
 //bind webSockGateway.broad@node0 => gatewayToTalk
 //bind wsSrv.in@node0 => gatewayToTalk
 
-addComponent slideshow@node0 : KevoreeSlidePageDev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
+addComponent slideshow@node0 : KevoreeSlidePageDev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote", main="showcase.html"}
 
 
 addChannel req : defMSG
