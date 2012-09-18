@@ -5,35 +5,16 @@
     <title>Kevoree Keynote Showcase</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1274, user-scalable=no">
-    <link type="text/css" rel="stylesheet" href="themes/kevs/styles/screen/screen.css" media="screen">
-    <link type="text/css" rel="stylesheet" href="themes/kevs/styles/print/pdf.css" media="print">
-    <link type="text/css" rel="stylesheet" href="themes/kevs/styles/themes/default.css">
-    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
+    <link rel="stylesheet" href="themes/kevs/styles/print.css" media="print">
+    <link type="text/css" rel="stylesheet" href="styles/shCoreKev.css"/>
     <!-- Kevoree Keynote Framework -->
-    <script type="text/javascript" src="scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/screenfull.min.js"></script>
-    <script type="text/javascript" src="scripts/kslideshow.js"></script>
-    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-    <script type="text/javascript" src="scripts/plugins/popup.js"></script>
-    <script type="text/javascript" src="scripts/plugins/iframe.js"></script>
-    <script type="text/javascript" src="scripts/plugins/websocket.js"></script>
-    <script type="text/javascript">
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslide.js"></script>
+    <script>
         jQuery(document).ready(function ($) {
-            var wsurl = '{wsurl}';
-            var ks = new KSlideShow();
-            if (wsurl === '{wsurl}') {
-                // avoid the use of the keyboard if this page is used as a slave
-                var keyboardPlugin = new KKeyboard(ks);
-                ks.addPluginListener(keyboardPlugin);
-            }
-
-            var popupPlugin = new KPopupSlave(ks);
-            var iframePlugin = new KIFrameSlave(ks);
-            var webSocketPlugin = new KWebsocketSlave(ks, wsurl, '{roomID}');
-
-            ks.addPluginListener(popupPlugin);
-            ks.addPluginListener(iframePlugin);
-            ks.addPluginListener(webSocketPlugin);
+            var ks = new KSlide();
             ks.startKeynote();
         });
     </script>
@@ -42,19 +23,20 @@
         #Cover {
             background: #474444;
         }
-
         #CoverFooter {
             box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
+            color: #777;
             padding: 10px 20px 5px 5px;
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0em;
+            left: 0em;
+            right: 0em;
             color: #CCC;
             font-size: 0.5em;
             text-align: right;
             background: #00597B;
-            box-shadow: inset 0 10px 7px rgba(0, 0, 0, 0.4);
         }
 
         #Cover h2 {
@@ -82,9 +64,9 @@
 </head>
 <body class="list">
 <header class="caption">
-    <h1>Kevoree Keynote showcase</h1>
+    <h1>Kevoree Annotation API</h1>
 
-    <p><a href="http://kevoree.org/">Fouquet Francois & Erwan Daubert / Kevoree Team</a></p>
+    <p><a href="http://www.kevoree.org/">Fouquet Francois / Kevoree Team</a></p>
 </header>
 
 <section class="slide cover" id="Cover">
@@ -92,7 +74,7 @@
         <h2>Kevoree Keynote showcase</h2>
     </header>
     <object data="figures/kevoree-logo.png" type="image/png" class="low_middle" height="227" width="400"
-            style="top:30%;left:30%;"></object>
+            style="position:absolute;top:30%;left:30%;"></object>
     <div id="CoverFooter">Kevoree Team - Triskell INRIA/IRISA</div>
     <details>Some content to the speaker</details>
 </section>
@@ -125,7 +107,7 @@
 
 <section class="slide" id="image1">
     <h2>Image is good for comprehension</h2>
-    <img src="figures/kevoree-logo.png">
+    <img src="http://kevoree.org/img/kevoree-logo.png">
 </section>
 
 <section class="slide" id="image2">
@@ -138,7 +120,6 @@
 
 <section class="slide" id="image3">
     <h2>You can also add image incrementally</h2>
-
     <p>
         <span>And mix image</span>
         <img class="next" src="figures/kevoree-logo.png" width="300px">
@@ -167,21 +148,22 @@ MacOS user ? [This app is 4U](http://mouapp.com/).
 </section>
 
 
-<!-- Add SynthaxHighlighter -->
+
+ <!-- Add SynthaxHighlighter -->
 <script type="text/javascript" src="scripts/brush/shCore.js"></script>
 <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
 <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 <!-- Write some code in side .... -->
 
 <section class="slide">
     <h2>You can also Highlight some code</h2>
-
-    <p>This is a very complex code</p>
-    <pre class="brush: java">
+    <p>This is a very complexe code</p>
+    <pre class="brush: java toolbar:false;">
 public class MyClass {
     public static void main(String[] args){
-        //very complex things here...
+        //very complexe thing here...
     }
 }
     </pre>
@@ -189,9 +171,8 @@ public class MyClass {
 
 <section class="slide">
     <h2>It also work for plain XML code</h2>
-
     <p>Add XML without any modification !</p>
-          <pre class="brush: xml">
+          <pre class="brush: xml toolbar:false;">
 <plugin>
     <groupId>org.kevoree.tools</groupId>
     <artifactId>org.kevoree.tools.annotation.mavenplugin</artifactId>
@@ -211,6 +192,54 @@ public class MyClass {
 </plugin></pre>
 </section>
 
+<section class="slide" id="kevsCode">
+    <h2>It also work for KevScript</h2>
+    <p>Add some color to your kevscript file !</p>
+          <pre class="brush: kevscript toolbar:false;">
+//KevScript comment
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
+
+addNode node0 : JavaSENode {logLevel = "WARN"}
+addComponent webSrv@node0 : KTinyWebServer { port="8083" }
+addComponent wsSrv@node0 : WsServer
+
+addChannel req : defMSG
+addChannel res : defMSG
+bind webSrv.handler@node0 => req
+bind annotationSlides.request@node0 => req
+bind annotationSlides.content@node0 => res
+bind webSrv.response@node0 => res
+addGroup sync : NanoRestGroup
+addToGroup sync node0
+</pre>
+</section>
+
+<section class="slide shout">
+    <h2>One more thing !</h2>
+</section>
+
+<section class="slide" id="Anim1">
+    <header>
+        <h2>Extend by yourself</h2>
+    </header>
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px" id="animImg1">
+    <div class="next" id="divBackground">
+        Some information
+    </div>
+    <script type="text/javascript">
+        jQuery("#Anim1").bind('nextActivated', function (event, param1, param2) {
+            jQuery(document).ready(function () {
+                jQuery("#divBackground").css("background-color","blue");
+            });
+        });
+    </script>
+</section>
+
 
 <section class="slide shout">
     <h2>Play !</h2>
@@ -219,55 +248,6 @@ public class MyClass {
 <div class="progress">
     <div></div>
 </div>
-<!--<script src="scripts/kslideScript.js"></script>    -->
-<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
-
-<!--
-<link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
-
-<script src="aloha/lib/require.js"></script>
-<script src="aloha/lib/aloha.js"
-        data-aloha-plugins="
-        common/ui,
-        common/format,
-        common/highlighteditables,
-        common/link,
-        common/undo">
-</script>
-<script type="text/javascript">
-    Aloha = window.Aloha || {};
-    Aloha.settings = {
-        logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
-        errorhandling: false,
-        ribbon: {enable: true},
-        locale: 'en',
-        plugins: {
-            format: {
-                config: [  'b', 'i', 'p', 'sub', 'sup', 'del', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat' ]
-            }
-        },
-        sidebar: {
-            disabled: true
-        }
-    };
-    Aloha.ready( function() {
-        Aloha.jQuery('.slide').aloha();
-        Aloha.bind('aloha-editable-deactivated', function() {
-            document.addEventListener('keydown', keyEventListener, false);
-            document.addEventListener('touchstart', touchStartEvent, false);
-            document.addEventListener('touchmove', touchMoveEvent, false);
-            document.addEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
-            document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
-        });
-        Aloha.bind('aloha-editable-activated', function() {
-            document.removeEventListener('keydown', keyEventListener, false);
-            document.removeEventListener('touchstart', touchStartEvent, false);
-            document.removeEventListener('touchmove', touchMoveEvent, false);
-            document.removeEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
-            document.removeEventListener('click', dispatchSingleSlideModeFromEvent, false);
-        });
-    });
-</script>-->
 
 </body>
 </html>
