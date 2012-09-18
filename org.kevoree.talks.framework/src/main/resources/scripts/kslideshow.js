@@ -135,6 +135,8 @@ function KSlideShow () {
         // there is no slide selected, we select the first one
         if (-1 === getCurrentSlideNumber()) {
             history.replaceState(null, null, url.pathname + '?full' + getSlideHash(0));
+        } else {
+            history.replaceState(null, null, url.pathname + '?full' + getSlideHash(getCurrentSlideNumber()));
         }
         initializeInnerTransition(getCurrentSlideNumber());
         enterSlideMode();
