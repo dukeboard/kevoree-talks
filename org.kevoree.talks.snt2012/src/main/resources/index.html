@@ -55,7 +55,7 @@ ks.startKeynote();
 <body class="list">
 
 <header class="caption">
-    <h1>CBSE 2012 / Kevoree</h1>
+    <h1>SNT'2012 / Kevoree</h1>
     <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
 </header>
 
@@ -65,10 +65,10 @@ ks.startKeynote();
     <header>
         <div style="text-align: center;">
         <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
-            A Dynamic Component Model
+            Model@Runtime for distributed adaptive
         </span><br/>
             <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
-                for Cyber Physical Systems
+                Cyber Physical Systems
             </span><br/>
         <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
             <span class="iconFont3">G</span>
@@ -86,7 +86,7 @@ ks.startKeynote();
         </div>
         <div style="position : absolute;right: 12px;bottom: 0;">
            <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
-<span class="iconic arrow_right"> by </span> Francois Fouquet, Brice Morin, Franck Fleurey, Olivier Barais, Noel Plouzeau, Jean-Marc Jezequel</span>
+<span class="iconic arrow_right"> by </span> Francois Fouquet, Tiskell Team INRIA</span>
         </div>
     </header>
 </section>
@@ -103,29 +103,532 @@ ks.startKeynote();
     </header>
     <img style="position:absolute;top: 10px;left:10px;" src="figures/logoInria.png" width="200px"/>
     <img style="position:absolute;top: 10px;right:10px;" src="figures/logoUniv.png" width="200px"/>
-    <img style="position:absolute;bottom: 10px;left:10px;" src="cbsefig/Sintef-logo.gif" width="200px"/>
+    <img style="position:absolute;bottom: 10px;left:10px;" src="cbsefig/snt_logo.gif" width="120px"/>
     <img style="position:absolute;bottom: 10px;right:10px;" src="cbsefig/logoirisa2010hd.png" width="200px"/>
+</section>
+
+<!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
+<section class="slide" id="outline">
+    <header>
+        <h2>Talk outline</h2>
+    </header>
+    <ul>
+        <li class="next">Model@Runtime for DDAS</li>
+        <li class="next">Kevoree project</li>
+        <li class="next">Kevoree in the small</li>
+		<li class="next">Kevoree in the large</li>
+        <li class="next">Kevoree for Cloud</li>
+    </ul>
 </section>
 
 
 
+
+<section class="slide shout">
+    <h2><span class="kevOrange">></span>M@R for ubiquitous systems</h2>
+</section>
+
+
+
+<!-- Kevoree project concept description -->
+<section class="slide shout" id="KevoreeProjectCover">
+    <h2><span class="kevOrange">></span>Kevoree Project</h2>
+</section>
+
+<section class="slide" id="overview1">
+    <header>
+        <h2>Model@Runtime for DDAS</h2>
+    </header>
+    <ul>
+        <li class="next"><strong class="kevOrange">MDE@Runtime</strong>
+            <ul>
+                <li>Shared model representation for distributed nodes</li>
+                <li>Offline & online operation, compute@Model level, apply @Runtime</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">Component-based</strong>
+            <ul>
+                <!--   <li>Actor semantics on each ports to closely separate component behavior</li>   -->
+                <li>Communication semantics between component in channel</li>
+            </ul>
+        </li>
+        <!-- <li>Continuous Design, type definition continuous definition
+        <ul>
+            <li style="font-size: 18px;">Hot (re-)deploy & provisioning</li>
+        </ul>
+    </li>    -->
+        <li class="next">Heterogeneity management with NodeType
+            <ul>
+                <li> Java Node, Dalvik Node, Arduino Node</li>
+                <li>Cloud Node (Jails/*BSD, JCloud, mini-cloud, EC2)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="overview3">
+    <header>
+        <h2>Kevoree concepts</h2>
+    </header>
+    <ul>
+        <li class="next"><strong class="kevOrange">ComponentType</strong>
+            <ul>
+                <li>Encapsulate domain features</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">ChannelType</strong>
+            <ul>
+                <li>Encapsulate communication semantics</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">GroupType</strong>
+            <ul>
+                <li>Encapsulate model@runtime dissemination semantics</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">NodeType</strong>
+            <ul>
+                <li>Encapsulate adaptation semantics</li>
+            </ul>
+        </li>
+    </ul>
+    <object style="position:absolute;top: 150px;right: 10px;" data="figures/kevConcepts.png" type="image/png"
+            height="360"></object>
+</section>
+
+<section class="slide shout" id="KevoreeDesignCode">
+    <div style="position:absolute;top:0px;left:0px;bottom: 0px;right:0px">
+        <div style="width: 50%;height:100%; color: white; background: #000; float:left;">
+            <div style="position:absolute;top:50%;width:50%;">
+                <div style="color:#666;font:bold 50px/50px 'PT Sans Narrow', sans-serif;text-align: center;">
+                    <span class="kevOrange">Design</span> your code
+                </div>
+            </div>
+        </div>
+        <div style="width: 50%;height:100%; float:right;">
+            <div style="text-align:center;">
+                <br/>
+
+                <object data="figures/kevDesigner1.png"></object>
+                <br/>
+                <span class='iconic cog kevOrange'></span><br/>
+                <span class="iconic arrow_down_alt1 kevOrange"></span><br/>
+<pre class="brush:java toolbar:false;">
+@ComponentType
+@Provides({
+    @ProvidedPort(name = "on"),
+    @ProvidedPort(name = "off"),
+})
+public class DigitalLight
+    extends AbstractArduinoComponent {
+        //hard code goes here ...
+}
+</pre>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="slide shout" id="KevoreeCodeDesign">
+    <div style="position:absolute;top:0px;left:0px;bottom: 0px;right:0px">
+        <div style="width: 50%;height:100%; color: white; background: #000; float:left;">
+            <div style="position:absolute;top:50%;width:50%;">
+                <div style="color:#666;font:bold 50px/50px 'PT Sans Narrow', sans-serif;text-align: center;">
+                    <span class="kevOrange">Code</span> your design
+                </div>
+            </div>
+        </div>
+        <div style="width: 50%;height:100%; float:right;">
+            <div style="text-align:center;">
+<pre class="brush:java toolbar:false highlight:[5, 6];">
+@ComponentType
+@Provides({
+    @ProvidedPort(name = "on"),
+    @ProvidedPort(name = "off"),
+    @ProvidedPort(name = "toggle"),
+    @ProvidedPort(name = "flash")
+})
+public class DigitalLight
+    extends AbstractArduinoComponent {
+        //hard code goes here ...
+}
+</pre>
+                <span class='iconic cog kevOrange'></span><br/>
+                <span class="iconic arrow_down_alt1 kevOrange"></span><br/>
+
+                <p></p>
+                <object data="figures/kevDesigner2.png"></object>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kevoree in the small : CBSE'2012 conference -->
 <section class="slide shout" id="titleKevSmall">
     <h2><span class="kevOrange">></span>Kevoree in the small</h2>
 </section>
 
+
+
+
+<!-- Section Kevoree in the large -->
 <section class="slide shout" id="titleKevLarge">
     <h2><span class="kevOrange">></span>Kevoree in the large</h2>
 </section>
+
+<section class="slide shout" id="DMAR_CONCEPTS">
+    <h2 style="font-size : 60px">
+        Model@Runtime for distributed<br/>
+        <br/>
+        <span class='iconFont3 kevOrange'>g</span> modelling distributed <span class='iconFont3 kevOrange'>3</span><br/>
+        <br/>
+        share <span class='iconic share kevOrange'></span> distributed model itself
+    </h2>
+</section>
+
+<!-- Model@Runtime sample view -->
+<section class="slide" id="WiaModel">
+    <header>
+        <h2>A model abstract nodes configurations</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+</section>
+<section class="slide" id="WiaModel2">
+    <header>
+        <h2>Each node host a model@runtime engine</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+    <span id="marDengine1" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
+    <span id="marDengine2" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
+    <span id="marDengine3" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
+        });
+    </script>
+</section>
+
+<section class="slide shout" id="DMAR_CONCEPTS2">
+    <h2 style="font-size : 60px">
+        On update <span class='iconic document_fill kevOrange'></span> <span
+            class='iconic curved_arrow kevOrange'></span> node <br/>
+        <br/>
+        local apply <span class='iconFont3 kevOrange'>C</span><br/>
+        <br/>
+        disseminate <span class='iconFont3 kevOrange'>e</span> to peers
+    </h2>
+</section>
+
+<!-- Ubiquitous / independent node  -->
+<section class="slide" id="DMAR_concurrency">
+    <header>
+        <h2>(D)M@R need concurrency management</h2>
+    </header>
+    <div>
+        Ubiquitous environment <span class='iconic arrow_right_alt1 kevOrange'></span> each node can modify global
+        M@R layer<br/>
+        Mesh network <span class='iconic move_horizontal_alt2 kevOrange'></span> Sporadic nodes, intermittent
+        connections
+    </div>
+    <div style="text-align: center;">
+        <img src="figures/scluster.png" style="border-radius: 10px;"/>
+        <span class="iconraph" id="clusterSampleFailure" style="color:#ff3333;position:absolute;left:508px;font-size:50px;top:310px;">Â</span>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            jQuery(document).ready(function () {
+                setInterval("jQuery('#clusterSampleFailure').fadeOut(500);jQuery('#clusterSampleFailure').fadeIn(500);", 2000);
+            });
+        </script>
+    </div>
+    <ol style="font-size: 22px;">
+        <li class="next">
+            <div style="text-align : right;">node0 discovers node2 node and sends notification <span
+                    class='iconFont3 kevOrange'>e</span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes unreachable <span
+                    class='iconic battery_empty kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node1 and node0 add a component to node2<span
+                    class='iconFont3 kevOrange'>e</span>
+            </div>
+        </li>
+        <li class="next">
+            <div style="text-align : left;">node1 becomes reachable <span
+                    class='iconic battery_charging kevOrange'></span></div>
+        </li>
+        <li class="next">
+            <div style="text-align : right;">node2 must resolve configuration <span
+                    class='iconic fullscreen_exit_alt kevOrange'></span></div>
+        </li>
+    </ol>
+</section>
+
+<section class="slide shout" id="DMAR_motivations">
+    <header>
+        <h2 style="font-size : 70px;">
+            Similarly to P2P data management we need efficient ways to disseminate <span
+                class='iconFont3 kevOrange'>e</span><br/>
+            reconfiguration policies<span class="iconFont3 kevOrange">g</span>
+        </h2>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR">
+    <header>
+        <h2>Defining a gossiper protocol for (D)M@R</h2>
+        <ul>
+            <li class="next"><span class="kevOrange">VectorClock</span> to track branch & concurrency</li>
+            <li class="next"><span class="kevOrange">Gossiper</span> to deal with hostile mesh network</li>
+            <li class="next">Use M@R as a network topology layer</li>
+            <li class="next">Enrich node selection with network faults</li>
+            <li class="next">Every input stored in the <span class="kevOrange">M@R (payload)</span> itself to keep all dynamic without initial
+                configuration
+            </li>
+            <li class="next">Inverted communication, send payload only if necessary</li>
+            <blockquote class="next"><code>Combine VectorClock (VC) + Gossiper + M@R layer</code></blockquote>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR2">
+    <header>
+        <h2>Gossiper protocol for (D)M@R</h2>
+        <ul>
+            <li class="next">Messages : VectorClock or Tuple(VectorCLock,Model)</li>
+            <li class="next">Init : VectorClock <- (currentNode,0) & neighbourScores = 0</li>
+            <li class="next">
+                On local model update <span class='iconic document_fill kevOrange'></span> <span
+                    class='iconic curved_arrow kevOrange'></span>, current node
+                <ul>
+                    <li class="next">increment VectorClock : (currentNode, X) => (currentNode, X+1)</li>
+                    <li class="next">notify all neighbours (optional)</li>
+                </ul>
+            </li>
+            <li class="next">
+                <span class="iconic kevOrange clock"></span> Periodically
+                <ul>
+                    <li>Select a neighbour</li>
+                    <li>Send VectorClock request to selected node</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR4">
+    <header>
+        <h2>Exchanges rules</h2>
+        <ul>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> vectorClock from A => compare with local
+                <ul>
+                    <li>BEFORE or CONCURRENTLY => send model request <span
+                            class="iconic arrow_right_alt1 kevOrange"></span> A
+                    </li>
+                    <li>AFTER => noop (already update)</li>
+                </ul>
+            </li>
+            <li class="next">
+                on receive <span class='iconic curved_arrow kevOrange'></span> tuple vectorClock and model from A =>
+                compare with local
+                <ul>
+                    <li>BEFORE => update local node <span class='iconic box kevOrange'></span> with model, merge
+                        vectorClocks
+                    </li>
+                    <li>CONCURRENTLY => resolve and merge locally concurrent models, same operation as before
+                    </li>
+                    <li>AFTER => noop (already update)</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+</section>
+
+<section class="slide" id="GossiperDMAR5">
+    <header>
+        <h2>Neighbours selection</h2>
+    </header>
+    <ul>
+        <li class="next">Take node topology <span class="iconFont3 kevOrange">3</span> in current model</li>
+        <li class="next">Select neighbours that have the smallest score</li>
+        <li class="next">On each communication with A
+            <ul>
+                <li>if success <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br/>
+                    if node previously in failure or overflow => Score(A) = 0
+                </li>
+                <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 *
+                    (nbPastFailure(A)+1))
+                </li>
+            </ul>
+        </li>
+        <p class="next"><code>Score management aims at reducing failures nodes impact on cluster</code></p>
+    </ul>
+</section>
+
+<section class="slide shout" id="ExperimentationCover">
+    <h2><span class="kevOrange">></span>Experiments</h2>
+</section>
+
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation">
+    <header>
+        <h2>Gossiper Cluster Experiment</h2>
+    </header>
+    <ul>
+        <li>A quantitative and qualitative experimental evaluation has been done on Gossiper+VectorClock group
+            implementation.
+        </li>
+        <li>Experimental setup of 66 computational nodes</li>
+        <li>Connected through a local area network at 100MB/s</li>
+        <li>Topology model is randomly generated</li>
+        <li>Global time axis logger for metrics mesurement</li>
+    </ul>
+</section>
+
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_propagationdelay_vs_networkload">
+    <header>
+        <h2>Influence of the communication strategy on M@R propagation delay ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object data="figures/topology_exp1.png" type="image/png"></object>
+        <object data="figures/result_exp1.png" type="image/png" width="550px"></object>
+    </div>
+</section>
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_propagationdelay_vs_networkload_2">
+    <header>
+        <h2>Influence of the communication strategy on network load ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object data="figures/topology_exp1.png" type="image/png"></object>
+        <object data="figures/result2_exp1.png" type="image/png" class="middle" width="550px"></object>
+    </div>
+</section>
+
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_reconciliation">
+    <header>
+        <h2>Does the algorithm handle reconciliation ?</h2>
+    </header>
+    <div style="text-align: center;">
+        <object data="figures/result_exp2.png" type="image/png" width="620px"></object>
+    </div>
+    <span class="iconraph" style="color:#ff3333;position:absolute;left:340px;font-size:50px;top:510px;">o</span>
+    <span class="iconraph kevOrange" style="position:absolute;left:710px;font-size:50px;top:510px;">o</span>
+    <span class="iconraph kevOrange" id="mrrecT1"
+          style="position:absolute;left:200px;font-size:50px;top:550px;">Ö</span>
+    <span class="iconraph" id="mrrecT2"
+          style="color:#ff3333;position:absolute;left:330px;font-size:50px;top:550px;">×</span>
+    <span class="iconraph kevOrange" id="mrrecT3"
+          style="position:absolute;left:740px;font-size:50px;top:550px;">Ö</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("jQuery('#mrrecT2').fadeOut(500);jQuery('#mrrecT2').fadeIn(500);", 1000);
+        });
+    </script>
+</section>
+
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_nodelink_failure">
+    <header>
+        <h2>Node link failure impact on propagation ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object data="figures/topology_exp3.png" type="image/png"></object>
+        <object data="figures/result_exp3.png" type="image/png" class="middle" width="550px"></object>
+    </div>
+    <!-- Failure icons -->
+    <span class="iconraph exp2failIcon" id="exp2ico1"
+          style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:350px;">Â</span>
+    <span class="iconraph exp2failIcon" id="exp2ico2"
+          style="opacity:0;color:#ff3333;position:absolute;left:195px;font-size:25px;top:400px;">Â</span>
+    <span class="iconraph exp2failIcon" id="exp2ico3"
+          style="opacity:0;color:#ff3333;position:absolute;left:160px;font-size:25px;top:350px;">Â</span>
+    <span class="iconraph exp2failIcon" id="exp2ico4"
+          style="opacity:0;color:#ff3333;position:absolute;left:170px;font-size:25px;top:470px;">Â</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("" +
+                    "jQuery('#exp2ico1').delay(0).animate({ opacity: 1 }, 500).animate({ opacity: 0 }, 500);" +
+                    "jQuery('#exp2ico2').delay(1000).animate({ opacity: 1 }, 500).animate({ opacity: 0 }, 500);" +
+                    "jQuery('#exp2ico3').delay(2000).animate({ opacity: 1 }, 500).animate({ opacity: 0 }, 500);" +
+                    "jQuery('#exp2ico4').delay(3000).animate({ opacity: 1 }, 500).animate({ opacity: 0 }, 500);", 4000);
+        });
+    </script>
+    <!-- Introduction points / collect points -->
+    <span class="iconraph kevOrange" style="position:absolute;left:90px;font-size:50px;top:198px;">o</span>
+    <span class="iconraph kevOrange" style="position:absolute;left:308px;font-size:50px;top:455px;">o</span>
+</section>
+
+<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_nodelink_failure2">
+    <header>
+        <h2>Node link failure impact on propagation ?</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <div style="position:absolute;left:35px;width:360px; float:left; text-align: left;">
+            <ul>
+                <li>New model injected each run</li>
+                <li>Propagation delay for global acceptance of cluster</li>
+                <li>100% reachable node always receive the new configuration</li>
+                <li>Acceptable before 70% of failure, results dependant to topology</li>
+            </ul>
+        </div>
+        <div style="float:right;">
+            <object data="figures/result_exp3.png" type="image/png" class="middle" width="550px"></object>
+        </div>
+    </div>
+</section>
+
+
+<section class="slide" id="ccl2">
+    <header>
+        <h2>Concurrency resolution</h2>
+    </header>
+    <blockquote>Concurrency resolution is always a challenge for ubiquitous P2P dissemination</blockquote>
+    <ul>
+        <li class="next">Concurrent M@R resolution <span class='iconic move_horizontal_alt2 kevOrange'></span> model
+            merging
+        </li>
+        <li class="next">Basic merge operation eased by model techniques</li>
+        <li class="next">
+            Resolution must be helped by priority rules, use case dependant
+            <ul>
+                <li>E.g.: Each node self definition has priority prior to others</li>
+            </ul>
+        </li>
+        <li class="next">Deleting a node is challenging, how differentiate node <code>A not yet detected</code> and <code>A is deleted</code></li>
+    </ul>
+</section>
+
 
 <section class="slide shout" id="titleKevCloud">
     <h2><span class="kevOrange">></span>Kevoree for Cloud <span class="iconic cloud kevOrange"></span></h2>
 </section>
 
+<!-- Last slide, last chance -->
+
+<section class="slide" id="onlyRetains">
+    <header><h2>Only one slide to remember</h2></header>
+    <p>If you don't understand anything <span class="kevOrange iconraph">R</span></p>
+    <ul>
+		<li class="next">I'm sorry :-), <span class="kevOrange iconraph">>=M</span> <a href="mailto:ffouquet@irisa.fr">ffouquet@irisa.fr</a></li>
+		<li class="next">Kevoree == Abstraction model for distributed adaptive systems <span class="kevOrange iconraph">Ü</span></li>
+		<li class="next">Model@Runtime ease the manipulation of systems <span class="kevOrange iconraph">P</span></li>
+		<li class="next">Homogenous adaptation for heterogenous CPS devices</li>
+		<li class="next">Large scale adaptation with Gossip or Paxos</li>
+		<li class="next">Ready for cloud development and elasticity algorithm development <span class="kevOrange iconraph">k</span></li>
+		<li class="next">Open source <span class="iconraph kevOrange">U</span></li>
+    </ul>
+</section>
 
 <section class="slide shout" id="ThanksYouCover">
     <h2><span class="kevOrange">></span>Thank you</h2>
 </section>
-
 
 <!-- Kevoree Publication -->
 <section class="slide" id="ref">
@@ -136,12 +639,10 @@ ks.startKeynote();
         <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
             Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
         </li>
-        <!--
         <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
             Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
             Engineering. Bertinoro, Italy, June 2012.
         </li>
-        -->
         <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
             models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
             European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
