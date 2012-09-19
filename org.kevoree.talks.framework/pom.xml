@@ -30,4 +30,42 @@
             <version>${kevoree.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>1.5.2</version>
+                <executions>
+                    <execution>
+                        <id>default-minify</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <!--
+                            <cssSourceDir>css</cssSourceDir>
+                            <cssSourceFiles>
+                                <cssSourceFile>file-1.css</cssSourceFile>
+                                <cssSourceFile>file-n.css</cssSourceFile>
+                            </cssSourceFiles>
+                            <cssFinalFile>style.css</cssFinalFile>
+                        -->
+                            <jsSourceDir>${basedir}/src/main/resources/scripts</jsSourceDir>
+                            <jsSourceFiles>
+                                <jsSourceFile>jquery.min.js</jsSourceFile>
+                                <jsSourceFile>screenfull.min.js</jsSourceFile>
+                                <jsSourceFile>kslideshow.js</jsSourceFile>
+                            </jsSourceFiles>
+                            <jsFinalFile>kslideshow.min.js</jsFinalFile>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>
