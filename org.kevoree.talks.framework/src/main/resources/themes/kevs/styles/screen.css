@@ -12,6 +12,10 @@ body {
     font: 25px/2 'PT Sans', sans-serif;
 }
 
+.slide > details {
+    display: none;
+}
+
 /* Slide
 ------------------------------- */
 .slide {
