@@ -11,13 +11,10 @@
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
-
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/screenfull.min.js"></script>
     <script type="text/javascript" src="scripts/kslideshow.js"></script>
     <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-	
-
     <style>
         body:not(.list) > .slide:not(.cover):not(.shout):before{
             position: absolute;
@@ -30,6 +27,9 @@
         }
         .kevOrange {
             color: #DF9D00;
+        }
+        .kevGray {
+            color: #666;
         }
         .slide code {
             background-color: rgba(223, 157, 41, 0.4);
@@ -86,7 +86,7 @@ ks.startKeynote();
         </div>
         <div style="position : absolute;right: 12px;bottom: 0;">
            <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
-<span class="iconic arrow_right"> by </span> Francois Fouquet, Tiskell Team INRIA</span>
+<span class="iconic arrow_right"> by </span> Francois FOUQUET, Triskell Team INRIA</span>
         </div>
     </header>
 </section>
@@ -107,69 +107,68 @@ ks.startKeynote();
     <img style="position:absolute;bottom: 10px;right:10px;" src="cbsefig/logoirisa2010hd.png" width="200px"/>
 </section>
 
-<!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
+<!-- This slide introduce the talk, DDAS needs, Kevoree solution, 3 axis of development -->
+<!-- 
+M@R : 10 slides
+Kevoree : 4 slides
+KevSmall : 10 slides
+KevLarge : 8 slides
+KevCloud : 7 slides
+Total useful slides: 39 slides
+-->
 <section class="slide" id="outline">
     <header>
         <h2>Talk outline</h2>
     </header>
     <ul>
-        <li class="next">Model@Runtime for DDAS</li>
-        <li class="next">Kevoree project</li>
-        <li class="next">Kevoree in the small</li>
-		<li class="next">Kevoree in the large</li>
-        <li class="next">Kevoree for Cloud</li>
+        <li class="next">Model@Runtime for DDAS
+			<span class="kevOrange iconFont3" style="position:absolute;top: 100px;right:200px;font-size: 70px">3</span>
+		</li>
+        <li class="next">Kevoree project
+			<span class="iconic arrow_down kevGray" style="position:absolute;top: 200px;right:215px;font-size: 40px"></span>
+			<img src="figures/kevoree-logo.png" style="position:absolute;top: 260px;right:150px;width:180px;">
+			<ul>
+		        <li class="next">in the small
+					<span class="iconic fork kevGray" style="position:absolute;top: 360px;right:380px;font-size: 40px"></span>
+					<img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg" style="position:absolute;top: 440px;right:340px;width:120px;">
+				</li>
+				<li class="next">in the large
+					<span class="iconic fork kevGray" style="position:absolute;top: 360px;right:230px;font-size: 40px"></span>
+					<img src="figures/topology_exp3.png" style="position:absolute;top: 440px;right:170px;width:150px;">	
+				</li>
+		        <li class="next">for Cloud (Sky)
+					<span class="iconic fork kevGray" style="position:absolute;top: 360px;right:80px;font-size: 40px"></span>
+					<span class="iconic cloud kevOrange" style="position:absolute;top: 420px;right:60px;font-size: 70px"></span>
+				</li>
+			</ul>
+		</li>
+
     </ul>
 </section>
 
-
-
-
-<section class="slide shout">
-    <h2><span class="kevOrange">></span>M@R for ubiquitous systems</h2>
+<section class="slide shout" id="mar_title">
+    <h2><span class="kevOrange">></span>Model@Runtime for DDAS</h2>
 </section>
 
-<section class="slide" id="DAS1">
+<section class="slide" id="mar_context">
     <header><h2>"Eternal" system</h2></header>
     <ul>
-        <li class="next"><code>Dynamically adaptive systems (DAS)</code> <=> ability to make their behaviors and/or
+        <li class="next"><code>Dynamically adaptive systems (DAS)</code> <span class="iconic move_horizontal_alt2 kevOrange"></span> ability to make their behaviors and/or
             functionalities evolve at runtime.
         </li>
         <li class="next">Typically used for applications where it's hard/impossible to anticipate needs at design time
             <=> <code>Continuous</code> <span style="font-size: 30px;" class="iconic spin kevOrange"></span> <code>design</code>
         </li>
-        <li class="next">Necessity to define a manipulation granularity <br/>=> common approach : component based
+        <li class="next">Necessity to define a manipulation granularity <br/><span class="iconic arrow_right_alt1 kevOrange"></span> common approach : component based
             development
         </li>
-    </ul>
-</section>
-
-<section class="slide" id="DAS2">
-    <header><h2>"Eternal" systems need continuous adaptations</h2></header>
-    <blockquote>Once reserved for critical systems, <code>DAS</code> approaches are now used for more humble systems,
-        for
-        several reasons
-    </blockquote>
-    <ul>
-        <span class="next"></span>
-        <li class="next">High availability
-            <ul>
-                <li>Cloud <span class="iconic cloud kevOrange"></span>, web servers, <span
-                        class="iconFont3 kevOrange">4</span> monitoring
-                    sensors network, etc ... need the famous 99,99% uptime
-                </li>
-            </ul>
-        </li>
-        <li class="next">Time to market and hyper agility
-            <ul>
-                <li>Agile methods <-> release often / continuously improve the design<br/>
-                    Need to adapt SE method from the V cycle to continuous delivery ...
-                </li>
-            </ul>
+        <li class="next">Agile methods <span class="iconic move_horizontal_alt2 kevOrange"></span> release often / continuously improve the design<br/>
+            Need to adapt SE method from the V cycle to continuous delivery ...
         </li>
     </ul>
 </section>
 
-<section class="slide" id="DSys1">
+<section class="slide" id="mar_dcontext">
     <header><h2>Heterogeneity and distribution</h2></header>
     Influenced namely by new mobility usages and Internet of Things (IoT), several new devices are now part of
     modern systems
@@ -188,11 +187,7 @@ ks.startKeynote();
 
 </section>
 
-<section class="slide shout" id="ChallengesCover">
-    <h2><span class="kevOrange">></span>Challenges</h2>
-</section>
-
-<section class="slide shout" id="DASINPUT">
+<section class="slide shout" id="mar_dubiquitous">
     <h2 style="font-size : 60px">Ubiquitous <span class='iconic iphone kevOrange'></span> need <br/>
         <br/>
         contextual <span class="iconFont3 kevOrange">4</span> knowledge <span class="iconFont3 kevOrange">i</span><br/>
@@ -201,7 +196,7 @@ ks.startKeynote();
     </h2>
 </section>
 
-<section class="slide" id="DistributedProblems">
+<section class="slide" id="mar_needReflexion">
     <header>
         <h2>Adaptive systems need reflexion</h2>
     </header>
@@ -225,10 +220,9 @@ ks.startKeynote();
             <span class='iconic iphone'></span>
         </li>
     </ul>
-    <details>Need inputs ...</details>
 </section>
 
-<section class="slide" id="DistributedHeterogenity">
+<section class="slide" id="mar_heterogenity">
     <header>
         <h2>Heterogeneous dissemination strategy</h2>
     </header>
@@ -261,45 +255,7 @@ ks.startKeynote();
     <!--Total order, Partial order: common challenges in distributed softwares   -->
 </section>
 
-<section class="slide" id="StrategyHeterogenity">
-    <header>
-        <h2>Mix them all !</h2>
-    </header>
-    Complex architectures, especially on field sporadic usage, lead to composition of dissemination strategies
-    <ul>
-        <li class="next">M1 & M2 are mobile nodes, group will use partial order</li>
-        <li class="next">S1 & S2 are cluster nodes, group will use total order</li>
-        <li class="next">A partial order group is between M2 & S2.</li>
-        <li class="next">
-            M1 <span class='iconic iphone'></span> <span class='iconic arrow_right'></span> <span
-                class='iconic question_mark'></span>
-            S1 <span class="iconFont3">3</span> <span class='iconic arrow_left'></span><span
-                class='iconic arrow_right'></span>
-            S2 <span class="iconFont3">3</span> <span class='iconic arrow_left'></span> <span
-                class='iconic question_mark'></span>
-            M2 <span class='iconic iphone'></span>
-        </li>
-        <li class="next"> mess ... <span class="iconFont3 kevOrange">2</span></li>
-    </ul>
-</section>
-
-<section class="slide" id="mr_dissemination_distributedScope">
-    <header>
-        <h2>Dissemination scope</h2>
-    </header>
-    <blockquote>Global synchronization is not an option for ubiquitous architecture</blockquote>
-    <span class='iconic arrow_right kevOrange'></span> Need different scope of this synchronization
-    defined by the group
-    Considering two group of nodes: (A,B) & (B,C)
-    <ul>
-        <li class="next">A & B share context, B & C share another context</li>
-        <li class="next">A & C don't share anything, cluster defines synchronized elements</li>
-        <li class="next">A & C can be unsynchronized if cluster 2 ensures a partial order</li>
-        <li class="next"> mess ... <span class="iconFont3 kevOrange">2</span></li>
-    </ul>
-</section>
-
-<section class="slide" id="mr_dissemination_problem_overview">
+<section class="slide" id="mar_architecturalNeeds">
     <header>
         <h2>Architectural abstraction needed !</h2>
     </header>
@@ -308,15 +264,10 @@ ks.startKeynote();
         dissemination strategies
     </blockquote>
     <h2></h2><br/>
-
     <h2 style="text-align : center;">Model as context <span class="iconFont3 kevOrange">g</span><br/></h2>
 </section>
 
-<section class="slide shout" id="ContextMAR">
-    <h2><span class="kevOrange">></span>Model@Runtime</h2>
-</section>
-
-<section class="slide shout" id="ContextMARIntro">
+<section class="slide shout" id="mar_deployModel">
     <h2 style="font-size : 60px">
         Node = Runtime
         <span class='iconic box kevOrange'></span>
@@ -326,7 +277,7 @@ ks.startKeynote();
     </h2>
 </section>
 
-<section class="slide shout" id="ContextMARIntro2">
+<section class="slide shout" id="mar_evolution">
     <h2 style="font-size : 60px">
         Evolution = <br/>
         <br/>
@@ -341,7 +292,7 @@ ks.startKeynote();
     </h2>
 </section>
 
-<section class="slide shout" id="ContextMARIntro3">
+<section class="slide shout" id="mar_update">
     <h2 style="font-size : 60px">
         On update <span class='iconic document_fill kevOrange'></span> <span
             class='iconic curved_arrow kevOrange'></span> node
@@ -354,6 +305,7 @@ ks.startKeynote();
             class='iconic document_fill kevOrange'></span> <br/>
         <br/>
         Or <span class='iconic undo kevOrange'></span> rollback
+		<br/>
     </h2>
 </section>
 
@@ -369,11 +321,11 @@ ks.startKeynote();
 
 
 <!-- Kevoree project concept description -->
-<section class="slide shout" id="KevoreeProjectCover">
+<section class="slide shout" id="kevproject_title">
     <h2><span class="kevOrange">></span>Kevoree Project</h2>
 </section>
 
-<section class="slide" id="overview1">
+<section class="slide" id="kevproject_overview">
     <header>
         <h2>Model@Runtime for DDAS</h2>
     </header>
@@ -404,7 +356,7 @@ ks.startKeynote();
     </ul>
 </section>
 
-<section class="slide" id="overview3">
+<section class="slide" id="kevproject_concepts">
     <header>
         <h2>Kevoree concepts</h2>
     </header>
@@ -434,7 +386,7 @@ ks.startKeynote();
             height="360"></object>
 </section>
 
-<section class="slide shout" id="KevoreeDesignCode">
+<section class="slide shout" id="kevproject_designcode">
     <div style="position:absolute;top:0px;left:0px;bottom: 0px;right:0px">
         <div style="width: 50%;height:100%; color: white; background: #000; float:left;">
             <div style="position:absolute;top:50%;width:50%;">
@@ -466,7 +418,7 @@ public class DigitalLight
         </div>
     </div>
 </section>
-<section class="slide shout" id="KevoreeCodeDesign">
+<section class="slide shout" id="kevproject_codedesign">
     <div style="position:absolute;top:0px;left:0px;bottom: 0px;right:0px">
         <div style="width: 50%;height:100%; color: white; background: #000; float:left;">
             <div style="position:absolute;top:50%;width:50%;">
@@ -500,13 +452,22 @@ public class DigitalLight
     </div>
 </section>
 
+
+<section class="slide" id="kevproject_tools">
+    <img src="sntfig/codeEditorScreenshot.png" style="position: absolute; left:290px; top:50px; height:220px;"  />
+	<img src="sntfig/editorScreenShot.png" style="position: absolute; left:50px; bottom:50px; height:220px;" />
+	<img src="sntfig/runtimeScreenshot.png" style="position: absolute; right:50px; bottom:50px; height:220px;" />
+	<span class="iconic spin_alt kevOrange" style="position: absolute; right:470px; bottom:230px; font-size:80px;"></span>
+</section>
+
+
 <!-- Kevoree in the small : CBSE'2012 conference -->
-<section class="slide shout" id="titleKevSmall">
+<section class="slide shout" id="kevsmall_title">
     <h2><span class="kevOrange">></span>Kevoree in the small</h2>
 </section>
 
 
-<section class="slide" id="CPSContext">
+<section class="slide" id="kevsmall_device_diversity">
     <header><h2>Devices diversity</h2></header>
     <ul>
         <li class="next">New mobility usages boost low consumption computer development</li>
@@ -530,7 +491,7 @@ public class DigitalLight
     </ul>
 </section>
 
-<section class="slide" id="CPSContext2">
+<section class="slide" id="kevsmall_cps_challenge">
     <header><h2>CPS challenges</h2></header>
     <ul>
         <li class="next">Buzz words: IoT and CPS <br/>
@@ -548,7 +509,7 @@ public class DigitalLight
     </ul>
 </section>
 
-<section class="slide" id="cpsUseCaseSmartBuilding">
+<section class="slide" id="kevsmall_cps_usecase">
     <header><h2>CPS use case : SmartBuilding</h2></header>
     <span>SmartBuilding</span> case study
     <img class="next" src="cbsefig/towerLogo.png" style="position:absolute; height:420px;right:100px;"/>
@@ -582,17 +543,7 @@ public class DigitalLight
     </ul>
 </section>
 
-<!--
-<section class="slide" id="cpsUseCaseFireFighters">
-    <header><h2>CPS use case : Firefighters</h2></header>
-    <span>DAUM project</span> case study : tactical system
-    <img class="next" src="cbsefig/towerLogo.png" style="position:absolute; height:420px;right:100px;" />
-    <ul>
-        <li>Hello</li>
-    </ul>
-</section>
-   -->
-<section class="slide" id="uC4CPS">
+<section class="slide" id="kevsmall_uc4cps">
     <header><h2>&mu;Controllers are candidates for CPS!</h2></header>
     <img src="cbsefig/chipFactory.jpg"
          style="position:absolute;border-radius: 10px;height: 200px;right:15px;top: 210px;"/>
@@ -609,213 +560,7 @@ public class DigitalLight
     </p>
 </section>
 
-<section class="slide" id="CPSasDDAS">
-    <header>
-        <h2>Considering CPS as adaptive systems</h2>
-    </header>
-    <ul>
-        <li>CPS tend to be volatile ubiquitous systems, node appear and disappear</li>
-        <li>CPS are versatile, many usages, many use cases
-            <ul>
-                <li>Exemple : your temp sensor can be used for home automation usage or emergency presence detector</li>
-            </ul>
-        </li>
-        <li>Time to market too short to wait for exhaustive design</li>
-    </ul>
-    <code>
-        Consider CPS as DDAS to ensure evolution?
-        <br/>
-        How to manage distributed reconfiguration?
-        <br/>
-        How to manage runtime heterogeneity?
-    </code>
-</section>
-
-<section class="slide" id="DistributedProblems">
-    <header>
-        <h2>Adaptive systems need reflexion</h2>
-    </header>
-    but direct access on reflexive layer is problematic in several distributed architectures
-    <ul>
-        <li class="next"><strong class="kevOrange">Sporadic nodes</strong>: direct reflexive access is not
-            always<code>reachable</code>
-            <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">g</span><span
-                    class="glyph general">u</span><span class="glyph general">p</span>
-        </li>
-        <li class="next"><strong class="kevOrange">Heterogeneous nodes</strong>: direct access is not always provided
-            by restrictive runtime
-            <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">t</span><span
-                    class="glyph general">u</span><span class="glyph general">q</span>
-        </li>
-        <li class="next"><strong class="kevOrange">Embedded nodes</strong>: direct access can be an issue for the
-            <code>battery life</code>
-            <span class="glyph general">p</span> <!-- computer -->
-            <span class="glyph general">v</span><span class="glyph general">u</span>
-            <span class="iconic battery_half"></span>
-            <span class='iconic iphone'></span>
-        </li>
-    </ul>
-</section>
-
-
-<section class="slide" id="mr_dissemination_problem_overview">
-    <header>
-        <h2>Architectural abstraction needed !</h2>
-    </header>
-    <code>Claim : </code>
-    <blockquote>To address all these problems, we need to provide an abstraction to manipulate and compose
-        autonomous nodes configurations
-    </blockquote>
-    <br/>
-
-    <h2 style="text-align : center;">Component based design<br/></h2>
-
-    <h2 style="text-align : center;">Model reflexion layer <span class="iconFont3 kevOrange">g</span><br/></h2>
-</section>
-
-<section class="slide shout" id="marCPS">
-    <h2><span class="kevOrange">></span>Model@Runtime for CPS?</h2>
-</section>
-
-<!-- DMARContext -->
-<section class="slide shout" id="ContextMARIntro">
-    <h2 style="font-size : 60px">
-        Node = Runtime
-        <span class='iconic box kevOrange'></span>
-        <span class='iconic loop_alt2'></span>
-        <span class='iconic document_alt_fill kevOrange'></span>
-        Model
-    </h2>
-</section>
-
-<!--
-<section class="slide shout" id="ContextMARIntro2">
-    <h2 style="font-size : 60px">
-        Evolution = <br/>
-        <br/>
-        1 - Fork <span class='iconic fork kevOrange'></span> current <span
-            class='iconic document_alt_fill kevOrange'></span> <br/>
-        <br/>
-        2 - Modify <span class='iconic equalizer kevOrange'></span> to produce <span
-            class='iconic document_fill kevOrange'></span>
-        <br/>
-        <br/>
-        3 - Send <span class='iconic arrow_right kevOrange'></span> to <span class='iconic box kevOrange'></span>
-    </h2>
-</section>
-
-<section class="slide shout" id="ContextMARIntro3">
-    <h2 style="font-size : 60px">
-        On update <span class='iconic document_fill kevOrange'></span> <span
-            class='iconic curved_arrow kevOrange'></span> node
-        <br/>
-        <br/>
-        Compare / current <span class='iconic document_alt_fill kevOrange'></span> produce diff <span
-            class='iconic list_nested kevOrange'></span> <br/>
-        <br/>
-        Interpret on <span class='iconic box kevOrange'></span> if ok set as current <span
-            class='iconic document_fill kevOrange'></span> <br/>
-        <br/>
-        Or <span class='iconic undo kevOrange'></span> rollback
-    </h2>
-</section>
--->
-
-
-<!-- Kevoree Overview -->
-<!-- Kevoree Overview -->
-<section class="slide" id="MAR_PROCESS">
-    <header>
-        <h2>Model@Runtime process</h2>
-    </header>
-    <object style="position : absolute;top: 150px;left : 150px;" data="figures/modelATruntimeFinal.png" type="image/png"
-            class="middle" height="450"></object>
-</section>
-
-<section class="slide shout" id="DMAR_CONCEPTS">
-    <h2 style="font-size : 60px">
-        Model@Runtime for distributed<br/>
-        <br/>
-        <span class='iconFont3 kevOrange'>g</span> modelling distributed <span class='iconFont3 kevOrange'>3</span><br/>
-        <br/>
-        share <span class='iconic share kevOrange'></span> distributed model itself
-    </h2>
-</section>
-
-<!-- Model@Runtime sample view -->
-<section class="slide" id="WiaModel">
-    <header>
-        <h2>A model for abstract node configurations</h2>
-    </header>
-    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
-</section>
-<section class="slide" id="WiaModel2">
-    <header>
-        <h2>Each node hosts a model@runtime engine</h2>
-    </header>
-    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
-    <span id="marDengine1" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
-    <span id="marDengine2" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
-    <span id="marDengine3" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
-    <script type="text/javascript">
-        //jQuery.noConflict();
-        jQuery(document).ready(function () {
-            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
-            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
-            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
-        });
-    </script>
-</section>
-
-
-<section class="slide" id="WiaModel3">
-    <header>
-        <h2>M@R nodes exchange models (Gossip,...)</h2>
-    </header>
-    <img class="next" src="figures/dmar_sample.png" style="border-radius: 10px;">
-
-    <div class="next" id="WiaModel3_s1">
-              <span id="mar2Dengine1" class="iconraph kevOrange"
-                    style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
-    <span id="mar2Dengine2" class="iconraph kevOrange"
-          style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
-    </div>
-    <script type="text/javascript">
-        jQuery("#WiaModel3_s1").bind('nextActivated', function (event, param1, param2) {
-            jQuery(document).ready(function () {
-                $('#mar2Dengine1').
-                        transition({ x:'0px', y:'0px' }, 0).
-                        transition({ x:'0px' }, 800).
-                        transition({ y:'-60px', x:'-60px' }, 800).
-                        transition({ x:'220px' }, 1000);
-                $('#mar2Dengine2').
-                        transition({ x:'0px', y:'0px' }, 0).
-                        transition({ x:'0px' }, 800).
-                        transition({ y:'-60px', x:'-60px' }, 800).
-                        transition({ x:'220px', y:'80px' }, 1000);
-            });
-        });
-    </script>
-</section>
-
-
-<!--
-<section class="slide shout" id="DMAR_CONCEPTS2">
-    <h2 style="font-size : 60px">
-        On update <span class='iconic document_fill kevOrange'></span> <span
-            class='iconic curved_arrow kevOrange'></span> node <br/>
-        <br/>
-        local apply <span class='iconFont3 kevOrange'>C</span><br/>
-        <br/>
-        disseminate <span class='iconFont3 kevOrange'>e</span> to peers
-    </h2>
-</section>
--->
-
-<section class="slide" id="muKevoree1">
+<section class="slide" id="kevsmall_uc_challenges">
     <header><h2>Challenges of adaptation on &mu;C</h2></header>
     <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
          style="position: absolute;right:100px;height:100px;top:280px;"/>
@@ -830,10 +575,6 @@ public class DigitalLight
     <span class="kevOrange">
         <span class="iconic arrow_right_alt1"></span> use more powerful sibling to pre-compile adaptations<br/>
     </span>
-</section>
-
-<section class="slide shout" id="uKev">
-    <h2><span class="kevOrange">></span>&mu;Kevoree</h2>
 </section>
 
 <section class="slide">
@@ -869,7 +610,7 @@ public class TempSensor
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide" id="kevsmall_behind_scene">
     <header><h2>Behind the scene</h2></header>
     <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 400px; right : 50px; top:280px;"/>
     <ul>
@@ -898,68 +639,7 @@ public class TempSensor
     </ul>
 </section>
 
-
-<section class="slide" id="muKevoree2">
-    <header><h2>Dynamic adaptation with (&mu;)Kevoree</h2></header>
-    <ul>
-        <li class="next"><span class="kevOrange">Level 1: Parametric adaptation: parameter update</span>
-            <ul>
-                <li>Action: send adaptation (kev)script</li>
-            </ul>
-            <img src="cbsefig/updateParamL1.png"
-                 style="position:absolute;right:15px;width: 350px;top: 200px; border-radius: 5px;"/>
-        </li>
-        <li class="next"><span class="kevOrange">Level 2: Architectural adaptation</span>
-            <ul>
-                <li>Action: send adaptation (kev)script</li>
-            </ul>
-            <span class='iconic arrow_down kevOrange'
-                  style="position:absolute;right:30px;width: 180px;top: 350px; font-size: 30px;"></span>
-            <img src="cbsefig/addInst.png"
-                 style="position:absolute;right:100px;width: 180px;top: 400px; border-radius: 5px;"/>
-        </li>
-        <li class="next"><span class="kevOrange">Level 3: Dynamic provisioning of types</span>
-            <ul>
-                <li>Components, Channels <-> C Struct</li>
-                <li>Action: generate new firmware, reboot</li>
-            </ul>
-        </li>
-        <li class="next"><span class="kevOrange">Level 4: Adaptation for remote management</span>
-            <ul>
-                <li>Limited action: forward script to peers</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide" id="DynArduinoProcess">
-    <img src="cbsefig/dynProcess.png" style="width:100%;">
-</section>
-
-<section class="slide" id="DynArduinoProperty">
-    <header>
-        <h2>Kevoree + &mu;Kevoree properties</h2>
-    </header>
-    <span class="kevOrange">&mu;Kevoree model@runtime interface to &mu;C</span>
-    <ul>
-        <li>Gives access to a model representation of internal state</li>
-        <li>Provides incremental update remotely with short downtime</li>
-    </ul>
-    <span class="kevOrange">Using model@runtime on all CPS entities</span>
-    <ul>
-        <li>Homogeneous reflexion layer on all CPS</li>
-        <li>Allows for global reasoning and seamless adaptation</li>
-    </ul>
-    <img src="cbsefig/globalKev.png" style="position: absolute; border-radius: 10px; right : 25px; top:160px;"/>
-    <span class="iconic kevOrange magnifying_glass"
-          style="position: absolute; right : 150px; top:400px; font-size: 100px;"></span>
-</section>
-
-<section class="slide shout" id="ExperimentationCover">
-    <h2><span class="kevOrange">></span>Experiments</h2>
-</section>
-
-<section class="slide" id="common_pro_exp">
+<section class="slide" id="kevsmall_expProtocl">
     <header>
         <h2>Experimental protocol</h2>
     </header>
@@ -979,7 +659,7 @@ public class TempSensor
     </ul>
 </section>
 
-<section class="slide" id="AdaptationSpeed">
+<section class="slide" id="kevsmall_rawResult">
     <header>
         <h2>Experiment raw result</h2>
     </header>
@@ -1002,7 +682,8 @@ public class TempSensor
         </div>
     </div>
 </section>
-<section class="slide" id="AdaptationSpeedResult">
+
+<section class="slide" id="kevsmall_adaptTime">
     <header>
         <h2>Adaptation speed distribution?</h2>
     </header>
@@ -1021,72 +702,21 @@ public class TempSensor
         <object class="next" data="cbsefig/SDRandomPercentile.png" type="image/png" style="height:450px;"></object>
     </div>
 </section>
-<section class="slide" id="SDRAM_Result">
-    <header>
-        <h2>How many instances?</h2>
-    </header>
-    <ul>
-        <li>Protocol: each run
-            <ul>
-                <li>Inject one component</li>
-                <li>Probes monitor <code>RAM</code></li>
-            </ul>
-        </li>
-        <li><code>Instances</code> capacity<br/> ~= pin numbers</li>
-        <li>Common usage
-            <ul>
-                <li>1 component by *pin</li>
-                <li>[1-3] rules engines</li>
-                <li><span class="kevOrange iconic arrow_right_alt1"></span> Acceptable</li>
-            </ul>
-        </li>
-    </ul>
-    <div style="text-align: center;position:absolute;right:25px;top:160px;">
-        <object data="cbsefig/sdramCapacity.png" type="image/png" style="height:450px;"></object>
-    </div>
-</section>
-<section class="slide" id="BootTime_Result">
-    <header>
-        <h2>Memory impact on boot time?</h2>
-    </header>
-    <ul>
-        <li>Which buffer size ?</li>
-        <li>EE <span class="iconic kevOrange move_horizontal_alt2"></span> EEPROM</li>
-        <li>SD <span class="iconic kevOrange move_horizontal_alt2"></span> SD FLASH</li>
-        <li>Read speed EE < SD</li>
-        <li>Over 10kb of buffer <br/>
-            Boot time > mean(adapt) <br/>
-            <span class="iconic kevOrange arrow_right_alt1"></span> Overhead
-        </li>
-    </ul>
-    <div style="text-align: center;position:absolute;right:25px;top:160px;">
-        <object data="cbsefig/PMemBootInfluence.png" type="image/png" style="height:450px;"></object>
-    </div>
-</section>
+
 
 <!-- Section Kevoree in the large -->
-<section class="slide shout" id="titleKevLarge">
+<section class="slide shout" id="kevlarge_title">
     <h2><span class="kevOrange">></span>Kevoree in the large</h2>
 </section>
 
-<section class="slide shout" id="DMAR_CONCEPTS">
-    <h2 style="font-size : 60px">
-        Model@Runtime for distributed<br/>
-        <br/>
-        <span class='iconFont3 kevOrange'>g</span> modeling distributed <span class='iconFont3 kevOrange'>3</span><br/>
-        <br/>
-        share <span class='iconic share kevOrange'></span> distributed model itself
-    </h2>
-</section>
-
-<!-- Model@Runtime sample view -->
-<section class="slide" id="WiaModel">
+<section class="slide" id="kevlarge_dmar">
     <header>
         <h2>A model abstract nodes configurations</h2>
     </header>
     <img src="figures/dmar_sample.png" style="border-radius: 10px;">
 </section>
-<section class="slide" id="WiaModel2">
+
+<section class="slide" id="kevlarge_dmar_engine">
     <header>
         <h2>Each node host a model@runtime engine</h2>
     </header>
@@ -1107,19 +737,8 @@ public class TempSensor
     </script>
 </section>
 
-<section class="slide shout" id="DMAR_CONCEPTS2">
-    <h2 style="font-size : 60px">
-        On update <span class='iconic document_fill kevOrange'></span> <span
-            class='iconic curved_arrow kevOrange'></span> node <br/>
-        <br/>
-        local apply <span class='iconFont3 kevOrange'>C</span><br/>
-        <br/>
-        disseminate <span class='iconFont3 kevOrange'>e</span> to peers
-    </h2>
-</section>
-
 <!-- Ubiquitous / independent node  -->
-<section class="slide" id="DMAR_concurrency">
+<section class="slide" id="kevlarge_needs">
     <header>
         <h2>(D)M@R need concurrency management</h2>
     </header>
@@ -1139,42 +758,28 @@ public class TempSensor
             });
         </script>
     </div>
-    <ol style="font-size: 22px;">
-        <li class="next">
-            <div style="text-align : right;">node0 discovers node2 node and sends notification <span
-                    class='iconFont3 kevOrange'>e</span></div>
-        </li>
-        <li class="next">
-            <div style="text-align : left;">node1 becomes unreachable <span
-                    class='iconic battery_empty kevOrange'></span></div>
-        </li>
-        <li class="next">
-            <div style="text-align : right;">node1 and node0 add a component to node2<span
-                    class='iconFont3 kevOrange'>e</span>
-            </div>
-        </li>
-        <li class="next">
-            <div style="text-align : left;">node1 becomes reachable <span
-                    class='iconic battery_charging kevOrange'></span></div>
-        </li>
-        <li class="next">
-            <div style="text-align : right;">node2 must resolve configuration <span
-                    class='iconic fullscreen_exit_alt kevOrange'></span></div>
-        </li>
-    </ol>
+	<p>Node1 is isloted !</p>
+    <p>Model <span class='iconic move_horizontal_alt2 kevOrange'></span> Snapshot of a node state<br />
+		Each node host it's own copy, consistency are not mandatory<br />
+		Concurrent modification are inevitable, due to connexion lost.
+	</p>
 </section>
 
-<section class="slide shout" id="DMAR_motivations">
+<section class="slide" id="kevlarge_motivation">
     <header>
-        <h2 style="font-size : 70px;">
-            Similarly to P2P data management we need efficient ways to disseminate <span
-                class='iconFont3 kevOrange'>e</span><br/>
-            reconfiguration policies<span class="iconFont3 kevOrange">g</span>
-        </h2>
+		<h2>Model divergency ?</h2>
     </header>
+	<div>
+		<ul>
+			<li>Similarly to P2P database, like loosing ACID property</li>
+			<li>Like in Ultra Large Scale Systems, inevitable</li>
+			<li>Like in P2P, strong resilience to fault</li>
+			<li>But : need like in DHT efficient way to converge DDAS global model</li>
+		</ul>
+	</div>	
 </section>
 
-<section class="slide" id="GossiperDMAR">
+<section class="slide" id="kevlarge_gossipDesc">
     <header>
         <h2>Defining a gossiper protocol for (D)M@R</h2>
         <ul>
@@ -1191,86 +796,7 @@ public class TempSensor
     </header>
 </section>
 
-<section class="slide" id="GossiperDMAR2">
-    <header>
-        <h2>Gossiper protocol for (D)M@R</h2>
-        <ul>
-            <li class="next">Messages : VectorClock or Tuple(VectorCLock,Model)</li>
-            <li class="next">Init : VectorClock <- (currentNode,0) & neighbourScores = 0</li>
-            <li class="next">
-                On local model update <span class='iconic document_fill kevOrange'></span> <span
-                    class='iconic curved_arrow kevOrange'></span>, current node
-                <ul>
-                    <li class="next">increment VectorClock : (currentNode, X) => (currentNode, X+1)</li>
-                    <li class="next">notify all neighbours (optional)</li>
-                </ul>
-            </li>
-            <li class="next">
-                <span class="iconic kevOrange clock"></span> Periodically
-                <ul>
-                    <li>Select a neighbour</li>
-                    <li>Send VectorClock request to selected node</li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-</section>
-
-<section class="slide" id="GossiperDMAR4">
-    <header>
-        <h2>Exchanges rules</h2>
-        <ul>
-            <li class="next">
-                on receive <span class='iconic curved_arrow kevOrange'></span> vectorClock from A => compare with local
-                <ul>
-                    <li>BEFORE or CONCURRENTLY => send model request <span
-                            class="iconic arrow_right_alt1 kevOrange"></span> A
-                    </li>
-                    <li>AFTER => noop (already update)</li>
-                </ul>
-            </li>
-            <li class="next">
-                on receive <span class='iconic curved_arrow kevOrange'></span> tuple vectorClock and model from A =>
-                compare with local
-                <ul>
-                    <li>BEFORE => update local node <span class='iconic box kevOrange'></span> with model, merge
-                        vectorClocks
-                    </li>
-                    <li>CONCURRENTLY => resolve and merge locally concurrent models, same operation as before
-                    </li>
-                    <li>AFTER => noop (already update)</li>
-                </ul>
-            </li>
-        </ul>
-    </header>
-</section>
-
-<section class="slide" id="GossiperDMAR5">
-    <header>
-        <h2>Neighbours selection</h2>
-    </header>
-    <ul>
-        <li class="next">Take node topology <span class="iconFont3 kevOrange">3</span> in current model</li>
-        <li class="next">Select neighbours that have the smallest score</li>
-        <li class="next">On each communication with A
-            <ul>
-                <li>if success <span class="iconFont3 kevOrange">8</span> => Score(A) = Score(A) + 1<br/>
-                    if node previously in failure or overflow => Score(A) = 0
-                </li>
-                <li>if failure <span class="iconFont3 kevOrange">2</span> => Score(A) = Score(A) + (2 *
-                    (nbPastFailure(A)+1))
-                </li>
-            </ul>
-        </li>
-        <p class="next"><code>Score management aims at reducing failures nodes impact on cluster</code></p>
-    </ul>
-</section>
-
-<section class="slide shout" id="ExperimentationCover">
-    <h2><span class="kevOrange">></span>Experiments</h2>
-</section>
-
-<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation">
+<section class="slide" id="kevlarge_expProtocol">
     <header>
         <h2>Gossiper Cluster Experiment</h2>
     </header>
@@ -1281,11 +807,11 @@ public class TempSensor
         <li>Experimental setup of 66 computational nodes</li>
         <li>Connected through a local area network at 100MB/s</li>
         <li>Topology model is randomly generated</li>
-        <li>Global time axis logger for metrics mesurement</li>
+        <li>Global time axis logger for metrics measurement</li>
     </ul>
 </section>
 
-<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_propagationdelay_vs_networkload">
+<section class="slide" id="kevlarge_expDelay">
     <header>
         <h2>Influence of the communication strategy on M@R propagation delay ?</h2>
     </header>
@@ -1294,17 +820,8 @@ public class TempSensor
         <object data="figures/result_exp1.png" type="image/png" width="550px"></object>
     </div>
 </section>
-<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_propagationdelay_vs_networkload_2">
-    <header>
-        <h2>Influence of the communication strategy on network load ?</h2>
-    </header>
-    <div style="text-align: center;position:absolute;left:25px;right:25px;">
-        <object data="figures/topology_exp1.png" type="image/png"></object>
-        <object data="figures/result2_exp1.png" type="image/png" class="middle" width="550px"></object>
-    </div>
-</section>
 
-<section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_reconciliation">
+<section class="slide" id="kevlarge_expConcurrency">
     <header>
         <h2>Does the algorithm handle reconciliation ?</h2>
     </header>
@@ -1327,6 +844,7 @@ public class TempSensor
     </script>
 </section>
 
+<!--
 <section class="slide" id="mr_dissemination_KevoreeGroup_gossipEvaluation_nodelink_failure">
     <header>
         <h2>Node link failure impact on propagation ?</h2>
@@ -1335,7 +853,6 @@ public class TempSensor
         <object data="figures/topology_exp3.png" type="image/png"></object>
         <object data="figures/result_exp3.png" type="image/png" class="middle" width="550px"></object>
     </div>
-    <!-- Failure icons -->
     <span class="iconraph exp2failIcon" id="exp2ico1"
           style="opacity:0;color:#ff3333;position:absolute;left:310px;font-size:25px;top:350px;">Â</span>
     <span class="iconraph exp2failIcon" id="exp2ico2"
@@ -1354,7 +871,6 @@ public class TempSensor
                     "jQuery('#exp2ico4').delay(3000).animate({ opacity: 1 }, 500).animate({ opacity: 0 }, 500);", 4000);
         });
     </script>
-    <!-- Introduction points / collect points -->
     <span class="iconraph kevOrange" style="position:absolute;left:90px;font-size:50px;top:198px;">o</span>
     <span class="iconraph kevOrange" style="position:absolute;left:308px;font-size:50px;top:455px;">o</span>
 </section>
@@ -1377,32 +893,143 @@ public class TempSensor
         </div>
     </div>
 </section>
+-->
 
 
-<section class="slide" id="ccl2">
-    <header>
-        <h2>Concurrency resolution</h2>
-    </header>
-    <blockquote>Concurrency resolution is always a challenge for ubiquitous P2P dissemination</blockquote>
-    <ul>
-        <li class="next">Concurrent M@R resolution <span class='iconic move_horizontal_alt2 kevOrange'></span> model
-            merging
-        </li>
-        <li class="next">Basic merge operation eased by model techniques</li>
-        <li class="next">
-            Resolution must be helped by priority rules, use case dependant
-            <ul>
-                <li>E.g.: Each node self definition has priority prior to others</li>
-            </ul>
-        </li>
-        <li class="next">Deleting a node is challenging, how differentiate node <code>A not yet detected</code> and <code>A is deleted</code></li>
-    </ul>
-</section>
-
-
-<section class="slide shout" id="titleKevCloud">
+<section class="slide shout" id="kevcloud_title">
     <h2><span class="kevOrange">></span>Kevoree for Cloud <span class="iconic cloud kevOrange"></span></h2>
 </section>
+
+<section class="slide" id="kevcloud_intro">
+            <header>
+                <h2>Managing cloud level with Kevoree node</h2>
+            </header>
+            <ul>
+				<li>Kevoree node is a container, of components but also of nodes !</li>
+				<li>A parent node has responsibility for child's nodes life cycle (start/stop)</li>
+				<li>NodeType refine adaptation strategy<li>
+				<li>Thing Cloud as a hierarchy<br />
+					IaaSNode -> PaaSNode -> SaaSNode
+				</li>
+            </ul>
+</section>
+
+<section class="slide" id="kevcloud_nodeType">
+            <header>
+                <h2>IaaS and PaaS nodes</h2>
+            </header>
+			<div>
+            <ul>
+				<li class="next">Just add Add/Remove node capacility</li>
+				<li class="next">Available NodeTYpe
+					<ul>
+					<li class="next">MiniCloud : (Add/Remove Java Virtual Machine)</li>
+					<li class="next">FreeBSD Jails: (Add/Remove VM in the same kernel space)</li>
+					<li class="next">SmartOS Zone: (same as Jail)</li>
+					<li class="next">KVM: Hypervisor management</li>
+					<li class="next">Amazon EC2: Add/Remove EC2 Virtual Machine</li>
+					</ul>
+				</li>
+            </ul>
+		</div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml">
+            <header>
+                <h2>KevScript as a cloud modeling language</h2>
+            </header>
+			<div>
+	            <ul>
+					<li class="next">KevoreeScript only manipulate model !</li>
+					<li class="next">IaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+//add IaaSPlatform 
+addNode iaasKVM21 : KVMNode {ip="10.0.1.5"}
+//add two user node
+addNode userNode1 : JavaSENode
+addNode userNode2 : UbuntuNode {version="12.04"}
+//attach to IaaSNode42
+addChild userNode1,userNode2@iaasKVM21
+			  			</pre>
+					</li>
+					<li class="next">PaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+addNode worker2@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+addNode worker3@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+moveComponent *@worker1 => worker2
+removeNode worker1@IaaSNode42
+			  			</pre>
+					</li>
+	            </ul>
+			</div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml2">
+            <header>
+                <h2>KevScript as a cloud modeling language</h2>
+            </header>
+			<div>
+	            <ul>
+					<li class="next">SaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+moveComponent mongoDB@userNode1 => userNode2
+moveComponent nodeJS@userNode1 => userNode2
+			  			</pre>
+					</li>
+					<li>KevScript is a backend to express cloud elasticity
+			            <pre class="brush: java toolbar:false;">
+							if(detectOverHead()){
+							this.interpretAndDeploy("script ");
+							//call local adaptation layer, propagation is done through groups
+							}
+			  			</pre>
+						Like any component cloud reasoning engines are able to interact with Model@Runtime layer.
+					</li>
+	            </ul>
+			</div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml3">
+            <header>
+                <h2>Kevoree cloud layer is cloud IaaS agnostic</h2>
+            </header>
+			<div>
+	            <ul>
+					<li class="next">Hybrid cloud managment <span class="iconic cloud_download kevOrange"></span>
+			            <pre class="brush: kevscript toolbar:false;">
+//create PaasNode
+addNode paasEC2 : EC2	
+addNode paasRack : RackspaceVM
+addNode paasKloud : KevoreeCloudVM	
+//hybrid adaptations											
+moveComponent mongoDB@paasEC2 => paasRack
+moveComponent nodeJS@paasRack => paasKloud
+			  			</pre>
+					</li>
+					<li>Sky (aggregation of cloud) is helped by the delegation model of Kevoree
+						<br />
+						<div style="text-align:center;">
+						<span style="font-size:70px;" class="iconic cloud kevOrange"></span>
+						<span style="font-size:30px;color: #CCC;" class="iconic spin"></span>
+						<span style="font-size:100px;" class="kevGRay iconraph">k</span>
+						</div>
+					</li>
+	            </ul>
+			</div>
+</section>
+
+<section class="slide" id="kevcloud_minicloud">
+            <header>
+                <h2>MiniKloud Model@Runtime driven platform (@Rennes - Brittany)</h2>
+            </header>
+			<div style="text-align: center;">
+				<img src="figures/kloud_init.png" style="width:600px;">
+			</div>
+</section>
+
+
+<!-- Mini cloud experiment, Sky and Hybrid cloud -->
+
 
 <!-- Last slide, last chance -->
 
@@ -1458,7 +1085,7 @@ public class TempSensor
         </li>
     </ul>
     <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
-        kevoree.org</h2>
+        <a href="http://kevoree.org">kevoree.org</a></h2>
 </section>
 
 <div class="progress">
