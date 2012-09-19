@@ -31,6 +31,20 @@ function KSlideShow () {
 
         document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
 
+        window.addEventListener('resize', function (e) {
+            if (!isListMode()) {
+                applyTransform(getTransform());
+            }
+        }, false);
+        window.addEventListener('popstate', function (e) {
+            if (isListMode()) {
+                enterListMode();
+                scrollToCurrentSlide();
+            } else {
+                enterSlideMode();
+            }
+        }, false);
+
         if (!isListMode()) {
             // "?full" is present without slide hash, so we should display first slide
             if (-1 === getCurrentSlideNumber()) {
@@ -48,7 +62,6 @@ function KSlideShow () {
                     console.error("Unable to execute the method 'start' on " + pluginListeners[i].listener)
                 }
             }
-
         }
     };
 
