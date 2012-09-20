@@ -153,7 +153,7 @@ Total useful slides: 39 slides
 <section class="slide" id="mar_context">
     <header><h2>"Eternal" system</h2></header>
     <ul>
-        <li class="next"><code>Dynamically adaptive systems (DAS)</code> <span class="iconic move_horizontal_alt2 kevOrange"></span> ability to make their behaviors and/or
+        <li class="next"><code>Dynamically Adaptive Systems (DAS)</code> <span class="iconic move_horizontal_alt2 kevOrange"></span> ability to make their behaviors and/or
             functionalities evolve at runtime.
         </li>
         <li class="next">Typically used for applications where it's hard/impossible to anticipate needs at design time
@@ -170,7 +170,7 @@ Total useful slides: 39 slides
 
 <section class="slide" id="mar_dcontext">
     <header><h2>Heterogeneity and distribution</h2></header>
-    Influenced namely by new mobility usages and Internet of Things (IoT), several new devices are now part of
+    Influenced by new mobility usages and Internet of Things (IoT), several new devices are now part of
     modern systems
     <ul>
         <li>Smartphones <span class='iconic iphone kevOrange'></span> and tablets<span
@@ -200,14 +200,14 @@ Total useful slides: 39 slides
     <header>
         <h2>Adaptive systems need reflexion</h2>
     </header>
-    but direct access on reflexive layer is problematic in several distributed architectures
+    but direct access to reflexive layer is problematic in several distributed architectures
     <ul>
-        <li class="next"><strong class="kevOrange">Sporadic nodes</strong> : direct reflexive access are not
+        <li class="next"><strong class="kevOrange">Sporadic nodes</strong> : direct reflexive access is not
             always<code>reachable</code>
             <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">g</span><span
                     class="glyph general">u</span><span class="glyph general">p</span>
         </li>
-        <li class="next"><strong class="kevOrange">Heterogeneous nodes</strong> : direct access are not always provided
+        <li class="next"><strong class="kevOrange">Heterogeneous nodes</strong> : direct access is not always provided
             by restrictive runtime
             <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">t</span><span
                     class="glyph general">u</span><span class="glyph general">q</span>
@@ -226,7 +226,7 @@ Total useful slides: 39 slides
     <header>
         <h2>Heterogeneous dissemination strategy</h2>
     </header>
-    Distributed system usually organized in clusters (<code>group of nodes</code>)
+    Distributed systems usually organized in clusters (<code>group of nodes</code>)
     Considering a cluster of 3 nodes <span class="glyph general">p</span> sharing a configuration model :
     <ul>
         <li class="next"><strong class="kevOrange">Sporadic context</strong> : N1 can update N2 without synchronizing N3
@@ -242,9 +242,7 @@ Total useful slides: 39 slides
             N1 <span class='iconic iphone'></span> <span class='iconic arrow_right'></span>
             N3 <span class='iconic iphone'></span>
         </li>
-        <li class="next"><strong class="kevOrange">Opportunistic nodes</strong> : A can synchronize B or C depend of
-            previous
-            configurations <br/>
+        <li class="next"><strong class="kevOrange">Opportunistic nodes</strong> : Depending on previous configurations, A can synchronize B or C<br/>
             N2 <span class='iconic iphone'></span> <span class='iconic arrow_left'> </span><span
                     class='iconic question_mark'></span>
             N1 <span class='iconic iphone'></span> <span class='iconic arrow_right'> </span><span
@@ -332,14 +330,14 @@ Total useful slides: 39 slides
     <ul>
         <li class="next"><strong class="kevOrange">MDE@Runtime</strong>
             <ul>
-                <li>Shared model representation for distributed nodes</li>
+                <li>Architecture model shared accros distributed nodes</li>
                 <li>Offline & online operation, compute@Model level, apply @Runtime</li>
             </ul>
         </li>
         <li class="next"><strong class="kevOrange">Component-based</strong>
             <ul>
                 <!--   <li>Actor semantics on each ports to closely separate component behavior</li>   -->
-                <li>Communication semantics between component in channel</li>
+                <li>Communication semantics between components in channels</li>
             </ul>
         </li>
         <!-- <li>Continuous Design, type definition continuous definition
@@ -492,12 +490,12 @@ public class DigitalLight
 </section>
 
 <section class="slide" id="kevsmall_cps_challenge">
-    <header><h2>CPS challenges</h2></header>
+    <header><h2>Cyber Pysical Systems challenges</h2></header>
     <ul>
         <li class="next">Buzz words: IoT and CPS <br/>
             In a nutshell mix them all to build pervasive systems
         </li>
-        <li class="next">Not new: Cyber physical systems (CPS) are identified as key research by NSF since 2006</li>
+        <li class="next">Not new: CPS are identified as key research by NSF(US) since 2006</li>
         <li class="next"><span class="iconFont3 kevOrange">8</span>Highly dynamic domain, new chip, tools, languages
             every year
         </li>
@@ -549,7 +547,7 @@ public class DigitalLight
          style="position:absolute;border-radius: 10px;height: 200px;right:15px;top: 210px;"/>
     <ul>
         <li class="next">AVR derived processors are still the most sold nowadays</li>
-        <li class="next">&mu;Controllers are ready for mass production and cheap</li>
+        <li class="next">&mu;Controllers are cheap and ready for mass production</li>
         <li class="next">Pro: Low consumption, reliable, predictable</li>
         <li class="next">Cons: Very constrained, complicated soft development</li>
     </ul>
@@ -564,10 +562,10 @@ public class DigitalLight
     <header><h2>Challenges of adaptation on &mu;C</h2></header>
     <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
          style="position: absolute;right:100px;height:100px;top:280px;"/>
-    <span class="kevOrange">&mu;C nodes can't manage every adaptation capability!</span><br/>
+    <span class="kevOrange">&mu;C nodes not powered enough to support all adaptation strategies!</span><br/>
     Dynamic adaptation on &mu;C faces several challenges
     <ul>
-        <li>Downtime must be minimal</li>
+        <li>For comfort and critical uses, downtime must be minimal</li>
         <li>Volatile memory usage must fit in few kB</li>
         <li>Persistent memory writes are limited</li>
         <li>Reconfiguration must be statefull, to recover from power failure</li>
@@ -685,7 +683,7 @@ public class TempSensor
 
 <section class="slide" id="kevsmall_adaptTime">
     <header>
-        <h2>Adaptation speed distribution?</h2>
+        <h2>Adaptation speed ?</h2>
     </header>
     <ul>
         <li>Buffer effect
@@ -711,14 +709,14 @@ public class TempSensor
 
 <section class="slide" id="kevlarge_dmar">
     <header>
-        <h2>A model abstract nodes configurations</h2>
+        <h2>A model abstracts nodes configurations</h2>
     </header>
     <img src="figures/dmar_sample.png" style="border-radius: 10px;">
 </section>
 
 <section class="slide" id="kevlarge_dmar_engine">
     <header>
-        <h2>Each node host a model@runtime engine</h2>
+        <h2>Each node hosts a model@runtime engine</h2>
     </header>
     <img src="figures/dmar_sample.png" style="border-radius: 10px;">
     <span id="marDengine1" class="iconraph kevOrange"
@@ -740,7 +738,7 @@ public class TempSensor
 <!-- Ubiquitous / independent node  -->
 <section class="slide" id="kevlarge_needs">
     <header>
-        <h2>(D)M@R need concurrency management</h2>
+        <h2>(D)M@R needs concurrency management</h2>
     </header>
     <div>
         Ubiquitous environment <span class='iconic arrow_right_alt1 kevOrange'></span> each node can modify global
@@ -758,10 +756,9 @@ public class TempSensor
             });
         </script>
     </div>
-	<p>Node1 is isloted !</p>
     <p>Model <span class='iconic move_horizontal_alt2 kevOrange'></span> Snapshot of a node state<br />
-		Each node host it's own copy, consistency are not mandatory<br />
-		Concurrent modification are inevitable, due to connexion lost.
+		Each node hosts its own copy, consistency is not mandatory<br />
+		Concurrent modifications are inevitable, due to connexion loss.
 	</p>
 </section>
 
@@ -771,7 +768,8 @@ public class TempSensor
     </header>
 	<div>
 		<ul>
-			<li>Similarly to P2P database, like loosing ACID property</li>
+			<li>Similarly to P2P databases</li>
+			<li>Like loosing ACID property</li>
 			<li>Like in Ultra Large Scale Systems, inevitable</li>
 			<li>Like in P2P, strong resilience to fault</li>
 			<li>But : need like in DHT efficient way to converge DDAS global model</li>
@@ -783,12 +781,11 @@ public class TempSensor
     <header>
         <h2>Defining a gossiper protocol for (D)M@R</h2>
         <ul>
-            <li class="next"><span class="kevOrange">VectorClock</span> to track branch & concurrency</li>
+            <li class="next"><span class="kevOrange">VectorClock</span> to track branches & concurrency</li>
             <li class="next"><span class="kevOrange">Gossiper</span> to deal with hostile mesh network</li>
             <li class="next">Use M@R as a network topology layer</li>
             <li class="next">Enrich node selection with network faults</li>
-            <li class="next">Every input stored in the <span class="kevOrange">M@R (payload)</span> itself to keep all dynamic without initial
-                configuration
+            <li class="next">Use <span class="kevOrange">M@R (payload)</span> itself as a dynamic topology model
             </li>
             <li class="next">Inverted communication, send payload only if necessary</li>
             <blockquote class="next"><code>Combine VectorClock (VC) + Gossiper + M@R layer</code></blockquote>
@@ -798,7 +795,7 @@ public class TempSensor
 
 <section class="slide" id="kevlarge_expProtocol">
     <header>
-        <h2>Gossiper Cluster Experiment</h2>
+        <h2>Gossip on Cluster Experiment</h2>
     </header>
     <ul>
         <li>A quantitative and qualitative experimental evaluation has been done on Gossiper+VectorClock group
@@ -908,7 +905,7 @@ public class TempSensor
 				<li>Kevoree node is a container, of components but also of nodes !</li>
 				<li>A parent node has responsibility for child's nodes life cycle (start/stop)</li>
 				<li>NodeType refine adaptation strategy<li>
-				<li>Thing Cloud as a hierarchy<br />
+				<li>Think the Cloud as a hierarchy<br />
 					IaaSNode -> PaaSNode -> SaaSNode
 				</li>
             </ul>
@@ -920,8 +917,8 @@ public class TempSensor
             </header>
 			<div>
             <ul>
-				<li class="next">Just add Add/Remove node capacility</li>
-				<li class="next">Available NodeTYpe
+				<li class="next">Just add Add/Remove node capability</li>
+				<li class="next">Available NodeType
 					<ul>
 					<li class="next">MiniCloud : (Add/Remove Java Virtual Machine)</li>
 					<li class="next">FreeBSD Jails: (Add/Remove VM in the same kernel space)</li>
@@ -940,7 +937,7 @@ public class TempSensor
             </header>
 			<div>
 	            <ul>
-					<li class="next">KevoreeScript only manipulate model !</li>
+					<li class="next">KevoreeScript abstracts model manipulation</li>
 					<li class="next">IaaS adaptation
 			            <pre class="brush: kevscript toolbar:false;">
 //add IaaSPlatform 
@@ -966,7 +963,7 @@ removeNode worker1@IaaSNode42
 
 <section class="slide" id="kevcloud_kevsADcloudml2">
             <header>
-                <h2>KevScript as a cloud modeling language</h2>
+                <h2>Kevoree as a cloud modeling language</h2>
             </header>
 			<div>
 	            <ul>
@@ -1038,10 +1035,10 @@ moveComponent nodeJS@paasRack => paasKloud
     <p>If you got lost <span class="kevOrange iconraph">R</span></p>
     <ul>
 		<li class="next">Kevoree == Abstraction model for distributed adaptive systems <span class="kevOrange iconraph">Ü</span></li>
-		<li class="next">Model@Runtime ease the manipulation of systems <span class="kevOrange iconraph">P</span></li>
+		<li class="next">Model@Runtime eases the manipulation of systems <span class="kevOrange iconraph">P</span></li>
 		<li class="next">Homogenous adaptation for heterogenous CPS devices</li>
-		<li class="next">Large scale adaptation with Gossip or Paxos</li>
-		<li class="next">Ready for cloud development and elasticity algorithm development <span class="kevOrange iconraph">k</span></li>
+		<li class="next">Large scale adaptation dissemination (Gossip, Paxos, etc.)</li>
+		<li class="next">Ready for cloud and elasticity algorithms development <span class="kevOrange iconraph">k</span></li>
 		<li class="next">Open source <span class="iconraph kevOrange">U</span></li>
 		<li class="next">Still lost, I'm sorry :-), <span class="kevOrange iconraph">>=M</span> <a href="mailto:ffouquet@irisa.fr">ffouquet@irisa.fr</a></li>
     </ul>
