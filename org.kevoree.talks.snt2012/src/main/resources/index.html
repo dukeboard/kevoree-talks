@@ -345,7 +345,7 @@ Total useful slides: 39 slides
             <li style="font-size: 18px;">Hot (re-)deploy & provisioning</li>
         </ul>
     </li>    -->
-        <li class="next">Heterogeneity management with NodeType
+        <li class="next"><strong class="kevOrange">Heterogeneity management</strong> with NodeType
             <ul>
                 <li> Java Node, Dalvik Node, Arduino Node</li>
                 <li>Cloud Node (Jails/*BSD, JCloud, mini-cloud, EC2)</li>
@@ -469,10 +469,10 @@ public class DigitalLight
     <header><h2>Devices diversity</h2></header>
     <ul>
         <li class="next">New mobility usages boost low consumption computer development</li>
-        <li class="next">FPGA (VHDL)
+        <li class="next">FPGA, Softproc (VHDL)
             <img src="cbsefig/FPGA_cell_example.png" style="position: absolute;right:200px;height:100px;top:220px;"/>
         </li>
-        <li class="next">Micro-controller (uC, C code)
+        <li class="next"><span class="kevOrange">Micro-controller</span> (uC, C code)
             <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
                  style="position: absolute;right:420px;height:80px;top:280px;"/>
         </li>
@@ -616,7 +616,7 @@ public class TempSensor
             <span class="iconic kevOrange mail" style="position: absolute; top:370px; right: 460px;"></span>
             <span class="iconic kevOrange mail" style="position: absolute; top:325px; right: 15px;"></span>
         </li>
-        <li class="next">FIFO on each ports (Actor semantics)
+        <li class="next">FIFO on font of each ports (Actor semantics)
             <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 65px;"></span>
             <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 65px;"></span>
             <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 410px;"></span>
@@ -768,11 +768,16 @@ public class TempSensor
     </header>
 	<div>
 		<ul>
-			<li>Similarly to P2P databases</li>
+			<li>Similarly to P2P databases, distributed hashtables</li>
 			<li>Like loosing ACID property</li>
 			<li>Like in Ultra Large Scale Systems, inevitable</li>
 			<li>Like in P2P, strong resilience to fault</li>
-			<li>But : need like in DHT efficient way to converge DDAS global model</li>
+			<li>But : need efficient way to converge DDAS global model
+				<ul>
+					<li>Detect divergency <span class="iconraph kevOrange" style="font-size:50px;">.</span></li>
+					<li>Conciliate models <span class="iconraph kevOrange" style="font-size:50px;">,</span></li>
+				</ul>
+			</li>
 		</ul>
 	</div>	
 </section>
@@ -1006,9 +1011,10 @@ moveComponent nodeJS@paasRack => paasKloud
 					<li>Sky (aggregation of cloud) is helped by the delegation model of Kevoree
 						<br />
 						<div style="text-align:center;">
-						<span style="font-size:70px;" class="iconic cloud kevOrange"></span>
+						<span class="kevOrange">public</span><span style="font-size:70px;" class="iconic cloud kevOrange"></span>
 						<span style="font-size:30px;color: #CCC;" class="iconic spin"></span>
 						<span style="font-size:100px;" class="kevGRay iconraph">k</span>
+						<span class="kevGray">private</span>
 						</div>
 					</li>
 	            </ul>
@@ -1034,7 +1040,7 @@ moveComponent nodeJS@paasRack => paasKloud
     <header><h2>Only one slide to remember</h2></header>
     <p>If you got lost <span class="kevOrange iconraph">R</span></p>
     <ul>
-		<li class="next">Kevoree == Abstraction model for distributed adaptive systems <span class="kevOrange iconraph">Ü</span></li>
+		<li class="next">Kevoree <span class="iconic move_horizontal_alt2 kevOrange"></span> Abstraction model for distributed adaptive systems <span class="kevOrange iconraph">Ü</span></li>
 		<li class="next">Model@Runtime eases the manipulation of systems <span class="kevOrange iconraph">P</span></li>
 		<li class="next">Homogenous adaptation for heterogenous CPS devices</li>
 		<li class="next">Large scale adaptation dissemination (Gossip, Paxos, etc.)</li>
