@@ -1,0 +1,129 @@
+@import url(../screen/reset.css);
+
+@page {
+    size: 784px 569px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+* {
+    -webkit-print-color-adjust: exact;
+}
+
+html {
+    /*width: 784px;*/
+    /*height: 569px;*/
+    overflow: visible;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+}
+
+body {
+    /*width: 784px;*/
+    /*height: 569px;*/
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    overflow: visible;
+    background: #FFF;
+    counter-reset: paging;
+
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;
+}
+
+details {
+    display: none;
+}
+
+div.progress {
+    display: none;
+}
+
+div.progress > div {
+    display: none;
+}
+
+.list .slide ol,
+.list .slide ul,
+.full .slide ol,
+.full .slide ul {
+    counter-reset: list;
+}
+
+.full .slide ol > li:before,
+.list .slide ol > li:before {
+    counter-increment: list;
+    content: counter(list) '.';
+}
+
+.full .slide pre,
+.list .slide pre {
+    counter-reset: code;
+}
+
+.full .slide pre code,
+.list .slide pre code {
+    display: block;
+}
+
+.full .slide pre code:before,
+.list .slide pre code:before {
+    counter-increment: code;
+    content: counter(code, decimal-leading-zero) '.';
+}
+
+.full .slide,
+.list .slide {
+    visibility: visible !important;
+    display: block !important;
+
+    width: 784px !important;
+    height: 569px !important;
+    position: relative !important;
+    float: left !important;
+
+    /*margin-top: 50px;*/
+    opacity: 1 !important;
+
+    /*margin: 0 -432px -220px 0 !important;*/
+
+    /*-webkit-perspective: none !important;
+    -moz-perspective: none !important;
+    -ms-perspective: none !important;
+    perspective: none !important;*/
+
+    /*there isn't a none/auto value but 50-50 is the default*/
+    /*-webkit-perspective-origin: 50% 50% !important;
+    -moz-perspective-origin: 50% 50% !important;
+    -ms-perspective-origin: 50% 50% !important;
+    perspective-origin: 50% 50% !important;*/
+
+    /*-webkit-transform-style: flat !important;
+    -moz-transform-style: flat !important;
+    -ms-transform-style: flat !important;
+    transform-style: flat !important;*/
+
+    /*-webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    transform: none !important;*/
+
+    /*-webkit-transform-origin: 100% 0 !important;
+    -moz-transform-origin: 100% 0 !important;
+    -ms-transform-origin: 100% 0 !important;
+    transform-origin: 100% 0 !important;*/
+
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.005), 0 10px 10px rgba(42, 43, 45, 0.6);*/
+    page-break-inside: avoid !important;
+}
