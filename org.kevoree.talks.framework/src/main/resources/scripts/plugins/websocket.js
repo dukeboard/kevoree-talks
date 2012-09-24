@@ -61,15 +61,17 @@ function KWebsocketSlave (kslide, wsUrl, roomID) {
     }
 }
 
-function KWebsocketMaster (kslide, wsUrl) {
+function KWebsocketMaster (kslide, wsUrl, roomID) {
     var ws = null;
     var self = this;
     var currentSlide = null;
 
     this.start = function () {
-        if (wsUrl !== "{wsurl}") {
+        if (wsUrl != undefined && roomID === undefined) {
             document.querySelector('#keynote-button').addEventListener("touchstart", connectWS, false);
             document.querySelector('#keynote-button').addEventListener("click", connectWS, false);
+        } else if (wsUrl != undefined && roomID != null) {
+            connectWS();
         }
     };
 
@@ -88,16 +90,18 @@ function KWebsocketMaster (kslide, wsUrl) {
 
     function connectWS () {
         try {
-            var roomId = window.prompt("Keynote id: ");
-            if (roomId !== null) {
+            if (roomID === undefined) {
+                roomID = window.prompt("Keynote id: ");
+            }
+            if (roomID !== null) {
                 ws = new WebSocket(wsUrl);
                 ws.onopen = function (e) {
                     console.log('* Connected!');
-                    ws.send(JSON.stringify({"type":"JOIN", "id":roomId}));
+                    ws.send(JSON.stringify({"type":"JOIN", "id":roomID}));
                     kslide.sendEvent(self, {"type":"SET_CURSOR", "cursor":currentSlide});
                     ws.send(JSON.stringify({"type":"SET_CURSOR", "cursor":currentSlide}));
-                    var slideurl = document.URL.replace("keynote", "ws");
-                    alert(slideurl + roomId)
+                    var slideurl = document.URL.replace("keynote", "slave");
+                    alert(slideurl + roomID)
                 };
                 ws.onclose = function (e) {
                     console.log('* Disconnected');
@@ -113,26 +117,3 @@ function KWebsocketMaster (kslide, wsUrl) {
         }
     }
 }
-
-/* document.removeEventListener('touchstart', touchStartEvent, false);
- document.removeEventListener('touchmove', touchMoveEvent, false);
- document.removeEventListener('touchend', dispatchSingleSlideModeFromEvent, false);
- document.removeEventListener('click', dispatchSingleSlideModeFromEvent, false);
- document.removeEventListener('keydown', keyEventListener, false);*/
-
-/*function newKeyEventListener (e) {
- // Shortcut for alt, shift and meta keys
- if (e.altKey || e.ctrlKey || e.metaKey) {
- return;
- }
- switch (e.which) {
- case 70: // f
- e.preventDefault();
- fullscreen();
- break;
- default:
- // Behave as usual
- }
- }
- document.addEventListener('keydown', newKeyEventListener, false);
- };*/

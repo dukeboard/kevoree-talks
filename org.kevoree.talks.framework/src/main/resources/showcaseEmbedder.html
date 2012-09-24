@@ -1,0 +1,63 @@
+<!--<html>
+<head>
+    <link href="http://kevoree.org/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="width:800px;height:480px">-->
+<div class="container-fluid" style="height: 100%;">
+    <div id="slides" style="height: 99%;" class="row-fluid">
+        <iframe width="100%" height="99%" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
+    </div>
+    <div id="controls" class="row-fluid btn-group">
+        <button class="btn btn-small btn-inverse" title="keynote" id="keynote">Keynote</button>
+        <button class="btn btn-small btn-inverse" title="popup" id="popup">Pop-up</button>
+        <button class="btn btn-small btn-inverse" title="prev" id="back" style="text-align: center;">&#9664;</button>
+        <button class="btn btn-small btn-inverse" title="next" id="forward" style="text-align: center;">&#9654;</button>
+        <!--<div id="rightcontrols">-->
+        <input class="btn btn-small btn-inverse" size="2" id="cursor" value="1"/>
+        <span id="slash" class="btn btn-small btn-inverse">/</span>
+        <span id="length" class="btn btn-small btn-inverse">...</span>
+        <button class="btn btn-small btn-inverse" title="Go fullscreen or open in a new window" id="fullscreen" onclick="fullscreen()">&#8689;</button>
+        <!--</div>-->
+    </div>
+</div>
+<style scoped="scoped">
+    #slides {
+        border: none;
+    }
+
+    #slides iframe {
+        border: none;
+    }
+
+    #controls {
+        border: none;
+        height: 5%;
+        color: white;
+    }
+
+    #slideidx {
+        width: 25px;
+        border: none;
+        cursor: cell;
+    }
+
+    #fullscreen {
+        -moz-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+        transform: scaleX(-1);
+    }
+</style>
+<!-- Kevoree Keynote Framework -->
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/screenfull.min.js"></script>
+<script type="text/javascript" src="scripts/kslideshowKeynote.js"></script>
+<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+<script type="text/javascript" src="scripts/plugins/embedder.js"></script>
+<script type="text/javascript" src="scripts/plugins/iframe.js"></script>
+<script type="text/javascript" id="kSlideshow">
+</script>
+<!--
+</body>
+</html>-->

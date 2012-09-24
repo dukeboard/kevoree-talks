@@ -87,7 +87,7 @@ function KIFrameMaster (kslide, slideURL) {
 
     /* Get url from hash or prompt and store it */
     function getUrl () {
-        if (slideURL == undefined || slideURL === '{slideurl}') {
+        if (slideURL == undefined) {
             slideURL = window.prompt("What is the URL of the slides?");
             if (slideURL) {
                 window.location.hash = slideURL.split("#")[0];
@@ -98,7 +98,7 @@ function KIFrameMaster (kslide, slideURL) {
             slideURL += "Try<em>: " + document.location + "#yourslides.html</em>";
             slideURL = "data:text/html," + encodeURIComponent(slideURL);
         }
-        return slideURL;
+        return slideURL + "frame";
     }
 
     function loadIframes () {

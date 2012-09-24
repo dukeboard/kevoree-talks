@@ -29,6 +29,11 @@
             <artifactId>org.kevoree.library.javase.webserver.api</artifactId>
             <version>${kevoree.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.6.3</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,7 +61,7 @@
                                 <jsSourceFile>screenfull.min.js</jsSourceFile>
                                 <jsSourceFile>kslideshow.js</jsSourceFile>
                             </jsSourceFiles>
-                            <jsFinalFile>kslideshow.min.js</jsFinalFile>
+                            <jsFinalFile>${project.build.directory}/kslideshow.min.js</jsFinalFile>
                         </configuration>
                         <goals>
                             <goal>minify</goal>

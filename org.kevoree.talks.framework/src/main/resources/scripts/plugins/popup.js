@@ -17,6 +17,11 @@ function KPopupSlave (kslide) {
     this.start = function () {
         if (window.opener != null) {
             window.addEventListener('message', manageMessage, false);
+            kslide.sendEvent(self, {"type":"FULL"});
+            var response = kslide.getCursor();
+            if (response.type === "CURSOR") {
+                window.opener.postMessage(JSON.stringify({"type":"SET_CURSOR", "cursor":response.cursor}), "*");
+            }
         }
     };
 
@@ -50,7 +55,7 @@ function KPopupMaster (kslide, slideUrl) {
     function createPopup () {
         unload();
         window.addEventListener('message', manageMessage, false);
-        popup = window.open(slideUrl, 'slides', 'width=784px,height=569px,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+        popup = window.open(slideUrl + "popup", 'slides', 'width=784px,height=569px,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
     }
 
     function manageMessage (event) {

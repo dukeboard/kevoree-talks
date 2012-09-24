@@ -59,7 +59,7 @@ function KSlideShow () {
                 try {
                     pluginListeners[i].listener.start();
                 } catch (e) {
-                    console.error("Unable to execute the method 'start' on " + pluginListeners[i].listener)
+                    console.error("Unable to execute the method 'start' on ", pluginListeners[i].listener)
                 }
             }
         }
@@ -105,7 +105,7 @@ function KSlideShow () {
                     try {
                         pluginListeners[i].listener.listener(message);
                     } catch (e) {
-                        console.error("Unable to execute the method 'listener' on " + pluginListeners[i].listener, e)
+                        console.error("Unable to execute the method 'listener' on ", pluginListeners[i].listener, e)
                     }
                 }
 

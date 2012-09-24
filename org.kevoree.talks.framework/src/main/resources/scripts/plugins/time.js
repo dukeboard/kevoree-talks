@@ -35,7 +35,7 @@ function KTime () {
         talkIsStarted = !talkIsStarted;
         talkStartTime = new Date();
         if (talkIsStarted) {
-            document.querySelector("#talk-time").innerHTML = "00:00:00";
+            document.querySelector('#talk-time').innerHTML = "00:00:00";
         }
     }
 

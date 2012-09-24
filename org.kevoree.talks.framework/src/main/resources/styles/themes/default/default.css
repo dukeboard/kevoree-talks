@@ -193,6 +193,15 @@
     background: #00597B;
 }
 
+.slide.cover h1 {
+    font-size: 1.6em;
+    margin: 0.3em 0;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    color: #FFFFFF;
+}
+
 .slide.cover h2 {
     font-size: 1.4em;
     margin: 0.3em 0;

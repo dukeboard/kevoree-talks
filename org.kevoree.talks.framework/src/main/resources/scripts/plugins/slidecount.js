@@ -10,8 +10,8 @@ function KSlideCount (kslide) {
         if (message.type === "LENGTH") {
             document.querySelector("#slidecount").innerHTML = message.length;
         } else if (message.type === "CURSOR") {
-            document.querySelector("#slideidx").innerHTML = +message.cursor + 1;
-            document.querySelector("#nextslideidx").innerHTML = +message.cursor == (+(document.querySelector("#slidecount").innerHTML) - 1) ? "END" : (+message.cursor + 2);
+            document.querySelector('#slideidx').innerHTML = +message.cursor + 1;
+            document.querySelector('#nextslideidx').innerHTML = +message.cursor == (+(document.querySelector("#slidecount").innerHTML) - 1) ? "END" : (+message.cursor + 2);
         }
     };
 
