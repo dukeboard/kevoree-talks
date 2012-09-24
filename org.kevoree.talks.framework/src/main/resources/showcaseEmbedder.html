@@ -16,7 +16,7 @@
         <input class="btn btn-small btn-inverse" size="2" id="cursor" value="1"/>
         <span id="slash" class="btn btn-small btn-inverse">/</span>
         <span id="length" class="btn btn-small btn-inverse">...</span>
-        <button class="btn btn-small btn-inverse" title="Go fullscreen or open in a new window" id="fullscreen" onclick="fullscreen()">&#8689;</button>
+        <button class="btn btn-small btn-inverse" title="Go fullscreen or open in a new window" id="fullscreen">&#8689;</button>
         <!--</div>-->
     </div>
 </div>
@@ -35,7 +35,7 @@
         color: white;
     }
 
-    #slideidx {
+    #cursor {
         width: 25px;
         border: none;
         cursor: cell;
@@ -57,13 +57,15 @@
 <script type="text/javascript" src="scripts/plugins/embedder.js"></script>
 <script type="text/javascript" src="scripts/plugins/iframe.js"></script>
 <script type="text/javascript" id="kSlideshow">
+    var ks = null;
     jQuery(document).ready(function ($) {
-        var ks = new KSlideShowKeynote();
+        ks = new KSlideShowKeynote();
         var keyboardPlugin = new KKeyboard(ks);
-        var embedderPlugin = new KEmbedder(ks, slideURL);
+        var embedderPlugin = new KEmbedder(ks);
         ks.addPluginListener(keyboardPlugin);
         ks.addPluginListener(embedderPlugin);
         ks.startKeynote();
+        ks.sendEvent(null, {"type" : "RELOAD", "url": '{slideurl}'})
     });
 </script>
 <!--

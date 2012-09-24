@@ -89,14 +89,15 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
-			+ "\t\tvar ks = new KSlideShowKeynote();\n"
-			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
-			+ "\t\tvar embedderPlugin = new KEmbedder(ks, '{slideurl}');\n"
-			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
-			+ "\t\tks.addPluginListener(embedderPlugin);\n"
-			+ "\t\tks.startKeynote();\n"
-			+ "\t});";
+		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
+				+ "\t\tvar ks = new KSlideShowKeynote();\n"
+				+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+				+ "\t\tvar embedderPlugin = new KEmbedder(ks);\n"
+				+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+				+ "\t\tks.addPluginListener(embedderPlugin);\n"
+				+ "\t\tks.startKeynote();\n"
+				+ "\t\tks.sendEvent(null, {'type':'RELOAD', 'url':'{slideurl}'});\n"
+				+ "\t});";
 
 	@Override
 	public void startPage () {
