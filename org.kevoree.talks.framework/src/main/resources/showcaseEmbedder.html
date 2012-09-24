@@ -57,6 +57,14 @@
 <script type="text/javascript" src="scripts/plugins/embedder.js"></script>
 <script type="text/javascript" src="scripts/plugins/iframe.js"></script>
 <script type="text/javascript" id="kSlideshow">
+    jQuery(document).ready(function ($) {
+        var ks = new KSlideShowKeynote();
+        var keyboardPlugin = new KKeyboard(ks);
+        var embedderPlugin = new KEmbedder(ks, slideURL);
+        ks.addPluginListener(keyboardPlugin);
+        ks.addPluginListener(embedderPlugin);
+        ks.startKeynote();
+    });
 </script>
 <!--
 </body>
