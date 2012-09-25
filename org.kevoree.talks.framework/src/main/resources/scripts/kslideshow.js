@@ -38,21 +38,14 @@ function KSlideShow () {
         }, false);
         window.addEventListener('popstate', function (e) {
             if (isListMode()) {
-                enterListMode();
-                scrollToCurrentSlide();
+                gotToList();
             } else {
-                enterSlideMode();
+                goToFull();
             }
         }, false);
 
         if (!isListMode()) {
-            // "?full" is present without slide hash, so we should display first slide
-            if (-1 === getCurrentSlideNumber()) {
-                history.replaceState(null, null, url.pathname + '?full' + getSlideHash(0));
-            }
-            enterSlideMode();
-            initializeInnerTransition(getCurrentSlideNumber());
-            updateProgress(getCurrentSlideNumber());
+            goToFull();
         }
         if (pluginListeners) {
             for (var i = 0; i < pluginListeners.length; i++) {
@@ -120,51 +113,6 @@ function KSlideShow () {
             listener:f
         });
     };
-
-    /* Public methods */ // private ? Global ?
-    function getTransform () {
-        var denominator = Math.max(
-            (body.clientWidth / window.innerWidth),
-            (body.clientHeight / window.innerHeight)
-        );
-        return 'scale(' + (1 / denominator) + ')';
-    }
-
-    function applyTransform (transform) {
-        body.style.WebkitTransform = transform;
-        body.style.MozTransform = transform;
-        body.style.msTransform = transform;
-        body.style.OTransform = transform;
-        body.style.transform = transform;
-    }
-
-    function gotToList () {
-        history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
-        enterListMode();
-        scrollToCurrentSlide();
-    }
-
-    function goToFull () {
-        // there is no slide selected, we select the first one
-        if (-1 === getCurrentSlideNumber()) {
-            history.replaceState(null, null, url.pathname + '?full' + getSlideHash(0));
-        } else {
-            history.replaceState(null, null, url.pathname + '?full' + getSlideHash(getCurrentSlideNumber()));
-        }
-        initializeInnerTransition(getCurrentSlideNumber());
-        enterSlideMode();
-        updateProgress(getCurrentSlideNumber());
-    }
-
-    function enterSlideMode () {
-        body.className = 'full';
-        applyTransform(getTransform());
-    }
-
-    function enterListMode () {
-        body.className = 'list';
-        applyTransform('none');
-    }
 
     function getCurrentSlideNumber () {
         var currentSlideId = url.hash.substr(1);
@@ -255,15 +203,6 @@ function KSlideShow () {
         }
     }
 
-    function dispatchSingleSlideModeFromEvent (e) {
-        var slideId = getContainingSlideId(e.target);
-        if ('' !== slideId && isListMode()) {
-            e.preventDefault();
-            dispatchSingleSlideMode(slideId);
-            self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
-        }
-    }
-
     function getContainingSlideId (el) {
         var node = el;
         while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
@@ -276,14 +215,59 @@ function KSlideShow () {
         return '';
     }
 
-    function dispatchSingleSlideMode (slideId) {
+    function dispatchSingleSlideModeFromEvent (e) {
+        var slideId = getContainingSlideId(e.target);
         if ('' !== slideId && isListMode()) {
-            url.hash = '#' + slideId;
-            history.replaceState(null, null, url.pathname + '?full#' + slideId);
-            enterSlideMode();
-            initializeInnerTransition(getCurrentSlideNumber());
-            updateProgress(getCurrentSlideNumber());
+            e.preventDefault();
+            history.replaceState(null, null, url.pathname + '#' + slideId);
+            goToFull();
+            self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
         }
+    }
+
+    function gotToList () {
+        history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
+        enterListMode();
+        scrollToCurrentSlide();
+    }
+
+    function goToFull () {
+        // there is no slide selected, we select the first one
+        if (-1 === getCurrentSlideNumber()) {
+            url.hash = getSlideHash(0);
+            history.replaceState(null, null, url.pathname + '?full' + getSlideHash(0));
+        } else {
+            history.replaceState(null, null, url.pathname + '?full' + getSlideHash(getCurrentSlideNumber()));
+        }
+        initializeInnerTransition(getCurrentSlideNumber());
+        enterSlideMode();
+        updateProgress(getCurrentSlideNumber());
+    }
+
+    function enterSlideMode () {
+        body.className = 'full';
+        applyTransform(getTransform());
+    }
+
+    function enterListMode () {
+        body.className = 'list';
+        applyTransform('none');
+    }
+
+    function getTransform () {
+        var denominator = Math.max(
+            (body.clientWidth / window.innerWidth),
+            (body.clientHeight / window.innerHeight)
+        );
+        return 'scale(' + (1 / denominator) + ')';
+    }
+
+    function applyTransform (transform) {
+        body.style.WebkitTransform = transform;
+        body.style.MozTransform = transform;
+        body.style.msTransform = transform;
+        body.style.OTransform = transform;
+        body.style.transform = transform;
     }
 
     function initializeInnerTransition (slideNumber) {
@@ -343,7 +327,6 @@ function KSlideShow () {
         return inners[nbActiveInner];
     }
 
-
     function rollbackInnerTransition (slideNumber) {
         // update new current slide according to innerTransition (all the inner must be displayed)
         if (slideList[slideNumber].hasInnerNavigation) {
@@ -397,7 +380,6 @@ function KSlideShow () {
             screenfull.request();
         }
     }
-
 
     function goToStart () {
         initializeInnerTransition(0);
