@@ -36,13 +36,13 @@ function KSlideShow () {
                 applyTransform(getTransform());
             }
         }, false);
-        window.addEventListener('popstate', function (e) {
+        /*window.addEventListener('popstate', function (e) {
             if (isListMode()) {
                 gotToList();
             } else {
                 goToFull();
             }
-        }, false);
+        }, false);*/
 
         if (!isListMode()) {
             goToFull();
@@ -219,7 +219,7 @@ function KSlideShow () {
         var slideId = getContainingSlideId(e.target);
         if ('' !== slideId && isListMode()) {
             e.preventDefault();
-            history.replaceState(null, null, url.pathname + '#' + slideId);
+            url.hash = '#' + slideId;
             goToFull();
             self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
         }
