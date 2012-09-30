@@ -1,4 +1,4 @@
-package org.kevoree.slides.snt2012;
+package org.kevoree.slides.models2012;
 
 import org.kevoree.annotation.ComponentType;
 import org.kevoree.annotation.DictionaryAttribute;
@@ -15,5 +15,5 @@ import org.kevoree.slides.framework.KevoreeSlidePage;
  */
 @DictionaryType(@DictionaryAttribute(name = "paperURL", optional = false))
 @ComponentType
-public class SNT2012 extends KevoreeSlidePage {
+public class MODELS2012 extends KevoreeSlidePage {
 }

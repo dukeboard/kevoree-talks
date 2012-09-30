@@ -1,4 +1,4 @@
-package org.kevoree.slides.snt2012;
+package org.kevoree.slides.models2012;
 
 import org.kevoree.annotation.*;
 import org.kevoree.slides.framework.KevoreeSlidePageDev;
@@ -12,5 +12,5 @@ import org.kevoree.slides.framework.KevoreeSlidePageDev;
  * @version 1.0
  */
 @ComponentType
-public class SNT2012Dev extends KevoreeSlidePageDev {
+public class MODELS2012Dev extends KevoreeSlidePageDev {
 }
