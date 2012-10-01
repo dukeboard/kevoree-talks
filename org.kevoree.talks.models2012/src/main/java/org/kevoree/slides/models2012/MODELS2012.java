@@ -13,7 +13,7 @@ import org.kevoree.slides.framework.KevoreeSlidePage;
  * @author Erwan Daubert
  * @version 1.0
  */
-@DictionaryType(@DictionaryAttribute(name = "paperURL", optional = false))
+@DictionaryType(@DictionaryAttribute(name = "paperURL", defaultValue = "http://hal.inria.fr/hal-00714558/en", optional = false))
 @ComponentType
 public class MODELS2012 extends KevoreeSlidePage {
 }
