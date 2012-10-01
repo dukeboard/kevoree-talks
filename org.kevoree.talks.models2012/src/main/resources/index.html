@@ -523,12 +523,12 @@ protected E doNext(){
     </header>
     <ul>
         <li class="next">Generated code compatible Java/Scala</li>
-        <li class="next">Lightweight memory footprint (as Scala plain object)</li>
+        <li class="next"><span class="kevOrange">Lightweight memory footprint</span> (as Scala plain object)</li>
         <li class="next">Plain Old Java Object api compatibility</li>
-        <li class="next">Immutable lists, for concurrent reading</li>
+        <li class="next"><span class="kevOrange">Immutable lists</span>, for concurrent reading</li>
         <li class="next">Use of <i>Option</i> for optional attributes prevents null pointer exceptions</li>
         <li class="next">Multi-thread factory and collection modification</li>
-        <li class="next">Flat generated Marshaller, Unmarshaller, Cloner</li>
+        <li class="next"><span class="kevOrange">Flat generated</span> Marshaller, Unmarshaller, Cloner</li>
     </ul>
 </section>
 
@@ -579,7 +579,7 @@ protected E doNext(){
 
 <section class="slide" id="kmf_valid">
     <header>
-        <h2>Regardings requirements</h2>
+        <h2><span class="iconraph kevOrange">Ô</span>Regarding requirements</h2>
     </header>
 
     <table>
@@ -630,16 +630,19 @@ protected E doNext(){
 
 <section class="slide" id="discussion">
     <header>
-        <h2>Discussion</h2>
+        <h2><span class="iconraph kevOrange">[</span> Discussion</h2>
     </header>
 	<blockquote>
-	model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span class="kevOrange">cheaper</span> than the reality	
+	A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span class="kevOrange">cheaper</span> than the reality	
 	</blockquote>
+	
+	<p><span class="iconraph kevOrange">o</span> MDA must not only now build efficient tools<br /> but must be efficient, safer, cheaper itself !</p>
+	
     <ul>
         <li class="next"><code>Refactoring impact</code>
             <ul>
                 <li>Removal of EObject, eContainer has been kept</li>
-                <li>Scala methods by default, methods "4J" for Java</li>
+                <li>Choose Scala/Java methods by default, methods "4(J)(S)" for Java</li>
             </ul>
         </li>
         <li class="next"><code>Single root container considered</code></li>
@@ -656,10 +659,16 @@ protected E doNext(){
         <h2>Conclusion</h2>
     </header>
     <ul>
-        <li class="next">Design tools can be adapted to fit better @Runtime</li>
+        <li class="next">Design tools can be adapted to fit better @Runtime
+			<ul>
+				<li>Generated backend must be smarter than hand written API</li>
+			</ul>
+		</li>
         <li class="next">Generative design must not forget API usage/compatibility</li>
-		<li class="next">A very first step, now must address large scale runtime issues</li>
-		<li class="next">Cornerstone of Kevoree Project !</li>
+		<li class="next">KMF is very first step, now must address large scale runtime issues<span class="iconraph kevOrange">c</span></li>
+		<li class="next"><span class="iconraph kevOrange">a</span> Backbone of Kevoree Project !<br />
+			<img src="figures/kevoree-logo.png" style="width:200px;" />
+		</li>
     </ul>
 </section>
 
@@ -672,16 +681,16 @@ protected E doNext(){
 		<li class="next"><span class="kevOrange iconic pin"></span>Very large scale model
 			<ul>
 			<li>Not fit entirely on memory</li>
-			<li>Loader on model floating window</li>
+			<li>Floating window model loader<span class="chart iconic kevOrange"></span></li>
 			</ul>
 		</li>
 		<li class="next"><span class="kevOrange iconic pin"></span>Model memory zones
 			<ul>
 			<li>Off heap memory mapping</li>
-			<li>Avoid garbage collector (ex : for exploratory usage)</li>
+			<li>Avoid garbage collector <span class="bolt iconic kevOrange"></span> (ex : for exploratory usage)</li>
 		</ul>
 		</li>
-		<li class="next"><span class="kevOrange iconic pin"></span>Model bug data (like EMF CDO ?)</li>
+		<li class="next"><span class="kevOrange iconic pin"></span>Model big data repository (like EMF CDO ?)</li>
     </ul>
 </section>
 
