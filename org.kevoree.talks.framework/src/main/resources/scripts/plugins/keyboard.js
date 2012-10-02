@@ -84,12 +84,28 @@ function KKeyboard (kslide) {
     this.start = function () {
         document.addEventListener("touchstart", touchStartEvent, false);
         document.addEventListener("touchend", touchStopEvent, false);
-        document.addEventListener('click', function () {
-            kslide.sendEvent(self, {"type":"FULL"})
+        document.addEventListener('click', function (e) {
+            var slideId = getContainingSlideId(e.target);
+            if ('' !== slideId) {
+                kslide.sendEvent(self, {"type":"SET_ID", "id":slideId});
+                kslide.sendEvent(self, {"type":"FULL"});
+            }
         }, false);
         document.addEventListener('keydown', keyEventListener, false);
     };
 
+
+    function getContainingSlideId (el) {
+        var node = el;
+        while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
+            if (-1 !== node.className.indexOf('slide')) {
+                return node.id;
+            } else {
+                node = node.parentNode;
+            }
+        }
+        return '';
+    }
 
     function touchStartEvent (aEvent) {
         aEvent.preventDefault();

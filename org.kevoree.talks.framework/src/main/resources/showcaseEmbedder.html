@@ -1,8 +1,8 @@
-<!--<html>
+<html>
 <head>
     <link href="http://kevoree.org/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body style="width:800px;height:480px">-->
+<body style="width:800px;height:480px">
 <div class="container-fluid" style="height: 100%;">
     <div id="slides" style="height: 99%;" class="row-fluid">
         <iframe width="100%" height="99%" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
@@ -65,9 +65,8 @@
         ks.addPluginListener(keyboardPlugin);
         ks.addPluginListener(embedderPlugin);
         ks.startKeynote();
-        ks.sendEvent(null, {"type" : "RELOAD", "url": '{slideurl}'})
+        ks.sendEvent(null, {"type" : "RELOAD", "url": 'localhost:8083/slave'})
     });
 </script>
-<!--
 </body>
-</html>-->
+</html>
