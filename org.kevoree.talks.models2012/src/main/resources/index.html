@@ -253,9 +253,9 @@
         <ul>
             <li class="next"><span class="kevOrange"><b>to tame the complexity of Dynamically Adaptive Systems (DAS)</b></span>
                 <ul>
-                    <li class="next">heterogeneous</li>
-                    <li class="next">distributed</li>
-                    <li class="next">rapidly changing</li>
+                    <li class="next">heterogeneity</li>
+                    <li class="next">distribution</li>
+                    <li class="next">rapid evolutions</li>
                 </ul>
             </li>
             <li class="next"><span class="kevOrange"><b>to drive systems like</b></span>
@@ -294,9 +294,9 @@
         </li>
         <li class="next">Model <span class="arrow_right_alt1 iconic kevOrange"></span> first class entity used by runtime elements
             <ul>
-                <li class="next">reduced memory overhead</li>
-                <li class="next"><span class="kevOrange iconic rss"></span> highly versatile (different dialect)</li>
-                <li class="next"><span class="kevOrange iconic target"></span> high read speed</li>
+                <li class="next">reduce memory overhead</li>
+                <li class="next"><span class="kevOrange iconic rss"></span> enable high versatility (different dialects)</li>
+                <li class="next"><span class="kevOrange iconic target"></span> provide high speed accesses</li>
             </ul>
         </li>
         <!-- Need to adapt and rethink design tools to be used @Runtime -->
@@ -327,7 +327,7 @@
     <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:250px;left:480px;">g</span>
 
     <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
-        <span class="kevGray">thread-safe</span> access to model structure</code>
+        <span class="kevGray">thread-safe</span> accesses to model structure</code>
 </section>
 
 <!-- Offline/ Online operation -->
@@ -414,7 +414,7 @@
         <li>Mappings
             <ul>
                 <li>MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Java <span class="kevOrange">classes + interfaces</span></li>
-                <li>MOF multi-inheritance on interface nor classes</li>
+                <li>MOF multi-inheritance on interfaces, not on classes</li>
                 <li>MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> ad-hoc <span class="kevOrange">mutable collections</span></li>
                 <li>MOF model element <span class="arrow_right_alt1 iconic kevOrange"></span> Java Object, created by a factory</li>
             </ul>
@@ -452,8 +452,8 @@
     <ul>
         <li class="next"><code>Large dependency set</code>
             <ul>
-                <li class="next"><b>~15Mo</b> in an executable Jar</li>
-                <li class="next"><b>~15Ko</b> of generated code !</li>
+                <li class="next"><b>~15Ko</b> of generated code,</li>
+                <li class="next"><b>~15Mo</b> in an executable Jar !</li>
             </ul>
         </li>
     </ul>
@@ -612,7 +612,7 @@ protected E doNext(){
         <tr>
             <td>Efficient model (un)marshalling and cloning</td>
             <td>∼</td>
-            <td>∨ (see Table 2)</td>
+            <td>∨ (see previous table)</td>
         </tr>
         <tr>
             <td>Design tools compatibility</td>
@@ -635,12 +635,13 @@ protected E doNext(){
 	A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span class="kevOrange">cheaper</span> than the reality	
 	</blockquote>
 	
-	<p><span class="iconraph kevOrange">o</span> MDA must not only now build efficient tools<br /> but must be efficient, safer, cheaper itself !</p>
+	<p><span class="iconraph kevOrange">o</span> Beyond the production of efficient code, MDA tools must now be themselves more effective, safer, cheaper !</p>
 	
     <ul>
         <li class="next"><code>Refactoring impact</code>
             <ul>
-                <li>Removal of EObject, eContainer has been kept</li>
+                <li><span class="iconFont3 kevOrange">2</span> Removal of EObject</li>
+				<li><span class="iconFont3 kevOrange">8</span> eContainer has been kept</li>
                 <li>Choose Scala/Java methods by default, methods "4(J)(S)" for Java</li>
             </ul>
         </li>
