@@ -83,9 +83,7 @@ function KKeyboard (kslide) {
 
     this.start = function () {
         document.addEventListener("touchstart", touchStartEvent, false);
-//        document.addEventListener("touchmove", touchMoveEvent, false);
         document.addEventListener("touchend", touchStopEvent, false);
-//        document.addEventListener('touchend', function () {kslide.sendEvent(self, {"type":"FULL"})}, false);
         document.addEventListener('click', function () {
             kslide.sendEvent(self, {"type":"FULL"})
         }, false);
