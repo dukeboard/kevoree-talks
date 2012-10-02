@@ -83,33 +83,35 @@ function KKeyboard (kslide) {
 
     this.start = function () {
         document.addEventListener("touchstart", touchStartEvent, false);
-        document.addEventListener("touchmove", touchMoveEvent, false);
+//        document.addEventListener("touchmove", touchMoveEvent, false);
+        document.addEventListener("touchend", touchStopEvent, false);
 //        document.addEventListener('touchend', function () {kslide.sendEvent(self, {"type":"FULL"})}, false);
-        document.addEventListener('click', function () {kslide.sendEvent(self, {"type":"FULL"})}, false);
+        document.addEventListener('click', function () {
+            kslide.sendEvent(self, {"type":"FULL"})
+        }, false);
         document.addEventListener('keydown', keyEventListener, false);
     };
 
 
     function touchStartEvent (aEvent) {
         aEvent.preventDefault();
-        self.tracking = true;
-        self.orgX = aEvent.changedTouches[0].pageX;
+        tracking = true;
+        orgX = aEvent.changedTouches[0].pageX;
     }
 
-    function touchMoveEvent (aEvent) {
+    function touchStopEvent (aEvent) {
         aEvent.preventDefault();
-        if (!self.tracking) {
+        if (!tracking) {
             return;
         }
-        self.newX = aEvent.changedTouches[0].pageX;
-        if (self.orgX - self.newX > 100) {
-            self.tracking = false;
+        newX = aEvent.changedTouches[0].pageX;
+        tracking = false;
+        if (orgX - newX > 100) {
             kslide.sendEvent(self, {"type":"FORWARD"});
+        } else if (orgX - newX < -100) {
+            kslide.sendEvent(self, {"type":"BACK"});
         } else {
-            if (self.orgX - self.newX < -100) {
-                self.tracking = false;
-                kslide.sendEvent(self, {"type":"BACK"});
-            }
+            kslide.sendEvent(self, {"type":"FULL"})
         }
     }
 
