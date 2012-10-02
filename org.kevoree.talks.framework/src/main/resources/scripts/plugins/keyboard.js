@@ -9,6 +9,9 @@ function KKeyboard (kslide) {
 
     var self = this;
 
+    var orgX, newX;
+    var tracking = false;
+
     function keyEventListener (e) {
         // Shortcut for alt, shift and meta keys
         if (e.altKey || e.ctrlKey || e.metaKey) {
@@ -77,8 +80,37 @@ function KKeyboard (kslide) {
 
     this.listener = function (message) {
     };
+
     this.start = function () {
+        document.addEventListener("touchstart", touchStartEvent, false);
+        document.addEventListener("touchmove", touchMoveEvent, false);
+//        document.addEventListener('touchend', function () {kslide.sendEvent(self, {"type":"FULL"})}, false);
+        document.addEventListener('click', function () {kslide.sendEvent(self, {"type":"FULL"})}, false);
         document.addEventListener('keydown', keyEventListener, false);
     };
+
+
+    function touchStartEvent (aEvent) {
+        aEvent.preventDefault();
+        self.tracking = true;
+        self.orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function touchMoveEvent (aEvent) {
+        aEvent.preventDefault();
+        if (!self.tracking) {
+            return;
+        }
+        self.newX = aEvent.changedTouches[0].pageX;
+        if (self.orgX - self.newX > 100) {
+            self.tracking = false;
+            kslide.sendEvent(self, {"type":"FORWARD"});
+        } else {
+            if (self.orgX - self.newX < -100) {
+                self.tracking = false;
+                kslide.sendEvent(self, {"type":"BACK"});
+            }
+        }
+    }
 
 }
