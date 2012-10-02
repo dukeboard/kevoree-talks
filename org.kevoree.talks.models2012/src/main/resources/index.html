@@ -248,18 +248,17 @@
 </section>
 
 <section class="slide" id="mar_where">
-    <header><h2>Where M@R is helpful ?</h2></header>
+    <header><h2>Where is M@R helpful ?</h2></header>
     <div>
         <ul>
-            <li class="next"><span class="kevOrange"><b>to solve complexity of Dynamically Adaptive Systems
-                (DAS)</b></span>:
+            <li class="next"><span class="kevOrange"><b>to tame the complexity of Dynamically Adaptive Systems (DAS)</b></span>
                 <ul>
-                    <li class="next">heterogeneous</li>
-                    <li class="next">distributed</li>
-                    <li class="next">rapidly changing</li>
+                    <li class="next">heterogeneity</li>
+                    <li class="next">distribution</li>
+                    <li class="next">rapid evolutions</li>
                 </ul>
             </li>
-            <li class="next"><span class="kevOrange"><b>to drive system like</b></span>:
+            <li class="next"><span class="kevOrange"><b>to drive systems like</b></span>
                 <ul>
                     <li class="next">µControllers, System On Chip
                         <img style="position: absolute;right: 400px;top:400px;width: 120px;"
@@ -282,52 +281,34 @@
     </div>
 </section>
 
-<!--
-<section class="slide" id="mar_dcontext">
-<header><h2>Need appropriate mechanisms</h2></header>
-<ul>
-   <li class="next"><code>Continuous design</code> <span class="iconic move_horizontal_alt2"></span> Flexibility
-   </li>
-   <li class="next"><code>Runtime validation</code> <span class="iconic move_horizontal_alt2"></span> Adaptation
-       and Self-Management
-   </li>
-   <li class="next"><code>Runtime monitoring</code> <span class="iconic move_horizontal_alt2"></span>
-       Reconfiguration
-   </li>
-</ul>
-! MDD first used to design, validate and deploy applications: not designed to be embedded at runtime
-</section>
--->
-
-
 <section class="slide" id="mar_challenges">
     <header>
         <h2>Model@Runtime challenges</h2>
     </header>
-    <div>Goal : reuse power of MDE <code>Design</code> tools <span class='kevOrange'><b>@Runtime</b></span></div>
+    <div><span class="iconraph kevOrange">y</span> Reuse the power of MDE <code>Design</code> tools <span class='kevOrange'><b>@Runtime</b></span></div>
     <ul>
-        <li class="next">Include and run design tools in platform
+        <li class="next">Include and run design tools directly on platforms
             <ul>
-                <li class="next">warning ! overhead</li>
+                <li class="next"><span class="iconraph kevOrange">8</span> overhead</li>
             </ul>
         </li>
-        <li class="next">Model -> first class entity used by runtime elements
+        <li class="next">Model <span class="arrow_right_alt1 iconic kevOrange"></span> first class entity used by runtime elements
             <ul>
-                <li class="next">memory overhead</li>
-                <li class="next">manipulable (versatile => different dialect)</li>
-                <li class="next">exchanged, multi access (read overhead)</li>
+                <li class="next">reduce memory overhead</li>
+                <li class="next"><span class="kevOrange iconic rss"></span> enable high versatility (different dialects)</li>
+                <li class="next"><span class="kevOrange iconic target"></span> provide high speed accesses</li>
             </ul>
         </li>
         <!-- Need to adapt and rethink design tools to be used @Runtime -->
     </ul>
-    <code class="next">>Need to adapt design modeling tool for use@Runtime</code>
+    <code class="next">Need to adapt design modeling tools for use@Runtime</code>
 </section>
 
 
 <!-- Multi thread access -->
 <section class="slide" id="thread_challenge">
     <header>
-        <h2 class="next">One model, several reasoners <br/><span class="iconraph kevOrange">/</span> concurrent access
+        <h2 class="next">One model, several reasoners <br/><span class="iconraph kevOrange">/</span> concurrent accesses
         </h2>
     </header>
     <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:300px;">Ñ</span>
@@ -345,15 +326,14 @@
 
     <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:250px;left:480px;">g</span>
 
-    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span>Need
-        thread-safe access to model structure !</code>
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        <span class="kevGray">thread-safe</span> accesses to model structure</code>
 </section>
 
 <!-- Offline/ Online operation -->
 <section class="slide" id="offline_challenge">
     <header>
-        <h2 class="next">Offline/Online operation <br/><span class="iconraph kevOrange">-</span> several copy for
-            several engines</h2>
+        <h2 class="next">Online/Offline operations <br/><span class="iconraph kevOrange">-</span> several copies for several engines</h2>
     </header>
     <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:300px;">Ñ</span>
     <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:260px;"
@@ -377,45 +357,45 @@
 
     <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:250px;left:480px;">g</span>
 
-    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span>Need
-        efficient clone operation to fork model</code>
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        efficient <span class="kevGray">clone</span> operation to fork model</code>
 </section>
 
-<!-- Seralization -->
+<!-- Serialization -->
 <section class="slide" id="serialisation_challenge">
     <header>
         <h2 class="next">Distributed usages <br/><span class="iconraph kevOrange">0</span> exchange layer</h2>
     </header>
-    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:310px;left:300px;"></span>
-    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:340px;"
+    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:290px;left:300px;"></span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:325px;"
           class="iconic loop_alt1 kevGray"></span>
-    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:310px;left:680px;"></span>
-    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:340px;"
+    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:290px;left:680px;"></span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:325px;"
           class="iconic loop_alt1 kevGray"></span>
 
-    <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:290px;left:480px;">g</span>
+    <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:270px;left:480px;">g</span>
 
-    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span>Need
-        efficient (de)serialization operation !</code>
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        efficient <span class="kevGray">(de)serialization</span> operation</code>
 </section>
 
 <section class="slide" id="mar_needReflexion">
     <header>
         <h2>New MDE tools requirements</h2>
     </header>
-    Model@Runtime approach place MDE tools at the corner stone of platforms
+    Model@Runtime approach places MDE tools at the corner stone of platforms
     <ul>
-        <li class="next"><code>Reduce Model memory footprints</code>
+        <li class="next"><code>Reduce Model memory footprint</code>
             <ul>
-                <li class="next">Reduce Dependencies, take te essential</li>
+                <li class="next">Reduce dependencies, take the essential</li>
             </ul>
         </li>
-        <li class="next"><code>Threads safety structure</code></li>
+        <li class="next"><code>Thread-safe structures</code></li>
         <li class="next"><code>Efficient (un)marshalling and cloning</code>
-            <ul>Meta-reflexive path VS flat generation</ul>
+            <ul>Meta-reflexive navigation <span class="iconraph kevOrange">;</span> flat generation</ul>
         </li>
         <li class="next"><code>Connection with existing design tools</code>
-            <ul>Using standard like XMI</ul>
+            <ul>Use standards like XMI</ul>
         </li>
     </ul>
 </section>
@@ -429,14 +409,14 @@
     <header>
         <h2>A framework for Java based MDE tools</h2>
     </header>
-    De facto standard Java <code>MOF</code> implementation !
+    <span class="iconraph kevOrange">"</span> De facto <code>MOF</code> Java standard implementation 
     <ul>
         <li>Mappings
             <ul>
-                <li>MOF meta-classes => <span class="kevOrange">Java classes + interfaces</span></li>
-                <li>MOF multi-inheritance on interface nor classes</li>
-                <li>MOF relationships => ad-hoc <span class="kevOrange">mutable collection</span></li>
-                <li>MOF model element => Java object, created by a factory</li>
+                <li>MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Java <span class="kevOrange">classes + interfaces</span></li>
+                <li>MOF multi-inheritance on interfaces, not on classes</li>
+                <li>MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> ad-hoc <span class="kevOrange">mutable collections</span></li>
+                <li>MOF model element <span class="arrow_right_alt1 iconic kevOrange"></span> Java Object, created by a factory</li>
             </ul>
         </li>
         <li>Meta-Meta development via EObject framework</li>
@@ -458,22 +438,22 @@
         <li class="next"><span class="iconFont3 kevOrange">2</span> Marshaller, Cloner (reflexive) navigation via
             EObject
         </li>
-        <li class="next"><span class="iconFont3 kevOrange">2</span> Iterator are not thread-safe !</li>
+        <li class="next"><span class="iconFont3 kevOrange">2</span> Iterators are not thread-safe !</li>
         <li class="next"><span class="iconFont3 kevOrange">2</span> Registry does not allow multiple classloaders</li>
     </ul>
 </section>
 
 <section class="slide" id="emf_cons">
     <header>
-        <h2>Limitations by example</h2>
+        <h2>Limitations on FSM meta-model</h2>
     </header>
     <img style="position:absolute;top: 120px;right:50px;" src="figures/fsmmetamodel.png" width="400px"/>
     <img style="position:absolute;bottom: 50px;left:100px;" src="figures/emfdependencies1.png" width="400px"/>
     <ul>
         <li class="next"><code>Large dependency set</code>
             <ul>
-                <li class="next"><b>~15Mo</b> in an executable Jar</li>
-                <li class="next"><b>~15Ko</b> of generated code !</li>
+                <li class="next"><b>~15Ko</b> of generated code,</li>
+                <li class="next"><b>~15Mo</b> in an executable Jar !</li>
             </ul>
         </li>
     </ul>
@@ -517,20 +497,20 @@ protected E doNext(){
         <h2>A drop-in replacement for EMF generator</h2>
     </header>
     <ul>
-        <li class="next">Basic ideas to meet @Runtime requirements
+        <li class="next"><span class="kevOrange iconraph">P</span> Basic ideas to meet @Runtime requirements
             <ul>
                 <li class="next">Scala language as a back-end for multi-inheritance</li>
                 <li class="next">Remove Meta-meta dependency @Runtime</li>
-                <li class="next">Protect relationship from concurrent access</li>
+                <li class="next">Protect relationship from concurrent accesses</li>
             </ul>
         </li>
         <li class="next">Mappings
             <ul>
-                <li class="next">MOF meta-classes => <span class="kevOrange">Scala classes+traits</span></li>
-                <li class="next">MOF multi-inheritance => Scala mixin operator</li>
-                <li class="next">MOF relationships => Scala <span class="kevOrange">immutable collection</span>+add/remove
+                <li class="next">MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span class="kevOrange">classes+traits</span></li>
+                <li class="next">MOF multi-inheritance <span class="arrow_right_alt1 iconic kevOrange"></span> Scala mixin operator</li>
+                <li class="next">MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span class="kevOrange">immutable collection</span>+add/remove
                 </li>
-                <li class="next">Objects factory (expendable)</li>
+                <li class="next">Objects factory (can be overridden)</li>
             </ul>
         </li>
     </ul>
@@ -542,19 +522,22 @@ protected E doNext(){
     </header>
     <ul>
         <li class="next">Generated code compatible Java/Scala</li>
-        <li class="next">Lightweight memory footprint (as Scala plain object)</li>
+        <li class="next"><span class="kevOrange">Lightweight memory footprint</span> (as Scala plain object)</li>
         <li class="next">Plain Old Java Object api compatibility</li>
-        <li class="next">Immutable lists, for concurrent reading</li>
+        <li class="next"><span class="kevOrange">Immutable lists</span>, for concurrent reading</li>
         <li class="next">Use of <i>Option</i> for optional attributes prevents null pointer exceptions</li>
         <li class="next">Multi-thread factory and collection modification</li>
-        <li class="next">Flat generated Marshaller, Unmarshaller, Cloner</li>
+        <li class="next"><span class="kevOrange">Flat generated</span> Marshaller, Unmarshaller, Cloner</li>
     </ul>
 </section>
 
 <section class="slide" id="kmf_memory">
     <header>
-        <h2>Experimental results on FSM Meta-model</h2>
+        <h2><span class="kevOrange iconraph">a</span>  Experiments on FSM use case</h2>
     </header>
+	<p>Experiment using a very simple FSM Meta-model<br />
+	<span class="kevOrange"><b>100 000</b></span> states and transitions
+	</p>
     <table>
         <thead>
         <tr>
@@ -569,25 +552,25 @@ protected E doNext(){
             <td>Model Creation</td>
             <td>376 ms</td>
             <td>313 ms</td>
-            <td>1.2 times faster</td>
+            <td><span class="kevOrange"><b>1.2</b></span> times faster</td>
         </tr>
         <tr>
             <td>Model Clone</td>
             <td>3588 ms</td>
             <td>398 ms</td>
-            <td>9 times faster</td>
+            <td><span class="kevOrange"><b>9</b></span> times faster</td>
         </tr>
         <tr>
             <td>Model Save</td>
             <td>7021 ms</td>
             <td>2630 ms</td>
-            <td>2.66 times faster</td>
+            <td><span class="kevOrange"><b>2.66</b></span> times faster</td>
         </tr>
         <tr>
             <td>Memory Footprint</td>
             <td>104MB of heap memory</td>
             <td>61MB of heap memory</td>
-            <td>1.70 times lighter</td>
+            <td><span class="kevOrange"><b>1.70</b></span> times lighter</td>
         </tr>
         </tbody>
     </table>
@@ -595,7 +578,7 @@ protected E doNext(){
 
 <section class="slide" id="kmf_valid">
     <header>
-        <h2>Regaring requirements</h2>
+        <h2><span class="iconraph kevOrange">Ô</span>Regarding requirements</h2>
     </header>
 
     <table>
@@ -629,7 +612,7 @@ protected E doNext(){
         <tr>
             <td>Efficient model (un)marshalling and cloning</td>
             <td>∼</td>
-            <td>∨ (see Table 2)</td>
+            <td>∨ (see previous table)</td>
         </tr>
         <tr>
             <td>Design tools compatibility</td>
@@ -646,13 +629,20 @@ protected E doNext(){
 
 <section class="slide" id="discussion">
     <header>
-        <h2>Discussion</h2>
+        <h2><span class="iconraph kevOrange">[</span> Discussion</h2>
     </header>
+	<blockquote>
+	A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span class="kevOrange">cheaper</span> than the reality	
+	</blockquote>
+	
+	<p><span class="iconraph kevOrange">o</span> Beyond the production of efficient code, MDE tools must now be themselves more effective, safer, cheaper !</p>
+	
     <ul>
         <li class="next"><code>Refactoring impact</code>
             <ul>
-                <li>Removal of EObject, eContainer has been kept</li>
-                <li>Scala methods by default, methods "4J" for Java</li>
+                <li><span class="iconFont3 kevOrange">2</span> Removal of EObject</li>
+				<li><span class="iconFont3 kevOrange">8</span> eContainer has been kept</li>
+                <li>Choose Scala/Java methods by default, methods "4(J)(S)" for Java</li>
             </ul>
         </li>
         <li class="next"><code>Single root container considered</code></li>
@@ -669,8 +659,16 @@ protected E doNext(){
         <h2>Conclusion</h2>
     </header>
     <ul>
-        <li class="next">Design tools can be adapted to fit better @Runtime</li>
+        <li class="next">Design tools can be adapted to fit better @Runtime
+			<ul>
+				<li>Generated backend must be smarter than hand written API</li>
+			</ul>
+		</li>
         <li class="next">Generative design must not forget API usage/compatibility</li>
+		<li class="next">KMF is very first step and must now address large scale runtime issues<span class="iconraph kevOrange">c</span></li>
+		<li class="next"><span class="iconraph kevOrange">a</span> Backbone of Kevoree Project !<br />
+			<img src="figures/kevoree-logo.png" style="width:200px;" />
+		</li>
     </ul>
 </section>
 
@@ -679,8 +677,20 @@ protected E doNext(){
         <h2>Future Work</h2>
     </header>
     <ul>
-        <li class="next"><code>Loader/Serializer customization</code></li>
-        <li class="next"><code>Set operations generation</code></li>
+		<li class="next"><span class="kevOrange iconic pin"></span> Pluggable Loader/Serializer (XMI, JSON, DB, etc.)</li>		
+		<li class="next"><span class="kevOrange iconic pin"></span> Deal with very large scale models
+			<ul>
+			<li><span class="iconraph kevOrange">8</span> Does not entirely fit in memory</li>
+			<li><span class="iconraph kevOrange">"</span> Floating window model loader <span class="chart iconic kevOrange"></span></li>
+			</ul>
+		</li>
+		<li class="next"><span class="kevOrange iconic pin"></span> Dedicated memory zones for Models
+			<ul>
+			<li>Off-heap memory mapping</li>
+			<li>Control/reduce garbage collection <span class="bolt iconic kevOrange"></span> (ex : for exploratory usage)</li>
+		</ul>
+		</li>
+		<li class="next"><span class="kevOrange iconic pin"></span> Big data Model repositories (like EMF CDO ?)</li>
     </ul>
 </section>
 
