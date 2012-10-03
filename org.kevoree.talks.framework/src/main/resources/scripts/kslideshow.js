@@ -29,20 +29,20 @@ function KSlideShow () {
         progress = document.querySelector('div.progress div');
         initializeSlidesList();
 
-        document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
+//        document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
 
-        window.addEventListener('resize', function (e) {
+        window.addEventListener('resize', function () {
             if (!isListMode()) {
                 applyTransform(getTransform());
             }
         }, false);
         /*window.addEventListener('popstate', function (e) {
-            if (isListMode()) {
-                gotToList();
-            } else {
-                goToFull();
-            }
-        }, false);*/
+         if (isListMode()) {
+         gotToList();
+         } else {
+         goToFull();
+         }
+         }, false);*/
 
         if (!isListMode()) {
             goToFull();
@@ -52,7 +52,8 @@ function KSlideShow () {
                 try {
                     pluginListeners[i].listener.start();
                 } catch (e) {
-                    console.error("Unable to execute the method 'start' on ", pluginListeners[i].listener)
+                    console.error(e.message);
+                    console.warn("Unable to execute the method 'start' on ", pluginListeners[i].listener);
                 }
             }
         }
@@ -87,6 +88,10 @@ function KSlideShow () {
         } else if (message.type === "SET_CURSOR") {
             initializeInnerTransition(message.cursor);
             goToSlide(message.cursor);
+        } else if (message.type === "SET_ID") {
+            if ('' !== message.id && isListMode()) {
+                url.hash = '#' + message.id;
+            }
         } else if (message.type === "FULL") {
             goToFull();
         } else if (message.type === "LIST") {
@@ -98,7 +103,8 @@ function KSlideShow () {
                     try {
                         pluginListeners[i].listener.listener(message);
                     } catch (e) {
-                        console.error("Unable to execute the method 'listener' on ", pluginListeners[i].listener, e)
+                        console.error(e.message);
+                        console.warn("Unable to execute the method 'listener' on ", pluginListeners[i].listener)
                     }
                 }
 
@@ -203,27 +209,28 @@ function KSlideShow () {
         }
     }
 
-    function getContainingSlideId (el) {
-        var node = el;
-        while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
-            if (-1 !== node.className.indexOf('slide')) {
-                return node.id;
-            } else {
-                node = node.parentNode;
-            }
-        }
-        return '';
-    }
+    /*
+     function getContainingSlideId (el) {
+     var node = el;
+     while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
+     if (-1 !== node.className.indexOf('slide')) {
+     return node.id;
+     } else {
+     node = node.parentNode;
+     }
+     }
+     return '';
+     }*/
 
-    function dispatchSingleSlideModeFromEvent (e) {
-        var slideId = getContainingSlideId(e.target);
-        if ('' !== slideId && isListMode()) {
-            e.preventDefault();
-            url.hash = '#' + slideId;
-            goToFull();
-            self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
-        }
-    }
+    /*function dispatchSingleSlideModeFromEvent (e) {
+     var slideId = getContainingSlideId(e.target);
+     if ('' !== slideId && isListMode()) {
+     e.preventDefault();
+     url.hash = '#' + slideId;
+     goToFull();
+     self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
+     }
+     }*/
 
     function gotToList () {
         history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));

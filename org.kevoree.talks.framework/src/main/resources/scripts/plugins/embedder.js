@@ -96,7 +96,7 @@ function KEmbedder (kslide) {
             slideURL += "Try<em>: " + document.location + "#yourslides.html</em>";
             slideURL = "data:text/html," + encodeURIComponent(slideURL);
         }
-        return slideURL + "frame"/* + "?full"*/;
+        return slideURL + "frame";
     }
 
     function loadIFrame () {

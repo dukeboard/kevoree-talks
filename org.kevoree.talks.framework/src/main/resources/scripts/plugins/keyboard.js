@@ -9,6 +9,9 @@ function KKeyboard (kslide) {
 
     var self = this;
 
+    var orgX, newX;
+    var tracking = false;
+
     function keyEventListener (e) {
         // Shortcut for alt, shift and meta keys
         if (e.altKey || e.ctrlKey || e.metaKey) {
@@ -77,8 +80,53 @@ function KKeyboard (kslide) {
 
     this.listener = function (message) {
     };
+
     this.start = function () {
+        document.addEventListener("touchstart", touchStartEvent, false);
+        document.addEventListener("touchend", touchStopEvent, false);
+        document.addEventListener('click', function (e) {
+            var slideId = getContainingSlideId(e.target);
+            if ('' !== slideId) {
+                kslide.sendEvent(self, {"type":"SET_ID", "id":slideId});
+                kslide.sendEvent(self, {"type":"FULL"});
+            }
+        }, false);
         document.addEventListener('keydown', keyEventListener, false);
     };
+
+
+    function getContainingSlideId (el) {
+        var node = el;
+        while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
+            if (-1 !== node.className.indexOf('slide')) {
+                return node.id;
+            } else {
+                node = node.parentNode;
+            }
+        }
+        return '';
+    }
+
+    function touchStartEvent (aEvent) {
+        aEvent.preventDefault();
+        tracking = true;
+        orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function touchStopEvent (aEvent) {
+        aEvent.preventDefault();
+        if (!tracking) {
+            return;
+        }
+        newX = aEvent.changedTouches[0].pageX;
+        tracking = false;
+        if (orgX - newX > 100) {
+            kslide.sendEvent(self, {"type":"FORWARD"});
+        } else if (orgX - newX < -100) {
+            kslide.sendEvent(self, {"type":"BACK"});
+        } else {
+            kslide.sendEvent(self, {"type":"FULL"})
+        }
+    }
 
 }
