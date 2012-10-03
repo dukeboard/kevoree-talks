@@ -2,15 +2,10 @@ merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
-merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.models2012/{talks.version}"
-merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
-
-merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.fakeDomo/{kevoree.version}"
 
 addNode node0 : JavaSENode {logLevel = "WARN"}
 addComponent webSrv@node0 : KTinyWebServer { port="8080" }
-addComponent wsSrv@node0 : WsServer
 addComponent slideshow@node0 : MODELS2012Dev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
 
 addChannel req : defMSG
@@ -19,5 +14,3 @@ bind webSrv.handler@node0 => req
 bind slideshow.request@node0 => req
 bind slideshow.content@node0 => res
 bind webSrv.response@node0 => res
-addGroup sync : NanoRestGroup
-addToGroup sync node0

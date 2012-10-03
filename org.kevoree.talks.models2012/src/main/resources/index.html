@@ -285,17 +285,20 @@
     <header>
         <h2>Model@Runtime challenges</h2>
     </header>
-    <div><span class="iconraph kevOrange">y</span> Reuse the power of MDE <code>Design</code> tools <span class='kevOrange'><b>@Runtime</b></span></div>
+    <div><span class="iconraph kevOrange">y</span> Reuse the power of MDE <code>Design</code> tools <span
+            class='kevOrange'><b>@Runtime</b></span></div>
     <ul>
         <li class="next">Include and run design tools directly on platforms
             <ul>
                 <li class="next"><span class="iconraph kevOrange">8</span> overhead</li>
             </ul>
         </li>
-        <li class="next">Model <span class="arrow_right_alt1 iconic kevOrange"></span> first class entity used by runtime elements
+        <li class="next">Model <span class="arrow_right_alt1 iconic kevOrange"></span> first class entity used by
+            runtime elements
             <ul>
                 <li class="next">reduce memory overhead</li>
-                <li class="next"><span class="kevOrange iconic rss"></span> enable high versatility (different dialects)</li>
+                <li class="next"><span class="kevOrange iconic rss"></span> enable high versatility (different dialects)
+                </li>
                 <li class="next"><span class="kevOrange iconic target"></span> provide high speed accesses</li>
             </ul>
         </li>
@@ -333,7 +336,8 @@
 <!-- Offline/ Online operation -->
 <section class="slide" id="offline_challenge">
     <header>
-        <h2 class="next">Online/Offline operations <br/><span class="iconraph kevOrange">-</span> several copies for several engines</h2>
+        <h2 class="next">Online/Offline operations <br/><span class="iconraph kevOrange">-</span> several copies for
+            several engines</h2>
     </header>
     <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:300px;">Ñ</span>
     <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:260px;"
@@ -409,14 +413,18 @@
     <header>
         <h2>A framework for Java based MDE tools</h2>
     </header>
-    <span class="iconraph kevOrange">"</span> De facto <code>MOF</code> Java standard implementation 
+    <span class="iconraph kevOrange">"</span> De facto <code>MOF</code> Java standard implementation
     <ul>
         <li>Mappings
             <ul>
-                <li>MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Java <span class="kevOrange">classes + interfaces</span></li>
+                <li>MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Java <span
+                        class="kevOrange">classes + interfaces</span></li>
                 <li>MOF multi-inheritance on interfaces, not on classes</li>
-                <li>MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> ad-hoc <span class="kevOrange">mutable collections</span></li>
-                <li>MOF model element <span class="arrow_right_alt1 iconic kevOrange"></span> Java Object, created by a factory</li>
+                <li>MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> ad-hoc <span
+                        class="kevOrange">mutable collections</span></li>
+                <li>MOF model element <span class="arrow_right_alt1 iconic kevOrange"></span> Java Object, created by a
+                    factory
+                </li>
             </ul>
         </li>
         <li>Meta-Meta development via EObject framework</li>
@@ -482,7 +490,9 @@ protected E doNext(){
 </pre>
         </li>
         <li class="next"><code>Cloning overhead</code>
-            <ul><li>EObject reflexive navigation</li></ul>
+            <ul>
+                <li>EObject reflexive navigation</li>
+            </ul>
         </li>
     </ul>
 </section>
@@ -506,9 +516,13 @@ protected E doNext(){
         </li>
         <li class="next">Mappings
             <ul>
-                <li class="next">MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span class="kevOrange">classes+traits</span></li>
-                <li class="next">MOF multi-inheritance <span class="arrow_right_alt1 iconic kevOrange"></span> Scala mixin operator</li>
-                <li class="next">MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span class="kevOrange">immutable collection</span>+add/remove
+                <li class="next">MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span
+                        class="kevOrange">classes+traits</span></li>
+                <li class="next">MOF multi-inheritance <span class="arrow_right_alt1 iconic kevOrange"></span> Scala
+                    mixin operator
+                </li>
+                <li class="next">MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span
+                        class="kevOrange">immutable collection</span>+add/remove
                 </li>
                 <li class="next">Objects factory (can be overridden)</li>
             </ul>
@@ -533,11 +547,11 @@ protected E doNext(){
 
 <section class="slide" id="kmf_memory">
     <header>
-        <h2><span class="kevOrange iconraph">a</span>  Experiments on FSM use case</h2>
+        <h2><span class="kevOrange iconraph">a</span> Experiments on FSM use case</h2>
     </header>
-	<p>Experiment using a very simple FSM Meta-model<br />
-	<span class="kevOrange"><b>100 000</b></span> states and transitions
-	</p>
+    <p>Experiment using a very simple FSM Meta-model<br/>
+        <span class="kevOrange"><b>100 000</b></span> states and transitions
+    </p>
     <table>
         <thead>
         <tr>
@@ -574,7 +588,8 @@ protected E doNext(){
         </tr>
         </tbody>
     </table>
-	<span class="kevGray" style="font-size: 16px;">Ran on a Dell Precision E6400, Intel iCore I7 2.5GHz CPU, 16GB of RAM</span>
+    <span class="kevGray"
+          style="font-size: 16px;">Ran on a Dell Precision E6400, Intel iCore I7 2.5GHz CPU, 16GB of RAM</span>
 </section>
 
 <section class="slide" id="kmf_valid">
@@ -584,10 +599,12 @@ protected E doNext(){
 
     <table>
         <thead>
-        <th>
-            <td>EMF</td>
-            <td>KMF</td>
-        </th>
+        <thead>
+        <tr>
+            <th></th>
+            <th>EMF</th>
+            <th>KMF</th>
+        </tr>
         </thead>
         <tbody>
         <tr>
@@ -632,17 +649,19 @@ protected E doNext(){
     <header>
         <h2><span class="iconraph kevOrange">[</span> Discussion</h2>
     </header>
-	<blockquote>
-	A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span class="kevOrange">cheaper</span> than the reality	
-	</blockquote>
-	
-	<p><span class="iconraph kevOrange">o</span> Beyond the production of efficient code, MDE tools must now be themselves more effective, safer, cheaper !</p>
-	
+    <blockquote>
+        A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span
+            class="kevOrange">cheaper</span> than the reality
+    </blockquote>
+
+    <p><span class="iconraph kevOrange">o</span> Beyond the production of efficient code, MDE tools must now be
+        themselves more effective, safer, cheaper !</p>
+
     <ul>
         <li class="next"><code>Refactoring impact</code>
             <ul>
                 <li><span class="iconFont3 kevOrange">2</span> Removal of EObject</li>
-				<li><span class="iconFont3 kevOrange">8</span> eContainer has been kept</li>
+                <li><span class="iconFont3 kevOrange">8</span> eContainer has been kept</li>
                 <li>Choose Scala/Java methods by default, methods "4(J)(S)" for Java</li>
             </ul>
         </li>
@@ -661,15 +680,16 @@ protected E doNext(){
     </header>
     <ul>
         <li class="next">Design tools can be adapted to fit better @Runtime
-			<ul>
-				<li>Generated backend must be smarter than hand written API</li>
-			</ul>
-		</li>
+            <ul>
+                <li>Generated backend must be smarter than hand written API</li>
+            </ul>
+        </li>
         <li class="next">Generative design must not forget API usage/compatibility</li>
-		<li class="next">KMF is very first step and must now address large scale runtime issues<span class="iconraph kevOrange">c</span></li>
-		<li class="next"><span class="iconraph kevOrange">a</span> Backbone of Kevoree Project !<br />
-			<img src="figures/kevoree-logo.png" style="width:200px;" />
-		</li>
+        <li class="next">KMF is very first step and must now address large scale runtime issues<span
+                class="iconraph kevOrange">c</span></li>
+        <li class="next"><span class="iconraph kevOrange">a</span> Backbone of Kevoree Project !<br/>
+            <img src="figures/kevoree-logo.png" style="width:200px;"/>
+        </li>
     </ul>
 </section>
 
@@ -678,20 +698,24 @@ protected E doNext(){
         <h2>Future Work</h2>
     </header>
     <ul>
-		<li class="next"><span class="kevOrange iconic pin"></span> Pluggable Loader/Serializer (XMI, JSON, DB, etc.)</li>		
-		<li class="next"><span class="kevOrange iconic pin"></span> Deal with very large scale models
-			<ul>
-			<li><span class="iconraph kevOrange">8</span> Does not entirely fit in memory</li>
-			<li><span class="iconraph kevOrange">"</span> Floating window model loader <span class="chart iconic kevOrange"></span></li>
-			</ul>
-		</li>
-		<li class="next"><span class="kevOrange iconic pin"></span> Dedicated memory zones for Models
-			<ul>
-			<li>Off-heap memory mapping</li>
-			<li>Control/reduce garbage collection <span class="bolt iconic kevOrange"></span> (ex : for exploratory usage)</li>
-		</ul>
-		</li>
-		<li class="next"><span class="kevOrange iconic pin"></span> Big data Model repositories (like EMF CDO ?)</li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Pluggable Loader/Serializer (XMI, JSON, DB, etc.)
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Deal with very large scale models
+            <ul>
+                <li><span class="iconraph kevOrange">8</span> Does not entirely fit in memory</li>
+                <li><span class="iconraph kevOrange">"</span> Floating window model loader <span
+                        class="chart iconic kevOrange"></span></li>
+            </ul>
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Dedicated memory zones for Models
+            <ul>
+                <li>Off-heap memory mapping</li>
+                <li>Control/reduce garbage collection <span class="bolt iconic kevOrange"></span> (ex : for exploratory
+                    usage)
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Big data Model repositories (like EMF CDO ?)</li>
     </ul>
 </section>
 
@@ -736,49 +760,54 @@ protected E doNext(){
         <a href="http://kevoree.org">kevoree.org</a></h2>
 </section>
 
-<div class="progress">
-    <div></div>
-</div>
+
+<section class="slide shout" id="ExtraSlide">
+    <h2><span class="kevOrange">></span>Extra slides</h2>
+</section>
 
 <section class="slide" id="kmf_code_stats">
     <header>
         <h2><span class="iconraph kevOrange">Ô</span>Code statistics</h2>
     </header>
 
-    <center><table>
+    <table>
         <thead>
-        <th>
-            <td>Files</td>
-            <td>Blanc Lines</td>
-			<td>Comments</td>
-			<td>Code</td>
-        </th>
+        <tr>
+            <th>Files</th>
+            <th>Blanc Lines</th>
+            <th>Comments</th>
+            <th>Code</th>
+        </tr>
         </thead>
         <tbody>
         <tr>
             <td>Scala</td>
             <td>15</td>
             <td>459</td>
-			<td>710</td>
-			<td>1638</td>
+            <td>710</td>
+            <td>1638</td>
         </tr>
         <tr>
             <td>Java</td>
             <td>4</td>
             <td>20</td>
-			<td>392</td>
-			<td>46</td>
+            <td>392</td>
+            <td>46</td>
         </tr>
         <tr>
             <td>SUM</td>
             <td>19</td>
             <td>479</td>
-			<td>1102</td>
-			<td>1684</td>
+            <td>1102</td>
+            <td>1684</td>
         </tr>
         </tbody>
-    </table> </center>
+    </table>
 </section>
+
+<div class="progress">
+    <div></div>
+</div>
 
 </body>
 </html>

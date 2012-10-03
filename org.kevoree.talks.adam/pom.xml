@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.kevoree.talks</groupId>
             <artifactId>org.kevoree.talks.framework</artifactId>
-            <version>${talks.version}</version>
+            <version>${talks.framework.version}</version>
         </dependency>
     </dependencies>
 
