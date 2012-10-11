@@ -12,6 +12,7 @@
 
     <artifactId>org.kevoree.talks.framework</artifactId>
     <name>Kevoree :: Talks :: Framework</name>
+    <version>${talks.framework.version}</version>
 
     <dependencies>
         <dependency>
