@@ -1,5 +1,9 @@
 package org.kevoree.slides.framework;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Node;
+import org.jsoup.select.Elements;
 import org.kevoree.annotation.ComponentType;
 import org.kevoree.annotation.DictionaryAttribute;
 import org.kevoree.annotation.DictionaryType;
@@ -33,6 +37,67 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 	private HashMap<String, byte[]> contentRawCache = new HashMap<String, byte[]>();
 	private HashMap<String, String> contentTypeCache = new HashMap<String, String>();
 	protected Boolean useCache = true;
+
+	private static String kslideshowKeynoteScript = "\n\tjQuery(document).ready(function ($) {\n"
+			+ "\t\tvar ks = new KSlideShowKeynote();\n"
+			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+			+ "\t\tvar popupPlugin = new KPopupMaster(ks, \"{slideurl}\");\n"
+			+ "\t\tvar websocketPlugin = new KWebsocketMaster(ks, \"{wsurl}\");\n"
+			+ "\t\tvar iframePlugin = new KIFrameMaster(ks, \"{slideurl}\");\n"
+			+ "\t\tvar slideCountPlugin = new KSlideCount(ks);\n"
+			+ "\t\tvar notesPlugin = new KNotes();\n"
+			+ "\t\tvar timePlugin = new KTime();\n"
+			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+			+ "\t\tks.addPluginListener(popupPlugin);\n"
+			+ "\t\tks.addPluginListener(websocketPlugin);\n"
+			+ "\t\tks.addPluginListener(iframePlugin);\n"
+			+ "\t\tks.addPluginListener(slideCountPlugin);\n"
+			+ "\t\tks.addPluginListener(notesPlugin);\n"
+			+ "\t\tks.addPluginListener(timePlugin);\n"
+			+ "\t\tks.startKeynote();\n"
+			+ "\t});";
+
+	private static String kslideshowMasterScript = "\n\tjQuery(document).ready(function ($) {\n"
+			+ "\t\tvar ks = new KSlideShow();\n"
+			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+			+ "\t\tvar webSocketPlugin = new KWebsocketMaster(ks, \"{wsurl}\", \"{roomID}\");\n"
+			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
+			+ "\t\tks.startKeynote();\n"
+			+ "\t});";
+
+	private static String kslideshowSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
+			+ "\t\tvar ks = new KSlideShow();\n"
+			+ "\t\tvar webSocketPlugin = new KWebsocketSlave(ks, \"{wsurl}\", \"{roomID}\");\n"
+			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
+			+ "\t\tks.startKeynote();\n"
+			+ "\t});";
+
+	private static String kslideshowFrameScript = "\n\tjQuery(document).ready(function ($) {\n"
+			+ "\t\tvar ks = new KSlideShow();\n"
+			+ "\t\tvar iframePlugin = new KIFrameSlave(ks);\n"
+			+ "\t\tks.addPluginListener(iframePlugin);\n"
+			+ "\t\tks.startKeynote();\n"
+			+ "\t});";
+
+	private static String kslideshowPopupSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
+			+ "\t\tvar ks = new KSlideShow();\n"
+			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+			+ "\t\tvar popupPlugin = new KPopupSlave(ks);\n"
+			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+			+ "\t\tks.addPluginListener(popupPlugin);\n"
+			+ "\t\tks.startKeynote();\n"
+			+ "\t});";
+
+		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
+				+ "\t\tvar ks = new KSlideShowKeynote();\n"
+				+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+				+ "\t\tvar embedderPlugin = new KEmbedder(ks);\n"
+				+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+				+ "\t\tks.addPluginListener(embedderPlugin);\n"
+				+ "\t\tks.startKeynote();\n"
+				+ "\t\tks.sendEvent(null, {'type':'RELOAD', 'url':'{slideurl}'});\n"
+				+ "\t});";
 
 	@Override
 	public void startPage () {
@@ -88,22 +153,86 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					completeUrl = completeUrl.substring(0, completeUrl.length() - 1);
 				}
 				if (!slideURL.startsWith("/")) {
-					slideURL= "/" + slideURL;
+					slideURL = "/" + slideURL;
 				}
-				response.setRawContent(FileServiceHelper.convertStream(loadInternal("display.html")));
-				response.setRawContent(new String(response.getRawContent()).replace("http://localhost:8080/", completeUrl + slideURL).getBytes());
-				response.setRawContent(new String(response.getRawContent()).replace("ws://localhost:8092/keynote", getDictionary().get("wsurl").toString()).getBytes());
-				response.getHeaders().put("Content-Type", "text/html");
-				if (useCache) {
-					cacheResponse(request, response);
-				}
-				return response;
-			} catch (Exception e) {
-				logger.error("", e);
-			}
-		}
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal("showcaseKeynote.html")), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
 
-		if (getLastParam(request.getUrl()).equals("embed")) {
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					// replace slideURL and wsurl on the script
+					String script = kslideshowKeynoteScript.replace("{slideurl}", completeUrl + slideURL).replace("{wsurl}", getDictionary().get("wsurl").toString());
+					kslideshow.attr("data", script);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (getLastParam(request.getUrl()).equals("frame")) {
+			try {
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
+
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/iframe.js\"></script>");
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					kslideshow.attr("data", kslideshowFrameScript);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (getLastParam(request.getUrl()).equals("popup")) {
+			try {
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
+
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/popup.js\"></script>");
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					kslideshow.attr("data", kslideshowPopupSlaveScript);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (getLastParam(request.getUrl()).equals("embed")) {
 			try {
 				String slideURL = request.getUrl().replace("embed", "");
 				String completeUrl = request.getCompleteUrl().replace(request.getUrl(), "");
@@ -111,26 +240,40 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					completeUrl = completeUrl.substring(0, completeUrl.length() - 1);
 				}
 				if (!slideURL.startsWith("/")) {
-					slideURL= "/" + slideURL;
+					slideURL = "/" + slideURL;
 				}
-				response.setRawContent(FileServiceHelper.convertStream(loadInternal("embedder.html")));
-				response.setRawContent(new String(response.getRawContent()).replace("http://localhost:8080/", completeUrl + slideURL).getBytes());
-				response.getHeaders().put("Content-Type", "text/html");
-				if (useCache) {
-					cacheResponse(request, response);
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal("showcaseEmbedder.html")), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
+
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					// replace slideURL and wsurl on the script
+					String script = kslideshowEmbedderScript.replace("{slideurl}", completeUrl + slideURL);
+					kslideshow.attr("data", script);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
 				}
-				return response;
 			} catch (Exception e) {
-				logger.error("", e);
+				e.printStackTrace();
 			}
-		}
-		if (getLastParam(request.getUrl()).contains("ws")) {
-			try {
+		} /*else if (getLastParam(request.getUrl()).contains("ws")) {
+			*//*try {
 				String roomID = getLastParam(request.getUrl()).replace("ws", "");
-				String newScript = "<script>" + new String(FileServiceHelper.convertStream(loadInternal("scripts/kslideWebSocket.js")), "UTF-8").replace("{roomID}", roomID)
-						.replace("{wsurl}", getDictionary().get("wsurl").toString()) + "</script></body>";
+				String wsUrl = getDictionary().get("wsurl").toString();
 				response.setRawContent(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())));
-				response.setRawContent(new String(response.getRawContent()).replace("</body>", newScript).getBytes());
+				response.setRawContent(new String(response.getRawContent()).replace("{wsurl}", wsUrl).replace("{roomID}", roomID).getBytes());
 				response.getHeaders().put("Content-Type", "text/html");
 				if (useCache) {
 					cacheResponse(request, response);
@@ -138,25 +281,66 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 				return response;
 			} catch (Exception e) {
 				logger.error("", e);
-			}
-		}
-		if (getLastParam(request.getUrl()).contains("master")) {
+			}*//*
+		}*/ else if (getLastParam(request.getUrl()).contains("master")) {
 			try {
 				String roomID = getLastParam(request.getUrl()).replace("master", "");
-				String newScript = "<script>" + new String(FileServiceHelper.convertStream(loadInternal("scripts/kslideWebSocketMaster.js")), "UTF-8").replace("{roomID}", roomID)
-						.replace("{wsurl}", getDictionary().get("wsurl").toString()) + "</script></body>";
-				response.setRawContent(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())));
-				response.setRawContent(new String(response.getRawContent()).replace("</body>", newScript).getBytes());
-				response.getHeaders().put("Content-Type", "text/html");
-				if (useCache) {
-					cacheResponse(request, response);
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
+
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					// replace roomID and wsurl on the script
+					String script = kslideshowMasterScript.replace("{roomID}", roomID).replace("{wsurl}", getDictionary().get("wsurl").toString());
+					kslideshow.attr("data", script);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
 				}
-				return response;
 			} catch (Exception e) {
-				logger.error("", e);
+				e.printStackTrace();
 			}
-		}
-		if (!load(request, response)) {
+		} else if (getLastParam(request.getUrl()).contains("slave")) {
+			try {
+				String roomID = getLastParam(request.getUrl()).replace("slave", "");
+				Document document = Jsoup.parse(new String(FileServiceHelper.convertStream(loadInternal(getDictionary().get("main").toString())), "UTF-8"));
+				Document.OutputSettings settings = document.outputSettings();
+				settings.prettyPrint(false);
+				settings.charset("ASCII");
+
+				Elements kslideshowElements = document.select("#kSlideshow");
+				if (kslideshowElements.size() == 1) {
+					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
+					Node kslideshow = kslideshowElements.first().childNode(0);
+
+					// replace roomID and wsurl on the script
+					String script = kslideshowSlaveScript.replace("{roomID}", roomID).replace("{wsurl}", getDictionary().get("wsurl").toString());
+					kslideshow.attr("data", script);
+
+					response.getHeaders().put("Content-Type", "text/html");
+					response.setRawContent(document.html().getBytes());
+					if (useCache) {
+						cacheResponse(request, response);
+					}
+					return response;
+				} else {
+					logger.error("Multiple elements with the same id: kSlideshow");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (!load(request, response)) {
 			response.setStatus(404);
 		}
 		return response;

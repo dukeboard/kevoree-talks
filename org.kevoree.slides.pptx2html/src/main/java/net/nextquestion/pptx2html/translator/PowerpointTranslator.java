@@ -54,8 +54,8 @@ public class PowerpointTranslator {
      */
     PowerpointTranslator(File explodedPresentation) throws IOException {
         this.explodedPresentation = explodedPresentation;
-        slideTokenSource = new StaxTokenSource(new FileReader("target/generated-sources/antlr3/Slide.tokens"));
-        relsTokenSource = new StaxTokenSource(new FileReader("target/generated-sources/antlr3/RELS.tokens"));
+        slideTokenSource = new StaxTokenSource(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("antlr3/Slide.tokens")));
+        relsTokenSource = new StaxTokenSource(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("antlr3/RELS.tokens")));
     }
 
     public PowerpointTranslator(File presentation, File tempDirectory) throws IOException {

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Kevoree Keynote Showcase</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1274, user-scalable=yes"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+	<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+	<script type="text/javascript" id="kSlideshow">
+	jQuery(document).ready(function ($) {
+	var ks = new KSlideShow();
+	var keyboardPlugin = new KKeyboard(ks);
+	ks.addPluginListener(keyboardPlugin);
+	ks.startKeynote();
+	});
+	</script>
+</head>
+<body class="list">
+<header class="caption">
+    <h1>Kevoree Keynote showcase</h1>
+
+    <p><a href="http://www.kevoree.org/">Fouquet Francois / Erwan Daubert / Kevoree Team</a></p>
+</header>
+
+<section class="slide cover" id="Cover">
+    <header>
+        <h2>Kevoree Keynote showcase</h2>
+    </header>
+    <object data="figures/kevoree-logo.png" type="image/png" class="low_middle" height="227" width="400"
+            style="position:absolute;top:30%;left:30%;"></object>
+    <div class="footer">Kevoree Team - Triskell INRIA/IRISA</div>
+    <details>Some content to the speaker</details>
+</section>
+
+<section class="slide">
+    <h2>HTML5 Slide framework</h2>
+
+    <p>Simply write content in HTML</p>
+
+    <p>Hightlight some <code>content</code></p>
+</section>
+
+<section class="slide" id="innerTest">
+    <h2>Next step</h2>
+
+    <p>You can add some incremental content with the <code>next</code> CSS class</p>
+    <ul>
+        <li class="next">First point</li>
+        <li class="next">Second idea !</li>
+        <li class="next">It also work recursively !
+            <ul>
+                <li class="next">sub idea 1</li>
+                <li class="next">no idea anymore ;-)</li>
+            </ul>
+        </li>
+    </ul>
+    <p class="next">It work also for P element</p>
+    <details>Some content for speaker (not display)</details>
+</section>
+
+<!--<section class="slide" id="ol">
+    <h2>Next step</h2>
+
+    <p>Incremental content can be numbered too</p>
+    <ol>
+        <li class="next">first number</li>
+        <li class="next">second number</li>
+    </ol>
+    <details>Some content for speaker (not display)</details>
+</section>-->
+
+<section class="slide" id="image1">
+    <h2>Image is good for comprehension</h2>
+    <img src="http://kevoree.org/img/kevoree-logo.png"/>
+</section>
+
+<section class="slide" id="image2">
+    <h2>You can also add image incrementally</h2>
+    <img class="next" src="figures/kevoree-logo.png" width="300px"/>
+    <img class="next" src="figures/kevoree-logo.png" width="300px"/>
+    <img class="next" src="figures/kevoree-logo.png" width="300px"/>
+    <img class="next" src="figures/kevoree-logo.png" width="300px"/>
+</section>
+
+<section class="slide" id="image3">
+    <h2>You can also add image incrementally</h2>
+    <p>
+        <span>And mix image</span>
+        <img class="next" src="figures/kevoree-logo.png" width="300px"/>
+        and text !
+    </p>
+</section>
+
+<section class="slide shout">
+    <h2>Wake up !</h2>
+</section>
+
+<!-- Add Showdown plugin -->
+<script type="text/javascript" src="scripts/showdown.js"></script>
+<!-- Write some slide in markdown language -->
+<section class="slide markdown" id="markdownSample1">
+##MarkDown
+
+Markdown is a very used language for:
+
+- Common Wiki engine
+- GitHub readme file
+
+See [documentation](http://daringfireball.net/projects/markdown/) for more information
+
+MacOS user ? [This app is 4U](http://mouapp.com/).
+</section>
+
+
+
+ <!-- Add SynthaxHighlighter -->
+<script type="text/javascript" src="scripts/brush/shCore.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- Write some code in side .... -->
+
+<section class="slide">
+    <h2>You can also Highlight some code</h2>
+    <p>This is a very complexe code</p>
+    <pre class="brush: java toolbar:false;">
+    public class MyClass {
+        public static void main(String[] args){
+            //very complexe thing here...
+        }
+    }
+    </pre>
+</section>
+
+<section class="slide" id="brushXML">
+    <h2>It also work for plain XML code</h2>
+    <p>Add XML without any modification !</p>
+    <pre class="brush: xml toolbar:false;">
+<plugin>
+    <groupId>org.kevoree.tools</groupId>
+    <artifactId>org.kevoree.tools.annotation.mavenplugin</artifactId>
+    <version>${kevoree.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <nodeTypeNames>JavaSENode</nodeTypeNames>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>generate</goal>
+                <goal>compile</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin></pre>
+</section>
+
+<section class="slide" id="kevsCode">
+    <h2>It also work for KevScript</h2>
+    <p>Add some color to your kevscript file !</p>
+          <pre class="brush: kevscript toolbar:false;">
+//KevScript comment
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
+
+addNode node0 : JavaSENode {logLevel = "WARN"}
+addComponent webSrv@node0 : KTinyWebServer { port="8083" }
+addComponent wsSrv@node0 : WsServer
+
+addChannel req : defMSG
+addChannel res : defMSG
+bind webSrv.handler@node0 => req
+bind annotationSlides.request@node0 => req
+bind annotationSlides.content@node0 => res
+bind webSrv.response@node0 => res
+addGroup sync : NanoRestGroup
+addToGroup sync node0
+</pre>
+</section>
+
+<section class="slide shout">
+    <h2>One more thing !</h2>
+</section>
+
+<section class="slide" id="Anim1">
+    <header>
+        <h2>Extend by yourself</h2>
+    </header>
+    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px" id="animImg1"/>
+    <div class="next" id="divBackground">
+        Some information
+    </div>
+    <script type="text/javascript">
+        jQuery("#Anim1").bind('nextActivated', function (event, param1, param2) {
+            jQuery(document).ready(function () {
+                jQuery("#divBackground").css("background-color","blue");
+            });
+        });
+    </script>
+</section>
+
+
+<section class="slide shout">
+    <h2>Play !</h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+
+</body>
+</html>

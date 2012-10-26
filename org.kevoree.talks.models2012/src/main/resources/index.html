@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            SyntaxHighlighter.all();
+        });
+    </script>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+    <style>
+        body:not(.list) > .slide:not(.cover):not(.shout):before {
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top: 5px;
+            right: 5px;
+        }
+
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular';
+        }
+
+        .kevOrange {
+            color: #DF9D00;
+        }
+
+        .kevGray {
+            color: #666;
+        }
+
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+
+        details {
+            display: none;
+        }
+
+        table {
+            font-size: 15px;
+            overflow: hidden;
+            border: 1px solid #d3d3d3;
+            background: #fefefe;
+            border-radius: 5px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 10px 10px 10px;
+            text-align: center;
+        }
+
+        th {
+            padding-top: 10px;
+            text-shadow: 1px 1px 1px #fff;
+            background: #e8eaeb;
+        }
+
+        td {
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        tr.odd-row td {
+            background: #f6f6f6;
+        }
+
+        td.first, th.first {
+            text-align: left
+        }
+
+        td.last {
+            border-right: none;
+        }
+
+        td {
+            background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+            background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
+        }
+
+        tr.odd-row td {
+            background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+            background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+        }
+
+        th {
+            background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
+            background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+        }
+
+            /*
+            I know this is annoying, but we need additional styling so webkit will recognize rounded corners on background elements.  Nice write up of this issue: http://www.onenaught.com/posts/266/css-inner-elements-breaking-border-radius
+            And, since we've applied the background colors to td/th element because of IE, Gecko browsers also need it.
+            */
+        tr:first-child th.first {
+            -moz-border-radius-topleft: 5px;
+            -webkit-border-top-left-radius: 5px; /* Saf3-4 */
+        }
+
+        tr:first-child th.last {
+            -moz-border-radius-topright: 5px;
+            -webkit-border-top-right-radius: 5px; /* Saf3-4 */
+        }
+
+        tr:last-child td.first {
+            -moz-border-radius-bottomleft: 5px;
+            -webkit-border-bottom-left-radius: 5px; /* Saf3-4 */
+        }
+
+        tr:last-child td.last {
+            -moz-border-radius-bottomright: 5px;
+            -webkit-border-bottom-right-radius: 5px; /* Saf3-4 */
+        }
+
+
+    </style>
+    <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+    <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
+    <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>Models'2012 - KMF</h1>
+
+    <h2>An Eclipse Modelling Framework Alternative to Meet the Models@Runtime Requirements</h2>
+
+    <p><a href="http://www.kevoree.org/">Kevoree Team</a> Francois Fouquet, Grégory Nain, Brice Morin, Erwan Daubert,
+        Olivier Barais, Noël Plouzeau, Jean-Marc Jézéquel</p>
+</header>
+
+<!--Cover page  -->
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+                K M F
+            </span><br/>
+        <span style="text-align : justify;color: #DF9D00;font:bold 40px/40px 'PT Sans Narrow', sans-serif;">
+            An Eclipse Modelling Framework Alternative to Meet the Models@Runtime Requirements
+        </span><br/>
+        <span style="text-align : justify;color: #CCC;font:normal 18px/18px 'PT Sans Narrow', sans-serif;">
+<span class="iconic arrow_right"> by </span> <u>Francois FOUQUET</u>, Grégory Nain, Brice Morin, Erwan Daubert, Olivier Barais, Noël Plouzeau, Jean-Marc Jézéquel</span>
+        </div>
+    </header>
+    <div style="position:absolute;bottom:0;background-color: #ffffff;height: 40px;width: 100%;left:0;">
+        <img style="position:absolute;bottom: 5px;left:10px;" src="figures/logoInria.png" height="80%"/>
+        <img style="position:absolute;bottom: 5px;left:300px;" src="figures/logoUniv.png" height="80%"/>
+        <img style="position:absolute;bottom: 5px;right:300px;" src="figures/snt_logo.gif" height="80%"/>
+        <img style="position:absolute;bottom: 5px;right:0;" src="figures/Sintef-logo.gif" height="80%"/>
+    </div>
+
+</section>
+
+<section class="slide" id="outline">
+    <header>
+        <h2>Outline</h2>
+    </header>
+    <ul>
+        <li class="next">Motivations</li>
+        <li class="next">Requirements</li>
+        <li class="next">EMF Limitations</li>
+        <li class="next">Kevoree Modeling Framework
+            <ul>
+                <li class="next">Implementation details</li>
+                <li class="next">Validation</li>
+            </ul>
+        </li>
+        <li class="next">Conclusion and Future Work</li>
+    </ul>
+</section>
+
+<section class="slide shout" id="mar_title">
+    <h2><span class="kevOrange">></span>Motivations</h2>
+</section>
+
+<!--This is Model@Runtime-->
+<section class="slide shout" id="mar_deployModel">
+    <h2 style="font-size : 60px">
+        Node = <span style="background-color:#CCCCCC;border-radius: 15px;">Runtime
+        <span class='iconic box kevOrange'></span>
+        <span class='iconic loop_alt2'></span>
+        <span class='iconic document_alt_fill kevOrange'></span>
+        Model
+        </span>
+    </h2>
+</section>
+
+<section class="slide" id="mar_whatfor">
+    <header><h2>Why M@R ?</h2></header>
+    <div>
+        <ul>
+            <li class="next">Model <span class='iconic move_horizontal_alt2 kevOrange'></span> abstraction</li>
+            <li class="next">to tackle <code>dynamic</code><span class="kevOrange"><b> systems manipulation</b></span>
+                <ul>
+                    <li class="next">abstract systems state
+                        <img style="position:absolute;top:150px;right:100px;width: 180px;border-radius: 5px;"
+                             src="modelfig/addInst.png"/>
+                    </li>
+                    <li class="next">abstract systems modification</li>
+                </ul>
+            </li>
+            <li class="next">to tackle runtime <span class="kevOrange"><b>heterogeneity</b></span>
+                <ul>
+                    <li class="next">same model for several platforms
+                        <span class="iconic fork kevGray"
+                              style="position:absolute;top: 360px;right:280px;font-size: 40px"></span>
+                        <span class="kevOrange iconFont3"
+                              style="position:absolute;top: 400px;right:280px;font-size: 60px">3</span>
+                        <span class="iconic fork kevGray"
+                              style="position:absolute;top: 360px;right:180px;font-size: 40px"></span>
+                        <span class="kevOrange iconFont3"
+                              style="position:absolute;top: 400px;right:180px;font-size: 60px">3</span>
+                        <span class="iconic fork kevGray"
+                              style="position:absolute;top: 360px;right:80px;font-size: 40px"></span>
+                        <span class="kevOrange iconFont3"
+                              style="position:absolute;top: 400px;right:80px;font-size: 60px">3</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="mar_where">
+    <header><h2>Where is M@R helpful ?</h2></header>
+    <div>
+        <ul>
+            <li class="next"><span class="kevOrange"><b>to tame the complexity of Dynamically Adaptive Systems (DAS)</b></span>
+                <ul>
+                    <li class="next">heterogeneity</li>
+                    <li class="next">distribution</li>
+                    <li class="next">rapid evolutions</li>
+                </ul>
+            </li>
+            <li class="next"><span class="kevOrange"><b>to drive systems like</b></span>
+                <ul>
+                    <li class="next">µControllers, System On Chip
+                        <img style="position: absolute;right: 400px;top:400px;width: 120px;"
+                             src="modelfig/atmel-atmega328p-with-arduino-bootloader.jpg"/>
+                        <img style="position: absolute;right: 270px;top:400px;width: 120px;border-radius: 5px;"
+                             src="modelfig/RasperryPi.jpg"/>
+                    </li>
+                    <li class="next">PC-based distributed
+                        <img style="position: absolute;right: 200px;top:500px;width: 120px;"
+                             src="modelfig/chrome-android.png"/>
+
+                    </li>
+                    <li class="next">Cloud and grid
+                        <span style="position:absolute;left:350px;bottom:50px;font-size:50px;"
+                              class="iconic cloud kevOrange"></span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="mar_challenges">
+    <header>
+        <h2>Model@Runtime challenges</h2>
+    </header>
+    <div><span class="iconraph kevOrange">y</span> Reuse the power of MDE <code>Design</code> tools <span
+            class='kevOrange'><b>@Runtime</b></span></div>
+    <ul>
+        <li class="next">Include and run design tools directly on platforms
+            <ul>
+                <li class="next"><span class="iconraph kevOrange">8</span> overhead</li>
+            </ul>
+        </li>
+        <li class="next">Model <span class="arrow_right_alt1 iconic kevOrange"></span> first class entity used by
+            runtime elements
+            <ul>
+                <li class="next">reduce memory overhead</li>
+                <li class="next"><span class="kevOrange iconic rss"></span> enable high versatility (different dialects)
+                </li>
+                <li class="next"><span class="kevOrange iconic target"></span> provide high speed accesses</li>
+            </ul>
+        </li>
+        <!-- Need to adapt and rethink design tools to be used @Runtime -->
+    </ul>
+    <code class="next">Need to adapt design modeling tools for use@Runtime</code>
+</section>
+
+
+<!-- Multi thread access -->
+<section class="slide" id="thread_challenge">
+    <header>
+        <h2 class="next">One model, several reasoners <br/><span class="iconraph kevOrange">/</span> concurrent accesses
+        </h2>
+    </header>
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:300px;">Ñ</span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:260px;"
+          class="iconic arrow_right kevGray"></span>
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:340px;left:300px;">Ñ</span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:340px;"
+          class="iconic arrow_right kevGray"></span>
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:340px;left:680px;">Ñ</span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:340px;"
+          class="iconic arrow_left kevGray"></span>
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:680px;">Ñ</span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:260px;"
+          class="iconic arrow_left kevGray"></span>
+
+    <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:250px;left:480px;">g</span>
+
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        <span class="kevGray">thread-safe</span> accesses to model structure</code>
+</section>
+
+<!-- Offline/ Online operation -->
+<section class="slide" id="offline_challenge">
+    <header>
+        <h2 class="next">Online/Offline operations <br/><span class="iconraph kevOrange">-</span> several copies for
+            several engines</h2>
+    </header>
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:300px;">Ñ</span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:260px;"
+          class="iconic arrow_left kevGray"></span>
+
+    <span style="position:absolute;left:315px;bottom:250px;font-size:30px;top:330px;"
+          class="iconic fork kevOrange"></span>
+    <span class="iconFont3 kevGray" style="font-size: 60px;position: absolute; top:340px;left:300px;">g</span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:360px;"
+          class="iconic arrow_right kevGray"></span>
+
+    <span style="position:absolute;left:695px;bottom:250px;font-size:30px;top:330px;"
+          class="iconic fork kevOrange"></span>
+    <span class="iconFont3 kevGray" style="font-size: 60px;position: absolute; top:340px;left:680px;">g</span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:360px;"
+          class="iconic arrow_left kevGray"></span>
+
+    <span class="iconraph kevGray" style="font-size: 80px;position: absolute; top:260px;left:680px;">Ñ</span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:260px;"
+          class="iconic arrow_right kevGray"></span>
+
+    <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:250px;left:480px;">g</span>
+
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        efficient <span class="kevGray">clone</span> operation to fork model</code>
+</section>
+
+<!-- Serialization -->
+<section class="slide" id="serialisation_challenge">
+    <header>
+        <h2 class="next">Distributed usages <br/><span class="iconraph kevOrange">0</span> exchange layer</h2>
+    </header>
+    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:290px;left:300px;"></span>
+    <span style="position:absolute;left:400px;bottom:250px;font-size:40px;top:325px;"
+          class="iconic loop_alt1 kevGray"></span>
+    <span class="iconic kevGray iphone" style="font-size: 70px;position: absolute; top:290px;left:680px;"></span>
+    <span style="position:absolute;left:600px;bottom:250px;font-size:40px;top:325px;"
+          class="iconic loop_alt1 kevGray"></span>
+
+    <span class="iconFont3 kevOrange" style="font-size: 80px;position: absolute; top:270px;left:480px;">g</span>
+
+    <code class="next" style="font-size:30px;position: absolute;top:500px;"><span class="iconraph kevGray">O</span> Need
+        efficient <span class="kevGray">(de)serialization</span> operation</code>
+</section>
+
+<section class="slide" id="mar_needReflexion">
+    <header>
+        <h2>New MDE tools requirements</h2>
+    </header>
+    Model@Runtime approach places MDE tools at the corner stone of platforms
+    <ul>
+        <li class="next"><code>Reduce Model memory footprint</code>
+            <ul>
+                <li class="next">Reduce dependencies, take the essential</li>
+            </ul>
+        </li>
+        <li class="next"><code>Thread-safe structures</code></li>
+        <li class="next"><code>Efficient (un)marshalling and cloning</code>
+            <ul>Meta-reflexive navigation <span class="iconraph kevOrange">;</span> flat generation</ul>
+        </li>
+        <li class="next"><code>Connection with existing design tools</code>
+            <ul>Use standards like XMI</ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide shout" id="emf_title">
+    <h2><span class="kevOrange">></span><b class="kevOrange">E</b>clipse <b class="kevOrange">M</b>odeling <b
+            class="kevOrange">F</b>ramework</h2>
+</section>
+
+<section class="slide" id="emf_def">
+    <header>
+        <h2>A framework for Java based MDE tools</h2>
+    </header>
+    <span class="iconraph kevOrange">"</span> De facto <code>MOF</code> Java standard implementation
+    <ul>
+        <li>Mappings
+            <ul>
+                <li>MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Java <span
+                        class="kevOrange">classes + interfaces</span></li>
+                <li>MOF multi-inheritance on interfaces, not on classes</li>
+                <li>MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> ad-hoc <span
+                        class="kevOrange">mutable collections</span></li>
+                <li>MOF model element <span class="arrow_right_alt1 iconic kevOrange"></span> Java Object, created by a
+                    factory
+                </li>
+            </ul>
+        </li>
+        <li>Meta-Meta development via EObject framework</li>
+    </ul>
+</section>
+
+<section class="slide" id="emf_pros">
+    <header>
+        <h2>Features</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="iconFont3 kevOrange">8</span> Interoperability via EObject/XMI</li>
+        <li class="next"><span class="iconFont3 kevOrange">8</span> Clean code, Visitor and Observer (event) patterns
+            included
+        </li>
+        <li class="next"><span class="iconFont3 kevOrange">8</span> Generated marshaller and unmarshaller</li>
+        <li class="next"><span class="iconFont3 kevOrange">8</span> Lazy loading for memory save</li>
+        <li class="next"><span class="iconFont3 kevOrange">2</span> POJO breakout on special relationship names</li>
+        <li class="next"><span class="iconFont3 kevOrange">2</span> Marshaller, Cloner (reflexive) navigation via
+            EObject
+        </li>
+        <li class="next"><span class="iconFont3 kevOrange">2</span> Iterators are not thread-safe !</li>
+        <li class="next"><span class="iconFont3 kevOrange">2</span> Registry does not allow multiple classloaders</li>
+    </ul>
+</section>
+
+<section class="slide" id="emf_cons">
+    <header>
+        <h2>Limitations on FSM meta-model</h2>
+    </header>
+    <img style="position:absolute;top: 120px;right:50px;" src="figures/fsmmetamodel.png" width="400px"/>
+    <img style="position:absolute;bottom: 50px;left:100px;" src="figures/emfdependencies1.png" width="400px"/>
+    <ul>
+        <li class="next"><code>Large dependency set</code>
+            <ul>
+                <li class="next"><b>~15Ko</b> of generated code,</li>
+                <li class="next"><b>~15Mo</b> in an executable Jar !</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section class="slide" id="emf_cons2">
+    <header>
+        <h2>Limitations</h2>
+    </header>
+    <ul>
+        <li class="next"><code>Static Registry, Multi-ClassLoader incompatibility</code>
+<pre class="brush:java toolbar:false;">
+            public EPackage getEPackage()
+            {
+            return Thread.currentThread().getId() == threadId ? EPackageImpl.this : descriptor.getEPackage();
+            }
+</pre>
+        </li>
+        <li class="next"><code>Iterators NOT THREAD SAFE</code>
+<pre class="brush:java toolbar:false;">
+protected E doNext(){
+    E next = get(cursor);
+    checkModCount();
+    lastCursor = cursor++;
+    return next;
+}
+</pre>
+        </li>
+        <li class="next"><code>Cloning overhead</code>
+            <ul>
+                <li>EObject reflexive navigation</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide shout" id="kmf_title">
+    <h2><span class="kevOrange">></span><b class="kevOrange">K</b>evoree <b class="kevOrange">M</b>odeling <b
+            class="kevOrange">F</b>ramework</h2>
+</section>
+
+<section class="slide" id="kmf_def">
+    <header>
+        <h2>A drop-in replacement for EMF generator</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="kevOrange iconraph">P</span> Basic ideas to meet @Runtime requirements
+            <ul>
+                <li class="next">Scala language as a back-end for multi-inheritance</li>
+                <li class="next">Remove Meta-meta dependency @Runtime</li>
+                <li class="next">Protect relationship from concurrent accesses</li>
+            </ul>
+        </li>
+        <li class="next">Mappings
+            <ul>
+                <li class="next">MOF meta-classes <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span
+                        class="kevOrange">classes+traits</span></li>
+                <li class="next">MOF multi-inheritance <span class="arrow_right_alt1 iconic kevOrange"></span> Scala
+                    mixin operator
+                </li>
+                <li class="next">MOF relationships <span class="arrow_right_alt1 iconic kevOrange"></span> Scala <span
+                        class="kevOrange">immutable collection</span>+add/remove
+                </li>
+                <li class="next">Objects factory (can be overridden)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="kmf_mod">
+    <header>
+        <h2>KMF Features</h2>
+    </header>
+    <ul>
+        <li class="next">Generated code compatible Java/Scala</li>
+        <li class="next"><span class="kevOrange">Lightweight memory footprint</span> (as Scala plain object)</li>
+        <li class="next">Plain Old Java Object api compatibility</li>
+        <li class="next"><span class="kevOrange">Immutable lists</span>, for concurrent reading</li>
+        <li class="next">Use of <i>Option</i> for optional attributes prevents null pointer exceptions</li>
+        <li class="next">Multi-thread factory and collection modification</li>
+        <li class="next"><span class="kevOrange">Flat generated</span> Marshaller, Unmarshaller, Cloner</li>
+    </ul>
+</section>
+
+<section class="slide" id="kmf_memory">
+    <header>
+        <h2><span class="kevOrange iconraph">a</span> Experiments on FSM use case</h2>
+    </header>
+    <p>Experiment using a very simple FSM Meta-model<br/>
+        <span class="kevOrange"><b>100 000</b></span> states and transitions
+    </p>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>EMF</th>
+            <th>KMF</th>
+            <th>Comparison</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Model Creation</td>
+            <td>376 ms</td>
+            <td>313 ms</td>
+            <td><span class="kevOrange"><b>1.2</b></span> times faster</td>
+        </tr>
+        <tr>
+            <td>Model Clone</td>
+            <td>3588 ms</td>
+            <td>398 ms</td>
+            <td><span class="kevOrange"><b>9</b></span> times faster</td>
+        </tr>
+        <tr>
+            <td>Model Save</td>
+            <td>7021 ms</td>
+            <td>2630 ms</td>
+            <td><span class="kevOrange"><b>2.66</b></span> times faster</td>
+        </tr>
+        <tr>
+            <td>Memory Footprint</td>
+            <td>104MB of heap memory</td>
+            <td>61MB of heap memory</td>
+            <td><span class="kevOrange"><b>1.70</b></span> times lighter</td>
+        </tr>
+        </tbody>
+    </table>
+    <span class="kevGray"
+          style="font-size: 16px;">Ran on a Dell Precision E6400, Intel iCore I7 2.5GHz CPU, 16GB of RAM</span>
+</section>
+
+<section class="slide" id="kmf_valid">
+    <header>
+        <h2><span class="iconraph kevOrange">Ô</span>Regarding requirements</h2>
+    </header>
+
+    <table>
+        <thead>
+        <thead>
+        <tr>
+            <th></th>
+            <th>EMF</th>
+            <th>KMF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Memory footprints</td>
+            <td>×(104MB)</td>
+            <td>∨(61MB)</td>
+        </tr>
+        <tr>
+            <td>Dependencies</td>
+            <td>×(15MB)</td>
+            <td>∨ (Scala standard library) (1.7MB)</td>
+        </tr>
+        <tr>
+            <td>Lazy Loading</td>
+            <td>∨</td>
+            <td>∨ (Proxy support)</td>
+        </tr>
+        <tr>
+            <td>Thread safety</td>
+            <td>×</td>
+            <td>∨ (immutable lists, no registry)</td>
+        </tr>
+        <tr>
+            <td>Efficient model (un)marshalling and cloning</td>
+            <td>∼</td>
+            <td>∨ (see previous table)</td>
+        </tr>
+        <tr>
+            <td>Design tools compatibility</td>
+            <td>∨</td>
+            <td>∨ (through XMI compatibility)</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="slide shout" id="discussion_title">
+    <h2><span class="kevOrange">></span>Discussion</h2>
+</section>
+
+<section class="slide" id="discussion">
+    <header>
+        <h2><span class="iconraph kevOrange">[</span> Discussion</h2>
+    </header>
+    <blockquote>
+        A model is something <span class="kevOrange">simpler</span>, <span class="kevOrange">safer</span>, <span
+            class="kevOrange">cheaper</span> than the reality
+    </blockquote>
+
+    <p><span class="iconraph kevOrange">o</span> Beyond the production of efficient code, MDE tools must now be
+        themselves more effective, safer, cheaper !</p>
+
+    <ul>
+        <li class="next"><code>Refactoring impact</code>
+            <ul>
+                <li><span class="iconFont3 kevOrange">2</span> Removal of EObject</li>
+                <li><span class="iconFont3 kevOrange">8</span> eContainer has been kept</li>
+                <li>Choose Scala/Java methods by default, methods "4(J)(S)" for Java</li>
+            </ul>
+        </li>
+        <li class="next"><code>Single root container considered</code></li>
+    </ul>
+</section>
+
+<section class="slide shout" id="conclusion_title">
+    <h2><span class="kevOrange">></span>Conclusion and Future Work</h2>
+</section>
+
+
+<section class="slide" id="conclusion_conc">
+    <header>
+        <h2>Conclusion</h2>
+    </header>
+    <ul>
+        <li class="next">Design tools can be adapted to fit better @Runtime
+            <ul>
+                <li>Generated backend must be smarter than hand written API</li>
+            </ul>
+        </li>
+        <li class="next">Generative design must not forget API usage/compatibility</li>
+        <li class="next">KMF is very first step and must now address large scale runtime issues<span
+                class="iconraph kevOrange">c</span></li>
+        <li class="next"><span class="iconraph kevOrange">a</span> Backbone of Kevoree Project !<br/>
+            <img src="figures/kevoree-logo.png" style="width:200px;"/>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="conclusion_fw">
+    <header>
+        <h2>Future Work</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="kevOrange iconic pin"></span> Pluggable Loader/Serializer (XMI, JSON, DB, etc.)
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Deal with very large scale models
+            <ul>
+                <li><span class="iconraph kevOrange">8</span> Does not entirely fit in memory</li>
+                <li><span class="iconraph kevOrange">"</span> Floating window model loader <span
+                        class="chart iconic kevOrange"></span></li>
+            </ul>
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Dedicated memory zones for Models
+            <ul>
+                <li>Off-heap memory mapping</li>
+                <li>Control/reduce garbage collection <span class="bolt iconic kevOrange"></span> (ex : for exploratory
+                    usage)
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="kevOrange iconic pin"></span> Big data Model repositories (like EMF CDO ?)</li>
+    </ul>
+</section>
+
+<section class="slide shout" id="ThanksYouCover">
+    <h2><span class="kevOrange">></span>Thank you</h2>
+</section>
+
+<!-- Kevoree Publications -->
+<section class="slide" id="ref">
+    <header>
+        <h2>References</h2>
+    </header>
+    <ul style="font-size: 12px;">
+        <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
+            Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
+        </li>
+        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
+            Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
+            Engineering. Bertinoro, Italy, June 2012.
+        </li>
+        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
+            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
+            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
+            2012.
+        </li>
+        <li>Nain, Grégory , Fouquet, François , Morin, Brice , Barais, Olivier and
+            Jézéquel, Jean-Marc (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of
+            the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille,
+            France.
+        </li>
+        <li>André, Francoise, Daubert, Erwan , Nain Grégory , Morin, Brice and Barais,
+            Olivier (2010) F4Plan: An Approach to build Efficient Adaptation Plans. In MobiQuitous.
+        </li>
+        <li>Brice Morin, Olivier Barais, Grégory Nain, Jean-Marc Jézéquel: Taming
+            Dynamically Adaptive Systems using models and aspects. ICSE 2009: 122-132
+        </li>
+        <li>Brice Morin, Olivier Barais, Jean-Marc Jézéquel, Franck Fleurey, Arnor
+            Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
+        </li>
+    </ul>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
+        <a href="http://kevoree.org">kevoree.org</a></h2>
+</section>
+
+
+<section class="slide shout" id="ExtraSlide">
+    <h2><span class="kevOrange">></span>Extra slides</h2>
+</section>
+
+<section class="slide" id="kmf_code_stats">
+    <header>
+        <h2><span class="iconraph kevOrange">Ô</span>Code statistics</h2>
+    </header>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Files</th>
+            <th>Blanc Lines</th>
+            <th>Comments</th>
+            <th>Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Scala</td>
+            <td>15</td>
+            <td>459</td>
+            <td>710</td>
+            <td>1638</td>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>4</td>
+            <td>20</td>
+            <td>392</td>
+            <td>46</td>
+        </tr>
+        <tr>
+            <td>SUM</td>
+            <td>19</td>
+            <td>479</td>
+            <td>1102</td>
+            <td>1684</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+
+</body>
+</html>

@@ -3,31 +3,55 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Model@runtime for ubiquitous systems</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=1274, user-scalable=no">
-    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
-    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1274, user-scalable=yes"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+        });
+    </script>
+    <!--<meta charset="utf-8">-->
+    <!--<meta name="viewport" content="width=1274, user-scalable=no">-->
+    <!--<link rel="stylesheet" href="themes/kevs/styles/screen.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>-->
     <script type="text/javascript" src="scripts/brush/shCore.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
     <style>
-        .slide:not(.cover):not(.shout):before{
+        .slide:not(.cover):not(.shout):before {
             position: absolute;
             content: url(figures/kevg125.svg);
-            top:5px;
-            right:5px;
+            top: 5px;
+            right: 5px;
         }
+
         .iconFont3 {
-        font-family:'HeydingsCommonIconsRegular';
+            font-family: 'HeydingsCommonIconsRegular';
         }
+
         .kevOrange {
-        color: #DF9D00;
+            color: #DF9D00;
         }
+
         .slide code {
-        background-color: rgba(223, 157, 41, 0.4);;
+            background-color: rgba(223, 157, 41, 0.4);;
         }
-        details { display: none; }
+
+        details {
+            display: none;
+        }
     </style>
     <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
     <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
@@ -79,11 +103,11 @@ Model@Runtime
         <h2>Firefighter case study</h2>
     </header>
     <ul>
-        <li>Design <span class="iconic arrow_right_alt1 kevOrange"></span> <br />
+        <li>Design <span class="iconic arrow_right_alt1 kevOrange"></span> <br/>
             <object data="firefightersMesh.png" height="150px"></object>
             <object data="sensorsV.png" height="150px"></object>
         </li>
-        <li>Deploy <span class="iconic arrow_right_alt1 kevOrange"></span> <br />
+        <li>Deploy <span class="iconic arrow_right_alt1 kevOrange"></span> <br/>
             <object data="alertBox.png" height="150px"></object>
             <object data="androidScreen.png" height="150px"></object>
         <li></li>
@@ -95,7 +119,7 @@ Model@Runtime
         <h2>Tactical data clustering</h2>
     </header>
     <div style="text-align: center;">
-    <object data="screenshot1.png" width="800px"></object>
+        <object data="screenshot1.png" width="800px"></object>
     </div>
 </section>
 
@@ -104,7 +128,7 @@ Model@Runtime
         <h2>Internet of Things & Sensors</h2>
     </header>
     <div style="text-align: center;">
-    <object data="screenshot2.png" width="750px"></object>
+        <object data="screenshot2.png" width="750px"></object>
     </div>
 </section>
 
@@ -113,5 +137,6 @@ Model@Runtime
 </div>
 <script src="scripts/screenfull.min.js"></script>
 <script src="scripts/jquery-1.7.2.min.js"></script>
-<script src="scripts/kslideScript.js"></script></body>
+<script src="scripts/kslideScript.js"></script>
+</body>
 </html>

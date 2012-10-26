@@ -4,44 +4,76 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Model@runtime for ubiquitous systems</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=1274, user-scalable=no">
-    <link rel="stylesheet" href="themes/kevs/styles/screen.css">
-    <link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=1274, user-scalable=yes"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+            SyntaxHighlighter.all();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            SyntaxHighlighter.all();
+        });
+    </script>
     <script type="text/javascript" src="scripts/brush/shCore.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
     <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
     <style>
-        body:not(.list) > .slide:not(.cover):not(.shout):before{
+        body:not(.list) > .slide:not(.cover):not(.shout):before {
             position: absolute;
             content: url(figures/kevg125.svg);
-            top:5px;
-            right:5px;
+            top: 5px;
+            right: 5px;
         }
+
         .iconFont3 {
-            font-family:'HeydingsCommonIconsRegular';
+            font-family: 'HeydingsCommonIconsRegular';
         }
+
         .kevOrange {
-        color: #DF9D00;
+            color: #DF9D00;
         }
+
         .slide code {
-        background-color: rgba(223, 157, 41, 0.4);
+            background-color: rgba(223, 157, 41, 0.4);
         }
-        details { display: none; }
+
+        details {
+            display: none;
+        }
+
         .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
-        background-color: rgba(223, 157, 41, 0.4) !important;
+            background-color: rgba(223, 157, 41, 0.4) !important;
         }
+
         .syntaxhighlighter .gutter {
-        color: #DF9D00 !important;
+            color: #DF9D00 !important;
         }
+
         .syntaxhighlighter .gutter .line {
-        border-right: 3px solid #DF9D00 !important;
+            border-right: 3px solid #DF9D00 !important;
         }
+
         .syntaxhighlighter {
-        overflow: hidden !important;
+            overflow: hidden !important;
         }
+
         .syntaxhighlighter textarea {
-        overflow: hidden !important;
+            overflow: hidden !important;
         }
     </style>
     <link rel="stylesheet" href="iconic_fill/iconic_fill.css" type="text/css"/>
@@ -52,6 +84,7 @@
 <body class="list">
 <header class="caption">
     <h1>UbiMob 2012 / Kevoree</h1>
+
     <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
 </header>
 
@@ -87,12 +120,12 @@ Model@Runtime
 </section>
 <section class="slide shout" id="Introduction">
     <header>
-    <h2 style="font-size : 70px;">Software engineering <span class="iconFont3 kevOrange">G</span><br/>
-        <br/>
-        model <span class="iconFont3 kevOrange">g</span><br/>
-        <br/>
-        for <span class="iconFont3 kevOrange">3</span><br/>
-    </h2>
+        <h2 style="font-size : 70px;">Software engineering <span class="iconFont3 kevOrange">G</span><br/>
+            <br/>
+            model <span class="iconFont3 kevOrange">g</span><br/>
+            <br/>
+            for <span class="iconFont3 kevOrange">3</span><br/>
+        </h2>
     </header>
 </section>
 
@@ -598,8 +631,5 @@ public class DigitalLight
 <div class="progress">
     <div></div>
 </div>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
-<script src="scripts/screenfull.min.js"></script>
-<script src="scripts/jquery-1.7.2.min.js"></script>
-<script src="scripts/kslideScript.js"></script></body>
+</body>
 </html>

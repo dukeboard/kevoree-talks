@@ -5,13 +5,14 @@
     <parent>
         <groupId>org.kevoree.talks</groupId>
         <artifactId>org.kevoree.talks.root</artifactId>
-        <version>2.0.1-SNAPSHOT</version>
+        <version>2.1.0-SNAPSHOT</version>
         <relativePath>../org.kevoree.talks.root/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>org.kevoree.talks.framework</artifactId>
     <name>Kevoree :: Talks :: Framework</name>
+    <version>${talks.framework.version}</version>
 
     <dependencies>
         <dependency>
@@ -29,5 +30,48 @@
             <artifactId>org.kevoree.library.javase.webserver.api</artifactId>
             <version>${kevoree.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.6.3</version>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>1.5.2</version>
+                <executions>
+                    <execution>
+                        <id>default-minify</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <!--
+                            <cssSourceDir>css</cssSourceDir>
+                            <cssSourceFiles>
+                                <cssSourceFile>file-1.css</cssSourceFile>
+                                <cssSourceFile>file-n.css</cssSourceFile>
+                            </cssSourceFiles>
+                            <cssFinalFile>style.css</cssFinalFile>
+                        -->
+                            <jsSourceDir>${basedir}/src/main/resources/scripts</jsSourceDir>
+                            <jsSourceFiles>
+                                <jsSourceFile>jquery.min.js</jsSourceFile>
+                                <jsSourceFile>screenfull.min.js</jsSourceFile>
+                                <jsSourceFile>kslideshow.js</jsSourceFile>
+                            </jsSourceFiles>
+                            <jsFinalFile>${project.build.directory}/kslideshow.min.js</jsFinalFile>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
 </project>

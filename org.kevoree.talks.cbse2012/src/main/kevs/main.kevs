@@ -2,27 +2,39 @@ merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
-merge "mvn:org.kevoree.talks/org.kevoree.talks.framework/{talks.version}"
-//merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.cbse2012/{talks.version}"
+merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 
-addNode node0 : JavaSENode {logLevel = "INFO"}
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.fakeDomo/{kevoree.version}"
+
+addNode node0 : JavaSENode {logLevel = "WARN"}
 addComponent webSrv@node0 : KTinyWebServer { port="8080" }
-addComponent annotationSlides@node0 : CBSE2012Dev { urlpattern="/",templateFolder="{basedir}/src/main/resources/" }
-//addComponent wsSrv@node0 : WsServer
-//addComponent helloP@node0 : HelloWorldPage { urlpattern="/hello"}
+addComponent wsSrv@node0 : WsServer
+
+//addComponent webSockGateway@node0 : TalkGateway
+//addComponent fakeS@node0 : FakeSimpleSwitch
+
+//addChannel prevChannel : defMSG
+//addChannel nextChannel : defMSG
+
+//bind fakeS.off@node0 => prevChannel
+//bind webSockGateway.prev@node0 => prevChannel
+//bind fakeS.on@node0 => nextChannel
+//bind webSockGateway.next@node0 => nextChannel
+
+//addChannel gatewayToTalk : defMSG
+//bind webSockGateway.broad@node0 => gatewayToTalk
+//bind wsSrv.in@node0 => gatewayToTalk
+
+addComponent slideshow@node0 : CBSE2012Dev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
+
 
 addChannel req : defMSG
 addChannel res : defMSG
 bind webSrv.handler@node0 => req
-bind annotationSlides.request@node0 => req
-bind annotationSlides.content@node0 => res
+bind slideshow.request@node0 => req
+bind slideshow.content@node0 => res
 bind webSrv.response@node0 => res
-
-
-//bind helloP.request@node0 => req
-//bind helloP.content@node0 => res
-
 
 addGroup sync : NanoRestGroup
 addToGroup sync node0
