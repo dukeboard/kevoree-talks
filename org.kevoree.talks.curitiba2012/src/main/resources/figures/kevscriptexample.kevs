@@ -1,0 +1,42 @@
+addRepo "http://maven.kevoree.org/archiva/repository/release/"
+addRepo "http://maven.kevoree.org/release"
+addRepo "http://maven.kevoree.org/snapshots"
+addRepo "http://repo1.maven.org/maven2"
+addRepo "http://maven.kevoree.org/archiva/repository/snapshots/"
+addRepo "http://repo.maven.apache.org/maven2"
+
+merge 'mvn:org.kevoree.talks/org.kevoree.talks.framework/2.1.2'
+merge 'mvn:org.kevoree.talks/org.kevoree.talks.ws/2.1.0-SNAPSHOT'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.swingUI/{kevoree.version}'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.fakeDomo/{kevoree.version}'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}'
+merge 'mvn:org.kevoree.talks/org.kevoree.talks.curitiba2012/2.1.0-SNAPSHOT'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.api/{kevoree.version}'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/{kevoree.version}'
+merge 'mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}'
+
+addNode node0:JavaSENode
+addNode node1:JavaSENode
+
+addComponent webSrv@node0 : KTinyWebServer {port='8080'}
+addChannel req : defMSG {}
+addChannel res : defMSG {}
+bind webSrv.handler@node0 => req
+bind webSrv.response@node0 => res
+updateDictionary req 
+updateDictionary res 
+updateDictionary webSrv@node0 
+
+addComponent slideshow@node1 : Curitiba2012Dev {paperURL='',urlpattern='/',wsurl='ws://localhost:8092/keynote',templateFolder='{basedir}/src/main/resources/'}
+addChannel req : defMSG {}
+addChannel res : defMSG {}
+bind slideshow.request@node1 => req
+bind slideshow.content@node1 => res
+updateDictionary req 
+updateDictionary res 
+updateDictionary slideshow@node1 
+
+addGroup sync:NanoRestGroup
+addToGroup sync node0
+addToGroup sync node1
