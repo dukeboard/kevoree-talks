@@ -121,8 +121,8 @@
 }
 
 .slide ol > li:before {
-    /*counter-increment: list;*/
-    /*content: counter(list) '.';*/
+    counter-increment: list;
+    content: counter(list) '.';
 }
 
 /* Code */
