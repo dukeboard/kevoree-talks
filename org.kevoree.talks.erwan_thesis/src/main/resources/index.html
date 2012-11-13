@@ -149,7 +149,16 @@
     <ul>
         <li>Cloud systems</li>
         <li>Adaptation</li>
-        <li>Kevoree</li>
+        <li>Problematic
+            <ul>
+                <li>How to build and <span class="kevOrange">adapt</span> Cloud systems</li>
+            </ul>
+        </li>
+        <li>Kevoree
+            <ul>
+                <li>A solution to build and adapt distributed and heterogeneous systems</li>
+            </ul>
+        </li>
         <li>Kevoree for Cloud systems</li>
     </ul>
     <details></details>
@@ -255,12 +264,10 @@
         So the IT systems must be also dynamic adaptive systems
     </details>
 </section>-->
-
-
-<section class="slide shout" id="Subject">
+<section class="slide shout" id="solutions">
     <header>
         <div style="text-align: center;">
-            <h2 style="font-size : 70px;">How to build and manage distributed, heterogeneous and adaptive systems ?</h2>
+            <h2 style="font-size : 70px;">Are there any existing solutions ?</h2>
         </div>
     </header>
     <details>
@@ -268,19 +275,74 @@
     </details>
 </section>
 
-<section class="slide shout" id="Solution_MAR">
+<section class="slide" id="existing_criteria">
+    <header>
+        <h2>Need criteria of the solution</h2>
+    </header>
+    <ul>
+        <li>Multi-layers</li>
+        <li>Hosting</li>
+        <li>Distribution</li>
+        <li>Heterogeneity</li>
+        <li>Extensibility</li>
+        <li>Reflexion</li>
+    </ul>
+</section>
+<section class="slide" id="existing">
+    <header>
+        <h2>Potential existing solutions</h2>
+    </header>
+    <table style="width:500px;">
+        <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li class="next">Darwin</li>
+                    <li class="next">Fractal</li>
+                    <li class="next">iPOJO</li>
+                    <li class="next">FraSCAti</li>
+                    <li class="next">PauWare</li>
+                    <li class="next">Genie</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li class="next">RDAB</li>
+                    <li class="next">gMDE</li>
+                    <li class="next">Neptune</li>
+                    <li class="next">CloudML</li>
+                    <li class="next">ConPaaS</li>
+                    <li class="next">GCM</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="slide" id="existing_limitations">
+    <header>
+        <h2>Limitations of these solutions</h2>
+    </header>
+    <object style="position : absolute;top: 200px;left : 150px;" data="figures/existing_limitations.png" type="image/png" class="middle" width="780"></object>
+</section>
+
+<section class="slide shout" id="Subject">
     <header>
         <div style="text-align: center;">
-            <h2 style="font-size : 70px;">Using Model@Runtime techniques<br/><span class="kevOrange" style="font-size: 40px;">François Fouquet 's thesis</span></h2>
+            <h2>Kevoree<br/>
+                <span style="font-size: 60px;">A Model@Runtime implementation for Distributed Dynamically Adaptive systems</span><br/>
+                <span class="kevOrange" style="font-size: 40px;">François Fouquet 's thesis</span>
+            </h2>
         </div>
     </header>
     <details>
-        And our response is ...
+
     </details>
 </section>
 
 <section class="slide" id="MAR_whatis">
-    <header>What is Model@Runtime ?</header>
+    <header><h2>What is Model@Runtime ?</h2></header>
     <ul>
         <li class="hidden u"><span class="kevOrange">Abstraction layer</span>
             <ul>
@@ -341,17 +403,6 @@
         This model is verified
         If it is ok, this new model is compared with the current one to find all the needed commands to update the system
         These commands are applied and if all is ok, the new configuration is saved as the current one
-    </details>
-</section>
-
-<section class="slide shout" id="Kevoree">
-    <header>
-        <h2>Kevoree<br/>
-            <span style="font-size: 60px;">A Model@Runtime implementation for Distributed Dynamically Adaptive systems</span>
-        </h2>
-    </header>
-    <details>
-        So this is how the Model@Runtime works and we propose Kevoree which implements this process
     </details>
 </section>
 
@@ -501,7 +552,7 @@
         removeChild node2@node1
     </pre>
     <details>
-        With Kevoree, we also provide a scripting language to ease the manipulation of Kevoree models<br />
+        With Kevoree, we also provide a scripting language to ease the manipulation of Kevoree models<br/>
         This language is used by reasoning engine to create new model and so new configuration for the system<br/>
         Then the new model is sent to the Kevore Model@Runtime process that apply it on the runtime
     </details>
@@ -514,29 +565,7 @@
     <img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="figures/167830.strip_.sunday.gif"/>
 </section>
 
-<section class="slide" id="cloud_intro">
-    <header>
-        <h2>What is a Cloud system ?</h2>
-    </header>
-    <ul>
-        <li>A hierarchy of systems
-            <ul>
-                <li>Software (SaaS)</li>
-                <li>Platform (PaaS)</li>
-                <li>Infrastructure (IaaS)</li>
-            </ul>
-        </li>
-    </ul>
-    <img style="position:absolute;bottom: 80px;right:100px;" src="figures/cloudtriangle-plain.png"/>
-    <details>
-        A Cloud is defined with three layers:<br/>
-        Software layer which provides software for end user<br/>
-        Platform layer which provides a middleware to host software<br/>
-        Infrastructure layer which provides a middleware to virtualize platforms
-    </details>
-</section>
-
-<section class="slide" id="kevcloud_intro2">
+<section class="slide" id="cloud_system">
     <header><h2>What is a Cloud system ?</h2></header>
     <ul>
         <li>Layers are
@@ -554,7 +583,7 @@
     </details>
 </section>
 
-<section class="slide" id="kevcloud_layers">
+<section class="slide" id="cloud_layers">
     <header>
         <h2>How Kevoree modelize Cloud systems ?</h2>
     </header>
@@ -573,45 +602,15 @@
             </ul>
         </li>
         <li class="next hidden u"><span class="kevOrange">All layers are independant</span></li>
+        <li class="next hidden g"><span class="kevRed">But we need to modelize all the layers together</span></li>
     </ul>
 </section>
 
-<section class="slide" id="kevcloud_adaptation">
-    <header><h2>How the adaptation must be managed ?</h2></header>
-    <blockquote style="font-size: 20px;">
-        IBM frequently cites four aspects of self-management<!--, which Table 1 summarizes. Early autonomic systems may treat these aspects as distinct-->... Ultimately, these aspects will be emergent
-        properties of a general architecture, and <span class="kevOrange">distinctions will blur into a more general notion of self-maintenance</span>.
-    </blockquote>
-    <ul>
-        <li class="next">Each adaptation has impact on the running system</li>
-        <li class="next">Each adaptation may have side effects
-            <ul>
-                <li class="next hidden g">Side effects may have impact on the other adaptations</li>
-            </ul>
-        </li>
-        <li class="next hidden u"><span class="kevOrange">We need to coordinate adaptation between layers</span></li>
-    </ul>
-</section>
-
-
-<section class="slide" id="kevcloud_adaptation2">
-    <header><h2>How to coordinate adaptation ?</h2></header>
-    <ul>
-        <li class="next">Use only one adaptation engine that manage all layers
-            <ul>
-                <li class="next hidden g">Layers must be independent (e.g: different providers)</li>
-            </ul>
-        </li>
-        <li class="next">Coordinate all adaptation engines</li>
-        <li class="next hidden u"><span class="kevOrange">We need to have a common abstraction for all the adaptation engines</span></li>
-        <li class="next hidden u"><span class="kevOrange">We need to represent all layers together</span></li>
-    </ul>
-</section>
-
-<section class="slide" id="kevcloud_intro">
+<section class="slide" id="metamodel1">
     <header>
-        <h2>Managing cloud layers with Kevoree node</h2>
+        <h2>Kevoree MetaModel</h2>
     </header>
+    <object style="position:absolute;bottom: 30px;right:10px;" data="figures/kevoree_hosted_node.svg"></object>
     <ul>
         <li>Kevoree Node
             <ul>
@@ -619,6 +618,16 @@
                 <li class="next"><strong class="kevOrange">Hosts nodes</strong></li>
             </ul>
         </li>
+    </ul>
+</section>
+
+
+<section class="slide" id="metamodel2">
+    <header>
+        <h2>Kevoree MetaModel</h2>
+    </header>
+    <object style="position:absolute;bottom: 40px;right:100px;" data="figures/kevoree_primitive_type.svg"></object>
+    <ul>
         <li class="next">A parent node has <span class="kevOrange">responsibility for child's nodes life cycle</span>
             <ul>
                 <li class="next">create, start, stop, destroy, ...</li>
@@ -626,7 +635,6 @@
             </ul>
         </li>
     </ul>
-    <object style="position:absolute;top: 150px;right:100px;" data="figures/kevoree_node.svg"></object>
 </section>
 
 <section class="slide" id="kevcloud_nodeType">
@@ -746,6 +754,145 @@ moveComponent nodeJS@paasRack => paasKloud
     </div>
 </section>
 
+<section class="slide shout" id="validation">
+    <header>
+        <h2>Validation<br/>
+            <span style="font-size: 60px;">How to use Kevoree for Cloud to do multi-layer management ?</span></h2>
+    </header>
+</section>
+
+<section class="slide shout" id="validation1">
+    <header>
+        <h2><span style="font-size: 60px;">Distribute tests execution for Continuous Integration process</span></h2>
+    </header>
+</section>
+
+<section class="slide" id="validation1_context">
+    <header>
+        <h2>Continuous Integration context</h2>
+    </header>
+    <blockquote class="next">>continuous integration (CI) is the practice of merging all developer workspaces with a shared mainline several times a day. ...CI was originally intended to be used in
+        combination with
+        automated unit tests written through the practices of Test driven development.
+    </blockquote>
+    <ul>
+        <li class="next">Continuous Integration is time consuming
+            <ul>
+                <li class="next hidden u"><span class="kevOrange">Especially the test execution</span></li>
+                <li class="next">Apache Camel: 7205 tests, 1h 23min</li>
+                <li class="next">Rothermel et al. says some projecs needs more than 7 weeks</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="validation1_proposed_solution">
+    <header>
+        <h2>Proposed solution</h2>
+    </header>
+    <ul>
+        <li class="next">Dynamically distribute the tests execution on Cloud
+            <ul>
+                <li class="next">Dynamically building the complex application representing the tests execution</li>
+                <li class="next">Dynamically building the needed platform
+                    <ul>
+                        <li class="next">Managing the specific requirement of the tests (OS, RAM, etc)</li>
+                    </ul>
+                </li>
+                <li class="next">Reusing already defined platform</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="validation1_result">
+    <header>
+        <h2>Results</h2>
+    </header>
+    <ul>
+        <li class="next">Decrease the tests execution time: speedup = 3.40 (around 40 minutes)
+            <ul>
+                <li>The much longer test is around 20 minutes
+                    <ul>
+                        <li>limit the speedup</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next">Able to reuse already defined platform
+            <ul>
+                <li>Keep alive platform help to reduce the time needed to start VMs</li>
+            </ul>
+        </li>
+        <li class="next">Use lightweight virtualization
+            <ul>
+                <li>using user space virtualization instead of hardware virtualization if possible
+                    <ul>
+                        <li>Managed by the IaaS taking into account PaaS specificities</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide shout" id="validation2">
+    <header>
+        <h2><span style="font-size: 60px;">Distributed web server</span></h2>
+    </header>
+</section>
+
+<section class="slide" id="validation2_context">
+    <header>
+        <h2>Distributed web server context</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="kevOrange">Need to manage Elasticity and Scalability</span>
+            <ul>
+                <li>Replication of web pages</li>
+                <li>Load balancing between requests</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange">Dynamicaly managed by the platform</span></li>
+    </ul>
+</section>
+
+<section class="slide" id="validation2_proposed_solution">
+    <header>
+        <h2>Proposed solution</h2>
+    </header>
+    <ul>
+        <li class="next">Defining web server and web pages as Kevoree Components</li>
+        <li class="next">Using specific communication channel
+            <ul>
+                <li>Able to do load balancing between components</li>
+            </ul>
+        </li>
+        <li class="next">Able to easily duplicate web pages</li>
+        <li class="next">Able to easily migrate web pages</li>
+        <li class="next hidden u">Monitoring of CPU load</li>
+    </ul>
+</section>
+
+<section class="slide" id="validation2_result">
+    <header>
+        <h2>Results</h2>
+    </header>
+    <ul>
+        <li class="next">IaaS take into account Components interaction
+            <ul>
+                <li>To host platform on the same infrastructure node</li>
+            </ul>
+        </li>
+        <li class="next">IaaS and PaaS managers coordination
+            <ul>
+                <li>Avoid VM migration</li>
+                <li>Replaced by components migration or creation of cache</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 <section class="slide" id="conlusion">
     <header><h2>Conclusion</h2></header>
     <ul>
@@ -769,7 +916,7 @@ moveComponent nodeJS@paasRack => paasKloud
         <li class="hidden u"><span class="kevOrange">Use Kevoree to test distributed system</span> (on going work)
             <ul>
                 <li>Dynamically deploy the system under test (SUT)</li>
-                <li>Generate adapters to interact with the SUT
+                <li>Generate adapters to interact with the SUT</li>
                 <li>Manage the test cases execution</li>
             </ul>
         </li>
@@ -783,6 +930,26 @@ moveComponent nodeJS@paasRack => paasKloud
             <ul>
                 <li>how to provide monitoring information about nodes, components, ...</li>
                 <li>how to disseminate these monitoring information</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+
+<section class="slide" id="perspective2">
+    <header><h2>Perspective</h2></header>
+    <ul>
+        <li class="hidden u"><span class="kevOrange">Build a Brazilian Cloud</span>
+            <ul>
+                <li>Social network</li>
+                <li>Manage infrastructure
+                <li>Manage data storage</li>
+            </ul>
+        </li>
+        <li class="hidden u"><span class="kevOrange">Integrate smart reasoning engine</span>
+            <ul>
+                <li>Snooze</li>
+                <li>Multi reasoning engine (on going work)</li>
             </ul>
         </li>
     </ul>
