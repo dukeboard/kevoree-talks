@@ -57,11 +57,9 @@
         .slide ul > li.hidden.f:before {
             cursor: default;
             font-size: 16px;
-            /*line-height: 1;*/
             font-family: "FoundationIconsGeneral", serif;
             content: 'f'; /* check */
             line-height: 48px;
-            /*font-size: 40px;*/
             color: #00FF00;
         }
 
@@ -147,19 +145,29 @@
         <h2>Summary</h2>
     </header>
     <ul>
-        <li>Cloud systems</li>
-        <li>Adaptation</li>
-        <li>Problematic
+        <li>Context
             <ul>
-                <li>How to build and <span class="kevOrange">adapt</span> Cloud systems</li>
+                <li>Cloud systems</li>
+                <li>Adaptation</li>
             </ul>
         </li>
-        <li>Kevoree
+
+        <li>Challenge
             <ul>
-                <li>A solution to build and adapt distributed and heterogeneous systems</li>
+                <li>How to <span class="kevOrange">do multi-layers adaptation</span> for Cloud systems
+                    <ul>
+                        <li class="next hidden u"><span class="kevOrange">A need for global abstraction</span></li>
+                    </ul>
+                </li>
+
             </ul>
         </li>
-        <li>Kevoree for Cloud systems</li>
+        <li>A DDAS approach
+            <ul>
+                <li>Kevoree: managing distributed, heterogeneous and adaptive systems</li>
+                    </ul>
+                </li>
+        <li>Align Kevoree for Cloud systems</li>
     </ul>
     <details></details>
 </section>
@@ -223,47 +231,6 @@
     </ul>
 </section>
 
-
-<!--<section class="slide" id="Context1">
-    <header><h2>Context</h2></header>
-    <ul>
-        <li>IT Systems:
-            <ul>
-                <li class="next">computers</li>
-                <li class="next">smartphones & tablets</li>
-                <li class="next">embedded devices (micro controller , ...)</li>
-                <li class="next">Clouds</li>
-            </ul>
-        </li>
-        <li class="next hidden u"><span class="kevOrange"> Distributed systems</span></li>
-        <li class="next hidden u"><span class="kevOrange"> Heterogeneous systems</span></li>
-    </ul>
-    <details>
-        Basically, the context is about IT systems which are composed by various devices<br/>
-        From computers, smatphones or tablets, to micro controllers and Clouds<br/>
-        And all these devices must interact
-        So the main caracteristics of the IT systems are the distribution and the heterogeneity
-    </details>
-</section>
-
-<section class="slide" id="Context2">
-    <header><h2>Context</h2></header>
-    <ul>
-        <li class="next">IT Systems are continuously evolving
-            <ul>
-                <li>New bug fixes</li>
-                <li>New functionalites</li>
-                <li>New devices</li>
-                <li>...</li>
-            </ul>
-        </li>
-        <li class="next hidden u"><span class="kevOrange">Dynamic adaptive systems (DAS)</span>
-    </ul>
-    <details>
-        Moreover IT systems need constant evolution to introduce new functionalities, to fix some bugs, to integrate new devices, etc<br/>
-        So the IT systems must be also dynamic adaptive systems
-    </details>
-</section>-->
 <section class="slide shout" id="solutions">
     <header>
         <div style="text-align: center;">
@@ -950,6 +917,11 @@ moveComponent nodeJS@paasRack => paasKloud
             <ul>
                 <li>Snooze</li>
                 <li>Multi reasoning engine (on going work)</li>
+            </ul>
+        </li>
+        <li class="hidden u"><span class="kevOrange">International collaboration</span>
+            <ul>
+                <li>Norway (SINTEF), Luxembourg (SNT), Brazil (UFPR), Rennes (Triskell)</li>
             </ul>
         </li>
     </ul>
