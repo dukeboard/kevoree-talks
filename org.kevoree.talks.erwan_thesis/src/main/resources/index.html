@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            SyntaxHighlighter.all();
+        });
+    </script>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+    <style>
+        body:not(.list) > .slide:not(.cover):not(.shout):before {
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top: 5px;
+            right: 5px;
+        }
+
+        .slide ul > li.hidden:before {
+            content: ''; /* bull */
+            line-height: 48px;
+            font-size: 40px;
+        }
+
+        .slide ul > li.hidden.u:before {
+            cursor: default;
+            font-size: 16px;
+            font-family: "FoundationIconsGeneral", serif;
+            content: 'u'; /* arrow */
+            line-height: 48px;
+            color: #DF9D00;
+        }
+
+        .slide ul > li.hidden.f:before {
+            cursor: default;
+            font-size: 16px;
+            /*line-height: 1;*/
+            font-family: "FoundationIconsGeneral", serif;
+            content: 'f'; /* check */
+            line-height: 48px;
+            /*font-size: 40px;*/
+            color: #00FF00;
+        }
+
+        .slide ul > li.hidden.g:before {
+            cursor: default;
+            font-size: 16px;
+            font-family: "FoundationIconsGeneral", serif;
+            content: 'g'; /* uncheck */
+            line-height: 48px;
+            color: #FF0000;
+        }
+
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular', serif;
+        }
+
+        .kevOrange {
+            color: #DF9D00;
+        }
+
+        .kevRed {
+            color: #FF0000;
+        }
+
+        .kevGreen {
+            color: #00FF00;
+        }
+
+        .kevGray {
+            color: #666;
+        }
+
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+
+        details {
+            display: none;
+        }
+    </style>
+    <!--<link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>-->
+    <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <!--<link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">-->
+    <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>Kevoree & Cloud Computing</h1>
+
+    <p><a href="http://www.kevoree.org/"><span style="text-decoration:underline;">Erwan Daubert</span> - Francois Fouquet / Kevoree Team</a></p>
+</header>
+
+<!--Cover page  -->
+<section class="slide shout" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+            <br/><br/>
+                <span class="next" style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+                    Adaptation & Cloud Computing
+                </span><br/>
+                    <span class="next" style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+                        A global abstraction to manage adaptation as an orthogonal concern
+                    </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
+				<span class="iconic arrow_right"> by </span>
+				 Erwan Daubert, François Fouquet
+			</span>
+        </div>
+        <img style="position:absolute;top: 10px;left:10px;" src="figures/logo-inria.png" width="200px"/>
+    </header>
+    <details>
+        So in this talk, I will speak about software engineering solution to build and manipulate complex IT systems and more precisely, I will present you the solution we have develop to manage Cloud
+        systems
+    </details>
+</section>
+
+<section class="slide" id="summary">
+    <header>
+        <h2>Summary</h2>
+    </header>
+    <ul>
+        <li>Cloud systems</li>
+        <li>Adaptation</li>
+        <li>Kevoree</li>
+        <li>Kevoree for Cloud systems</li>
+    </ul>
+    <details></details>
+</section>
+
+<section class="slide" id="cloud_systems">
+    <header>
+        <h2>Cloud systems</h2>
+    </header>
+    <ul>
+        <li>A hierarchy of layers
+            <ul>
+                <li>Software (SaaS)</li>
+                <li>Platform (PaaS)</li>
+                <li>Infrastructure (IaaS)</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="kevOrange">Each layer is a distributed heterogeneous dynamic adaptive system (DDAS)</div>
+    <img style="position:absolute;bottom: 250px;right:50px;" src="figures/cloudtriangle-plain.png"/>
+    <details></details>
+</section>
+
+<section class="slide" id="adaptation">
+    <header>
+        <h2>Adaptation</h2>
+    </header>
+    <img style="position:absolute;bottom: 40px;right:150px;height:480px;" src="figures/mapeLoopIBM.png"/>
+</section>
+
+<section class="slide" id="adaptation2">
+    <header>
+        <h2>Adaptation & Cloud systems</h2>
+    </header>
+    <blockquote style="font-size: 20px;">
+        IBM frequently cites four aspects of self-management<!--, which Table 1 summarizes. Early autonomic systems may treat these aspects as distinct-->... Ultimately, these aspects will be emergent
+        properties of a general architecture, and <span class="kevOrange">distinctions will blur into a more general notion of self-maintenance</span>.
+    </blockquote>
+    <ul>
+        <li class="next">Each adaptation has impact on the running system</li>
+        <li class="next">Each adaptation may have side effects
+            <ul>
+                <li class="next hidden g">Side effects may have impact on the other adaptations</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange">We need to coordinate adaptation between layers</span></li>
+    </ul>
+</section>
+
+
+<section class="slide" id="abstraction">
+    <header><h2>How to coordinate adaptation ?</h2></header>
+    <ul>
+        <li class="next">Use only one adaptation engine that manage all layers
+            <ul>
+                <li class="next hidden g">Layers must be independent (e.g: different providers)</li>
+            </ul>
+        </li>
+        <li class="next">Coordinate all adaptation engines</li>
+        <li class="next hidden u"><span class="kevOrange">We need to have a common abstraction for all the adaptation engines</span></li>
+        <li class="next hidden u"><span class="kevOrange">We need to represent all layers together</span></li>
+    </ul>
+</section>
+
+
+<!--<section class="slide" id="Context1">
+    <header><h2>Context</h2></header>
+    <ul>
+        <li>IT Systems:
+            <ul>
+                <li class="next">computers</li>
+                <li class="next">smartphones & tablets</li>
+                <li class="next">embedded devices (micro controller , ...)</li>
+                <li class="next">Clouds</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange"> Distributed systems</span></li>
+        <li class="next hidden u"><span class="kevOrange"> Heterogeneous systems</span></li>
+    </ul>
+    <details>
+        Basically, the context is about IT systems which are composed by various devices<br/>
+        From computers, smatphones or tablets, to micro controllers and Clouds<br/>
+        And all these devices must interact
+        So the main caracteristics of the IT systems are the distribution and the heterogeneity
+    </details>
+</section>
+
+<section class="slide" id="Context2">
+    <header><h2>Context</h2></header>
+    <ul>
+        <li class="next">IT Systems are continuously evolving
+            <ul>
+                <li>New bug fixes</li>
+                <li>New functionalites</li>
+                <li>New devices</li>
+                <li>...</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange">Dynamic adaptive systems (DAS)</span>
+    </ul>
+    <details>
+        Moreover IT systems need constant evolution to introduce new functionalities, to fix some bugs, to integrate new devices, etc<br/>
+        So the IT systems must be also dynamic adaptive systems
+    </details>
+</section>-->
+
+
+<section class="slide shout" id="Subject">
+    <header>
+        <div style="text-align: center;">
+            <h2 style="font-size : 70px;">How to build and manage distributed, heterogeneous and adaptive systems ?</h2>
+        </div>
+    </header>
+    <details>
+        And the question about these systems is: ...
+    </details>
+</section>
+
+<section class="slide shout" id="Solution_MAR">
+    <header>
+        <div style="text-align: center;">
+            <h2 style="font-size : 70px;">Using Model@Runtime techniques<br/><span class="kevOrange" style="font-size: 40px;">François Fouquet 's thesis</span></h2>
+        </div>
+    </header>
+    <details>
+        And our response is ...
+    </details>
+</section>
+
+<section class="slide" id="MAR_whatis">
+    <header>What is Model@Runtime ?</header>
+    <ul>
+        <li class="hidden u"><span class="kevOrange">Abstraction layer</span>
+            <ul>
+                <li>Architectural model which defines how the system is configured
+                    <ul>
+                        <li>Components and their interactions</li>
+                        <li>Nodes</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <details>
+        So what is Model@Runtime ?<br/>
+        First of all, it's an abstraction layer which define the architecture of the system:<br/>
+        For instance, the components and the interaction between these components but also the nodes that hosts these components
+    </details>
+</section>
+
+<section class="slide" id="MAR_why">
+    <header><h2>What is Model@Runtime ?</h2></header>
+    <ul>
+        <li class="hidden u"><span class="kevOrange">Abstraction layer</span></li>
+        <li class="next hidden u"><span class="kevOrange">Offline reflexion layer</span>
+            <ul>
+                <li>Usually DAS are build as a online reflexive systems
+                    <ul>
+                        <li class="next hidden"><span class="iconraph kevRed">Â</span> Strongly connected with the running system
+                            <ul>
+                                <li class="hidden"><span class="iconraph kevRed">Â</span> Misconfiguration can crash the system</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="next hidden u"><span class="kevOrange">Test and validate configuration before applying it</span></li>
+            </ul>
+        </li>
+    </ul>
+    <details>
+        Model@Runtime is also a reflexion layer.
+        Standard reflexion layers such as the one available in Java are strongly connected to the runtime and so changes ont the configuration at the reflexion layer is directly applied on the runtime
+        And this can lead to misconfigurations that crash the system
+        <span class="iconraph kevRed">u</span>
+        So With Model@Runtime, the reflexion layer is an offline reflexion layer that means, changes on the reflexion layer are not directly applied on the system and we are able to test and validate
+        it before.<br/>
+    </details>
+</section>
+
+<section class="slide" id="MAR_PROCESS">
+    <header>
+        <h2>Model@Runtime process</h2>
+    </header>
+    <object style="position : absolute;top: 150px;left : 150px;" data="figures/modelATruntimeFinal.png" type="image/png"
+            class="middle" height="450"></object>
+    <details>
+        And this engine is able to reconfigure the system according to model reconfigurations
+        So First, a new model is proposed
+        This model is verified
+        If it is ok, this new model is compared with the current one to find all the needed commands to update the system
+        These commands are applied and if all is ok, the new configuration is saved as the current one
+    </details>
+</section>
+
+<section class="slide shout" id="Kevoree">
+    <header>
+        <h2>Kevoree<br/>
+            <span style="font-size: 60px;">A Model@Runtime implementation for Distributed Dynamically Adaptive systems</span>
+        </h2>
+    </header>
+    <details>
+        So this is how the Model@Runtime works and we propose Kevoree which implements this process
+    </details>
+</section>
+
+<section class="slide" id="kevcomponent_based1">
+    <header>
+        <h2>Kevoree Concepts</h2>
+    </header>
+    <ul>
+        <li class="next hidden u">A Component-based approach
+            <ul>
+                <li><strong class="kevOrange">ComponentType</strong>
+                    <ul>
+                        <li>Encapsulate business features</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next hidden u">Extend with distributed features
+            <ul>
+                <li><strong class="kevOrange">ChannelType</strong>
+                    <ul>
+                        <li>Encapsulate communication semantics</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <object style="position:absolute;top: 150px;right: 10px;" data="figures/kevConcepts.png" type="image/png"
+            height="360"></object>
+    <details>
+        So kevoree provide a Model@Runtime implementation <!--which relies on a Component-based approach--><br/>
+        with components <!--that define the business features of the system--><br/>
+        and with Channels <!--that define the communication semantics between components--><br/>
+        And this Component-based approach is extend with some distributed features<br/>
+        There are the nodes <!--which encapsulate the runtime heterogeneity of the system and provide the specific adaptation commands to reconfigure the corresponding runtime--><br/>
+        There are also the groups <!--which are used to disseminate and synchronized the model between the nodes--><br/>
+    </details>
+</section>
+
+<section class="slide" id="kevcomponent_based2">
+    <header>
+        <h2>Kevoree Concepts</h2>
+    </header>
+    <ul>
+        <li class="hidden u">A Component-based approach
+            <ul>
+                <li><strong class="kevOrange">ComponentType</strong></li>
+            </ul>
+        </li>
+        <li class="hidden u">Extend with distributed features
+            <ul>
+                <li><strong class="kevOrange">ChannelType</strong></li>
+                <li class="next"><strong class="kevOrange">NodeType</strong>
+                    <ul>
+                        <li>Encapsulate runtime heterogeneity</li>
+                        <li>Encapsulate adaptation semantics</li>
+                    </ul>
+                </li>
+
+                <li class="next"><strong class="kevOrange">GroupType</strong>
+                    <ul>
+                        <li>Encapsulate model@runtime dissemination semantics</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <object style="position:absolute;top: 150px;right: 10px;" data="figures/kevConcepts.png" type="image/png"
+            height="360"></object>
+    <details>
+        So kevoree provide a Model@Runtime implementation <!--which relies on a Component-based approach--><br/>
+        with components <!--that define the business features of the system--><br/>
+        and with Channels <!--that define the communication semantics between components--><br/>
+        And this Component-based approach is extend with some distributed features<br/>
+        There are the nodes <!--which encapsulate the runtime heterogeneity of the system and provide the specific adaptation commands to reconfigure the corresponding runtime--><br/>
+        There are also the groups <!--which are used to disseminate and synchronized the model between the nodes--><br/>
+    </details>
+</section>
+
+<section class="slide" id="WiaModel">
+    <header>
+        <h2>A model abstract nodes configurations</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+    <details>
+        Here, it's the model which define the architecture of the system
+        with some nodes, some components
+    </details>
+</section>
+
+<section class="slide" id="WiaModel2">
+    <header>
+        <h2>Each node host a model@runtime engine</h2>
+    </header>
+    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
+    <span id="marDengine1" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
+    <span id="marDengine2" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
+    <span id="marDengine3" class="iconraph kevOrange"
+          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
+            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
+        });
+    </script>
+    <details>
+        Each node host a M@R engine
+    </details>
+</section>
+
+<!--<section class="slide shout" id="kevadaptation_title">
+    <h2>KevScript<br/>
+        <span style="font-size: 60px;">A language to build adaptive system</span>
+    </h2>
+    <details>With Kevoree, there is also a scripting language to build adaptive system</details>
+</section>-->
+
+
+<section class="slide" id="Kevoree_AdaptModel">
+    <header>
+        <h2>Kevoree Script (KevScript) language <br/>to build reasonning engine</h2>
+    </header>
+    <pre class="brush: kevscript toolbar:false;">
+        merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javasenode"
+        updateDictionary instance1 {port="8080"}
+        addComponent component1@node1:ComponentType1
+        addChannel channel1 : ChannelType1
+        bind component1.port1@node1 -> channel1
+        unbind component3.port1@node1 -> channel1
+        removeComponent component3@node1
+        removeChannel channel2
+        moveComponent component1@node1 -> node2
+        addGroup group1 : GroupType1
+        removeGroup group1
+        addToGroup node1@group1
+        removeFromGroup node1@group1
+        addNode node1 : NodeType1
+        removeNode node1
+        network node1 -> node2 {"ip" = "192.168.0.1"}
+        addNode node1 : NodeType1
+        removeNode node1
+        addChild node2@node1
+        removeChild node2@node1
+    </pre>
+    <details>
+        With Kevoree, we also provide a scripting language to ease the manipulation of Kevoree models<br />
+        This language is used by reasoning engine to create new model and so new configuration for the system<br/>
+        Then the new model is sent to the Kevore Model@Runtime process that apply it on the runtime
+    </details>
+</section>
+
+<section class="slide shout" id="kevcloud_title">
+    <h2 style="position:absolute;top:250px;">Kevoree Kloud<br/>
+        <span style="font-size: 60px;">How to build and <strong class="kevOrange">adapt</strong> Cloud system ?</span>
+    </h2>
+    <img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="figures/167830.strip_.sunday.gif"/>
+</section>
+
+<section class="slide" id="cloud_intro">
+    <header>
+        <h2>What is a Cloud system ?</h2>
+    </header>
+    <ul>
+        <li>A hierarchy of systems
+            <ul>
+                <li>Software (SaaS)</li>
+                <li>Platform (PaaS)</li>
+                <li>Infrastructure (IaaS)</li>
+            </ul>
+        </li>
+    </ul>
+    <img style="position:absolute;bottom: 80px;right:100px;" src="figures/cloudtriangle-plain.png"/>
+    <details>
+        A Cloud is defined with three layers:<br/>
+        Software layer which provides software for end user<br/>
+        Platform layer which provides a middleware to host software<br/>
+        Infrastructure layer which provides a middleware to virtualize platforms
+    </details>
+</section>
+
+<section class="slide" id="kevcloud_intro2">
+    <header><h2>What is a Cloud system ?</h2></header>
+    <ul>
+        <li>Layers are
+            <ul>
+                <li class="next hidden u"><span class="kevOrange">Distributed systems</span><br/></li>
+                <li class="next hidden u"><span class="kevOrange">Heterogeneous systems</span></li>
+                <li class="next hidden u"><span class="kevOrange">Dynamic adaptive systems (DAS)</span></li>
+                <li class="next hidden f"><span class="kevOrange">Kevoree systems</span></li>
+            </ul>
+        </li>
+    </ul>
+    <details>
+        Moreover each layer is a distributed system, an heterogeneous system and a dynamic adaptive system.<br/>
+        And hopefully all this characteristics can be managed with Kevoree
+    </details>
+</section>
+
+<section class="slide" id="kevcloud_layers">
+    <header>
+        <h2>How Kevoree modelize Cloud systems ?</h2>
+    </header>
+    <ul>
+        <li class="next">Components
+            <ul>
+                <li class="next">Software (SaaS)</li>
+                <li class="next">Layer management (PaaS, IaaS)</li>
+            </ul>
+        </li>
+        <li class="next">Nodes
+            <ul>
+                <li class="next">Software runtime (SaaS)</li>
+                <li class="next">VM system (PaaS)</li>
+                <li class="next">Concrete hardware system (IaaS)</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange">All layers are independant</span></li>
+    </ul>
+</section>
+
+<section class="slide" id="kevcloud_adaptation">
+    <header><h2>How the adaptation must be managed ?</h2></header>
+    <blockquote style="font-size: 20px;">
+        IBM frequently cites four aspects of self-management<!--, which Table 1 summarizes. Early autonomic systems may treat these aspects as distinct-->... Ultimately, these aspects will be emergent
+        properties of a general architecture, and <span class="kevOrange">distinctions will blur into a more general notion of self-maintenance</span>.
+    </blockquote>
+    <ul>
+        <li class="next">Each adaptation has impact on the running system</li>
+        <li class="next">Each adaptation may have side effects
+            <ul>
+                <li class="next hidden g">Side effects may have impact on the other adaptations</li>
+            </ul>
+        </li>
+        <li class="next hidden u"><span class="kevOrange">We need to coordinate adaptation between layers</span></li>
+    </ul>
+</section>
+
+
+<section class="slide" id="kevcloud_adaptation2">
+    <header><h2>How to coordinate adaptation ?</h2></header>
+    <ul>
+        <li class="next">Use only one adaptation engine that manage all layers
+            <ul>
+                <li class="next hidden g">Layers must be independent (e.g: different providers)</li>
+            </ul>
+        </li>
+        <li class="next">Coordinate all adaptation engines</li>
+        <li class="next hidden u"><span class="kevOrange">We need to have a common abstraction for all the adaptation engines</span></li>
+        <li class="next hidden u"><span class="kevOrange">We need to represent all layers together</span></li>
+    </ul>
+</section>
+
+<section class="slide" id="kevcloud_intro">
+    <header>
+        <h2>Managing cloud layers with Kevoree node</h2>
+    </header>
+    <ul>
+        <li>Kevoree Node
+            <ul>
+                <li class="next">Hosts components</li>
+                <li class="next"><strong class="kevOrange">Hosts nodes</strong></li>
+            </ul>
+        </li>
+        <li class="next">A parent node has <span class="kevOrange">responsibility for child's nodes life cycle</span>
+            <ul>
+                <li class="next">create, start, stop, destroy, ...</li>
+                <li class="next hidden u"><span class="kevOrange">Each node can define its own adaptation capabilities</span></li>
+            </ul>
+        </li>
+    </ul>
+    <object style="position:absolute;top: 150px;right:100px;" data="figures/kevoree_node.svg"></object>
+</section>
+
+<section class="slide" id="kevcloud_nodeType">
+    <header>
+        <h2>IaaS and PaaS nodes</h2>
+    </header>
+    <ul>
+        <li class="next">Basic adaptation primitives: Add/Remove node
+            <ul>
+                <li class="next hidden u"><span class="kevOrange">Specific implementations for each node type</span></li>
+            </ul>
+        </li>
+        <li class="next">Available node types
+            <ul>
+                <li class="next">MiniCloud : Add/Remove Java Virtual Machine</li>
+                <li class="next">FreeBSD Jails: Add/Remove VM in the same kernel space</li>
+                <!--<li class="next">SmartOS Zone: (same as Jail) (on going work)</li>-->
+                <li class="next">LibVirt: Add/Remove VM with hardware virtualisation (on going work)</li>
+                <li class="next">Amazon EC2: Add/Remove EC2 Virtual Machine (on going work)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml">
+    <header>
+        <h2>KevScript as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">KevoreeScript abstracts model manipulation</li>
+            <li class="next">IaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+//add IaaSPlatform 
+addNode iaasKVM21 : KVMNode {ip="10.0.1.5"}
+//add two user node
+addNode userNode1 : JavaSENode
+addNode userNode2 : UbuntuNode {version="12.04"}
+//attach to IaaSNode42
+addChild userNode1,userNode2@iaasKVM21
+			  			</pre>
+            </li>
+            <li class="next">PaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+addNode worker2@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+addNode worker3@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+moveComponent *@worker1 => worker2
+removeNode worker1@IaaSNode42
+			  			</pre>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml2">
+    <header>
+        <h2>Kevoree as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">SaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+moveComponent mongoDB@userNode1 => userNode2
+moveComponent nodeJS@userNode1 => userNode2
+			  			</pre>
+            </li>
+            <li>KevScript is a backend to express cloud elasticity
+			            <pre class="brush: java toolbar:false;">
+							if(detectOverHead()){
+							this.interpretAndDeploy("script ");
+							//call local adaptation layer, propagation is done through groups
+							}
+			  			</pre>
+                Like any component, cloud reasoning engines are able to interact with Model@Runtime layer.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml3">
+    <header>
+        <h2>Kevoree cloud layer is cloud IaaS agnostic</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">Hybrid cloud managment <span class="iconic cloud_download kevOrange"></span>
+			            <pre class="brush: kevscript toolbar:false;">
+//create PaasNode
+addNode paasEC2 : EC2	
+addNode paasRack : RackspaceVM
+addNode paasKloud : KevoreeCloudVM	
+//hybrid adaptations											
+moveComponent mongoDB@paasEC2 => paasRack
+moveComponent nodeJS@paasRack => paasKloud
+			  			</pre>
+            </li>
+            <li>Sky (aggregation of cloud) is helped by the delegation model of Kevoree
+                <br/>
+
+                <div style="text-align:center;">
+                    <span class="kevOrange">public</span><span style="font-size:70px;" class="iconic cloud kevOrange"></span>
+                    <span style="font-size:30px;color: #CCC;" class="iconic spin"></span>
+                    <span style="font-size:100px;" class="kevGRay iconraph">k</span>
+                    <span class="kevGray">private</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="kevcloud_minicloud">
+    <header>
+        <h2>MiniKloud Model@Runtime driven platform (@Rennes - Brittany)</h2>
+    </header>
+    <div style="text-align: center;">
+        <img src="figures/kloud_init.png" style="width:600px;">
+    </div>
+</section>
+
+<section class="slide" id="conlusion">
+    <header><h2>Conclusion</h2></header>
+    <ul>
+        <li>Kevoree
+            <ul>
+                <li>Able to build and manage complex IT Systems
+                <li class="hidden u"><span class="kevOrange">Extend to cope Cloud specificities</span></li>
+                <li class="hidden u"><span class="kevOrange">Allow to manage adaptation as orthogonal concerns</span>
+                    <ul>
+                        <li><span class="kevOrange">Coordinate adaptation between layers</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="perspective">
+    <header><h2>Perspective</h2></header>
+    <ul>
+        <li class="hidden u"><span class="kevOrange">Use Kevoree to test distributed system</span> (on going work)
+            <ul>
+                <li>Dynamically deploy the system under test (SUT)</li>
+                <li>Generate adapters to interact with the SUT
+                <li>Manage the test cases execution</li>
+            </ul>
+        </li>
+        <li class="hidden u"><span class="kevOrange">Use Kevoree to build BigData solution</span>
+            <ul>
+                <li>How to adapt data repartition according to system architecture</li>
+            </ul>
+        </li>
+        <!--<li>Social Network and Cloud for Brasil researchers</li>-->
+        <li class="hidden u"><span class="kevOrange">Provide monitoring</span> (on going work)
+            <ul>
+                <li>how to provide monitoring information about nodes, components, ...</li>
+                <li>how to disseminate these monitoring information</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<!-- Kevoree Publication -->
+<section class="slide" id="ref">
+    <header>
+        <h2>References</h2>
+    </header>
+    <ul style="font-size: 12px;">
+        <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
+            Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
+        </li>
+        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
+            Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
+            Engineering. Bertinoro, Italy, June 2012.
+        </li>
+        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
+            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
+            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
+            2012.
+        </li>
+        <li>Nain, Grégory , Fouquet, François , Morin, Brice , Barais, Olivier and
+            Jézéquel, Jean-Marc (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of
+            the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille,
+            France.
+        </li>
+        <li>André, Francoise, Daubert, Erwan , Nain Grégory , Morin, Brice and Barais,
+            Olivier (2010) F4Plan: An Approach to build Efficient Adaptation Plans. In MobiQuitous.
+        </li>
+        <li>Brice Morin, Olivier Barais, Grégory Nain, Jean-Marc Jézéquel: Taming
+            Dynamically Adaptive Systems using models and aspects. ICSE 2009: 122-132
+        </li>
+        <li>Brice Morin, Olivier Barais, Jean-Marc Jézéquel, Franck Fleurey, Arnor
+            Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
+        </li>
+    </ul>
+    <h2 style="position : absolute;bottom: 50px;text-align: left;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
+        <a href="http://kevoree.org">kevoree.org</a></h2>
+
+    <div style="position : absolute;right: 12px;bottom: 0;">
+        <h2 style="font-size: 22px;">Contacts: <a href="mailto:Erwan.Daubert@inria.fr">Erwan.Daubert@inria.fr</a> <a href="mailto:Erwan.Daubert@inria.fr">François Fouquet@irisa.fr</a></h2>
+    </div>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+</body>
+</html>
