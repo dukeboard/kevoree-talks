@@ -126,7 +126,7 @@
                 </li>
             </ul>
         </li>
-        <li class="next">A shared <code>resources</code> set across users (<span class="kevGray">Customers</span>)</li>
+        <li class="next">A shared <code>resources set</code> across users (<span class="kevGray">Customers</span>)</li>
         <li class="next">Dynamic distribution of users on resources</li>
         <li class="next">Security, isolation and privacy as a service</li>
     </ul>
@@ -134,12 +134,12 @@
 
 <section class="slide" id="cloud_feature_2">
     <header><h2>*Clouds needs ?</h2></header>
-    <p>According to such definition, *Clouds basically needs:</p>
+    <p>According to such definition, *Clouds basically need:</p>
     <ul class="next">
-        <li class="next"><span class="kevOrange">Elasticity</span> (mean distribution of customer software on
+        <li class="next"><span class="kevOrange">Elasticity</span> (distribution of customer software on
             infrastructure)
         </li>
-        <li class="next"><span class="kevOrange">Isolation</span> (mean keep isolate user processes from each other)
+        <li class="next"><span class="kevOrange">Isolation</span> (keep user processes isolated from each other)
         </li>
     </ul>
     <p class="next"><code>!Scalability <span style="font-size: 20px;"
@@ -152,20 +152,19 @@
 </section>
 
 <section class="slide" id="cloud_feature_3">
-    <header><h2>Several *Clouds == several virtualization</h2></header>
-    <p>Although we found similar concepts, different technologies are still used</p>
+    <header><h2>Several *Clouds == Several Virtualizations</h2></header>
+    <p>Similar concepts, Different technologies</p>
     <ul class="next">
-        <li class="next"><span class="kevOrange">OpenShift</span> by RedHat define stateless gears (LXC,
+        <li class="next"><span class="kevOrange">OpenShift</span> by RedHat defines stateless gears (LXC,
             Para-virtualization)
         </li>
-        <li class="next"><span class="kevOrange">Amazon EC2 </span> define Instance (node) (Xen, Full-virtualisation)
+        <li class="next"><span class="kevOrange">Amazon EC2 </span> defines Instance (node) (Xen, Full-virtualisation)
         </li>
         <li class="next"><span class="kevOrange">GoogleAppEngine </span> uses several *java servers*
             (Process-virtualization)
         </li>
     </ul>
-    <p class="next"><code>Abstraction mechanism like elasticity is hard to reuse and to develop, thus elasticity
-        mechanisms are often limited to simple monitoring</code></p>
+    <p class="next"><code>Abstraction mechanisms like elasticity are hard to develop and reuse, thus often limited to simple monitoring</code></p>
 </section>
 
 <section class="slide" id="cloud_feature_4">
@@ -180,7 +179,7 @@
     </ul>
     <center></cen><img class="next" src="scaling-infographic.png"/></center>
     <ol>
-        <li class="next"><span class="iconic arrow_right_alt1 kevOrange"></span>Scaling by on demand gears to replicate
+        <li class="next"><span class="iconic arrow_right_alt1 kevOrange"></span>Scale using gears 'on demand' to replicate
             customers gears
         </li>
         <li class="next"><span class="iconic arrow_right_alt1 kevOrange"></span>Isolation by allocating each gear in an
@@ -227,7 +226,7 @@
         <li class="next"><strong class="kevOrange">MDE@Runtime</strong>
             <ul>
                 <li>Architecture model shared accros distributed nodes</li>
-                <li>Offline & online operation, compute@Model level, apply @Runtime</li>
+                <li>Offline & online operations, compute@Model level, apply @Runtime</li>
             </ul>
         </li>
         <li class="next"><strong class="kevOrange">Component-based</strong>
@@ -251,22 +250,22 @@
     <ul>
         <li class="next"><strong class="kevOrange">ComponentType</strong>
             <ul>
-                <li>Encapsulate domain features</li>
+                <li>Encapsulates domain features</li>
             </ul>
         </li>
         <li class="next"><strong class="kevOrange">ChannelType</strong>
             <ul>
-                <li>Encapsulate communication semantics</li>
+                <li>Encapsulates communication semantics</li>
             </ul>
         </li>
         <li class="next"><strong class="kevOrange">GroupType</strong>
             <ul>
-                <li>Encapsulate model@runtime dissemination semantics</li>
+                <li>Encapsulates model@runtime dissemination semantics</li>
             </ul>
         </li>
         <li class="next"><strong class="kevOrange">NodeType</strong>
             <ul>
-                <li>Encapsulate adaptation semantics</li>
+                <li>Encapsulates adaptation semantics</li>
             </ul>
         </li>
     </ul>
@@ -280,7 +279,7 @@
         <h2>Managing isolation with Kevoree nodes</h2>
     </header>
     <ul>
-        <li>Kevoree node is a container, of components but also of child nodes !</li>
+        <li>Kevoree node is a container of components <code>AND</code> child nodes !</li>
         <li>A parent node has responsibility for child's nodes life-cycle (start/stop)</li>
         <li>Hosting <span style="font-size: 30px;" class="iconic move_horizontal_alt2 kevOrange"></span> isolation
             (parent does not follow children life-cycle(crash))
@@ -297,7 +296,7 @@
     </header>
     <div>
         <ul>
-            <li class="next">Just add Add/Remove node capability</li>
+            <li class="next">Add/Remove children nodes</li>
             <li class="next">Available NodeType
                 <ul>
                     <li class="next">MiniCloud : (Add/Remove Java Virtual Machine)</li>
@@ -375,11 +374,11 @@ moveComponent nodeJS@userNode1 => userNode2
     <header>
         <h2>A simple multi-axial optimisation</h2>
     </header>
-    Let define, two toy rules to illustrate elasticity <span class="kevGray" style="font-size: 20px;">(done with Jorje and Donia)</span>
+    Let define, two toy rules to illustrate elasticity <span class="kevGray" style="font-size: 20px;">(done with Jorge and Donia)</span>
     <ul>
         <li><span class="kevOrange">CPULoad: </span> load balance node to ensure CPU time of customer</li>
         <li><span class="kevOrange">Security: </span> ensure that !customer PaaS node don't share an IaaS node</li>
-        <li><span class="kevOrange">Cost: </span> reduce used IaaS nodes</li>
+        <li><span class="kevOrange">Cost: </span> reduce the number of IaaS nodes used</li>
     </ul>
     Let define reactions, <span class="kevOrange">move PNode</span> to :
     <ul>
@@ -390,17 +389,17 @@ moveComponent nodeJS@userNode1 => userNode2
 
 <section class="slide" id="elasticKexperiment_1">
     <header>
-        <h2>Rule application are different</h2>
+        <h2>Different adaptation speeds</h2>
     </header>
-    It cost far more computational time to optimize the cloud, rather to extend it.
+    It costs far more computational time to optimize the cloud, rather to extend it.
     Define two kind of rules and corresponding reasoners:
     <ul>
         <li><span class="kevOrange">Reactive</span> ECA like engine to quick reply to load</li>
         <li><span class="kevOrange">Long terme</span> Genetic or Gredy engine to perform optimization</li>
     </ul>
-    <code>Difficulty to combine reasoner</code>
+    <code>Difficulty to combine reasoners</code>
 
-    <p><span class="iconic arrow_right_alt1 kevOrange"></span>Solution : define reasoner as chained hierarchical
+    <p><span class="iconic arrow_right_alt1 kevOrange"></span>Solution : define reasoners as chained hierarchical
         components</p>
 </section>
 
