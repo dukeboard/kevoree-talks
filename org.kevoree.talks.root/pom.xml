@@ -12,7 +12,7 @@
 
     <modules>
         <module>../org.kevoree.talks.framework</module>
-        <module>../org.kevoree.talks.adam</module>
+       <!-- <module>../org.kevoree.talks.adam</module> -->
         <module>../org.kevoree.talks.ubimob2012</module>
         <module>../org.kevoree.talks.ubimob2012Demo</module>
         <module>../org.kevoree.talks.ws</module>
