@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+			//Load sub talk slides
+			jQuery(".includeHtml").each(function(i){
+				var xhrObj = new XMLHttpRequest();
+				xhrObj.open('GET', this.id+".html", false);
+				xhrObj.send('');
+				this.innerHTML = xhrObj.responseText;
+			});
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+        });
+    </script>
+	<!--
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            SyntaxHighlighter.all();
+        });
+    </script>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushScala.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+	-->
+	
+    <link rel='stylesheet' href='fonts/iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+    <link rel="stylesheet" href="fonts/foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <link rel="stylesheet" href="fonts/heydings-common-icons-fontfacekit/stylesheet.css">
+    <link rel="stylesheet" href="fonts/raphaelicons/raphaelicons.css" type="text/css">
+    <link rel="stylesheet" href="fonts/fontawesome/font-awesome.min.css" type="text/css">
+    <style>
+        body:not(.list) > .slide:not(.cover):not(.shout):before {
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top: 5px;
+            right: 5px;
+        }
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular';
+        }
+        .kevOrange {
+            color: #DF9D00;
+        }
+        .kevGray {
+            color: #666;
+        }
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+        details {
+            display: none;
+        }
+    </style>
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>Francois FOUQUET / PhD Defense / Kevoree</h1>
+    <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
+</header>
+
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+        <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+            Kevoree : Model@Runtime
+        </span><br/>
+            <span style="text-align : justify;color: #FFF;font:normal 40px/40px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 42px #FFF, 0 0 10px #FFF;">
+                pour le développement continu de systèmes adaptatifs distribués hétérogènes
+            </span><br/>
+        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+            <span class="iconFont3">G</span>
+            +
+            <span class="iconFont3">g</span>
+            <span class="iconic arrow_right_alt1"></span>
+            <span class="iconFont3">3</span>
+            <span class="iconic arrow_right_alt1"></span>
+            (
+            <span class="iconic beaker_alt"></span>
+            <span class="iconic iphone"></span>
+            <span class="iconic cloud"></span>
+            )
+        </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 15px/15px 'PT Sans Narrow', sans-serif;">
+		   <span class="iconic arrow_right"> by </span> Francois FOUQUET, Triskell Team, IRISA/INRIA Rennes</span>
+        </div>
+    </header>
+</section>
+
+<section class="slide shout" id="Motivations">
+    <header>
+        <h2 style="font-size : 70px;">
+            Research on<br/>
+            Software engineering <span class="iconFont3 kevOrange">G</span><br/>
+            <br/>
+            to abstract <span class="iconFont3 kevOrange">g</span><br/>
+            distributed systems <span class="iconFont3 kevOrange">3</span><br/>
+        </h2>
+    </header>
+</section>
+
+
+<div id="context" class="includeHtml"></div>
+
+<!-- Section contexte et présentation du problème motivant cette thèse. Cette section se conclue  -->
+<section class="slide shout" id="ThanksYouCover">
+    <h2><span class="kevOrange">></span>Thank you</h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+</body>
+</html>
