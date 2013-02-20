@@ -13,10 +13,10 @@
 			<div class=" icon-tasks kevOrange" style="position:relative;left:400px;font-size:70px;"></div>
 		</div>
         <ul>
-			<li>Une complexité grandissante ( LOC, fonctionnalités )</li>
-			<li>Modularité : division du système en sous-parties
+			<li>Une complexité grandissante des systèmes ( LOC, fonctionnalités )</li>
+			<li>Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionalité)</span>
 				<ul>
-					<li></li>
+					<li>Module <div class=" icon-reorder kevGray"></div> unité de conception, développement </li>
 				</ul>
 			</li>
         </ul>
@@ -26,26 +26,85 @@
 		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
 		En d'autres termes cette disciplines cherche à répondre aux attentes du domaine métier en alignant une spécificatoin pour un logiciel répondant à ce besoin.
 		Or, en partie dut à des changements d'usages de ces systèmes mais surtout à cause de leurs masses critiques atteintes ces dernières années, ces méthodes et les systèmes résultants o
-		connus de profond changement.
+		connus de profond changements.
+		La maitrise de la complexité en largeur de ces systèmes toujours granidssante passe par leur modularisation.
+		Ainsi séparé en brique élémentaire dédié à un fragment de fonctioannlité et réutilisable, le système devient un cas particulier d'assemblage. 
 	</details>
 </section>
-
-<section class="slide" id="context_modularisation">
-    <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
-    </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
-</section>
-
 
 <!-- System éternel / besoin de mise à jour à chaud, lien avec les modules pour la granularité, cas simple mise à jour piloté -->
 <section class="slide" id="context_hotswap">
     <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
+        <h2>Du cycle en V vers un déploiement continue</h2>
     </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
+	<div>
+		<div style="padding-top:20px;padding-bottom:20px;">
+			<div style="float: left;">
+				<div style="text-align:center;">
+					<div class=" icon-ok-circle kevOrange" style="font-size:70px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+				</div>
+				<div style="text-align:center;">
+					<div class=" icon-angle-down kevGray" style="font-size:40px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+				</div>
+			</div>
+			<div class=" icon-circle-arrow-right kevGray" style="font-size:40px;float: left; margin-left:200px; margin-top : 80px;"></div>
+			<div style="float: right;">
+				<div style="text-align:center;">
+					<div class=" icon-refresh kevOrange" style="font-size:70px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+				</div>
+				<div style="text-align:center;">
+					<div class=" icon-angle-down kevGray" style="font-size:40px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="clear: both;">
+		<ul>
+			<li>évolution indépendante de chaque module
+				<ul>
+					<li>Module <div class=" icon-reorder kevGray"></div> unité de déploiement </li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<blockquote>Evolution par fragment <div class=" icon-exchange kevOrange"></div> modification d'une sous-partie des modules </blockquote>
+	<details>
+		Au delà de la simple réponse au développement en largeur, le cycle de développement et de déploiement à lui aussi connu un changement profond.
+		En effet les besoins ne sont plus expimés de manière initiale mais à l'inverse de manière continue, ainsi les modules sont définits et développés sur des cycles différents.
+		
+		Le changement fondamentale impliqué est que le système n'est plus un assemblage finit répondant à un besoin mais un assemblage de module eux même répondant à un besoin, interchangeble )à n'importe quel moment.
+		Le système évolue donc désormais par fragment et chacun de ses modules peut suivre des cycles de développement (et déploiement différent).
+		
+		Intrasecmeent le module doit donc devenir en plus une unité de déploiement pour assurer et suivre ce nouveau cycle 
+	</details>
 </section>
 
 <!-- Cas complexe, Modèle MAPE, écouter son contexte pour prendre la décision de faire la mise à jour, système auto-adapatif -->
