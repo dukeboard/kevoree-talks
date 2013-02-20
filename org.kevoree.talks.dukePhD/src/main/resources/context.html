@@ -16,11 +16,11 @@
 			<li>Une complexité grandissante des systèmes ( LOC, fonctionnalités )</li>
 			<li>Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionalité)</span>
 				<ul>
-					<li>Module <div class=" icon-reorder kevGray"></div> unité de conception, développement </li>
+					<li>module <div class=" icon-reorder kevGray"></div> unité de conception, développement </li>
 				</ul>
 			</li>
         </ul>
-		<blockquote>Une spécification <div class=" icon-exchange kevOrange"></div> un assemblage de module</blockquote>
+		<blockquote>Une spécification <div class=" icon-exchange kevOrange"></div> un <span class="kevOrange">assemblage</span> de module</blockquote>
     </div>
 	<details>
 		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
@@ -32,7 +32,6 @@
 	</details>
 </section>
 
-<!-- System éternel / besoin de mise à jour à chaud, lien avec les modules pour la granularité, cas simple mise à jour piloté -->
 <section class="slide" id="context_hotswap">
     <header>
         <h2>Du cycle en V vers un déploiement continue</h2>
@@ -51,7 +50,7 @@
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 				</div>
 				<div style="text-align:center;">
-					<div class=" icon-angle-down kevGray" style="font-size:40px;"></div>
+					<div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
 				</div>
 				<div>
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
@@ -74,7 +73,7 @@
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 				</div>
 				<div style="text-align:center;">
-					<div class=" icon-angle-down kevGray" style="font-size:40px;"></div>
+					<div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
 				</div>
 				<div>
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
@@ -90,12 +89,12 @@
 		<ul>
 			<li>évolution indépendante de chaque module
 				<ul>
-					<li>Module <div class=" icon-reorder kevGray"></div> unité de déploiement </li>
+					<li>module <div class=" icon-reorder kevGray"></div> unité de déploiement </li>
 				</ul>
 			</li>
 		</ul>
 	</div>
-	<blockquote>Evolution par fragment <div class=" icon-exchange kevOrange"></div> modification d'une sous-partie des modules </blockquote>
+	<blockquote>Evolution <div class=" icon-exchange kevOrange"></div> modification d'une <span class="kevOrange">sous-partie</span> des modules </blockquote>
 	<details>
 		Au delà de la simple réponse au développement en largeur, le cycle de développement et de déploiement à lui aussi connu un changement profond.
 		En effet les besoins ne sont plus expimés de manière initiale mais à l'inverse de manière continue, ainsi les modules sont définits et développés sur des cycles différents.
@@ -106,6 +105,73 @@
 		Intrasecmeent le module doit donc devenir en plus une unité de déploiement pour assurer et suivre ce nouveau cycle 
 	</details>
 </section>
+
+<section class="slide" id="context_mape_das">
+    <header>
+        <h2>Systèmes dynamiquement adaptable (DAS)</h2>
+    </header>
+	<div>
+		<div>
+			<div style="float: left;">
+				<div class="icon-dashboard kevOrange" style="font-size:30px"></div>
+				<span class="kevGray">introspection</span>
+				<div style="text-align:center;">
+					<div class=" icon-angle-up kevGray" style="font-size:30px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+				</div>
+			</div>
+			<div style="float: left; margin-left: 120px;">
+				<div class=" icon-arrow-right kevGray" style="font-size:20px;padding-right:50px;"></div>
+				<div class=" icon-cogs kevGray" style="font-size:40px;"></div>
+				<div class=" icon-arrow-right kevGray" style="font-size:20px;padding-left:50px;"></div>
+			</div>
+			<div style="float: right;">
+				<div class="icon-wrench kevOrange" style="font-size:30px"></div>
+				<span class="kevGray">intercession</span>
+				<div style="text-align:center;">
+					<div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
+				</div>
+				<div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div style="clear: both;">
+		<ul>
+			<li>Systèmes (même modeste<span class=" icon-mobile-phone kevGrey" style="font-size:30px;"></span>) considérés comme des DAS
+				<ul>
+					<li>Intégration continue des modules se fait alors à chaud (sans arrêt)</li>
+				</ul>
+			</li>
+			<li>Georgas <i>et al</i>[04] : adaptation = réaction stimuli </li>
+			<li>Boucle de rétroaction (MAPE), réaction après lecture de l'état courant</li>
+		</ul>
+	</div>
+	<blockquote>Adaptation <div class=" icon-exchange kevOrange"></div> modification à chaud en fonction du contexte</blockquote>
+	<details>
+		La place social et l'usage *critique* de ces systèmes amènes a les considéré comme des systèmes dynamiquement adaptables (accronym : DAS).
+		L'intégration continue de nouvelle fonctionnalités se fait alors à chaud s'en arreter le système.
+		
+		Ceci n'est pas (plus) réservé aux systèmes élitistes, puisque l'adatation dynamique est aujourd'hui une réalisté pour atteindre les fameux 99 eldorardo de l'hébergement.
+		Ainsi les sites Web à fort traffic, les bus dintégration d'entrepruse, ou encore les systèmes tel que Android, ou les box de surveillance domoques appliquers déjà de l'adaptation dynamiques.
+		
+		D'après Gordias[04], l'adaptation result d'un stimili extérieur, plus généralement IBM a encapsulé ça dans le concept de MAPE.
+		Ainsi le systèmeva choisir sa configuration après un monitoring (lecture) de son état courant.
+	</details>
+</section>
+
+
 
 <!-- Cas complexe, Modèle MAPE, écouter son contexte pour prendre la décision de faire la mise à jour, système auto-adapatif -->
 <section class="slide" id="context_mape">
