@@ -2,6 +2,18 @@
     <h2><span class="kevOrange">></span>Contexte</h2>
 </section>
 
+<section class="slide" id="context_axes">
+    <header>
+        <h2></h2>
+    </header>
+	<details>
+		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
+		En d'autres termes cette disciplines cherche à répondre aux attentes du domaine métier en alignant une spécificatoin pour un logiciel répondant à ce besoin.
+		Or, en partie dut à des changements d'usages de ces systèmes mais surtout à cause de leurs masses critiques atteintes ces dernières années, ces méthodes et les systèmes résultants o
+		connus de profond changements.
+	</details>
+</section>
+
 <section class="slide" id="context_complexity">
     <header>
         <h2>La modularité pour :<br /> concevoir, réutiliser, composer</h2>
@@ -13,8 +25,8 @@
 			<div class=" icon-tasks kevOrange" style="position:relative;left:400px;font-size:70px;"></div>
 		</div>
         <ul>
-			<li>Une complexité grandissante des systèmes ( LOC, fonctionnalités )</li>
-			<li>Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionalité)</span>
+			<li>Une complexité grandissante des systèmes ( taille code, fonctionnalités )</li>
+			<li>Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionnalité)</span>
 				<ul>
 					<li>module <div class=" icon-reorder kevGray"></div> unité de conception, développement </li>
 				</ul>
@@ -23,10 +35,6 @@
 		<blockquote>Une spécification <div class=" icon-exchange kevOrange"></div> un <span class="kevOrange">assemblage</span> de module</blockquote>
     </div>
 	<details>
-		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
-		En d'autres termes cette disciplines cherche à répondre aux attentes du domaine métier en alignant une spécificatoin pour un logiciel répondant à ce besoin.
-		Or, en partie dut à des changements d'usages de ces systèmes mais surtout à cause de leurs masses critiques atteintes ces dernières années, ces méthodes et les systèmes résultants o
-		connus de profond changements.
 		La maitrise de la complexité en largeur de ces systèmes toujours granidssante passe par leur modularisation.
 		Ainsi séparé en brique élémentaire dédié à un fragment de fonctioannlité et réutilisable, le système devient un cas particulier d'assemblage. 
 	</details>
@@ -34,11 +42,11 @@
 
 <section class="slide" id="context_hotswap">
     <header>
-        <h2>Du cycle en V vers un déploiement continue</h2>
+        <h2>Du cycle en V vers une conception continue</h2>
     </header>
 	<div>
 		<div style="padding-top:20px;padding-bottom:20px;">
-			<div style="float: left;">
+			<div style="float: left;line-height:15px;">
 				<div style="text-align:center;">
 					<div class=" icon-ok-circle kevOrange" style="font-size:70px;"></div>
 				</div>
@@ -60,8 +68,8 @@
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
 				</div>
 			</div>
-			<div class=" icon-circle-arrow-right kevGray" style="font-size:40px;float: left; margin-left:200px; margin-top : 80px;"></div>
-			<div style="float: right;">
+			<div class=" icon-circle-arrow-right kevGray" style="font-size:40px;float: left; margin-left:200px; margin-top : 60px;"></div>
+			<div style="float: right;line-height:15px;">
 				<div style="text-align:center;">
 					<div class=" icon-refresh kevOrange" style="font-size:70px;"></div>
 				</div>
@@ -85,7 +93,7 @@
 			</div>
 		</div>
 	</div>
-	<div style="clear: both;">
+	<div style="clear: both;padding-top:40px;">
 		<ul>
 			<li>évolution indépendante de chaque module
 				<ul>
@@ -108,7 +116,7 @@
 
 <section class="slide" id="context_mape_das">
     <header>
-        <h2>Systèmes dynamiquement adaptable (DAS)</h2>
+        <h2>Systèmes Dynamiquement Adaptable (DAS)</h2>
     </header>
 	<div>
 		<div>
@@ -149,16 +157,16 @@
 	</div>
 	<div style="clear: both;">
 		<ul>
-			<li>Systèmes (même modeste<span class=" icon-mobile-phone kevGrey" style="font-size:30px;"></span>) considérés comme des DAS
+			<li>Systèmes (même modestes<span class=" icon-mobile-phone kevGrey" style="font-size:30px;"></span>) considérés comme des DAS
 				<ul>
 					<li>Intégration continue des modules se fait alors à chaud (sans arrêt)</li>
 				</ul>
 			</li>
-			<li>Georgas <i>et al</i>[04] : adaptation = réaction stimuli </li>
+			<li>Georgas <i>et al</i>'04 : adaptation = réaction stimulus </li>
 			<li>Boucle de rétroaction (MAPE), réaction après lecture de l'état courant</li>
 		</ul>
 	</div>
-	<blockquote>Adaptation <div class=" icon-exchange kevOrange"></div> modification à chaud en fonction du contexte</blockquote>
+	<blockquote>Adaptation <div class=" icon-exchange kevOrange"></div> modification sans arrêt des modules en fonction du contexte</blockquote>
 	<details>
 		La place social et l'usage *critique* de ces systèmes amènes a les considéré comme des systèmes dynamiquement adaptables (accronym : DAS).
 		L'intégration continue de nouvelle fonctionnalités se fait alors à chaud s'en arreter le système.
@@ -171,89 +179,242 @@
 	</details>
 </section>
 
-
-
-<!-- Cas complexe, Modèle MAPE, écouter son contexte pour prendre la décision de faire la mise à jour, système auto-adapatif -->
-<section class="slide" id="context_mape">
-    <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
-    </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
-</section>
-
-
-<!-- Distribution, réponse à la fois à la demande de puissance de calcul, de sécurité (redondance), de stockage -->
 <section class="slide" id="context_distribution">
     <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
+        <h2>Systèmes distribués et hétérogènes</h2>
     </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
+	<div>
+		<div style="line-height:0px;float:left;">
+			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both">
+		<ul>
+			<li>distribution pour
+				<ul>
+					<li>besoins en performance, pour répondre à la charge</li>
+					<li>introduction récente de nombreux terminaux (mobiles, venant d'IoT, ... )</li>
+				</ul>
+			</li>
+			<li>hétérogénité des noeuds</li>
+		</ul>
+	</div>
+	<details>
+		Ces systèmes d'information sont intrasecement distribués sur plusieurs noeuds de calculs introduisant du même coup une hétérogénité des platformes.
+		Cette distribution peut se faire pour répondre à la montée en charge et sert alors à aggréger des resources (cas cluster).
+		Elle peut également se faire à cause de l'introduction massive (Garner et al chiffre vente smartphone) de terminaux mobiles.  
+	</details>
 </section>
 
-<!-- Distribution d'un system adcaptatif, == distribution des boucles de rétro-action MAPE, quid du partage de contexte -->
-<section class="slide" id="context_distribution">
+<section class="slide" id="context_distribution_multi_mape">
     <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
+        <h2>Système adaptatif distribué (DDAS)</h2>
     </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
+	<div>
+		<div style="line-height:0px;float:left;">
+			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both">
+		<ul>
+			<li class="next">Système adaptatif distribué == synchronisation de boucle MAPE</li>
+			<li class="next">Solution centralisé
+				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:265px;"></span>
+				<ul>
+					<li>point central de faute</li>
+					<li>performance dégradé</li>
+				</ul>
+			</li>
+			<li class="next">Solution décentralisé
+				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:335px;"></span>
+				<span class="icon-random kevGray" style="position:absolute;top:130px;left:300px;"></span>
+				<span class="icon-random kevGray" style="position:absolute;top:130px;left:230px;"></span>
+				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:190px;"></span>
+				<span class="icon-random kevGray" style="position:absolute;top:130px;left:155px;"></span>
+				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:120px;"></span>
+				<ul>
+					<li>résiliance aux fautes</li>
+					<li>conflit et problème de cohérence de la connaissance de l'état</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<details>
+		Chaque noeud peut potentilement être amené à modifier sa configuration. De manière automatique ou injecter par un utilisateur humain.
+		Ce calcul correspond donc à une boucle MAPE qui doit lire le contexte (les infos de tous les noeuds) pour faire le calcul.
+		
+		Le cas le plus simple consiste à introduire un seul boucle de retro action sur un noeud devenant alors le maitre.
+		Ceci a effet négatif sur les performances et introduit un point de faute central.
+		
+		Le cas complexe consiste à la distribution de l'adaptation elle même et dans ce les noeuds peuvent chacun s'adapter, ce qui revient a synchroniser les boucles MAPE.		 
+	</details>
 </section>
 
-<!-- Différente synchronisation pour différent besoins / entre différents noeuds -->
-<section class="slide" id="context_distribution">
+<section class="slide" id="context_divergence">
     <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
+        <h2>La divergence inhérente à la distribution</h2>
     </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
+	<div>
+		<div style="line-height:0px;float:left;">
+			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+		<div class=" icon-warning-sign" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+		<div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+		<div style="line-height:0px;float:left;margin-left: 5px;">
+			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+			</div>
+		</div>
+		<div class=" icon-chevron-left" style="font-size:30px;float:left;margin-left: 15px;color: #CCC;"></div>
+		<div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
+			<div style="line-height:0px;float:left;">
+				<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
+				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				</div>
+			</div>
+			<div style="line-height:0px;float:left;margin-left: 5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				</div>
+			</div>
+			<div style="line-height:0px;float:left;margin-left: 5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both">
+		<ul>
+			<li class="next">Divergence induite par les erreurs de communications
+			<ul>
+				<li>Le lien entre deux noeuds est en ereur</li>
+				<li>Une adaptation (ajout d'un composant) est faite d'un coté</li>
+				<li>La <b class="kevGray">vision</b> de l'état du noeud isolé est <span class="kevOrange">divergente</span></li>
+			</ul>
+			</li>
+			<li>La divergence </li>
+		</ul>
+	</div>
+	<details>
+			 
+	</details>
 </section>
 
-<!-- Divergence des états inhérentes aux systèmes distribués -->
-<section class="slide" id="context_distribution">
+<section class="slide" id="context_divergence_challenges">
     <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
+        <h2>La divergence peut-elle servir les DDAS ?</h2>
     </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
+	<ul>
+		<li>Notion similaire à la perte des propriétés ACID dans les SGBD distribués</li>
+		<li>Inévitable dans les systèmes ultra larges</li>
+		<li>Doit s'accompagner d'un mécanisme de cohérence à terme (convergence)</li>
+	</ul>
+	La cohérence à terme permet un report de synchronisation :
+	<ul>
+		<li>pour les noeuds sur battery devant limiter leurs communications</li>
+		<li>pour les noeuds à connections intermittentes</li>
+	</ul>
 </section>
 
-<!-- Divergence, outils pour les systèmes intermittents -->
-<section class="slide" id="context_distribution">
-    <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
-    </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
-</section>
-
-<!-- L'ajout de terminaux mobiles (SmartPhone, Tablette) ainsi que les Objets connectés dans ces systèmes, introduit de l'hétérogénité des noeuds eux-mêmes et surtout de leurs capacités -->
-<section class="slide" id="context_distribution">
-    <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
-    </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
-</section>
-
-<!-- Concrétisation sur un exemple concret, un système tactique Pompiers, des noeuds mobiles, des capteurs, des serveurs centraux (Cloud) -->
-<section class="slide" id="context_distribution">
-    <header>
-        <h2>En réponse, une modularisation des logicielles</h2>
-    </header>
-	<p>TODO STACK SOFTWARE / COLOR</p>
-	<p>un module est une unité de {dévelopement / déploiement / conception }</p>
-</section>
+<!-- TODO REAL CASE STUDY POMPIER -->
 
 <!-- Conclusion sur les challenges des DDAS identifiés -->
+
+<!--
 <section class="slide" id="context_ddas_challenges">
     <header>
         <h2>Résumé des challenges identifiés pour les DDAS</h2>
     </header>
 	<p>Les systèmes informatiques modernes </p>
 </section>
-
+-->
 
 
 
