@@ -1,27 +1,92 @@
 <!-- Kevoree == Abstraction proposé -->
-<section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Model Kevoree</h2>
+<section class="slide shout" id="kevoree_cover">
+    <h2><span class="kevOrange">></span>Contribution : Model Kevoree</h2>
 </section>
+
+<section class="slide" id="mr_dissemination_problem_overview">
+    <header>
+        <h2>Kevoree : un model d'abstraction de DDAS</h2>
+    </header>
+    <code>Proposition : </code>
+	
+	
+	
+	
+    <blockquote>Un modèle capable de représenter et d'abstraire les différents constituants architecturaux d'un système DDAS (noeuds, modules logiciels, canaux de communication).</blockquote>
+	<details>
+		La contribution de cette thèse est l'introduction d'un model capable de représenter et d'abstraire un état d'un système DDAS.
+	</details>
+	
+	
+	Utiliser un model comme abstration pour représenter les états des DDAS.
+	Model doit pouvoir représenter les différents constituants architecturaux
+	Les informations 
+	
+	
+</section>
+
+<section class="slide" id="kevoree_propagation_via_model">
+    <header>
+        <h2>Intercession de DDAS via envoi de models</h2>
+    </header>
+	<p>Model : <span class="icon-quote-left kevGray" style="font-size:30px;"></span>Abstraction d'un état courant ou futur du DDAS<span class="icon-quote-right kevGray" style="font-size:30px;"></span></p>
+	<div>
+		<div style="width:100px;line-height:15px;float:left;">
+			<div class=" icon-hdd kevGray" style="font-size:50px;"></div>
+			<span class="kevGray" style="font-size:20px;">Noeud A</span>
+		</div>
+		<div class=" icon-chevron-left" style="font-size:30px;float:left;margin-left: 5px;margin-right: 15px;color: #CCC;"></div>
+		<div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
+			<div style="line-height:0px;float:left;margin-left: 5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+				</div>
+			</div>
+			<div style="line-height:0px;float:left;margin-left: 5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+					<div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+				</div>
+			</div>
+		</div>
+		<div class=" icon-arrow-right kevOrange" style="font-size:50px;float:left;margin-left: 160px;"></div>
+		<div style="width:100px;line-height:15px;float:right;margin-right: 50px;">
+			<div class=" icon-hdd kevGray" style="font-size:50px;"></div>
+			<span class="kevGray" style="font-size:20px;">Noeud B</span>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<div style="padding-top:30px;">
+		<ul>
+			<li>Pour effectuer une adaptation dans le noeud B, le noeud A:
+				<ul>
+					<li>lit l'état courant du model</li>
+					<li>ajoute un module dans sa vision de B</li>
+					<li>renvoi sa copie au noeud B pour interprétation</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+</section>
+
+
+
+
+
+
+
+
+
 
 <!-- Concept initial, un model pour expliciter et non cacher la divergence, la variabilité (des noeuds, des version (continuous design)) -->
 <!-- Model qui represente les concepts du systèmes distribués (noeuds, canaux de distribution , etc ...) et qui est lui même partagé -->
-<section class="slide" id="context_ddas_challenges">
-    <header>
-        <h2>Résumé des challenges identifiés pour les DDAS</h2>
-    </header>
-	<p>Les systèmes informatiques modernes </p>
-</section>
-
 <!-- C'est à la fois une façon de représenter l'état courant mais aussi un état futur partagé à d'autres noeuds -->
-<section class="slide" id="context_ddas_challenges">
-    <header>
-        <h2>Résumé des challenges identifiés pour les DDAS</h2>
-    </header>
-	<p>Les systèmes informatiques modernes </p>
-</section>
-
 <!-- Concepts -->
-
 <!-- Une séparation Type / Instance pour tous les concepts, type définition agggrège la fonctionnalité, les besoins en binaires , etc tandis que l'instance définit un usage, possibilité de similarité, compatibilité au niveau type et non instance -->
 <section class="slide" id="context_ddas_challenges">
     <header>
@@ -37,6 +102,9 @@
         <h2>Séparation Type définition / Instance</h2>
     </header>
 	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	
+	<p>Permet de faire le lien </p>
+	
 </section>
 
 <!-- Model de concurrence  ??? A mettre-->

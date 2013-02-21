@@ -1,29 +1,72 @@
-<section class="slide shout" id="context_cover">
+<section class="slide shout" id="valid_cover">
     <h2><span class="kevOrange">></span>Validation</h2>
 </section>
 
-<!-- Résolution des challenges de DDAS identifié -->
-<section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Model Kevoree</h2>
+<section class="slide" id="valid_axes">
+    <header>
+        <h2>Evaluation des réponses aux défis des DDAS</h2>
+    </header>
+	<p class="next"><span class="kevGray">3</span> axes d'évaluations au <span class="kevOrange">cas limites</span> des DDAS</p>
+	<div>
+		<ul>
+			<li class="next">Hétérogénéité des noeuds <span class="icon-bar-chart kevOrange"></span>
+				<ul>
+					<li>évaluation de <span class="kevOrange">performance</span> sur des noeuds embarqués</li>
+				</ul>
+			</li>
+			<li class="next">Gestion de la reflexivité divergente <span class="icon-random kevOrange" style="font-size:30px;"></span>
+				<ul>
+					<li>évaluation de la <span class="kevOrange">cohérence à terme</span> sur des noeuds sporadiques</li>
+				</ul>
+			</li>
+			<li class="next">Utilisabilité <span class="icon-group kevOrange" style="font-size:30px;"></span>, généricité de l'abstraction
+				<ul>
+					<li>évaluation par un panel d'<span class="kevOrange">utilisateurs</span> et application sur projets liés</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </section>
 
-
-<!-- Validation pour environnements embarqués : Kevoree for the Small -->
-<section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Model Kevoree</h2>
+<section class="slide" id="valid_4small_problem">
+    <header>
+        <h2>Gestion de noeud hétérogène</h2>
+    </header>
+	<div>
+		<span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivation
+		<ul>
+			<li class="next">Abstraction représente et pilote différent type de noeud</li>
+			<li class="next">Distibution : motivée par l'inclusion de noeud physiquement adapté</li>
+			<li class="next">Noeud des réseau de capteurs, IoT, CPS => containtes embarqués</li>
+		</ul>
+		<div class="next">
+			<span class="icon-screenshot kevOrange" style="font-size:30px;"></span>Problème et risque
+			<p>La couche de reflexion distribué M@R est elle utilisable en terme de <span class="kevOrange">performance</span> pour inclure les noeuds IoT au reste des DDAS ?</p>
+		</div>
+	</div>
 </section>
 
-
-<!-- Validation pour environnements distribués fortement divergent, Kevoree for the Large -->
-<section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Model Kevoree</h2>
+<section class="slide" id="valid_4small_protocExp">
+    <header>
+        <h2>Adaptation sur &micro;Contrôleur</h2>
+    </header>
+	<div>
+		<span class="icon-building kevOrange" style="font-size:30px;"></span> Cas d'étude : SmartBuilding
+		<ul>
+			<li class="next">Ensemble de capteurs de domotiques et d'alertes (par étage/bureau)</li>
+			<li class="next">Reconfiguration quotidiennes de confort et exceptionnels d'urgences<span class="icon-warning-sign kevOrange" style="font-size:30px;"></span></li>
+			<li class="next">Cycle de 5 à 6 reconfigurations / jours</li>
+			<li  class="next">Actionneur pour utilisateur : contrainte de temps &lt;200ms</li>
+		</ul>
+	</div>
+	<div  class="next">	
+		<span class="icon-beaker kevOrange" style="font-size:30px;"></span> Protocole expérimental : 500 adaptations cycliques
+		<ul>
+			<li>Capteur embarqué sur processeur de type AVR-8 (328,2560)</li>
+			<li>Forte contrainte processeur 16Mhz et mémoire 1-8kByte</li>
+		</ul>
+	</div>	
 </section>
-
-<!-- Genericité de la solution -->
-<section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Model Kevoree</h2>
-</section>
-
 
 
 
