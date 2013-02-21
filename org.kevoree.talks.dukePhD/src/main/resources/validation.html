@@ -28,6 +28,7 @@
 	</div>
 </section>
 
+<!-- Kevoree 4 Small -->
 <section class="slide" id="valid_4small_problem">
     <header>
         <h2>Gestion de noeud hétérogène</h2>
@@ -56,7 +57,7 @@
 			<li class="next">Ensemble de capteurs de domotiques et d'alertes (par étage/bureau)</li>
 			<li class="next">Reconfiguration quotidiennes de confort et exceptionnels d'urgences<span class="icon-warning-sign kevOrange" style="font-size:30px;"></span></li>
 			<li class="next">Cycle de 5 à 6 reconfigurations / jours</li>
-			<li  class="next">Actionneur pour utilisateur : contrainte de temps &lt;200ms</li>
+			<li  class="next">Actionneur pour utilisateur : délai de perception ~200ms</li>
 		</ul>
 	</div>
 	<div  class="next">	
@@ -67,6 +68,63 @@
 		</ul>
 	</div>	
 </section>
+
+<section class="slide" id="valid_4small_ExpResult">
+    <header>
+        <h2>Résultats expérimentaux sur &micro;Contrôleur</h2>
+    </header>
+    <div style="text-align: center;position:absolute;left:25px;right:25px;">
+        <object class="next" data="figures/rawData4.png" type="image/png" style="width:850px;height:450px;"></object>
+        <div class="next" id="AdaptationSpeed_A1">
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:275px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:390px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:655px;font-size:25px;top:115px;"></span>
+            <span class="iconic move_vertical_alt2 kevOrange"
+                  style="position:absolute;left:900px;font-size:25px;top:115px;"></span>
+        </div>
+        <div class="next">
+            <hr class="kevOrange"
+                style="position:absolute;left:75px;top:238px;width: 840px; color: #DF9D00; background-color :#DF9D00; height: 2px; border: none;">
+            <span class="kevOrange" style="position:absolute;left:75px;top:180px;font-size:35px;">Temps moyen d'adaptation : 234ms</span>
+        </div>
+		<div class="next" style="text-align: left;background-color:#FFF;position:absolute;top:300px;height:150px;padding-left:120px;">
+			<ul>
+				<li>Valeur proche des 200ms non perceptible par un utilisateur</li>
+				<li>Surcout du M@R : 15% de la mémoire, capacité de plus de 100 composants</li>
+				<li>Conclusion : M@R est exploitable pour ces capteurs embarqués</li>
+			</ul>
+		</div>
+    </div>
+</section>
+
+<!-- Kevoree 4 Large -->
+<section class="slide" id="valid_4large_problem">
+    <header>
+        <h2>Couche de réflexion pour DDAS sporadiques</h2>
+    </header>
+	<div>
+		<span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivation
+		<ul>
+			<li class="next">Cas d'usage : flotte de noeud mobile, connexions intermittentes</li>
+			<li class="next">Décision d'apaption distribué, réseau pair-à-pair</li>
+			<li class="next">Besoin de cohérence à terme et propagation d'adaptation partielle</li>
+		</ul>
+		<div class="next">
+			<span class="icon-screenshot kevOrange" style="font-size:30px;"></span>Problème et risque
+			<ul>
+				<li>Capacité de Kevoree à encapsuler un algortithme de propagation ?</li>
+				<li>Capacité de convergence et résolution de conflit de la couche réflexive ?</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+
+
+
 
 
 
