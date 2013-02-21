@@ -1,44 +1,18 @@
 <section class="slide shout" id="context_cover">
-    <h2><span class="kevOrange">></span>Contexte</h2>
-</section>
-
-<section class="slide" id="context_axes">
-    <header>
-        <h2>Prérequis et challenges d'un systèmes d'information actuel...</h2>
-		<ul>
-			<li><span class="kevOrange">Modulaire</span>
-				<ul>
-					<li>intégrer de nombreuses fonctionnalités</li>
-					<li>rester ouvert aux évolutions et à la maintenance</li>
-				</ul>
-			</li>
-			<li><span class="kevOrange">Ethernel</span> : minimiser ses temps d'arrêts</li>
-			<li><span class="kevOrange">Distribuable</span>
-				<ul>
-					<li>exploiter plusieurs resources de calculs</li>
-					<li>faire face à de forte charge variable</li>
-					<li>intégrer les terminaux issues de la mobilité, capteur, IoT</li>
-				</ul>
-			</li>
-		</ul>
-    </header>
-	<details>
-		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
-		En d'autres termes cette disciplines cherche à répondre aux attentes du domaine métier en alignant une spécificatoin pour un logiciel répondant à ce besoin.
-		Or, en partie dut à des changements d'usages de ces systèmes mais surtout à cause de leurs masses critiques atteintes ces dernières années, ces méthodes et les systèmes résultants o
-		connus de profond changements.
-	</details>
+    <h2><span class="kevOrange">></span>Domaine</h2>
 </section>
 
 <section class="slide" id="context_complexity">
     <header>
-        <h2>La modularité pour :<br /> concevoir, réutiliser, composer</h2>
+        <h2>Système modulaire pour :<br /> concevoir, réutiliser, composer</h2>
     </header>
     <div>
 		<div style="padding-top:30px;padding-bottom:30px;">
 			<div class=" icon-signal kevOrange" style="position:relative;left:100px;font-size:70px;"></div>
 			<div class=" icon-circle-arrow-right kevGray" style="position:relative;left:250px;font-size:40px;"></div>
-			<div class=" icon-tasks kevOrange" style="position:relative;left:400px;font-size:70px;"></div>
+			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:400px;font-size:40px;"></div>
+			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:405px;font-size:40px;"></div>
+			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:410px;font-size:40px;"></div>
 		</div>
         <ul>
 			<li>Une complexité grandissante des systèmes ( taille code, fonctionnalités )</li>
@@ -48,9 +22,13 @@
 				</ul>
 			</li>
         </ul>
-		<blockquote>Une spécification <div class=" icon-exchange kevOrange"></div> un <span class="kevOrange">assemblage</span> de module</blockquote>
+		<blockquote>Un système <div class=" icon-exchange kevOrange"></div> un <span class="kevOrange">assemblage</span> de module</blockquote>
     </div>
 	<details>
+		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
+		En d'autres termes cette disciplines cherche à répondre aux attentes du domaine métier en alignant une spécificatoin pour un logiciel répondant à ce besoin.
+		Or, en partie dut à des changements d'usages de ces systèmes mais surtout à cause de leurs masses critiques atteintes ces dernières années, ces méthodes et les systèmes résultants o
+		connus de profond changements.
 		La maitrise de la complexité en largeur de ces systèmes toujours granidssante passe par leur modularisation.
 		Ainsi séparé en brique élémentaire dédié à un fragment de fonctioannlité et réutilisable, le système devient un cas particulier d'assemblage. 
 	</details>
@@ -197,50 +175,70 @@
 
 <section class="slide" id="context_distribution">
     <header>
-        <h2>Systèmes distribués et hétérogènes</h2>
+        <h2>Besoins en distribution</h2>
     </header>
-	<div>
-		<div style="line-height:0px;float:left;">
-			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-	</div>
-	<div style="clear:both">
+	<p  class="next"><div class=" icon-map-marker kevOrange" style="font-size:30px;"></div> Distribution : répartition des modules sur différents noeuds</p>
+	<div class="next">
 		<ul>
-			<li>distribution pour
-				<ul>
-					<li>besoins en performance, pour répondre à la charge</li>
-					<li>introduction récente de nombreux terminaux (mobiles, venant d'IoT, ... )</li>
-				</ul>
+			<li>Performance et monté en charge
+				<div style="position:absolute;right:100px;top:250px;">
+					<div style="line-height:0px;float:left;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevOrange" style="font-size:30px;"></div>
+						<div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>					
+				</div>
+				<ul><li>Grappes calculs, Cloud computing <div class=" icon-cloud kevOrange" style="font-size:30px;"></div>, ...</li></ul>
 			</li>
-			<li>hétérogénité des noeuds</li>
+		</ul>
+	</div>
+	<div class="next">
+		<ul>
+			<li>Duplication et tolérance aux fautes
+				<div style="position:absolute;right:100px;top:405px;">
+					<div style="line-height:0px;float:left;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd" style="font-size:30px;color:#E80000;"></div>
+						<div style="border-color:#E80000;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt" style="font-size:20px;color:#E80000;"></div>
+							<div class=" icon-folder-close-alt" style="font-size:20px;color:#E80000;"></div>
+						</div>
+					</div>					
+				</div>
+				<ul><li>Défaillance d'un noeud</li></ul>
+			</li>
 		</ul>
 	</div>
 	<details>
@@ -250,187 +248,118 @@
 	</details>
 </section>
 
-<section class="slide" id="context_distribution_multi_mape">
+<section class="slide" id="context_distribution_heterogeniety">
     <header>
-        <h2>Système adaptatif distribué (DDAS)</h2>
+        <h2>Besoins en distribution et hétérogénité</h2>
     </header>
-	<div>
-		<div style="line-height:0px;float:left;">
-			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-	</div>
-	<div style="clear:both">
+	<p class="next"><div class=" icon-map-marker kevOrange" style="font-size:30px;"></div> Outre la puissance les noeuds peuvent avoir des propriétés propres</p>
+	<div class="next">
 		<ul>
-			<li class="next">Système adaptatif distribué == synchronisation de boucle MAPE</li>
-			<li class="next">Solution centralisé
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:265px;"></span>
-				<ul>
-					<li>point central de faute</li>
-					<li>performance dégradé</li>
-				</ul>
+			<li>Proche des utilisateurs
+				<div style="position:absolute;right:100px;top:250px;">
+					<div class=" icon-user kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div class=" icon-resize-horizontal kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;">
+						<div class=" icon-tablet kevOrange" style="font-size:30px;"></div>
+						<div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>					
+				</div>
+				<ul><li>Informatique mobile</li></ul>
 			</li>
-			<li class="next">Solution décentralisé
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:335px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:300px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:230px;"></span>
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:190px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:155px;"></span>
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:120px;"></span>
+		</ul>
+	</div>
+	<div class="next">
+		<ul>
+			<li>Adapté au contexte physique
+				<div style="position:absolute;right:100px;top:405px;">
+					<div class=" icon-fire kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div class=" icon-resize-horizontal kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;">
+						<div class=" icon-mobile-phone kevOrange" style="font-size:30px;"></div>
+						<div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>
+					<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+					<div style="line-height:0px;float:left;margin-left: 5px;">
+						<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+						<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+							<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+						</div>
+					</div>					
+				</div>
 				<ul>
-					<li>résiliance aux fautes</li>
-					<li>conflit et problème de cohérence de la connaissance de l'état</li>
+					<li>Informatique embarqué (consommation)</li>
+					<li>Capteurs</li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 	<details>
-		Chaque noeud peut potentilement être amené à modifier sa configuration. De manière automatique ou injecter par un utilisateur humain.
-		Ce calcul correspond donc à une boucle MAPE qui doit lire le contexte (les infos de tous les noeuds) pour faire le calcul.
-		
-		Le cas le plus simple consiste à introduire un seul boucle de retro action sur un noeud devenant alors le maitre.
-		Ceci a effet négatif sur les performances et introduit un point de faute central.
-		
-		Le cas complexe consiste à la distribution de l'adaptation elle même et dans ce les noeuds peuvent chacun s'adapter, ce qui revient a synchroniser les boucles MAPE.		 
+		Ces systèmes d'information sont intrasecement distribués sur plusieurs noeuds de calculs introduisant du même coup une hétérogénité des platformes.
+		Cette distribution peut se faire pour répondre à la montée en charge et sert alors à aggréger des resources (cas cluster).
+		Elle peut également se faire à cause de l'introduction massive (Garner et al chiffre vente smartphone) de terminaux mobiles.  
 	</details>
 </section>
 
-<section class="slide" id="context_divergence">
-    <header>
-        <h2>La divergence inhérente à la distribution</h2>
-    </header>
-	<div>
-		<div style="line-height:0px;float:left;">
-			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
-		<div class=" icon-warning-sign" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
-		<div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-chevron-left" style="font-size:30px;float:left;margin-left: 15px;color: #CCC;"></div>
-		<div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
-			<div style="line-height:0px;float:left;">
-				<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
-				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				</div>
-			</div>
-			<div style="line-height:0px;float:left;margin-left: 5px;">
-				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				</div>
-			</div>
-			<div style="line-height:0px;float:left;margin-left: 5px;">
-				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div style="clear:both">
-		<ul>
-			<li class="next">Divergence induite par les erreurs de communications
-			<ul>
-				<li>Le lien entre deux noeuds est en ereur</li>
-				<li>Une adaptation (ajout d'un composant) est faite d'un coté</li>
-				<li>La <b class="kevGray">vision</b> de l'état du noeud isolé est <span class="kevOrange">divergente</span></li>
-			</ul>
-			</li>
-			<li>La divergence </li>
-		</ul>
-	</div>
-	<details>
-			 
-	</details>
-</section>
 
-<section class="slide" id="context_divergence_challenges">
-    <header>
-        <h2>La divergence peut-elle servir les DDAS ?</h2>
-    </header>
-	<ul>
-		<li>Notion similaire à la perte des propriétés ACID dans les SGBD distribués</li>
-		<li>Inévitable dans les systèmes ultra larges</li>
-		<li>Doit s'accompagner d'un mécanisme de cohérence à terme (convergence)</li>
-	</ul>
-	La cohérence à terme permet un report de synchronisation :
-	<ul>
-		<li>pour les noeuds sur battery devant limiter leurs communications</li>
-		<li>pour les noeuds à connections intermittentes</li>
-	</ul>
-</section>
 
-<!-- TODO REAL CASE STUDY POMPIER -->
-
-<!-- Conclusion sur les challenges des DDAS identifiés -->
 
 <!--
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="context_axes">
     <header>
-        <h2>Résumé des challenges identifiés pour les DDAS</h2>
+        <h2>Prérequis et challenges d'un systèmes d'information actuel...</h2>
+		<ul>
+			<li><span class="kevOrange">Modulaire</span>
+				<ul>
+					<li>intégrer de nombreuses fonctionnalités</li>
+					<li>rester ouvert aux évolutions et à la maintenance</li>
+				</ul>
+			</li>
+			<li><span class="kevOrange">Ethernel</span> : minimiser ses temps d'arrêts</li>
+			<li><span class="kevOrange">Distribuable</span>
+				<ul>
+					<li>exploiter plusieurs resources de calculs</li>
+					<li>faire face à de forte charge variable</li>
+					<li>intégrer les terminaux issues de la mobilité, capteur, IoT</li>
+				</ul>
+			</li>
+		</ul>
     </header>
-	<p>Les systèmes informatiques modernes </p>
+	<details>
+	</details>
 </section>
 -->
+
+
+
 
 
 
