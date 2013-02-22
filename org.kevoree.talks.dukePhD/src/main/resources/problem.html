@@ -224,95 +224,16 @@
 	</div>
 </section>
 
-
-
-<!-- TODO INSERT AND CLEAN -->
-
-
-<section class="slide" id="context_distribution_multi_mape">
+<section class="slide" id="problem_summary">
     <header>
-        <h2>Système adaptatif distribué (DDAS)</h2>
+        <h2>Problème de recherche <span class="icon-beaker kevOrange"></span> identifié</h2>
     </header>
-	<div>
-		<div style="line-height:0px;float:left;">
-			<div class=" icon-laptop kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-		<div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
-		<div style="line-height:0px;float:left;margin-left: 5px;">
-			<div class=" icon-mobile-phone kevGray" style="font-size:30px;"></div>
-			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-			</div>
-		</div>
-	</div>
-	<div style="clear:both">
-		<ul>
-			<li class="next">Système adaptatif distribué == synchronisation de boucle MAPE</li>
-			<li class="next">Solution centralisé
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:265px;"></span>
-				<ul>
-					<li>point central de faute</li>
-					<li>performance dégradé</li>
-				</ul>
-			</li>
-			<li class="next">Solution décentralisé
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:335px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:300px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:230px;"></span>
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:190px;"></span>
-				<span class="icon-random kevGray" style="position:absolute;top:130px;left:155px;"></span>
-				<span class="icon-cogs kevOrange" style="position:absolute;top:130px;left:120px;"></span>
-				<ul>
-					<li>résiliance aux fautes</li>
-					<li>conflit et problème de cohérence de la connaissance de l'état</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<details>
-		Chaque noeud peut potentilement être amené à modifier sa configuration. De manière automatique ou injecter par un utilisateur humain.
-		Ce calcul correspond donc à une boucle MAPE qui doit lire le contexte (les infos de tous les noeuds) pour faire le calcul.
-		
-		Le cas le plus simple consiste à introduire un seul boucle de retro action sur un noeud devenant alors le maitre.
-		Ceci a effet négatif sur les performances et introduit un point de faute central.
-		
-		Le cas complexe consiste à la distribution de l'adaptation elle même et dans ce les noeuds peuvent chacun s'adapter, ce qui revient a synchroniser les boucles MAPE.		 
-	</details>
-</section>
-
-<section class="slide" id="context_divergence_challenges">
-    <header>
-        <h2>La divergence peut-elle servir les DDAS ?</h2>
-    </header>
+	Quel paradigme de conception et développement pour :
 	<ul>
-		<li>Notion similaire à la perte des propriétés ACID dans les SGBD distribués</li>
-		<li>Inévitable dans les systèmes ultra larges</li>
-		<li>Doit s'accompagner d'un mécanisme de cohérence à terme (convergence)</li>
-	</ul>
-	La cohérence à terme permet un report de synchronisation :
-	<ul>
-		<li>pour les noeuds sur battery devant limiter leurs communications</li>
-		<li>pour les noeuds à connections intermittentes</li>
+		<li>système modulaire déployable en continue</li>
+		<li>distribuable sur différentes resources</li>
+		<li>reflexif</li>
+		<li>capable de représenter et traiter l'hétérogénité des noeuds</li>
+		<li>capable de représenter et déployer différentes propriétés de cohérence</li>
 	</ul>
 </section>
