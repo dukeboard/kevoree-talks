@@ -77,11 +77,65 @@
     <header>
         <h2>Composition modulaire de DDAS</h2>
     </header>
-	<p>Séparation des pré-occupations pour la modularité, réutilisation</p>
+	<p>Séparation des préoccupations pour la modularité, réutilisation</p>
 	<ul>
-		<li class="next">Composant</li>
-		<li class="next">Noeud</li>
-		<li class="next">Channel</li>
+		<li class="next">Noeud
+			<ul>
+				<li>Plate-forme d'exécution et d'adaptation</li>
+			</ul>
+			<div class="knode" style="position:absolute;right:100px;top:255px;">
+				<div class="node_name">Noeud 0</div>
+			</div>
+			
+		</li>
+		<li class="next">Composants
+			<ul>
+				<li>Encapsule une fonctionnalité métier</li>
+				<li>Communications via ports requis/fournis</li>
+				
+				<div class="knode" style="position:absolute;right:100px;top:310px;">
+					<div class="node_name">Noeud 1</div>
+					<div class="components">
+						<div class="ports">
+							<div class="port"></div>
+							<div class="port"></div>
+						</div>
+						<div class="ctitle">HttpFront</div>
+						<div class="ports">
+							<div class="port"></div>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="components">
+						<div class="ports">
+							<div class="port"></div>
+						</div>
+						<div class="ctitle">DataBase</div>
+						<div style="clear:both;padding-right:5px;"></div>
+					</div>
+				</div>
+			</ul>
+		</li>
+		<li class="next">Channel
+			<ul>
+				<li>Encapsule sémantique de communication</li>
+			</ul>	
+			<div class="kchannel" style="position:absolute;right:240px;top:460px;">
+				<div class="kchannel_title">Ch1</div>
+			</div>
+			<div class="next">
+				<div class="knode" style="position:absolute;right:100px;top:470px;">
+					<div class="node_name">Noeud 2</div>
+					<div class="components">
+						<div class="ports">
+							<div class="port"></div>
+						</div>
+						<div class="ctitle">DataBase</div>
+						<div style="clear:both;padding-right:5px;"></div>
+					</div>
+				</div>
+			</div>	
+		</li>
 	</ul>
 </section>
 
@@ -89,7 +143,7 @@
     <header>
         <h2>Modèle de concurrence</h2>
     </header>
-	<p>Expliciter la concurrence des échanges poour la réalisation du cycle de vie</p>
+	<p>Cycle de vie </p>
 	<ul>
 		<li class="next">Composant
 			<ul>
@@ -112,31 +166,191 @@
     </header>
 	<p>Lien avec le modèle de conception et déploiement</p>
 	<ul>
-		<li class="next">TypeDefinition
+		<li class="next">TypeDefinitions
 			<ul>
-				<li>Quoi, définit les fonctionnalités disponibles</li>
-				<li>Lien avec le modèle de binaires</li>
+				<li><span class="kevOrange">Quoi</span>, définit les fonctionnalités disponibles</li>
 			</ul>
 		</li>
-		<li class="next">DeployUnit
+		<li class="next">DeployUnits
 			<ul>
 				<li>Graphe de dépendance de binaire</li>
 			</ul>
 		</li>
-		<li class="next">Instance
+		<li class="next">Instances
 			<ul>
-				<li>Ou, définit l'utilisation d'une fonction</li>
+				<li><span class="kevOrange">Où</span>, définit l'utilisation d'une fonction</li>
 				<li>Localisé, lien causal avec la plate-forme</li>
 			</ul>		
 		</li>
 	</ul>
 </section>
 
+<section class="slide" id="kevoree_causalLink">
+    <header>
+        <h2>Model@Runtime : lien causal</h2>
+    </header>
+	<div style="height:200px;">
+		<!-- Noeud gauche -->
+		<div style="line-height:0px;margin-left: 100px;">
+			<span class="icon-hdd kevGray" style="font-size:40px;float:left;margin-right:5px;"></span>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;padding:5px;line-height:5px;float:left;">
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+					<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+			</div>
+			<div style="height:50px;"></div>
+			
+			<div style="border-color:#666;border-radius:5px;border-width:2px;border-style:solid;padding:5px;line-height:5px;float:left;">
+			</div>
+			
+			<div style="height:50px;"></div>
+			<span class=" icon-sitemap kevGray" style="font-size:40px;float:left;margin-right:5px;"></span>
+			<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;padding:5px;line-height:5px;float:left;">
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:30px;color:#000;"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="slide" id="kevoree_distributedModel@Runtime">
     <header>
         <h2>Model@Runtime distribué</h2>
     </header>
-	<p>TODO</p>
+	<div style="height:200px;padding-left:100px;">
+		<!-- Stack 1-->
+		<div style="float:left;">
+			<div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+				<div style="clear:both;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+			</div>
+			<div style="text-align:center;width:100px;">
+				<span class="icon-lock kevGray" style="font-size:30px;"></span>
+				<span class="icon-cogs kevGray" style="font-size:30px;"></span>
+				<span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
+			</div>
+			<div style="background-color:#DF9D00;width:100px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<span class="icon-sitemap kevGray" style="font-size:30px;"></span>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px;">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="font-size:30px;float:left;margin:5px;padding-top:165px;">
+			<div class=" icon-resize-horizontal kevOrange"></div>
+			<div class=" icon-refresh kevOrange"></div>
+			<div class=" icon-resize-horizontal kevOrange"></div>
+		</div>
+		
+		<!-- Stack 2-->
+		<div style="float:left;">
+			<div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+				<div style="clear:both;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+			</div>
+			<div style="text-align:center;width:100px;">
+				<span class="icon-lock kevGray" style="font-size:30px;"></span>
+				<span class="icon-cogs kevGray" style="font-size:30px;"></span>
+				<span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
+			</div>
+			<div style="background-color:#DF9D00;width:100px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<span class="icon-sitemap kevGray" style="font-size:30px;"></span>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px;">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="font-size:30px;float:left;margin:5px;padding-top:165px;">
+			<div class=" icon-resize-horizontal kevOrange"></div>
+			<div class=" icon-refresh kevOrange"></div>
+			<div class=" icon-resize-horizontal kevOrange"></div>
+		</div>
+
+		<!-- Stack 3-->
+		<div style="float:left;">
+			<div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+				<div style="clear:both;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+				<div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
+			</div>
+			<div style="text-align:center;width:100px;">
+				<span class="icon-lock kevGray" style="font-size:30px;"></span>
+				<span class="icon-cogs kevGray" style="font-size:30px;"></span>
+				<span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
+			</div>
+			<div style="background-color:#DF9D00;width:100px;opacity: 0.6;border-radius:5px;padding:5px;">
+				<span class="icon-sitemap kevGray" style="font-size:30px;"></span>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="knode" style="height:25px;margin-top:5px;">
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div class="components" style="height:10px;width:15px;float:left;"></div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	<div style="clear:both;margin-bottom:20px;"></div>
+	<p><span class="kevOrange icon-warning-sign"></span> Un repliquat du Model@Runtime par noeud</p>
+	<p><span class="kevOrange icon-rss"></span> Synchronisation du DDAS <span class="kevOrange icon-reorder"></span> synchronisation des répliquats de M@R</p>
 </section>
 
 <section class="slide" id="kevoree_heterogenousSynch_groups">
