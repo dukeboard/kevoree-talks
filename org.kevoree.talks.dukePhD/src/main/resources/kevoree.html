@@ -1,130 +1,162 @@
 <!-- Kevoree == Abstraction proposé -->
 <section class="slide shout" id="kevoree_cover">
-    <h2><span class="kevOrange">></span>Contribution : Model Kevoree</h2>
+    <h2><span class="kevOrange">></span>Modèle Kevoree</h2>
 </section>
 
-<section class="slide" id="mr_dissemination_problem_overview">
+<section class="slide" id="kevoree_clams">
     <header>
-        <h2>Kevoree : Model d'abstraction des DDAS</h2>
+        <h2>Kevoree : Concepts généraux</h2>
     </header>
-	
-<blockquote></blockquote>
-	
+	<ul>
+		<li class="next">Modèle unique (conception, déploiement, réflexion)</li>
+		<li class="next">Kevoree Model abstrait des DDAS <span class="kevOrange icon-sitemap"></span></li>
+		<li class="next">Processus Model@Runtime distribué</li>
+		<li class="next">Entité de première classe pour la gestion de cohérence</li>
+	</ul>
 </section>
 
-<section class="slide" id="kevoree_propagation_via_model">
+<section class="slide" id="kevoree_distributedModelRuntime">
     <header>
-        <h2>Intercession de DDAS via envoi de models</h2>
+        <h2>Réflexion distribué orienté Modèle</h2>
     </header>
-	<p>Model : <span class="icon-quote-left kevGray" style="font-size:30px;"></span>Abstraction d'un état courant ou futur du DDAS<span class="icon-quote-right kevGray" style="font-size:30px;"></span></p>
-	<div>
-		<div style="width:100px;line-height:15px;float:left;">
-			<div class=" icon-hdd kevGray" style="font-size:50px;"></div>
-			<span class="kevGray" style="font-size:20px;">Noeud A</span>
+	<div style="height:250px;">
+		<div style="clear:both;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:100px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
 		</div>
-		<div class=" icon-chevron-left" style="font-size:30px;float:left;margin-left: 5px;margin-right: 15px;color: #CCC;"></div>
-		<div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
-			<div style="line-height:0px;float:left;margin-left: 5px;">
-				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-				</div>
-			</div>
-			<div style="line-height:0px;float:left;margin-left: 5px;">
-				<div class=" icon-hdd kevGray" style="font-size:30px;"></div>
-				<div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
-					<div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
-					<div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
-				</div>
-			</div>
+		<div style="clear:both;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:200px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
 		</div>
-		<div class=" icon-arrow-right kevOrange" style="font-size:50px;float:left;margin-left: 160px;"></div>
-		<div style="width:100px;line-height:15px;float:right;margin-right: 50px;">
-			<div class=" icon-hdd kevGray" style="font-size:50px;"></div>
-			<span class="kevGray" style="font-size:20px;">Noeud B</span>
+		<div style="clear:both;">
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:100px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+			<div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
 		</div>
-		<div style="clear:both;"></div>
 	</div>
-	
-	<div style="padding-top:30px;">
-		<ul>
-			<li>Pour effectuer une adaptation dans le noeud B, le noeud A:
-				<ul>
-					<li>lit l'état courant du model</li>
-					<li>ajoute un module dans sa vision de B</li>
-					<li>renvoi sa copie au noeud B pour interprétation</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	
+	<ul>
+		<li class="next">Intéraction réflexive (structurelle) uniquement au travers de modèles <span class="icon-sitemap kevOrange">
+			<!-- Anim -->
+			<span class="icon-arrow-left kevOrange" style="position:absolute;left:185px;top:270px;"></span>
+			<span class="icon-sitemap kevOrange" style="position:absolute;left:150px;top:285px;"></span>
+			
+			<span class="icon-arrow-right kevOrange" style="position:absolute;left:185px;top:300px;"></span>
+			<span class="icon-cogs kevOrange" style="position:absolute;left:215px;top:300px;"></span>
+			
+			
+		</li>
+		<li class="next">Propagation d'adaptation via envoi de modèles <span class="icon-random kevOrange">
+			<!-- Anim -->
+			<span class="icon-arrow-right kevOrange" style="position:absolute;left:270px;top:270px;"></span>
+			<span class="icon-sitemap kevOrange" style="position:absolute;left:310px;top:270px;"></span>
+			<span class="icon-arrow-right kevOrange" style="position:absolute;left:350px;top:270px;"></span>
+			
+			<span class="icon-arrow-right kevOrange" style="position:absolute;left:450px;top:270px;"></span>
+			<span class="icon-sitemap kevOrange" style="position:absolute;left:500px;top:270px;"></span>
+			<span class="icon-arrow-right kevOrange" style="position:absolute;left:540px;top:270px;"></span>
+			
+			<span class="icon-arrow-up kevOrange" style="position:absolute;left:400px;top:195px;"></span>
+			<span class="icon-sitemap kevOrange" style="position:absolute;left:400px;top:220px;"></span>
+			<span class="icon-arrow-up kevOrange" style="position:absolute;left:400px;top:245px;"></span>
+		</li>
+		<li class="next">Noeud responsable du lien causal <span class="icon-lock kevOrange"></span> local, adaptation locale seulement
+			<span class="icon-cogs kevGray" style="position:absolute;left:620px;top:270px;"></span>
+			<span class="icon-folder-close-alt kevGray" style="position:absolute;left:650px;top:270px;"></span>
+			<span class="icon-folder-close-alt kevGray" style="position:absolute;left:680px;top:270px;"></span>
+
+			<div style="background-color:#DF9D00;width:500px;position:absolute;left:575px;top:260px;height:43px;width:140px;opacity: 0.3;border-radius:5px;"></div>
+		</li>
+	</ul>
 </section>
 
-
-
-
-
-
-
-
-
-
-<!-- Concept initial, un model pour expliciter et non cacher la divergence, la variabilité (des noeuds, des version (continuous design)) -->
-<!-- Model qui represente les concepts du systèmes distribués (noeuds, canaux de distribution , etc ...) et qui est lui même partagé -->
-<!-- C'est à la fois une façon de représenter l'état courant mais aussi un état futur partagé à d'autres noeuds -->
-<!-- Concepts -->
-<!-- Une séparation Type / Instance pour tous les concepts, type définition agggrège la fonctionnalité, les besoins en binaires , etc tandis que l'instance définit un usage, possibilité de similarité, compatibilité au niveau type et non instance -->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_modularDDASmodel">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Composition modulaire de DDAS</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	<p>Séparation des pré-occupations pour la modularité, réutilisation</p>
+	<ul>
+		<li class="next">Composant</li>
+		<li class="next">Noeud</li>
+		<li class="next">Channel</li>
+	</ul>
 </section>
 
-
-<!-- Composant / Piece centrale encapsulant les foncitonnalités -->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_concurrencyModel">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Modèle de concurrence</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
-	
-	<p>Permet de faire le lien </p>
-	
+	<p>Expliciter la concurrence des échanges poour la réalisation du cycle de vie</p>
+	<ul>
+		<li class="next">Composant
+			<ul>
+				<li>Sémantique d'acteur devant chaque port</li>
+				<li>Garantie d'isolation de processus de chaque composant</li>
+			</ul>
+		</li>
+		<li class="next">Channel
+			<ul>
+				<li>Sémantique d'acteur pour chaque fragment</li>
+				<li>Indépendance de chaque fragment</li>
+			</ul>		
+		</li>
+	</ul>
 </section>
 
-<!-- Model de concurrence  ??? A mettre-->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_typeModel">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Séparation type/instance</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	<p>Lien avec le modèle de conception et déploiement</p>
+	<ul>
+		<li class="next">TypeDefinition
+			<ul>
+				<li>Quoi, définit les fonctionnalités disponibles</li>
+				<li>Lien avec le modèle de binaires</li>
+			</ul>
+		</li>
+		<li class="next">DeployUnit
+			<ul>
+				<li>Graphe de dépendance de binaire</li>
+			</ul>
+		</li>
+		<li class="next">Instance
+			<ul>
+				<li>Ou, définit l'utilisation d'une fonction</li>
+				<li>Localisé, lien causal avec la plate-forme</li>
+			</ul>		
+		</li>
+	</ul>
 </section>
 
-<!-- Noeud, héberge des composants -->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_distributedModel@Runtime">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Model@Runtime distribué</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	<p>TODO</p>
 </section>
 
-<!-- Channels, encapsulation de la sémantique de com, fragmentation -->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_heterogenousSynch_groups">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Model@Runtime : cohérence hétérogène</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	<p>TODO</p>
 </section>
 
-<!-- Group , semantique de synchro des MAPE loop -->
-<section class="slide" id="context_ddas_challenges">
+<section class="slide" id="kevoree_groupDetails">
     <header>
-        <h2>Séparation Type définition / Instance</h2>
+        <h2>Groupe : entité de synchronisation de M@R</h2>
     </header>
-	<p>A l'image du modèle de programmation orienté object (Classes-Object)</p>
+	<p>TODO</p>
 </section>
 
-
+<section class="slide" id="kevoree_marCore">
+    <header>
+        <h2>Model@Runtime Core</h2>
+    </header>
+	<p>TODO</p>
+</section>
 

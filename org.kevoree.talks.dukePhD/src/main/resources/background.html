@@ -8,8 +8,17 @@
     </header>
 	<div>
 		<ul>
-			<li>Modèle à Agents</li>
-			<li>Modèle à composants</li>
+			<li>Modèle à Agents
+				<ul>
+					<li>Sémantique d'échange</li>
+				</ul>
+			</li>
+			<li>Modèle à composants
+				<ul>
+					<li>Cycle de vie</li>
+					<li>Dépendances (ports)</li>
+				</ul>			
+			</li>
 		</ul>
 	</div>
 </section>
@@ -23,6 +32,10 @@
 			<li>Model@Runtime</li>
 		</ul>
 	</div>
+	
+	<div>
+	</div>
+	
 </section>
 
 <section class="slide" id="background_distributed">
@@ -31,9 +44,24 @@
     </header>
 	<div>
 		<ul>
-			<li>Algorithme de consensus</li>
-			<li>Algorithme épidémiques</li>
-			<li>Consistance à terme</li>
+			<li class="next">Algorithmes de <span class="kevOrange">consensus</span>
+				<ul>
+					<li>Cohérence globale d'une donnée répliquée</li>
+					<li>Cohérence majoritaire : algorithme de <span class="kevOrange">Paxos</span></li>
+				</ul>
+			</li>
+			<li class="next">Algorithmes <span class="kevOrange">épidémiques</span>
+				<ul>
+					<li>Prapagation virtal, adapté aux réseaux P2P</li>
+					<li>Ordre partiel : algorithme de type <span class="kevOrange">Gossip</span></li>
+				</ul>
+			</li>
+			<li class="next">Cohérence <span class="kevOrange">à terme</span>
+				<ul>
+					<li>Convergence des répliquats à T+n</li>
+					<li>Résolution de conflits (ordre de résolution connu ou non)</li>
+				</ul>			
+			</li>
 		</ul>
 	</div>
 </section>
