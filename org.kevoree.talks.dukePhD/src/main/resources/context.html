@@ -13,16 +13,20 @@
 			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:400px;font-size:40px;"></div>
 			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:405px;font-size:40px;"></div>
 			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:410px;font-size:40px;"></div>
+			<div class=" icon-folder-close-alt kevOrange" style="position:relative;left:415px;font-size:40px;"></div>
 		</div>
+		<div style="background-color:#DF9D00;width:210px;position:absolute;left:625px;top:255px;height:55px;opacity: 0.3;border-radius:5px;"></div>
         <ul>
-			<li>Une complexité grandissante des systèmes ( taille code, fonctionnalités )</li>
-			<li>Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionnalité)</span>
+			<li class="next">Taille critique des systèmes <div class="icon-circle-arrow-right kevOrange"></div> conception modulaire</li>
+			<li class="next">Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionnalité)</span>
 				<ul>
-					<li>module <div class=" icon-reorder kevGray"></div> unité de conception, développement </li>
+					<li><span class="kevOrange">Module</span> <div class=" icon-folder-close-alt kevOrange"></div> <div class=" icon-reorder kevGray"></div> unité de conception, développement réutilisable</li>
 				</ul>
 			</li>
         </ul>
-		<blockquote>Un système <div class=" icon-exchange kevOrange"></div> un <span class="kevOrange">assemblage</span> de module</blockquote>
+		<div class="next">
+			<blockquote>Système <div class=" icon-reorder kevOrange"></div> <span class="kevOrange">assemblage</span> de modules</blockquote>
+		</div>
     </div>
 	<details>
 		Tout d'abord, ce travail s'inscrit dans une domaine d'ingénieurie des logiciels.
@@ -38,19 +42,20 @@
     <header>
         <h2>Du cycle en V vers une conception continue</h2>
     </header>
-	<div>
+	<div class="next">
 		<div style="padding-top:20px;padding-bottom:20px;">
 			<div style="float: left;line-height:15px;">
 				<div style="text-align:center;">
-					<div class=" icon-ok-circle kevOrange" style="font-size:70px;"></div>
+					<div class=" icon-ok-circle kevOrange" style="font-size:50px;"></div>
 				</div>
-				<div>
+				<div style="padding-top:10px;">
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 				</div>
+				<div style="background-color:#CCC;width:190px;position:absolute;left:110px;top:230px;height:45px;opacity: 0.3;border-radius:5px;"></div>
 				<div style="text-align:center;">
 					<div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
 				</div>
@@ -61,19 +66,21 @@
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
 				</div>
+				<div style="background-color:#DF9D00;width:190px;position:absolute;left:110px;top:295px;height:40px;opacity: 0.3;border-radius:5px;"></div>
 			</div>
 			<div class=" icon-circle-arrow-right kevGray" style="font-size:40px;float: left; margin-left:200px; margin-top : 60px;"></div>
 			<div style="float: right;line-height:15px;">
 				<div style="text-align:center;">
-					<div class=" icon-refresh kevOrange" style="font-size:70px;"></div>
+					<div class=" icon-refresh kevOrange" style="font-size:50px;"></div>
 				</div>
-				<div>
+				<div style="padding-top:10px;">
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 				</div>
+				<div style="background-color:#CCC;width:190px;position:absolute;right:110px;top:230px;height:45px;opacity: 0.3;border-radius:5px;"></div>
 				<div style="text-align:center;">
 					<div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
 				</div>
@@ -84,19 +91,27 @@
 					<div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
 					<div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
 				</div>
+				
+				<div style="background-color:#CCC;width:42px;position:absolute;right:110px;top:295px;height:40px;opacity: 0.3;border-radius:5px;"></div>
+				<div style="background-color:#DF9D00;width:35px;position:absolute;right:152px;top:295px;height:40px;opacity: 0.3;border-radius:5px;"></div>
+				<div style="background-color:#CCC;width:70px;position:absolute;right:187px;top:295px;height:40px;opacity: 0.3;border-radius:5px;"></div>
+				<div style="background-color:#DF9D00;width:42px;position:absolute;right:257px;top:295px;height:40px;opacity: 0.3;border-radius:5px;"></div>
 			</div>
 		</div>
 	</div>
 	<div style="clear: both;padding-top:40px;">
 		<ul>
-			<li>évolution indépendante de chaque module
+			<li class="next">évolution indépendante de chaque module
 				<ul>
 					<li>module <div class=" icon-reorder kevGray"></div> unité de déploiement </li>
 				</ul>
 			</li>
 		</ul>
 	</div>
-	<blockquote>Evolution <div class=" icon-exchange kevOrange"></div> modification d'une <span class="kevOrange">sous-partie</span> des modules </blockquote>
+	<div class="next">
+		<blockquote>Evolution <div class=" icon-reorder kevOrange"></div> modification d'une <span class="kevOrange">sous-partie</span> des modules </blockquote>
+	</div>
+	
 	<details>
 		Au delà de la simple réponse au développement en largeur, le cycle de développement et de déploiement à lui aussi connu un changement profond.
 		En effet les besoins ne sont plus expimés de manière initiale mais à l'inverse de manière continue, ainsi les modules sont définits et développés sur des cycles différents.
@@ -112,7 +127,7 @@
     <header>
         <h2>Systèmes Dynamiquement Adaptable (DAS)</h2>
     </header>
-	<div>
+	<div class="next">
 		<div>
 			<div style="float: left;">
 				<div class="icon-dashboard kevOrange" style="font-size:30px"></div>
@@ -151,16 +166,20 @@
 	</div>
 	<div style="clear: both;">
 		<ul>
-			<li>Systèmes (même modestes<span class=" icon-mobile-phone kevGrey" style="font-size:30px;"></span>) considérés comme des DAS
+			<li class="next">Systèmes (même modestes<span class=" icon-mobile-phone kevGrey" style="font-size:30px;"></span>) considérés comme des DAS
 				<ul>
 					<li>Intégration continue des modules se fait alors à chaud (sans arrêt)</li>
 				</ul>
 			</li>
-			<li>Georgas <i>et al</i>'04 : adaptation <div class=" icon-exchange kevOrange"></div> réaction stimulus </li>
-			<li>Boucle de rétroaction (MAPE), réaction après lecture de l'état courant</li>
+			<li class="next">Georgas <i>et al</i>'04 : adaptation <div class=" icon-exchange kevOrange"></div> réaction stimuli extérieur </li>
+			<li class="next">Boucle de rétroaction (MAPE), réaction après lecture de l'état courant</li>
 		</ul>
 	</div>
-	<blockquote>Adaptation <div class=" icon-exchange kevOrange"></div> modification sans arrêt des modules en fonction du contexte</blockquote>
+	
+	<div class="next">
+		<blockquote>Adaptation <div class=" icon-reorder kevOrange"></div> modification sans arrêt des modules en fonction du contexte</blockquote>
+	</div>
+	
 	<details>
 		La place social et l'usage *critique* de ces systèmes amènes a les considéré comme des systèmes dynamiquement adaptables (accronym : DAS).
 		L'intégration continue de nouvelle fonctionnalités se fait alors à chaud s'en arreter le système.
