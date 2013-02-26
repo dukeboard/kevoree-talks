@@ -5,27 +5,42 @@
 <title>Model@Runtime for dynamic distributed systems</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1274, user-scalable=no"/>
-<link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
-<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
-<link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
-<!-- Kevoree Keynote Framework -->
+
 <script src="scripts/jquery.min.js"></script>
-<script src="scripts/screenfull.min.js"></script>
-<script type="text/javascript" src="scripts/kslideshow.js"></script>
-<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-<script type="text/javascript" id="kSlideshow">
+<script type="text/javascript" id="include">
     jQuery(document).ready(function ($) {
     //Load sub talk slides
     jQuery(".includeHtml").each(function(i){
     var xhrObj = new XMLHttpRequest();
     xhrObj.open('GET', this.id+".html", false);
     xhrObj.send('');
-    this.innerHTML = xhrObj.responseText;
+    var targetElem = this;
+
+    var subDomElemDoc = jQuery.parseXML("<div>"+xhrObj.responseText+"</div>");
+    var subElems = jQuery(subDomElemDoc).find("section");
+    subElems.each(function(elem){
+    targetElem.parentNode.insertBefore(this, targetElem.nextSibling);
     });
-    var ks = new KSlideShow();
-    var keyboardPlugin = new KKeyboard(ks);
-    ks.addPluginListener(keyboardPlugin);
-    ks.startKeynote();
+    targetElem.parentNode.removeChild(targetElem);
+    });
+    });
+</script>
+
+
+<link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+<link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+<!-- Kevoree Keynote Framework -->
+<script src="scripts/screenfull.min.js"></script>
+<script type="text/javascript" src="scripts/kslideshow.js"></script>
+<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+<script type="text/javascript" id="kSlideshow">
+    jQuery(document).ready(function ($) {
+        console.log(jQuery("section").size());
+        var ks = new KSlideShow();
+        var keyboardPlugin = new KKeyboard(ks);
+        ks.addPluginListener(keyboardPlugin);
+        ks.startKeynote();
     });
 </script>
 
@@ -302,19 +317,24 @@
 
     <div style="font-size: 17px;">
         <ul>
-            <li><span class="kevOrange">DAIS'12</span> / Dissemination of reconfiguration policies on mesh networks / F. Fouquet, E. Daubert, N.
+            <li><span class="kevOrange">DAIS'12</span> / Dissemination of reconfiguration policies on mesh networks / F.
+                Fouquet, E. Daubert, N.
                 Plouzeau, O. Barais, J. Bourcier, JM. Jezequel
             </li>
-            <li><span class="kevOrange">CBSE'12</span> / A Dynamic Component Model for Cyber Physical Systems / F. Fouquet, O. Barais, N. Plouzeau,
+            <li><span class="kevOrange">CBSE'12</span> / A Dynamic Component Model for Cyber Physical Systems / F.
+                Fouquet, O. Barais, N. Plouzeau,
                 J-M. Jézéquel, B. Morin and F. Fleurey
             </li>
-            <li><span class="kevOrange">MODELS'12</span> / An Eclipse Modelling Framework Alternative to Meet the Models@Runtime Requirements / F.
+            <li><span class="kevOrange">MODELS'12</span> / An Eclipse Modelling Framework Alternative to Meet the
+                Models@Runtime Requirements / F.
                 Fouquet, G. Nain, B. Morin, E. Daubert, O. Barais, N. Plouzeau and J-M. Jézéquel
             </li>
-            <li><span class="kevOrange">ICSE'12 Workshop</span> / A models@runtime framework for designing and managing Service-Based Applications / E.
+            <li><span class="kevOrange">ICSE'12 Workshop</span> / A models@runtime framework for designing and managing
+                Service-Based Applications / E.
                 Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin
             </li>
-            <li><span class="kevOrange">SEAA'10</span> / Integrating IoT and IoS with a Component-Based approach / G. Nain, F. Fouquet, B. Morin, O.
+            <li><span class="kevOrange">SEAA'10</span> / Integrating IoT and IoS with a Component-Based approach / G.
+                Nain, F. Fouquet, B. Morin, O.
                 Barais, JM. Jézéquel
             </li>
         </ul>
