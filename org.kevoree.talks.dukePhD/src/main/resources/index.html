@@ -1,230 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Model@Runtime for dynamic distributed systems</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=1274, user-scalable=no"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
-    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
-    <!-- Kevoree Keynote Framework -->
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/screenfull.min.js"></script>
-    <script type="text/javascript" src="scripts/kslideshow.js"></script>
-    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-    <script type="text/javascript" id="kSlideshow">
-        jQuery(document).ready(function ($) {
-			//Load sub talk slides
-			jQuery(".includeHtml").each(function(i){
-				var xhrObj = new XMLHttpRequest();
-				xhrObj.open('GET', this.id+".html", false);
-				xhrObj.send('');
-				this.innerHTML = xhrObj.responseText;
-			});
-            var ks = new KSlideShow();
-            var keyboardPlugin = new KKeyboard(ks);
-            ks.addPluginListener(keyboardPlugin);
-            ks.startKeynote();
-        });
-    </script>
-	
-	<!--
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            SyntaxHighlighter.all();
-        });
-    </script>
-    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
-    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
-    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
-    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
-    <script type="text/javascript" src="scripts/brush/shBrushScala.js"></script>
-    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Model@Runtime for dynamic distributed systems</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1274, user-scalable=no"/>
+<link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+<link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+<!-- Kevoree Keynote Framework -->
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/screenfull.min.js"></script>
+<script type="text/javascript" src="scripts/kslideshow.js"></script>
+<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+<script type="text/javascript" id="kSlideshow">
+    jQuery(document).ready(function ($) {
+    //Load sub talk slides
+    jQuery(".includeHtml").each(function(i){
+    var xhrObj = new XMLHttpRequest();
+    xhrObj.open('GET', this.id+".html", false);
+    xhrObj.send('');
+    this.innerHTML = xhrObj.responseText;
+    });
+    var ks = new KSlideShow();
+    var keyboardPlugin = new KKeyboard(ks);
+    ks.addPluginListener(keyboardPlugin);
+    ks.startKeynote();
+    });
+</script>
+
+<!--
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        SyntaxHighlighter.all();
+    });
+</script>
+<script type="text/javascript" src="scripts/brush/shCore.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushScala.js"></script>
+<script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
 -->
-    <link rel='stylesheet' href='fonts/iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
-    <link rel="stylesheet" href="fonts/foundation-icons-general/stylesheets/foundation-icons-general.css">
-    <link rel="stylesheet" href="fonts/heydings-common-icons-fontfacekit/stylesheet.css">
-    <link rel="stylesheet" href="fonts/raphaelicons/raphaelicons.css" type="text/css">
-    <link rel="stylesheet" href="fonts/fontawesome/font-awesome.min.css" type="text/css">
-    <style>
-        body:not(.list) > .slide:not(.cover):not(.shout):before {
-            position: absolute;
-            content: url(figures/kevg125.svg);
-            top: 5px;
-            right: 5px;
-        }
-        .iconFont3 {
-            font-family: 'HeydingsCommonIconsRegular';
-        }
-        .kevOrange {
-            color: #DF9D00;
-        }
-        .kevGray {
-            color: #666;
-        }
-        .slide code {
-            background-color: rgba(223, 157, 41, 0.4);
-        }
+<link rel='stylesheet' href='fonts/iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+<link rel="stylesheet" href="fonts/foundation-icons-general/stylesheets/foundation-icons-general.css">
+<link rel="stylesheet" href="fonts/heydings-common-icons-fontfacekit/stylesheet.css">
+<link rel="stylesheet" href="fonts/raphaelicons/raphaelicons.css" type="text/css">
+<link rel="stylesheet" href="fonts/fontawesome/font-awesome.min.css" type="text/css">
+<style>
+    body:not(.list) > .slide:not(.cover):not(.shout):before {
+    position: absolute;
+    content: url(figures/kevg125.svg);
+    top: 5px;
+    right: 5px;
+    }
+    .iconFont3 {
+    font-family: 'HeydingsCommonIconsRegular';
+    }
+    .kevOrange {
+    color: #DF9D00;
+    }
+    .kevGray {
+    color: #666;
+    }
+    .slide code {
+    background-color: rgba(223, 157, 41, 0.4);
+    }
 
-        details {
-            display: none;
-        }
-		
-		table tr:last-child td:first-child {
-		    -moz-border-radius-bottomleft:10px;
-		    -webkit-border-bottom-left-radius:10px;
-		    border-bottom-left-radius:10px
-		}
+    details {
+    display: none;
+    }
 
-		table tr:last-child td:last-child {
-		    -moz-border-radius-bottomright:10px;
-		    -webkit-border-bottom-right-radius:10px;
-		    border-bottom-right-radius:10px
-		}
-		
-		.zebra td, .zebra th {
-		    padding: 10px;
-		    border-bottom: 1px solid #f2f2f2;    
-		}
+    table tr:last-child td:first-child {
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    border-bottom-left-radius:10px
+    }
 
-		.zebra tbody tr:nth-child(even) {
-		    background: #f5f5f5;
-		    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
-		    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
-		    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
-		}
+    table tr:last-child td:last-child {
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-bottom-right-radius:10px;
+    border-bottom-right-radius:10px
+    }
 
-		.zebra th {
-		    text-align: left;
-		    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
-		    border-bottom: 1px solid #ccc;
-		    background-color: #eee;
-		    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
-		    background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
-		    background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
-		    background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
-		    background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
-		    background-image:         linear-gradient(top, #f5f5f5, #eee);
-		}
+    .zebra td, .zebra th {
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f2;
+    }
 
-		.zebra th:first-child {
-		    -moz-border-radius: 6px 0 0 0;
-		    -webkit-border-radius: 6px 0 0 0;
-		    border-radius: 6px 0 0 0;  
-		}
+    .zebra tbody tr:nth-child(even) {
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+    }
 
-		.zebra th:last-child {
-		    -moz-border-radius: 0 6px 0 0;
-		    -webkit-border-radius: 0 6px 0 0;
-		    border-radius: 0 6px 0 0;
-		}
+    .zebra th {
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+    background-image: -moz-linear-gradient(top, #f5f5f5, #eee);
+    background-image: -ms-linear-gradient(top, #f5f5f5, #eee);
+    background-image: -o-linear-gradient(top, #f5f5f5, #eee);
+    background-image: linear-gradient(top, #f5f5f5, #eee);
+    }
 
-		.zebra th:only-child{
-		    -moz-border-radius: 6px 6px 0 0;
-		    -webkit-border-radius: 6px 6px 0 0;
-		    border-radius: 6px 6px 0 0;
-		}
+    .zebra th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+    }
 
-		.zebra tfoot td {
-		    border-bottom: 0;
-		    border-top: 1px solid #fff;
-		    background-color: #f1f1f1;  
-		}
+    .zebra th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+    }
 
-		.zebra tfoot td:first-child {
-		    -moz-border-radius: 0 0 0 6px;
-		    -webkit-border-radius: 0 0 0 6px;
-		    border-radius: 0 0 0 6px;
-		}
+    .zebra th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    }
 
-		.zebra tfoot td:last-child {
-		    -moz-border-radius: 0 0 6px 0;
-		    -webkit-border-radius: 0 0 6px 0;
-		    border-radius: 0 0 6px 0;
-		}
+    .zebra tfoot td {
+    border-bottom: 0;
+    border-top: 1px solid #fff;
+    background-color: #f1f1f1;
+    }
 
-		.zebra tfoot td:only-child{
-		    -moz-border-radius: 0 0 6px 6px;
-		    -webkit-border-radius: 0 0 6px 6px
-		    border-radius: 0 0 6px 6px
-		}
-		
-		.components {
-			opacity: 1;
-			border-radius:5px;
-			background-color:#000;
-			color:#FFF;
-			margin:5px;
-			
-			border-color:#FFF;
-			border-style:solid;
-			border-width:2px;
-			
-		}
-		.ports {
-			width:30px;	
-			float:left;
-		}
-		
-		.port {
-			border-radius:10px;
-			background-color:#000;
-			color:#FFF;
-			width:12px;
-			height:12px;
-			margin:5px;
-			border-color:#DF9D00;
-			border-style:solid;
-			border-width:3px;
-		}
-		.ctitle {
-			float:left;
-			font-size:15px;
-			color:#CCC;
-		}
-		
-		.knode {
-			background-color:#CCC;
-			border-radius:10px;
-			padding:5px;
-		}
-		.node_name {
-			font-size:15px;
-			color:#FFF;
-			text-align:center;
-		}
-		.kchannel {
-            background-color: #DF9D00;
-			border-radius:30px;
-			width:60px;
-			height:60px;
-		}
-		.kchannel_title {
-			padding-top:14px;
-			font-size:15px;
-			color:#FFF;
-			text-align:center;
-		}
-		.kgroup {
-            background-color: #00CC66;
-			border-radius:30px;
-			width:60px;
-			height:60px;
-		}
-		.kgroup_title {
-			padding-top:14px;
-			font-size:15px;
-			color:#FFF;
-			text-align:center;
-		}
-		
-    </style>
+    .zebra tfoot td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+    }
+
+    .zebra tfoot td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+    }
+
+    .zebra tfoot td:only-child{
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px
+    border-radius: 0 0 6px 6px
+    }
+
+    .components {
+    opacity: 1;
+    border-radius:5px;
+    background-color:#000;
+    color:#FFF;
+    margin:5px;
+
+    border-color:#FFF;
+    border-style:solid;
+    border-width:2px;
+
+    }
+    .ports {
+    width:30px;
+    float:left;
+    }
+
+    .port {
+    border-radius:10px;
+    background-color:#000;
+    color:#FFF;
+    width:12px;
+    height:12px;
+    margin:5px;
+    border-color:#DF9D00;
+    border-style:solid;
+    border-width:3px;
+    }
+    .ctitle {
+    float:left;
+    font-size:15px;
+    color:#CCC;
+    }
+
+    .knode {
+    background-color:#CCC;
+    border-radius:10px;
+    padding:5px;
+    }
+    .node_name {
+    font-size:15px;
+    color:#FFF;
+    text-align:center;
+    }
+    .kchannel {
+    background-color: #DF9D00;
+    border-radius:30px;
+    width:60px;
+    height:60px;
+    }
+    .kchannel_title {
+    padding-top:14px;
+    font-size:15px;
+    color:#FFF;
+    text-align:center;
+    }
+    .kgroup {
+    background-color: #00CC66;
+    border-radius:30px;
+    width:60px;
+    height:60px;
+    }
+    .kgroup_title {
+    padding-top:14px;
+    font-size:15px;
+    color:#FFF;
+    text-align:center;
+    }
+
+</style>
 </head>
 <body class="list">
 
 <header class="caption">
     <h1>Francois FOUQUET / PhD Defense / Kevoree</h1>
+
     <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
 </header>
 
@@ -261,17 +262,19 @@
 
 <section class="slide" id="MetaPlan">
     <header>
-    	<h2>Plan</h2>
+        <h2>Plan</h2>
     </header>
-	<div>
-		<ul>
-			<li class="next"><span class="kevOrange">Domaine</span> : contexte d'application</li>
-			<li class="next"><span class="kevOrange">Problème</span> : identification des points durs</li>
-			<li class="next"><span class="kevOrange">Kevoree</span> : détail de la contribution</li>
-			<li class="next"><span class="kevOrange">Validation</span> : évaluation face aux besoins identifiés</li>
-			<li class="next"><span class="kevOrange">Conclusion et perspectives</span> : conclusion et ouvertures sur les projets liés</li>
-		</ul>
-	</div>
+    <div>
+        <ul>
+            <li class="next"><span class="kevOrange">Domaine</span> : contexte d'application</li>
+            <li class="next"><span class="kevOrange">Problème</span> : identification des points durs</li>
+            <li class="next"><span class="kevOrange">Kevoree</span> : détail de la contribution</li>
+            <li class="next"><span class="kevOrange">Validation</span> : évaluation face aux besoins identifiés</li>
+            <li class="next"><span class="kevOrange">Conclusion et perspectives</span> : conclusion et ouvertures sur
+                les projets liés
+            </li>
+        </ul>
+    </div>
 </section>
 
 <div id="context" class="includeHtml"></div>
@@ -285,7 +288,6 @@
 -->
 
 
-
 <!-- Section contexte et présentation du problème motivant cette thèse. Cette section se conclue  -->
 <section class="slide shout" id="ThanksYouCover">
     <h2><span class="kevOrange">></span>Merci</h2>
@@ -296,19 +298,27 @@
     <header>
         <h2>Questions <span class="icon-comments-alt kevOrange"></span></h2>
     </header>
-    <ul style="font-size: 12px;">
-        <li><span style="color:#666;">F. Fouquet, E. Daubert, N. Plouzeau, O. Barais, J. Bourcier, JM. Jezequel</span> -- Dissemination of reconfiguration policies on mesh networks -- In DAIS'12 : 7th International Federated Conference on Distributed Computing Techniques, 2012, Stockholm</li>
-        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey -- A Dynamic Component Model for Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software Engineering. Bertinoro, Italy, June 2012.
-        </li>
-		<li>F. Fouquet, G. Nain, B. Morin, E. Daubert, O. Barais, N. Plouzeau and J-M. Jézéquel. -- An Eclipse Modelling Framework Alternative to Meet the Models@Runtime Requirements. -- In MODELS'12 (Application Track): ACM/IEEE 15th International Conference on Model Driven Engineering Languages and Systems, Innsbruck, Austria, October 2012</li>
-        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
-            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
-            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
-            2012.
-        </li>
-        <li>G. Nain, F. Fouquet, B. Morin, O. Barais, JM. Jézéquel (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille, France.
-        </li>
-    </ul>
+
+    <div style="font-size: 17px;">
+        <ul>
+            <li><span class="kevOrange">DAIS'12</span> / Dissemination of reconfiguration policies on mesh networks / F. Fouquet, E. Daubert, N.
+                Plouzeau, O. Barais, J. Bourcier, JM. Jezequel
+            </li>
+            <li><span class="kevOrange">CBSE'12</span> / A Dynamic Component Model for Cyber Physical Systems / F. Fouquet, O. Barais, N. Plouzeau,
+                J-M. Jézéquel, B. Morin and F. Fleurey
+            </li>
+            <li><span class="kevOrange">MODELS'12</span> / An Eclipse Modelling Framework Alternative to Meet the Models@Runtime Requirements / F.
+                Fouquet, G. Nain, B. Morin, E. Daubert, O. Barais, N. Plouzeau and J-M. Jézéquel
+            </li>
+            <li><span class="kevOrange">ICSE'12 Workshop</span> / A models@runtime framework for designing and managing Service-Based Applications / E.
+                Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin
+            </li>
+            <li><span class="kevOrange">SEAA'10</span> / Integrating IoT and IoS with a Component-Based approach / G. Nain, F. Fouquet, B. Morin, O.
+                Barais, JM. Jézéquel
+            </li>
+        </ul>
+    </div>
+
     <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
         <a href="http://kevoree.org">kevoree.org</a></h2>
 </section>
