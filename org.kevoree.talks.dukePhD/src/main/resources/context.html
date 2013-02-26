@@ -1,5 +1,13 @@
 <section class="slide shout" id="context_cover">
     <h2><span class="kevOrange">></span>Domaine</h2>
+
+    <h2 style="position: absolute;top:65%;font-size: 60px;color:#CCC;">Problème</h2>
+
+    <h2 style="position: absolute;top:73%;font-size: 50px;color:#CCC;">Kevoree</h2>
+
+    <h2 style="position: absolute;top:80%;font-size: 40px;color:#CCC;">Validation</h2>
+
+    <h2 style="position: absolute;top:86%;font-size: 30px;color:#CCC;">Conclusion</h2>
 </section>
 
 <section class="slide" id="context_complexity">
@@ -22,7 +30,8 @@
                 <div class="icon-circle-arrow-right kevOrange"></div>
                 conception modulaire
                 <ul>
-                    <li class="next">Modularité : division du système en sous-parties <span class="kevGray" style="font-style : italic;">(par fonctionnalité)</span>
+                    <li class="next">Modularité : division du système en sous-parties <span class="kevGray"
+                                                                                            style="font-style : italic;">(par fonctionnalité)</span>
                     </li>
                     <li class="next"><span class="kevOrange">Module</span>
                         <span class=" icon-folder-close-alt kevOrange"></span>
@@ -40,7 +49,7 @@
     </div>
 </section>
 
-<section class="slide" id="context_hotswap2">
+<section class="slide" id="context_hotswap">
     <header>
         <h2>Du cycle en V au développement continue</h2>
     </header>
@@ -121,71 +130,56 @@
 
 </section>
 
-<section class="slide" id="context_mape_das">
+<section class="slide" id="context_mape_das2">
     <header>
         <h2>Systèmes Dynamiquement Adaptable (DAS)</h2>
     </header>
-    <div class="next">
-        <div>
-            <div style="float: left;">
-                <div class="icon-dashboard kevOrange" style="font-size:30px"></div>
-                <span class="kevGray">introspection</span>
 
-                <div style="text-align:center;">
-                    <div class=" icon-angle-up kevGray" style="font-size:30px;"></div>
-                </div>
-                <div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                </div>
-            </div>
-            <div style="float: left;margin-left: 120px;">
-                <div class=" icon-arrow-right kevGray" style="font-size:20px;padding-right:50px;"></div>
-                <div class=" icon-cogs kevGray" style="font-size:40px;"></div>
-                <div class=" icon-arrow-right kevGray" style="font-size:20px;padding-left:50px;"></div>
-            </div>
-            <div style="float: right;">
-                <div class="icon-wrench kevOrange" style="font-size:30px"></div>
-                <span class="kevGray">intercession</span>
-
-                <div style="text-align:center;">
-                    <div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
-                </div>
-                <div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
-                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
-                </div>
-            </div>
-            <div style="float:clear;"></div>
-        </div>
-    </div>
-    <div style="clear: both;">
+    <div>
         <ul>
-            <li class="next">Systèmes (même modestes<span class=" icon-mobile-phone kevGrey"
-                                                          style="font-size:30px;"></span>) considérés comme des DAS
-                <ul>
-                    <li>Intégration continue des modules se fait alors à chaud (sans arrêt)</li>
-                </ul>
+            <li class="next">Adaptation <span class=" icon-reorder kevOrange"></span> changement à chaud (sans arrêt) des modules du système
+                <!-- Anim Bloc A => Bloc B -->
+                <div style="position:absolute;left:250px;bottom:60px;">
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                </div>
+                <div style="background-color:#CCC;width:235px;position:absolute;left:240px;bottom:65px;height:45px;opacity: 0.3;border-radius:5px;"></div>
+                <div style="position:absolute;right:250px;bottom:60px;">
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                </div>
+                <div style="background-color:#DF9D00;width:235px;position:absolute;right:240px;bottom:65px;height:45px;opacity: 0.3;border-radius:5px;"></div>
             </li>
-            <li class="next">Georgas <i>et al</i>'04 : adaptation
-                <div class=" icon-exchange kevOrange"></div>
-                réaction stimuli extérieur
+            <li class="next">Boucle d'adaptation <span class="kevOrange">M</span>onitoring <span class="kevOrange">A</span>nalyse <span class="kevOrange">P</span>lannification <span class="kevOrange">E</span>xecution (MAPE)
+                <div style="position:absolute;left:250px;bottom:100px;">
+                    <div class="icon-dashboard kevOrange" style="font-size:30px"></div>
+                    <span class="kevGray">introspection</span>
+                    <div style="text-align:center;">
+                        <div class=" icon-arrow-up kevGray" style="font-size:30px;"></div>
+                    </div>
+                </div>
+                <div style="position:absolute;left:45%;bottom:150px;">
+                    <div class=" icon-arrow-right kevGray" style="font-size:20px;"></div>
+                    <div class=" icon-cogs kevGray" style="font-size:40px;"></div>
+                    <div class=" icon-arrow-right kevGray" style="font-size:20px;"></div>
+                </div>
+                <div style="position:absolute;right:250px;bottom:100px;">
+                    <div class="icon-wrench kevOrange" style="font-size:30px"></div>
+                    <span class="kevGray">intercession</span>
+                    <div style="text-align:center;">
+                        <div class=" icon-arrow-down kevGray" style="font-size:30px;"></div>
+                    </div>
+                </div>
             </li>
-            <li class="next">Boucle de rétroaction (MAPE), réaction après lecture de l'état courant</li>
+            <li class="next">Calcul d'(auto-)adaptation nécessite un contexte d'état</li>
+            <li class="next">Pas uniquement pour système élististe, un <span class="icon-mobile-phone kevOrange" style="font-size:40px;"></span> peut être un DAS</li>
         </ul>
-    </div>
-
-    <div class="next">
-        <blockquote>Adaptation
-            <div class=" icon-reorder kevOrange"></div>
-            modification sans arrêt des modules en fonction du contexte
-        </blockquote>
     </div>
 </section>
 
