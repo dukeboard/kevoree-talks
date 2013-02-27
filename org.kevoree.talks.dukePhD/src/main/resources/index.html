@@ -7,40 +7,6 @@
 <meta name="viewport" content="width=1274, user-scalable=no"/>
 
 <script src="scripts/jquery.min.js"></script>
-<script type="text/javascript" id="include">
-    function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-    }
-    jQuery(document).ready(function ($) {
-        jQuery(".includeHtml").each(function(i){
-               var targetElem = this;
-               var sibling = targetElem.nextSibling;
-               jQuery.ajax({
-                   type: 'GET', // Le type de ma requete
-                   url: this.id + ".html", // L'url vers laquelle la requete sera envoyee
-                   data: '',
-                   datatype : 'xml',
-                   success: function(data) {
-                        var parser = new DOMParser();
-                        var dom = parser.parseFromString("<html>"+data+"</html>", "text/xml");
-                        for(var i=0;i< dom.childNodes[0].childNodes.length;i++){
-                                var elem = dom.childNodes[0].childNodes[i];
-                                if(elem.tagName = "section"){
-                                    if(hasClass(elem,"slide")){
-                                        targetElem.parentNode.insertBefore(elem, sibling);
-                                    }
-                                 }
-                        }
-                   },
-                   error: function(jqXHR, textStatus, errorThrown) {
-                       console.log("fail");
-                   }
-               });
-        });
-    });
-</script>
-
-
 <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
 <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
 <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
@@ -305,9 +271,606 @@
     </div>
 </section>
 
-<div id="context" class="includeHtml"></div>
-<div id="problem" class="includeHtml"></div>
+<!-- ================ Domaine =================== -->
+<section class="slide shout" id="context_cover">
+    <h2><span class="kevOrange">></span>Domaine</h2>
 
+    <h2 style="position: absolute;top:65%;font-size: 60px;color:#CCC;">Problème</h2>
+
+    <h2 style="position: absolute;top:73%;font-size: 50px;color:#CCC;">Kevoree</h2>
+
+    <h2 style="position: absolute;top:80%;font-size: 40px;color:#CCC;">Validation</h2>
+
+    <h2 style="position: absolute;top:86%;font-size: 30px;color:#CCC;">Conclusion</h2>
+</section>
+
+<section class="slide" id="context_complexity">
+    <header>
+        <h2>Conception des grands systèmes</h2>
+    </header>
+    <div style="font-size:40px;">
+        <div class="icon-signal kevOrange" style="float:left;font-size:70px;"></div>
+        <div class="icon-circle-arrow-right kevGray" style="float:left;margin-left:270px;"></div>
+        <div class="icon-folder-close-alt kevOrange" style="float:right;margin-left:10px;"></div>
+        <div class="icon-folder-close-alt kevOrange" style="float:right;margin-left:10px;"></div>
+        <div class="icon-folder-close-alt kevOrange" style="float:right;margin-left:10px;"></div>
+        <div class="icon-folder-close-alt kevOrange" style="float:right;margin-left:10px;"></div>
+        <div style="clear:both;"></div>
+        <div style="background-color:#DF9D00;width:210px;position:absolute;left:710px;top:150px;height:55px;opacity: 0.3;border-radius:5px;"></div>
+    </div>
+    <div style="padding-top:50px;">
+        <ul>
+            <li class="next">Acquis : grand système logiciel
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                conception modulaire
+                <ul>
+                    <li class="next">Modularité : division du système en sous-parties <span class="kevGray"
+                                                                                            style="font-style : italic;">(par fonctionnalité)</span>
+                    </li>
+                    <li class="next"><span class="kevOrange">Module</span>
+                        <span class=" icon-folder-close-alt kevOrange"></span>
+                        <span class=" icon-reorder kevGray"></span>
+                        unité de conception, développement réutilisable
+                    </li>
+                    <li class="next">
+                        Système
+                        <span class=" icon-reorder kevOrange"></span>
+                        <span class="kevOrange">assemblage</span> de modules
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="context_hotswap">
+    <header>
+        <h2>Du cycle en V au développement continue</h2>
+    </header>
+    <div>
+        <!-- Left -->
+        <div style="float: left;line-height:15px;">
+            <div style="text-align:center;">
+                <div class=" icon-ok-circle kevOrange" style="font-size:50px;"></div>
+            </div>
+            <div style="padding-top:10px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+            </div>
+            <div style="background-color:#CCC;width:190px;position:absolute;left:110px;top:210px;height:45px;opacity:0.5;border-radius:5px;"></div>
+            <div style="text-align:center;">
+                <div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
+            </div>
+            <div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+            </div>
+            <div style="background-color:#DF9D00;width:190px;position:absolute;left:110px;top:275px;height:40px;opacity: 0.5;border-radius:5px;"></div>
+        </div>
+        <!-- End Left -->
+        <div class="icon-circle-arrow-right kevGray"
+             style="font-size:40px;float:left; margin-left:200px; margin-top : 60px;"></div>
+
+        <!-- right -->
+        <div style="float:right;line-height:15px;">
+            <div style="text-align:center;">
+                <div class=" icon-refresh kevOrange" style="font-size:50px;"></div>
+            </div>
+            <div style="padding-top:10px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+            </div>
+            <div style="background-color:#CCC;width:190px;position:absolute;right:110px;top:210px;height:45px;opacity: 0.5;border-radius:5px;"></div>
+            <div style="text-align:center;">
+                <div class=" icon-angle-down kevGray" style="font-size:30px;"></div>
+            </div>
+            <div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+            </div>
+            <div style="background-color:#CCC;width:42px;position:absolute;right:110px;top:275px;height:40px;opacity: 0.5;border-radius:5px;"></div>
+            <div style="background-color:#DF9D00;width:35px;position:absolute;right:152px;top:275px;height:40px;opacity: 0.5;border-radius:5px;"></div>
+            <div style="background-color:#CCC;width:70px;position:absolute;right:187px;top:275px;height:40px;opacity: 0.5;border-radius:5px;"></div>
+            <div style="background-color:#DF9D00;width:42px;position:absolute;right:257px;top:275px;height:40px;opacity: 0.5;border-radius:5px;"></div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+    <div style="padding-top:50px;">
+        <ul>
+            <li>Modèle en V : adaptation d'un assemblage à un autre</li>
+            <li>Modèle continue : adaptation par fragments
+                <ul>
+                    <li>module <span class=" icon-reorder kevGray"></span> unité de déploiement</li>
+                    <li>evolution <span class=" icon-reorder kevOrange"></span> modification d'une <span
+                            class="kevOrange">sous-partie</span> des modules
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</section>
+
+<section class="slide" id="context_mape_das2">
+    <header>
+        <h2>Systèmes Dynamiquement Adaptable (DAS)</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">Adaptation <span class=" icon-reorder kevOrange"></span> changement à chaud (sans arrêt) des modules du système
+                <!-- Anim Bloc A => Bloc B -->
+                <div style="position:absolute;left:250px;bottom:60px;">
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                </div>
+                <div style="background-color:#CCC;width:235px;position:absolute;left:240px;bottom:65px;height:45px;opacity: 0.3;border-radius:5px;"></div>
+                <div style="position:absolute;right:250px;bottom:60px;">
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevGray" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                    <div class=" icon-folder-close-alt kevOrange" style="font-size:30px;"></div>
+                </div>
+                <div style="background-color:#DF9D00;width:235px;position:absolute;right:240px;bottom:65px;height:45px;opacity: 0.3;border-radius:5px;"></div>
+            </li>
+            <li class="next">Boucle d'adaptation <span class="kevOrange">M</span>onitoring <span class="kevOrange">A</span>nalyse <span class="kevOrange">P</span>lannification <span class="kevOrange">E</span>xecution (MAPE)
+                <div style="position:absolute;left:250px;bottom:100px;">
+                    <div class="icon-dashboard kevOrange" style="font-size:30px"></div>
+                    <span class="kevGray">introspection</span>
+                    <div style="text-align:center;">
+                        <div class=" icon-arrow-up kevGray" style="font-size:30px;"></div>
+                    </div>
+                </div>
+                <div style="position:absolute;left:45%;bottom:150px;">
+                    <div class=" icon-arrow-right kevGray" style="font-size:20px;"></div>
+                    <div class=" icon-cogs kevGray" style="font-size:40px;"></div>
+                    <div class=" icon-arrow-right kevGray" style="font-size:20px;"></div>
+                </div>
+                <div style="position:absolute;right:250px;bottom:100px;">
+                    <div class="icon-wrench kevOrange" style="font-size:30px"></div>
+                    <span class="kevGray">intercession</span>
+                    <div style="text-align:center;">
+                        <div class=" icon-arrow-down kevGray" style="font-size:30px;"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="next">Calcul d'(auto-)adaptation nécessite un contexte d'état</li>
+            <li class="next">Pas uniquement pour système élististe, un <span class="icon-mobile-phone kevOrange" style="font-size:40px;"></span> peut être un DAS</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="context_distribution">
+    <header>
+        <h2>Besoins en distribution</h2>
+    </header>
+    <p class="next">
+
+    <div class=" icon-map-marker kevOrange" style="font-size:30px;"></div>
+    Distribution : répartition des modules sur différents noeuds</p>
+    <div class="next">
+        <ul>
+            <li>Performance et monté en charge
+                <div style="position:absolute;right:100px;top:250px;">
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevOrange" style="font-size:30px;"></div>
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Grappes calculs, Cloud computing
+                        <div class=" icon-cloud kevOrange" style="font-size:30px;"></div>
+                        , ...
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="next">
+        <ul>
+            <li>Duplication et tolérance aux fautes
+                <div style="position:absolute;right:100px;top:405px;">
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal"
+                         style="font-size:30px;float:left;margin-left: 5px;color:#E80000;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd" style="font-size:30px;color:#E80000;"></div>
+                        <div style="border-color:#E80000;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt" style="font-size:20px;color:#E80000;"></div>
+                            <div class=" icon-folder-close-alt" style="font-size:20px;color:#E80000;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Défaillance d'un noeud</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="context_distribution_heterogeniety">
+    <header>
+        <h2>Besoins en distribution et hétérogénité</h2>
+    </header>
+    <p class="next">
+
+    <div class=" icon-map-marker kevOrange" style="font-size:30px;"></div>
+    Outre la puissance les noeuds peuvent avoir des propriétés propres</p>
+    <div class="next">
+        <ul>
+            <li>Proche des utilisateurs
+                <div style="position:absolute;right:100px;top:250px;">
+                    <div class=" icon-user kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-tablet kevOrange" style="font-size:30px;"></div>
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Informatique mobile</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="next">
+        <ul>
+            <li>Adapté au contexte physique
+                <div style="position:absolute;right:100px;top:405px;">
+                    <div class=" icon-fire kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-mobile-phone kevOrange" style="font-size:30px;"></div>
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Informatique embarqué (consommation)</li>
+                    <li>Capteurs</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================ Probleme ==================== -->
+<section class="slide shout" id="problem_cover">
+    <h2 style="position: absolute;top:35%;font-size: 60px;color:#CCC;">Domaine</h2>
+    <h2><span class="kevOrange">></span>Problème</h2>
+    <h2 style="position: absolute;top:65%;font-size: 60px;color:#CCC;">Kevoree</h2>
+    <h2 style="position: absolute;top:73%;font-size: 50px;color:#CCC;">Validation</h2>
+    <h2 style="position: absolute;top:80%;font-size: 40px;color:#CCC;">Conclusion</h2>
+</section>
+
+<section class="slide" id="problem_sporadic">
+    <header>
+        <h2>Système adaptatif <span class="kevOrange">et</span> distribué</h2>
+    </header>
+    <div class="next" style="margin-left:280px;margin-top:100px;">
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+
+        <span class="icon-refresh kevOrange" style="position:absolute;top:190px;left:480px;"></span>
+        <span class="icon-cogs kevGray" style="position:absolute;top:160px;left:480px;"></span>
+
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="next" style="clear:both;padding-top:10px;">
+        <p><div class="icon-warning-sign kevOrange" style="font-size:30px;"></div> En cas d'erreur réseau, lecture direct d'état et adaptation impossible</p>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;position:absolute;left:518px;top:221px;color:#E80000;"></div>
+    </div>
+    <div class="next"><div class="icon-exclamation-sign kevOrange" style="font-size:30px;"></div> Points durs
+        <ul>
+            <li>Monitoring(<span class="kevOrange">introspection</span>), Exécution(<span class="kevOrange">intercession</span>) et déconnections ?</li>
+            <li>Adaptation bloqué pendant la déconnection ?</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="problem_sporadic_divergency">
+    <header>
+        <h2>La divergence inhérente à la distribution</h2>
+    </header>
+
+    <span class="icon-refresh kevOrange" style="position:absolute;top:185px;left:421px;"></span>
+    <span class="icon-cogs kevGray" style="position:absolute;top:155px;left:421px;"></span>
+
+    <div style="padding-left:220px;padding-top:50px;" class="next">
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+        <div class=" icon-warning-sign" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+        <div class=" icon-resize-horizontal" style="font-size:30px;float:left;margin-left: 5px;color:#E80000 ;"></div>
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-tablet kevGray" style="font-size:30px;"></div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear:both;padding-top:70px;">
+
+        <div class="next">
+            <p><div class=" icon-map-marker kevOrange" style="font-size:30px;"></div> Divergence de la couche reflexive en cas d'isolation</p>
+            <div style="position:absolute;left:100px;top:210px;">
+                <!-- View LEFT -->
+                <div style="float:left;margin-right: 10px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-tablet kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" icon-eye-open" style="font-size:30px;float:left;margin-right: 0px;color: #CCC;"></div>
+                <div class=" icon-chevron-right" style="font-size:30px;float:left;color: #CCC;"></div>
+            </div>
+        </div>
+
+
+        <div class="next">
+            <p><div class=" icon-map-marker kevOrange" style="font-size:30px;"></div> Divergence de la couche reflexive en cas d'adaptations concurrentes</p>
+            <span class="icon-refresh kevOrange" style="position:absolute;top:185px;left:560px;"></span>
+            <span class="icon-cogs kevGray" style="position:absolute;top:155px;left:560px;"></span>
+
+            <!-- View RIGHT -->
+            <div style="position:absolute;right:190px;top:210px;">
+                <div class=" icon-chevron-left" style="font-size:30px;float:left;margin-left: 15px;color: #CCC;"></div>
+                <div class=" icon-eye-open" style="font-size:30px;float:left;margin-left: 3px;color: #CCC;"></div>
+                <div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-remove-sign" style="font-size:20px;color:#E80000;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-tablet kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <details>
+    </details>
+</section>
+
+
+
+<section class="slide" id="problem_consistency_heterogenous">
+    <header>
+        <h2>Hétérogénité en besoin de cohérence</h2>
+    </header>
+    <div style="padding-top:50px;">
+        <div style="padding-left:200px;" class="next">
+            <span class="icon-cogs kevGray" style="position:absolute;top:180px;left:485px;"></span>
+            <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-lock kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-lock kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 10px;margin-right: 10px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <div class="next">
+            <div style="background-color:#DF9D00;width:500px;position:absolute;left:250px;top:160px;height:100px;opacity: 0.3;border-radius:5px;"></div>
+            <div style="position:absolute;top:380px; left:150px;color:#000000;">
+                <p><div class=" icon-lock kevGray" style="font-size:30px;"></div> Cohérence forte de la couche reflexion</p>
+            </div>
+        </div>
+
+        <div style="padding-top:50px;padding-left:370px;" class="next">
+            <div class=" icon-tablet kevGray" style="font-size:30px;float:left;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 15px;margin-right: 15px;"></div>
+            <div class=" icon-tablet kevGray" style="font-size:30px;float:left;"></div>
+            <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 15px;margin-right: 15px;"></div>
+            <div class=" icon-tablet kevGray" style="font-size:30px;float:left;"></div>
+            <span class="icon-cogs kevGray" style="position:absolute;top:335px;left:485px;"></span>
+            <span class="icon-cogs kevGray" style="position:absolute;top:335px;left:565px;"></span>
+        </div>
+
+        <div class="next">
+            <div style="background-color:#CCC;width:500px;position:absolute;left:250px;top:274px;height:100px;opacity: 0.3;border-radius:5px;"></div>
+            <div style="position:absolute;top:450px; left:140px;color:#000000;">
+                <p><div class=" icon-unlock kevGray" style="font-size:30px;"></div> Cohérence à terme</p>
+            </div>
+        </div>
+
+        <div class="next">
+            <span class="icon-resize-vertical kevGray" style="position:absolute;top:255px;left:495px;"></span>
+            <span class="icon-resize-vertical kevGray" style="position:absolute;top:255px;left:655px;"></span>
+        </div>
+
+        <div class="next">
+            <div style="position:absolute;top:520px; left:140px;color:#000000;">
+                <p><div class=" icon-lightbulb kevGray" style="font-size:30px;"></div> Divergence imposé par le cas métier : périodique, limitation batterie</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="slide" id="problem_summary">
+    <header>
+        <h2>Problème de recherche <span class="icon-beaker kevOrange"></span> identifié</h2>
+    </header>
+    <span class="icon-question-sign kevOrange"></span> Quel paradigme de conception et développement pour :
+    <ul>
+        <li class="next">système modulaire déployable en continue <span class="icon-refresh kevOrange"></span></li>
+        <li class="next">reflexif (introspection/intercession)</li>
+        <li class="next">distribuable sur différentes resources</li>
+        <li class="next">capable de représenter l'hétérogénité des noeuds <span class="icon-hdd kevOrange"></span><span class="icon-tablet kevOrange"></span><span class="icon-mobile-phone kevOrange"></span></li>
+        <li class="next">capable de représenter différentes propriétés de cohérence <span class="icon-lock kevOrange"></span></li>
+    </ul>
+</section>
 
 <!--
 <div id="background" class="includeHtml"></div>
