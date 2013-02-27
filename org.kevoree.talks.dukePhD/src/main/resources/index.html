@@ -393,8 +393,8 @@
 
     <div style="padding-top:50px;">
         <ul>
-            <li>Modèle en V : adaptation d'un assemblage à un autre</li>
-            <li>Modèle continue : adaptation par fragments
+            <li>Cycle en V : granularité déploiement => application</li>
+            <li>Cycle continue : granularité de déploiement : modules
                 <ul>
                     <li>module <span class=" icon-reorder kevGray"></span> unité de déploiement</li>
                     <li>evolution <span class=" icon-reorder kevOrange"></span> modification d'une <span
@@ -453,7 +453,7 @@
                     </div>
                 </div>
             </li>
-            <li class="next">Calcul d'(auto-)adaptation nécessite un contexte d'état</li>
+            <li class="next">Calcul d'(auto-)adaptation nécessite un contexte d'état, <span class="kevGray">non prédictible</span></li>
             <li class="next">Pas uniquement pour système élististe, un <span class="icon-mobile-phone kevOrange" style="font-size:40px;"></span> peut être un DAS</li>
         </ul>
     </div>
@@ -889,9 +889,8 @@
         <h2>Concepts de programmation modulaire</h2>
     </header>
     <div class="next">
-        <span class="icon-tag kevOrange"></span> Modèles à Agents/Acteurs
+        <span class="icon-tag kevOrange"></span> Agents : Sémantique réactif asynchrone, files d'attentes
         <ul>
-            <li><span class="icon-info-sign kevGray" style="font-size:30px;"></span> Sémantique réactif asynchrone : files d'attentes</li>
             <li><span class="icon-ok-circle kevGreen" style="font-size:30px;"></span> Isolation et distribution sur plusieurs ressources</li>
             <li><span class="icon-remove-circle kevRed" style="font-size:30px;"></span> Contrat d'échange non explicite, réutilisation</li>
         </ul>
@@ -910,12 +909,12 @@
         <ul>
             <li><span class="icon-ok-circle kevGreen" style="font-size:30px;"></span> Dépendances et typage (ports) <span style="font-size:50px;" class="kevOrange iconraph">Ö</span></li>
             <li><span class="icon-ok-circle kevGreen" style="font-size:30px;"></span> Cycle de vie (start/stop)</li>
-            <li><span class="icon-remove-circle kevRed" style="font-size:30px;"></span> Manque : isolation et concurrence</li>
+            <li><span class="icon-remove-circle kevRed" style="font-size:30px;"></span> Manque : isolation et concurrence d'accès aux ports</li>
         </ul>
-        <div style="position:absolute;width:150px;height:70px;right:100px;background-color:#666;bottom:100px;opacity: 0.7;border-radius:5px;"></div>
-        <div style="position:absolute;width:150px;height:70px;right:282px;background-color:#DF9D00;bottom:100px;opacity: 0.7;border-radius:5px;"></div>
-        <span style="font-size:45px;position:absolute;right:250px;top:465px;" class="kevGray iconraph">Ö</span>
-        <span style="font-size:45px;position:absolute;right:250px;top:505px;" class="kevGray iconraph">Ö</span>
+        <div style="position:absolute;width:150px;height:70px;right:100px;background-color:#666;bottom:150px;opacity: 0.7;border-radius:5px;"></div>
+        <div style="position:absolute;width:150px;height:70px;right:282px;background-color:#DF9D00;bottom:150px;opacity: 0.7;border-radius:5px;"></div>
+        <span style="font-size:45px;position:absolute;right:250px;top:415px;" class="kevGray iconraph">Ö</span>
+        <span style="font-size:45px;position:absolute;right:250px;top:455px;" class="kevGray iconraph">Ö</span>
     </div>
 </section>
 
@@ -1086,6 +1085,55 @@
     </ul>
 </section>
 
+<section class="slide" id="kevoree_typeModel">
+    <header>
+        <h2>Patron de séparation Type/Instance</h2>
+    </header>
+    <p class="next">Objectif <span class="kevOrange icon-search"></span> lier les informations de conception et déploiement</p>
+    <ul>
+        <li class="next"><span class="kevOrange">TypeDefinition</span>
+            <ul>
+                <li><span class="kevOrange">Quoi</span>, définit les fonctionnalités disponibles</li>
+            </ul>
+            <div style="background-color:#CCC;position:absolute;right:100px;top:320px;opacity: 1;border-radius:5px;padding:5px;">
+                HttpServeur
+            </div>
+        </li>
+        <li class="next"><span class="kevOrange">DeployUnit</span>
+            <ul>
+                <li>Graphe de dépendance aux briques techniques</li>
+            </ul>
+            <div style="color:#FFF;font-size:18px;background-color:#666;position:absolute;right:100px;top:240px;opacity: 1;border-radius:5px;padding:5px;">
+                <span class="cog"></span></span> Jar_1
+            </div>
+            <div class="icon-arrow-up kevOrange" style="font-size:35px;position:absolute;right:110px;top:285px;"></div>
+            <div style="color:#FFF;font-size:18px;background-color:#666;position:absolute;right:180px;top:240px;opacity: 1;border-radius:5px;padding:5px;">
+                <span class="cog"></span></span> Jar_2
+            </div>
+            <div class="icon-arrow-up kevOrange" style="font-size:35px;position:absolute;right:190px;top:285px;"></div>
+
+            <div style="color:#FFF;font-size:18px;background-color:#666;position:absolute;right:120px;top:150px;opacity: 1;border-radius:5px;padding:5px;">
+                <span class="cog"></span></span> Jar_3
+            </div>
+            <div class="icon-arrow-up kevOrange" style="font-size:35px;position:absolute;right:120px;top:200px;"></div>
+        </li>
+        <li class="next"><span class="kevOrange">Instance</span>
+            <ul>
+                <li><span class="kevOrange">Où</span>, définit l'utilisation localisé d'une fonctionnalité</li>
+                <li class="next">Lien causal, déploiement d'un fragment logiciel
+                    <div class="icon-user kevOrange" style="font-size:35px;position:absolute;right:160px;top:500px;"></div>
+                    <div class="icon-user kevOrange" style="font-size:35px;position:absolute;right:130px;top:500px;"></div>
+                    <div class="icon-user kevOrange" style="font-size:35px;position:absolute;right:190px;top:500px;"></div>
+                </li>
+            </ul>
+            <div class="icon-arrow-up kevOrange" style="font-size:35px;position:absolute;right:140px;top:400px;"></div>
+            <div class="kevOrange" style="font-size:18px;background-color:#666;position:absolute;right:70px;top:450px;opacity: 1;border-radius:5px;padding:5px;">
+               Server_4 : HttpServeur
+            </div>
+        </li>
+    </ul>
+</section>
+
 <section class="slide" id="kevoree_modularDDASmodel">
     <header>
         <h2>Composition modulaire de DDAS</h2>
@@ -1168,31 +1216,6 @@
             <ul>
                 <li>Sémantique d'acteur pour chaque fragment</li>
                 <li>Indépendance de chaque fragment</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide" id="kevoree_typeModel">
-    <header>
-        <h2>Séparation type/instance</h2>
-    </header>
-    <p>Lien avec le modèle de conception et déploiement</p>
-    <ul>
-        <li class="next">TypeDefinitions
-            <ul>
-                <li><span class="kevOrange">Quoi</span>, définit les fonctionnalités disponibles</li>
-            </ul>
-        </li>
-        <li class="next">DeployUnits
-            <ul>
-                <li>Graphe de dépendance de binaire</li>
-            </ul>
-        </li>
-        <li class="next">Instances
-            <ul>
-                <li><span class="kevOrange">Où</span>, définit l'utilisation d'une fonction</li>
-                <li>Localisé, lien causal avec la plate-forme</li>
             </ul>
         </li>
     </ul>
