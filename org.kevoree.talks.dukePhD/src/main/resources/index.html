@@ -8,21 +8,35 @@
 
 <script src="scripts/jquery.min.js"></script>
 <script type="text/javascript" id="include">
+    function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    }
     jQuery(document).ready(function ($) {
-    //Load sub talk slides
-    jQuery(".includeHtml").each(function(i){
-    var xhrObj = new XMLHttpRequest();
-    xhrObj.open('GET', this.id+".html", false);
-    xhrObj.send('');
-    var targetElem = this;
-
-    var subDomElemDoc = jQuery.parseXML("<div>"+xhrObj.responseText+"</div>");
-    var subElems = jQuery(subDomElemDoc).find("section");
-    subElems.each(function(elem){
-    targetElem.parentNode.insertBefore(this, targetElem.nextSibling);
-    });
-    targetElem.parentNode.removeChild(targetElem);
-    });
+        jQuery(".includeHtml").each(function(i){
+               var targetElem = this;
+               var sibling = targetElem.nextSibling;
+               jQuery.ajax({
+                   type: 'GET', // Le type de ma requete
+                   url: this.id + ".html", // L'url vers laquelle la requete sera envoyee
+                   data: '',
+                   datatype : 'xml',
+                   success: function(data) {
+                        var parser = new DOMParser();
+                        var dom = parser.parseFromString("<html>"+data+"</html>", "text/xml");
+                        for(var i=0;i< dom.childNodes[0].childNodes.length;i++){
+                                var elem = dom.childNodes[0].childNodes[i];
+                                if(elem.tagName = "section"){
+                                    if(hasClass(elem,"slide")){
+                                        targetElem.parentNode.insertBefore(elem, sibling);
+                                    }
+                                 }
+                        }
+                   },
+                   error: function(jqXHR, textStatus, errorThrown) {
+                       console.log("fail");
+                   }
+               });
+        });
     });
 </script>
 
@@ -36,7 +50,6 @@
 <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
 <script type="text/javascript" id="kSlideshow">
     jQuery(document).ready(function ($) {
-        console.log(jQuery("section").size());
         var ks = new KSlideShow();
         var keyboardPlugin = new KKeyboard(ks);
         ks.addPluginListener(keyboardPlugin);
