@@ -328,7 +328,7 @@
 
 <section class="slide" id="context_hotswap">
     <header>
-        <h2>Du cycle en V au développement continue</h2>
+        <h2>Du cycle en V au déploiement continue</h2>
     </header>
     <div>
         <!-- Left -->
@@ -1236,19 +1236,21 @@
     <header>
         <h2>Modèle de concurrence</h2>
     </header>
-    <p>Cycle de vie </p>
+    <p><span class="kevOrange icon-comment"></span> Extraire le problème de gestion d'accès concurrent aux entités</p>
     <ul>
-        <li class="next">Composant
+        <li class="next"><span class="kevOrange">Composant</span>
             <ul>
-                <li>Sémantique d'acteur devant chaque port</li>
-                <li>Garantie d'isolation de processus de chaque composant</li>
+                <li>Sémantique d'acteur devant chaque port, groupe de port</li>
+                <li>Isolation des processus de chaque composant</li>
             </ul>
         </li>
-        <li class="next">Channel
+        <li class="next"><span class="kevOrange">Channel</span>
             <ul>
-                <li>Sémantique d'acteur pour chaque fragment</li>
-                <li>Indépendance de chaque fragment</li>
+                <li>Fragmenté sur chaque noeud</li>
+                <li>Sémantique d'acteur par fragment</li>
+                <li>Responsabilité de diffusion local</li>
             </ul>
+            <img src="figures/channelFragmentModel.png" style="bottom:20px;right:20px;width:300px;position:absolute;"/>
         </li>
     </ul>
 </section>
@@ -1620,22 +1622,17 @@
         <h2>Groupe : entité de synchronisation de M@R</h2>
     </header>
     <ul>
-        <li>Fragmenté sur chaque noeud abonné</li>
-        <li>Ecouteur/bloqueur de modification de modèle
+        <li class="next"><span class="kevOrange">Fragmenté</span> sur chaque noeud abonné, communication inter-fragment
+            <img src="figures/groupFragmentation.png" style="width:60%;position:absolute;bottom:20px;right:50px;" />
+        </li>
+        <li class="next">Intercept le processus M@R local pour introduire la synchronisation
             <ul>
-                <li>Avant modification locale
-                    <ul>
-                        <li>Paxos,...</li>
-                    </ul>
-                </li>
-                <li>Après modification locale
-                    <ul>
-                        <li>Gossip, Rollback distribué,etc...</li>
-                    </ul>
+                <li><span class="kevOrange">Avant</span> modification locale : Paxos </li>
+                <li><span class="kevOrange">Après</span> modification locale : Gossip, Rollback distribué,etc...
                 </li>
             </ul>
         </li>
-        <li>Slicing du M@R : synchronisation partielle pour la scalabilité</li>
+        <li class="next"><span class="kevOrange">Slicing</span> du M@R : synchronisation <span class="kevOrange">partielle</span> pour la scalabilité</li>
     </ul>
 
 </section>
@@ -1704,7 +1701,7 @@
     </header>
     <ul>
         <li class="next">Composants, Channels <div class="icon-circle-arrow-right kevOrange"></div> modularité</li>
-        <li class="next">TypeDefinition et arbre de binaire <div class="icon-circle-arrow-right kevOrange"></div> conception continue</li>
+        <li class="next">TypeDefinition et arbre de dépendance <div class="icon-circle-arrow-right kevOrange"></div> conception continue</li>
         <li class="next">Noeud abstrait <div class="icon-circle-arrow-right kevOrange"></div> hétérogénité</li>
         <li class="next">Model@Runtime <div class="icon-circle-arrow-right kevOrange"></div> reflexion asynchrone</li>
         <li class="next">Groupe <div class="icon-circle-arrow-right kevOrange"></div> synchronisation et reflexion distribué</li>
@@ -1999,47 +1996,16 @@
     </div>
 </section>
 
-<!--
-<section class="slide" id="perspectives">
-    <header>
-        <h2>Perspectives et travaux futures</h2>
-    </header>
-	<div>
-		<ul>
-			<li>Sécurisation et contrôle d'accès du M@R distribué</li>
-			<li>Kevoree pour le Cloud computing</li>
-			<li>Generation continue d'architecture multi-axiales
-				<ul>
-					<li>Genetic Kevoree</li>
-				</ul>
-			</li>
-			<li>Apprentissage d'erreur opportuniste
-				<ul>
-					<li>Exploiter l'historique des models pour détecter des patrons d'erreur</li>
-					<li>Test de mecanisme d'élasticité</li>
-				</ul>
-			</li>
-			<li>Model@Runtime de context en lien causal faible
-				<ul>
-					<li>SmartHome Luxembourg</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</section>
--->
-
 <section class="slide" id="perspectives">
     <header>
         <h2>Perspectives et travaux futures</h2>
     </header>
     <div class="next">
         <ul>
-            <li><span class="kevOrange">Optimisation</span> continue d'architecture
+            <li><span class="kevOrange">Optimisation</span> continue d'architecture : élasticité pour Clouds
                 <ul>
-                    <li>Résolution <span class="kevOrange">multi-axials</span> <span class="kevOrange icon-bar-chart" style="font-size: 30px;"></span> incrémental</li>
+                    <li>Résolution <span class="kevOrange">multi-axials ortogonal</span> <span class="kevOrange icon-bar-chart" style="font-size: 30px;"></span> incrémental</li>
                     <li>Algorithmes <span class="kevOrange">génétiques</span><span class="kevOrange icon-search" style="font-size: 30px;"></span> sur M@R</li>
-                    <li>Construction d'élasticité pour Clouds, Capteurs...</li>
                 </ul>
             </li>
         </ul>
@@ -2050,10 +2016,12 @@
                 <ul>
                     <li>Détecter les pattons d'élasticités et d'<span class="kevOrange">erreurs</span> d'adaptation</li>
                     <li><span class="kevOrange">Contremesure</span> épidémiques, intégration d'<span class="kevOrange">hétérogénité</span></li>
-                    <li>Intégration continue de composants dans systèmes Clouds</li>
                 </ul>
             </li>
         </ul>
+    </div>
+    <div class="next">
+        <ul><li>Sécurisation de l'accès au Model@Runtime : contrôle d'accès</li></ul>
     </div>
 </section>
 
@@ -2093,8 +2061,7 @@
             </li>
         </ul>
     </div>
-    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
-        <a href="http://kevoree.org">kevoree.org</a></h2>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree est open source <span class="iconraph">U</span>, <a href="http://kevoree.org">kevoree.org</a></h2>
 </section>
 
 <div class="progress">
