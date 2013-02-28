@@ -920,40 +920,112 @@
 
 <section class="slide" id="background_divergency_asynchrone">
     <header>
-        <h2>Concepts de manipulation asynchrone</h2>
+        <h2>Manipulation et reflexion asynchrone : Model@Runtime (M@R) (Morin09)</h2>
     </header>
-    <p>Model@Runtime : reflexion asynchrone</p>
     <div>
         <ul>
-            <li>Garder un modèle du système à l'exécution</li>
-            <li>Assurer un lien causal <span class="kevOrange">à la demande</span></li>
+            <li class="next">Un <span class="kevOrange">modèle d'introspection</span> à l'exécution
+                <div style="position:absolute;left:100px;bottom:50px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                        <div class="iconraph kevOrange">@</div>
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="next">Modèle extractable et manipulable <span class="kevOrange">sans effet</span> sur la plate-forme
+
+                <div style="position:absolute;left:240px;bottom:40px;height:180px;border-right: 2px dotted #666; "></div>
+
+                <div style="position:absolute;left:307px;bottom:90px;">
+                    <div class="icon-arrow-up kevGray"></div>
+                </div>
+                <div style="position:absolute;left:305px;bottom:35px;">
+                    <div class="icon-hdd kevGray" style="font-size:30px;"></div>
+                </div>
+
+                <div style="position:absolute;left:300px;bottom:150px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="position:absolute;left:345px;bottom:150px;">
+                    <div class="icon-cogs kevGray"></div>
+                    <div class="icon-arrow-right kevOrange" style="font-size:20px;"></div>
+                </div>
+
+                <div style="position:absolute;left:400px;bottom:150px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close kevOrange" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="position:absolute;left:405px;bottom:35px;">
+                    <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                </div>
+
+            </li>
+            <li class="next">Application (lien causal) <span class="kevOrange">à la demande</span>, par comparaison de modèles
+
+                <div style="position:absolute;left:500px;bottom:40px;height:180px;border-right: 2px dotted #666; "></div>
+
+                <div style="position:absolute;left:560px;bottom:60px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="position:absolute;left:600px;bottom:40px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close kevOrange" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="position:absolute;left:650px;bottom:30px;">
+                    <div class="icon-folder-close kevOrange" style="font-size:20px;"></div>
+                </div>
+                <div style="position:absolute;left:680px;bottom:30px;">
+                    <div class="icon-arrow-right kevOrange" style="font-size:20px;"></div>
+                </div>
+                <div style="position:absolute;left:700px;bottom:30px;">
+                    <div class="icon-hdd kevOrange" style="font-size:30px;"></div>
+                </div>
+            </li>
+
+            <li class="next">Modèle modifié, sauvé comme modèle courant
+
+                <div style="position:absolute;right:220px;bottom:40px;height:180px;border-right: 2px dotted #666; "></div>
+
+                <div style="position:absolute;right:100px;bottom:35px;">
+                    <div style="line-height:0px;margin-left: 5px;text-align:center;">
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevOrange" style="font-size:20px;"></div>
+                        </div>
+                        <div class="iconraph kevOrange">@</div>
+                        <div class=" icon-hdd kevOrange" style="font-size:30px;"></div>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
-
-    <div style="float:left;">
-        <div style="font-size:40px;" class="kevGray">
-            <div style="float:left" class="iconraph">Õ</div>
-            <div style="clear:both;"></div>
-            <div style="float:left" class="iconraph">@</div>
-            <div style="clear:both;"></div>
-            <div style="float:left" class="icon-hdd"></div>
-            <div style="clear:both;"></div>
-        </div>
-    </div>
-    <div style="float:right;">
-        <div style="font-size:40px;" class="kevOrange">
-            <div style="float:left" class="iconraph">Õ</div>
-            <div style="clear:both;"></div>
-            <div style="float:left" class="iconraph">@</div>
-            <div style="clear:both;"></div>
-            <div style="float:left" class="icon-hdd"></div>
-            <div style="clear:both;"></div>
-        </div>
-    </div>
-
-
-    <div style="clear:both;"></div>
-
 </section>
 
 <section class="slide" id="background_distributed">
@@ -1018,7 +1090,11 @@
     </header>
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Abstraction pour représenter et manipuler les DDAS
         <ul>
-            <li class="next"><span class="kevOrange">Metamodèle</span> d'architecture</li>
+            <li class="next"><span class="kevOrange">Metamodèle</span> d'architecture
+
+                <img src="figures/metachannelType.png" style="position:absolute;right:20px;width:30%;" />
+
+            </li>
             <li class="next"><span class="kevOrange">Modèle instance</span> <span class=" icon-reorder kevGray"></span> <span class="kevOrange">état</span> d'un DDAS</li>
             <li class="next">Modèle à composant étendu avec acteurs</li>
             <li class="next"><span class="kevOrange">Entités</span> du modèle <span class="icon-reorder kevGray"></span> dynamiques</li>
@@ -1026,7 +1102,7 @@
         </ul>
     </div>
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Extension et distribution du Model@Runtime</div>
-    <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Inclusion d'une entité dédié à l'explicitation de la cohérence</div>
+    <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Inclusion d'une entité dédié à l'explicitation de la cohérence réflexive</div>
 </section>
 
 <section class="slide" id="kevoree_distributedModelRuntime">
@@ -1286,9 +1362,7 @@
         <span style="font-size:40px;position:absolute;right:230px;top:310px;" class="kevGray icon-arrow-up"></span>
         <span style="font-size:40px;position:absolute;right:230px;top:265px;" class="kevGray icon-cogs"></span>
         <span style="font-size:40px;position:absolute;right:300px;top:265px;" class="kevGray icon-arrow-left"></span>
-
     </div>
-
     <div>
         <ul>
             <li class="next">Processus Model@Runtime <span class="cog kevOrange"></span> exploite un noeud instance
@@ -1605,7 +1679,6 @@
                 </li>
             </ul>
         </li>
-        <li>Sémantique d'acteur distribué pour l'échange de modèle</li>
         <li>Slicing du M@R : synchronisation partielle pour la scalabilité</li>
     </ul>
 
@@ -1613,22 +1686,40 @@
 
 <section class="slide" id="kevoree_marCore">
     <header>
-        <h2>Processus Model@Runtime</h2>
+        <h2>Model@Runtime étendu</h2>
     </header>
-    <ul>
-        <li>Object : garantir de lien causal, processus dirigant l'adaptation</li>
-        <li>Processus
-	            <pre class="brush: kevscript toolbar:false;">
-à chaque arrivé de nouveau modèle : Target
-	pré-appel des groupes, si rejet alors rollback
-	comparaison avec le modèle courant
-	interprétation du diff par le noeud instance, si erreur rollback
-	post-appel des groups, si rejet => rollback
-	sauvegarde du modèle target en tant que courant
-			  			</pre>
-        </li>
-    </ul>
+    <p>Object : garantir de lien causal, processus dirigant l'adaptation</p>
+    <div style="text-align:center;">
+        <img src="figures/modelATruntimeFinal.png" style="width:70%;" />
+    </div>
+
 </section>
+
+<section class="slide" id="kevoree_delegate_node">
+    <header>
+        <h2>Délégation d'adaptation aux noeuds instances</h2>
+    </header>
+</section>
+
+<section class="slide" id="kevoree_utilisation_concrete_load_cluster">
+    <header>
+        <h2>Exemple : montée en charge de serveurs</h2>
+    </header>
+</section>
+
+<section class="slide" id="kevoree_utilisation_concrete_tablet_distributed">
+    <header>
+        <h2>Exemple : flotte mobile</h2>
+    </header>
+</section>
+
+<section class="slide" id="kevoree_utilisation_concrete_sensor_iot">
+    <header>
+        <h2>Exemple : </h2>
+    </header>
+</section>
+
+
 <section class="slide" id="kevoree_conclusion">
     <header>
         <h2>Kevoree face aux besoins des DDAS</h2>
