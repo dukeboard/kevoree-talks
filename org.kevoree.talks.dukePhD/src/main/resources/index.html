@@ -1208,66 +1208,26 @@
 
 <section class="slide" id="kevoree_modularDDASmodel">
     <header>
-        <h2>Composition modulaire de DDAS</h2>
+        <h2>Modèle de composants étendus</h2>
     </header>
-    <p>Séparation des préoccupations pour la modularité, réutilisation</p>
+    <p>Expliciter la topologie des noeuds, composants et communications</p>
+    <img src="figures/kevConcepts.png" style="right:20px;position:absolute;border-radius:5px;width:350px;" />
     <ul>
-        <li class="next">Noeud
+        <li class="next"><span class="kevOrange">Noeuds</span> : plate-forme d'adaptation et exécution
             <ul>
-                <li>Plate-forme d'exécution et d'adaptation</li>
+                <li>encapsule l'adaptation concrète</li>
             </ul>
-            <div class="knode" style="position:absolute;right:100px;top:255px;">
-                <div class="node_name">Noeud 0</div>
-            </div>
-
         </li>
-        <li class="next">Composants
+        <li class="next"><span class="kevOrange">Composants</span> : fonctionnalité métier
             <ul>
-                <li>Encapsule une fonctionnalité métier</li>
                 <li>Communications via ports requis/fournis</li>
-
-                <div class="knode" style="position:absolute;right:100px;top:310px;">
-                    <div class="node_name">Noeud 1</div>
-                    <div class="components">
-                        <div class="ports">
-                            <div class="port"></div>
-                            <div class="port"></div>
-                        </div>
-                        <div class="ctitle">HttpFront</div>
-                        <div class="ports">
-                            <div class="port"></div>
-                        </div>
-                        <div style="clear:both;"></div>
-                    </div>
-                    <div class="components">
-                        <div class="ports">
-                            <div class="port"></div>
-                        </div>
-                        <div class="ctitle">DataBase</div>
-                        <div style="clear:both;padding-right:5px;"></div>
-                    </div>
-                </div>
             </ul>
         </li>
-        <li class="next">Channel
+        <li class="next"><span class="kevOrange">Channels : sémantique de communication</span>
             <ul>
-                <li>Encapsule sémantique de communication</li>
+                <li>encapsule les diffusions complexes (N-N)</li>
+                <li>RoundRobin, File d'attente distribué</li>
             </ul>
-            <div class="kchannel" style="position:absolute;right:240px;top:460px;">
-                <div class="kchannel_title">Ch1</div>
-            </div>
-            <div class="next">
-                <div class="knode" style="position:absolute;right:100px;top:470px;">
-                    <div class="node_name">Noeud 2</div>
-                    <div class="components">
-                        <div class="ports">
-                            <div class="port"></div>
-                        </div>
-                        <div class="ctitle">DataBase</div>
-                        <div style="clear:both;padding-right:5px;"></div>
-                    </div>
-                </div>
-            </div>
         </li>
     </ul>
 </section>
