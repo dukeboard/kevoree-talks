@@ -1042,9 +1042,8 @@
                     <li>Ordre partiel : algorithme de type <span class="kevOrange">Gossip</span></li>
                 </ul>
             </li>
-            <li class="next">Cohérence <span class="kevOrange">à terme</span>
+            <li class="next">Cohérence <span class="kevOrange">à terme</span> : garantie de convergence des répliquats à T+n
                 <ul>
-                    <li>Convergence des répliquats à T+n</li>
                     <li>Résolution de conflits (ordre de résolution connu ou non)</li>
                 </ul>
             </li>
@@ -1087,7 +1086,7 @@
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Abstraction pour représenter et manipuler les DDAS
         <ul>
             <li class="next"><span class="kevOrange">Metamodèle</span> d'architecture
-                <img src="figures/metachannelType.png" style="position:absolute;right:20px;width:30%;top:250px;" />
+               <!-- <img src="figures/metachannelType.png" style="position:absolute;right:20px;width:30%;top:250px;" /> -->
             </li>
             <li class="next"><span class="kevOrange">Modèle instance</span> <span class=" icon-reorder kevGray"></span> <span class="kevOrange">état</span> d'un DDAS</li>
             <li class="next">Modèle à composant étendu avec acteurs</li>
@@ -1639,17 +1638,27 @@
     <header>
         <h2>Model@Runtime étendu</h2>
     </header>
-    <p>Object : garantir de lien causal, processus dirigant l'adaptation</p>
-    <div style="text-align:center;">
-        <img src="figures/modelATruntimeFinal.png" style="width:70%;" />
+    <p>Orchestration d'adaptation pour garantir le lien causal local</p>
+    <div class="next" style="text-align:center;">
+        <img src="figures/modelATruntimeFinal.png" style="width:72%;" />
     </div>
-
+    <div class="next">
+           <span class="kevOrange icon-external-link" style="font-size:50px;position:absolute;right:350px;top:390px;"></span>
+           <span class="kevOrange" style="font-size:20px;position:absolute;right:70px;top:390px;">Appel des groupes</span>
+    </div>
+    <div class="next">
+        <span class="kevOrange icon-screenshot" style="font-size:70px;position:absolute;right:280px;top:450px;"></span>
+        <span class="kevOrange" style="font-size:20px;position:absolute;right:53px;top:460px;">Adaptation concrète</span>
+    </div>
 </section>
 
 <section class="slide" id="kevoree_delegate_node">
     <header>
-        <h2>Délégation d'adaptation aux noeuds instances</h2>
+        <h2>Adaptation concrète : noeud instance</h2>
     </header>
+    <div>
+        TODO
+    </div>
 </section>
 
 <section class="slide" id="kevoree_utilisation_concrete_load_cluster">
@@ -1688,7 +1697,7 @@
     </header>
     <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plate-formes <span class="kevOrange">embarqué Arduino</span> </p>
     <div style="text-align:center;">
-        <img src="figures/iot.png" style="border-radius:5px;position:absolute;left:15px;width:97%;" />
+        <img src="figures/iot.png" style="border-radius:5px;position:absolute;left:20px;width:95%;" />
     </div>
 </section>
 
