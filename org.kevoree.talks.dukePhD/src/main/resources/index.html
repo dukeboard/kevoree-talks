@@ -1996,7 +1996,7 @@
     <object class="next" data="figures/expDivergencyResult.png" type="image/png" class="middle" width="380px" style="float:right;"></object>
     <div style="clear:both;">
         <ul>
-            <li class="next">Première propagation sur un réseau maillé sain
+            <li class="next" id="valid_li_sanity">Première propagation sur un réseau maillé sain
                 <div id="valid_li_sanity_network">
                     <div style="background-color:#CCC;position:absolute;left:100px;top:150px;height:250px;width:380px;opacity: 0.5;border-radius:5px;"></div>
                     <div style="background-color:#CCC;position:absolute;left:520px;top:150px;height:280px;width:80px;opacity: 0.5;border-radius:5px;"></div>
@@ -2026,11 +2026,16 @@
 
     <script type="text/javascript">
         jQuery("#valid_4large_ExpResult_2").bind('nextActivated', function (event, param1, param2) {
+            if(event.target.id == "valid_li_sanity"){
+                jQuery("#valid_li_sanity_network").show();
+            }
             if(event.target.id == "valid_li_error_injected"){
                  jQuery("#valid_li_sanity_network").hide();
+                 jQuery("#valid_li_error_network").show();
             }
             if(event.target.id == "valid_li_error_fixed"){
                 jQuery("#valid_li_error_network").hide();
+                jQuery("#valid_li_sanity_network_2").show();
             }
         });
     </script>
@@ -2064,13 +2069,13 @@
     </header>
     <div>
         <ul>
-            <li><span class="kevOrange">Projet DAUM</span> : système d'information d'urgence
+            <li class="next"><span class="kevOrange icon-ambulance"></span> <span class="kevOrange">Projet DAUM</span> : système d'information d'urgence
                 <ul><li>Collaboration SDIS35, fortement distribué et mobile</li></ul>
             </li>
-            <li><span class="kevOrange">SmartHome</span> : Laboratoire IoT Luxembourg
+            <li class="next"><span class="kevOrange icon-home"></span><span class="kevOrange"> SmartHome</span> : Laboratoire IoT Luxembourg
                 <ul><li>fortement dynamique, hétérogéniété des noeuds</li></ul>
             </li>
-            <li><span class="kevOrange">KevoreeCloud</span> (collaboration avec E.Daubert)
+            <li class="next"><span class="kevOrange"><span class="kevOrange icon-cloud"></span> KevoreeCloud</span> (collaboration avec E.Daubert)
                 <ul>
                     <li>Définition d'une hérarchie des noeuds</li>
                     <li>Extension des noeuds pour piloter les infrastructures Clouds</li>
@@ -2097,10 +2102,18 @@
     </header>
     <div>
         <ul>
-            <li class="next">L'abstraction en réponse à la complexité des DDAS</li>
-            <li class="next">Volonté d'inclure et de rapprocher la dynamicité de la conception</li>
-            <li class="next">Model@Runtime distribué pour exploiter et expliciter la <span>divergence</span></li>
-            <li class="next">Un modèle qui couvre l'adaptation de l'IoT au "Cloud computing"</li>
+            <li class="next">L'<span class="kevOrange">abstraction</span> en réponse à la complexité des DDAS</li>
+            <li class="next"><span class="kevOrange">Model@Runtime distribué</span> pour exploiter et expliciter la <span>divergence</span></li>
+            <li class="next">Une approche qui couvre l'adaptation de l'IoT au "Cloud computing"</li>
+            <li class="next">Inclusion de la <span class="kevOrange">dynamicité</span> dans la conception des logiciels</li>
+            <li class="next"><span class="kevOrange icon-wrench"></span>Kevoree concrétisé par un projet OpenSource (~300 KLOC)
+                <ul>
+                    <li>Validation continu en terme de performance</li>
+                    <li>Validation continu en terme d'expressivité</li>
+                    <li>Contribution en terme de modélisation @Runtime</li>
+                </ul>
+            </li>
+
         </ul>
     </div>
 </section>
