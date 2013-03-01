@@ -1026,19 +1026,19 @@
 
 <section class="slide" id="background_distributed">
     <header>
-        <h2>Concepts de programmation distribué</h2>
+        <h2>Concepts de programmation distribuée</h2>
     </header>
     <div>
         <ul>
             <li class="next">Algorithmes de <span class="kevOrange">consensus</span>
                 <ul>
                     <li>Cohérence globale d'une donnée répliquée</li>
-                    <li>Qorum majoritaire : algorithme de <span class="kevOrange">Paxos</span></li>
+                    <li>Quorum majoritaire : algorithme de <span class="kevOrange">Paxos</span></li>
                 </ul>
             </li>
             <li class="next">Algorithmes <span class="kevOrange">épidémiques</span>
                 <ul>
-                    <li>Prapagation virtal, adapté aux réseaux P2P</li>
+                    <li>Propagation virale, adaptée aux réseaux P2P</li>
                     <li>Ordre partiel : algorithme de type <span class="kevOrange">Gossip</span></li>
                 </ul>
 
@@ -1061,7 +1061,7 @@
                 </div>
 
             </li>
-            <li class="next">Cohérence <span class="kevOrange">à terme</span> : garantie de convergence des répliquats à T+n
+            <li class="next">Cohérence <span class="kevOrange">à terme</span> : garantie de convergence des répliques à T+n
                 <ul>
                     <li>Résolution de conflits (ordre de résolution connu ou non)</li>
                 </ul>
@@ -1092,7 +1092,7 @@
 <section class="slide shout" id="kevoree_cover">
     <h2 style="position: absolute;top:21%;font-size: 50px;color:#CCC;">Domaine</h2>
     <h2 style="position: absolute;top:28%;font-size: 50px;color:#CCC;">Problème</h2>
-    <h2 style="position: absolute;top:35%;font-size: 50px;color:#CCC;">Etat de l'art</h2>
+    <h2 style="position: absolute;top:35%;font-size: 50px;color:#CCC;">État de l'art</h2>
     <h2><span class="kevOrange">></span>Kevoree</h2>
     <h2 style="position: absolute;top:65%;font-size: 50px;color:#CCC;">Validation</h2>
     <h2 style="position: absolute;top:72%;font-size: 50px;color:#CCC;">Conclusion</h2>
@@ -1110,16 +1110,16 @@
             <li class="next"><span class="kevOrange">Modèle instance</span> <span class=" icon-reorder kevGray"></span> <span class="kevOrange">état</span> d'un DDAS</li>
             <li class="next">Modèle à composant étendu avec acteurs</li>
             <li class="next"><span class="kevOrange">Entités</span> du modèle <span class="icon-reorder kevGray"></span> dynamiques</li>
-            <li class="next">Modèle encapsule conception et déploiement</li>
+            <li class="next">Modèle encapsulant conception et déploiement</li>
         </ul>
     </div>
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Extension et distribution du Model@Runtime</div>
-    <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Inclusion d'une entité dédié à l'explicitation de la cohérence réflexive</div>
+    <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Inclusion d'une entité dédiée à l'explicitation de la cohérence réflexive</div>
 </section>
 
 <section class="slide" id="kevoree_distributedModelRuntime">
     <header>
-        <h2>Réflexion distribué orienté Modèle</h2>
+        <h2>Réflexion distribuée orientée Modèle</h2>
     </header>
     <div style="height:250px;">
         <div style="clear:both;">
@@ -1141,7 +1141,7 @@
         </div>
     </div>
     <ul>
-        <li class="next">Intéraction réflexive (structurelle) uniquement au travers de modèles <span class="icon-sitemap kevOrange"></span>
+        <li class="next">Interaction réflexive (structurelle) uniquement au travers de modèles <span class="icon-sitemap kevOrange"></span>
 			<!-- Anim -->
 			<span class="icon-cogs kevGray" style="position:absolute;left:215px;top:300px;"></span>
 			<div style="background-color:#CCC;width:100px;position:absolute;left:212px;top:260px;height:75px;width:44px;opacity: 0.3;border-radius:5px;"></div>
@@ -1149,7 +1149,7 @@
 			<span class="icon-sitemap kevOrange" style="position:absolute;left:150px;top:285px;"></span>
 			<span class="icon-arrow-right kevOrange" style="position:absolute;left:185px;top:300px;"></span>
         </li>
-        <li class="next">Propagation d'adaptation via envoi de modèles <span class="icon-random kevOrange"></span>
+        <li class="next">Propagation d'adaptation <i>via</i> l'envoi de modèles <span class="icon-random kevOrange"></span>
 			<!-- Anim -->
 			<span class="icon-arrow-right kevOrange" style="position:absolute;left:270px;top:270px;"></span>
 			<span class="icon-sitemap kevOrange" style="position:absolute;left:310px;top:270px;"></span>
@@ -1163,7 +1163,7 @@
 			<span class="icon-sitemap kevOrange" style="position:absolute;left:400px;top:220px;"></span>
 			<span class="icon-arrow-up kevOrange" style="position:absolute;left:400px;top:245px;"></span>
         </li>
-        <li class="next">Noeud responsable du lien causal <span class="icon-lock kevOrange"></span> local, adaptation locale seulement
+        <li class="next">Nœud responsable du lien causal <span class="icon-lock kevOrange"></span> local, adaptation locale seulement
             <!-- Anim -->
             <span class="icon-cogs kevGray" style="position:absolute;left:620px;top:270px;"></span>
             <span class="icon-folder-close-alt kevGray" style="position:absolute;left:650px;top:270px;"></span>
@@ -1189,7 +1189,7 @@
         </li>
         <li class="next"><span class="kevOrange">DeployUnit</span>
             <ul>
-                <li>Graphe de dépendance aux briques techniques</li>
+                <li>Graphe de dépendance vers les briques techniques</li>
             </ul>
             <div style="color:#FFF;font-size:18px;background-color:#666;position:absolute;right:100px;top:240px;opacity: 1;border-radius:5px;padding:5px;">
                 <span class="cog"></span></span> Jar_1
@@ -1207,7 +1207,7 @@
         </li>
         <li class="next"><span class="kevOrange">Instance</span>
             <ul>
-                <li><span class="kevOrange">Où</span>, définit l'utilisation localisé d'une fonctionnalité</li>
+                <li><span class="kevOrange">Où</span>, définit l'utilisation localisée d'une fonctionnalité</li>
                 <li class="next">Lien causal, déploiement d'un fragment logiciel
                     <div class="icon-user kevOrange" style="font-size:35px;position:absolute;right:160px;top:500px;"></div>
                     <div class="icon-user kevOrange" style="font-size:35px;position:absolute;right:130px;top:500px;"></div>
@@ -1224,7 +1224,7 @@
 
 <section class="slide" id="kevoree_modularDDASmodel">
     <header>
-        <h2>Modèle de composants étendus</h2>
+        <h2>Modèle de composant étendu</h2>
     </header>
     <p class="next">Expliciter la topologie des noeuds, composants et communications</p>
     <img src="figures/kevConcepts.png" style="right:20px;position:absolute;border-radius:5px;width:350px;" />
