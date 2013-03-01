@@ -36,13 +36,6 @@ function KSlideShow () {
                 applyTransform(getTransform());
             }
         }, false);
-        /*window.addEventListener('popstate', function (e) {
-         if (isListMode()) {
-         gotToList();
-         } else {
-         goToFull();
-         }
-         }, false);*/
 
         if (!isListMode()) {
             goToFull();
@@ -182,12 +175,11 @@ function KSlideShow () {
 
     function updateProgress (slideNumber) {
         // TODO move this kind of style modification into css
+        if (null === progress) {
+            return;
+        }
         var slide = slides[slideNumber];
         if (slide.className.indexOf("cover") == -1 && slide.className.indexOf("shout") == -1) {
-
-            if (null === progress) {
-                return;
-            }
             progress.style.width = (100 / (slideList.length - 1) * normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
             progress.style.visibility = "visible";
         } else {

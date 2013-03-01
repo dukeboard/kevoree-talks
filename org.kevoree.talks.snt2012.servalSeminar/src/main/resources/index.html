@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
+    <!-- Kevoree Keynote Framework -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function ($) {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            ks.addPluginListener(keyboardPlugin);
+            ks.startKeynote();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            SyntaxHighlighter.all();
+        });
+    </script>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushScala.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+    <style>
+        body:not(.list) > .slide:not(.cover):not(.shout):before {
+            position: absolute;
+            content: url(figures/kevg125.svg);
+            top: 5px;
+            right: 5px;
+        }
+
+        .iconFont3 {
+            font-family: 'HeydingsCommonIconsRegular';
+        }
+
+        .kevOrange {
+            color: #DF9D00;
+        }
+
+        .kevGray {
+            color: #666;
+        }
+
+        .slide code {
+            background-color: rgba(223, 157, 41, 0.4);
+        }
+
+        details {
+            display: none;
+        }
+    </style>
+    <link rel='stylesheet' href='iconic_fill/iconic_fill.css' type='text/css' media='screen'/>
+    <link rel="stylesheet" href="foundation-icons-general/stylesheets/foundation-icons-general.css">
+    <link rel="stylesheet" href="heydings-common-icons-fontfacekit/stylesheet.css">
+    <link rel="stylesheet" href="raphaelicons/raphaelicons.css" type="text/css">
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>SNT / Serval Seminar'2012 / Kevoree</h1>
+
+    <p><a href="http://www.kevoree.org/">Francois Fouquet / Kevoree Team</a></p>
+</header>
+
+<!--Cover page  -->
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/KevCoverBack.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+        <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+            Model@Runtime to abstract
+        </span><br/>
+            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+                *Cloud elasticity mechanisms
+            </span><br/>
+        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+            <span class="iconFont3">G</span>
+            +
+            <span class="iconFont3">g</span>
+            <span class="iconic arrow_right_alt1"></span>
+            <span class="iconFont3">3</span>
+            <span class="iconic arrow_right_alt1"></span>
+            (
+            <span class="iconic beaker_alt"></span>
+            <span class="iconic iphone"></span>
+            <span class="iconic cloud"></span>
+            )
+        </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 14px/14px 'PT Sans Narrow', sans-serif;">
+<span class="iconic arrow_right"> by </span> Francois FOUQUET, Triskell Team INRIA</span>
+        </div>
+    </header>
+</section>
+
+
+<section class="slide shout" id="cloud_feature_cover">
+    <h2><span class="kevOrange">></span>Cloud features</h2>
+</section>
+
+
+<section class="slide" id="cloud_feature_1">
+    <header><h2>*Clouds are...</h2></header>
+    <ul class="next">
+        <li class="next">A buzz word ... :-) !</li>
+        <li class="next">A separation of concerns in layers (IaaS, PaaS, SaaS)</li>
+        <li class="next">Regardless of layers separation <span style="font-size: 30px;"
+                                                               class="iconic move_horizontal_alt2 kevOrange"></span>
+            distributed systems
+            <ul>
+                <li>IaaS <span style="font-size: 20px;" class="iconic move_horizontal_alt2 kevGray"></span> set of
+                    machines, PaaS <span style="font-size: 20px;" class="iconic move_horizontal_alt2 kevGray"></span>
+                    set of software containers, etc...
+                </li>
+            </ul>
+        </li>
+        <li class="next">A shared <code>resources set</code> across users (<span class="kevGray">Customers</span>)</li>
+        <li class="next">Dynamic distribution of users on resources</li>
+        <li class="next">Security, isolation and privacy as a service</li>
+    </ul>
+</section>
+
+<section class="slide" id="cloud_feature_2">
+    <header><h2>*Clouds needs ?</h2></header>
+    <p>According to such definition, *Clouds basically need:</p>
+    <ul class="next">
+        <li class="next"><span class="kevOrange">Elasticity</span> (distribution of customer software on
+            infrastructure)
+        </li>
+        <li class="next"><span class="kevOrange">Isolation</span> (keep user processes isolated from each other)
+        </li>
+    </ul>
+    <p class="next"><code>!Scalability <span style="font-size: 20px;"
+                                             class="iconic move_horizontal_alt2 kevGray"></span> !Elasticity
+        strategy</code></p>
+
+    <p class="next"><code>!Security level <span style="font-size: 20px;"
+                                                class="iconic move_horizontal_alt2 kevGray"></span> !Isolation strategy</code>
+    </p>
+</section>
+
+<section class="slide" id="cloud_feature_3">
+    <header><h2>Several *Clouds == Several Virtualizations</h2></header>
+    <p>Similar concepts, Different technologies</p>
+    <ul class="next">
+        <li class="next"><span class="kevOrange">OpenShift</span> by RedHat defines stateless gears (LXC,
+            Para-virtualization)
+        </li>
+        <li class="next"><span class="kevOrange">Amazon EC2 </span> defines Instance (node) (Xen, Full-virtualisation)
+        </li>
+        <li class="next"><span class="kevOrange">GoogleAppEngine </span> uses several *java servers*
+            (Process-virtualization)
+        </li>
+    </ul>
+    <p class="next"><code>Abstraction mechanisms like elasticity are hard to develop and reuse, thus often limited to simple monitoring</code></p>
+</section>
+
+<section class="slide" id="cloud_feature_4">
+    <header><h2>Elasticity : OpenShift stack in two concepts</h2></header>
+    <ul class="next">
+        <li class="next"><span class="kevOrange">Gears</span> define <span class="kevGray">stateless</span>
+            computational nodes (front-end)
+        </li>
+        <li class="next"><span class="kevOrange">DBNode</span> define <span class="kevGray">stateful</span> persistent
+            nodes (back-end)
+        </li>
+    </ul>
+    <center></cen><img class="next" src="scaling-infographic.png"/></center>
+    <ol>
+        <li class="next"><span class="iconic arrow_right_alt1 kevOrange"></span>Scale using gears 'on demand' to replicate
+            customers gears
+        </li>
+        <li class="next"><span class="iconic arrow_right_alt1 kevOrange"></span>Isolation by allocating each gear in an
+            LXC container
+        </li>
+    </ol>
+</section>
+
+<section class="slide" id="cloud_feature_5">
+    <header><h2>Elasticity to serve scaling</h2></header>
+    Scaling <span style="font-size: 20px;" class="iconic move_horizontal_alt2 kevGray"></span> (+/- resources) on <span
+        class="kevGray">monitoring</span> events (latency,cpu load,etc...)
+    <center><img style="width: 400px;" class="next" src="overview-scaling-1.png"/><br/>
+        <span class="kevGray" style="font-size: 15px;">(from OpenShift)</span>
+    </center>
+</section>
+
+<section class="slide" id="cloud_ccl_0">
+    <header>
+        <h2>Go further in terms of complexity</h2>
+    </header>
+    <ul>
+        <li><span class="iconic arrow_right_alt1 kevOrange"></span>Abstraction to manipulate cloud stack</li>
+        <li><span class="iconic arrow_right_alt1 kevOrange"></span>I-Elasticity by monitoring global structural model of
+            systems
+        </li>
+        <li><span class="iconic arrow_right_alt1 kevOrange"></span>Dedicated strategy for dedicated usages !</li>
+    </ul>
+</section>
+
+<section class="slide shout" id="openQuestion">
+    <h2>Considering *Cloud as <span class="kevOrange">DDAS</span> ?</span></h2>
+</section>
+
+<section class="slide shout" id="kevcloud_title">
+    <h2><span class="kevOrange">></span>Kevoree for Cloud <span class="iconic cloud kevOrange"></span></h2>
+</section>
+
+<section class="slide" id="kevproject_overview">
+    <header>
+        <h2>Model@Runtime for DDAS</h2>
+    </header>
+    <ul>
+        <li class="next"><strong class="kevOrange">MDE@Runtime</strong>
+            <ul>
+                <li>Architecture model shared accros distributed nodes</li>
+                <li>Offline & online operations, compute@Model level, apply @Runtime</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">Component-based</strong>
+            <ul>
+                <li>Communication semantics between components in channels</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">Heterogeneity management</strong> with NodeType
+            <ul>
+                <li> Java Node, Dalvik Node, Arduino Node</li>
+                <li>Cloud Node (Jails/*BSD, LXC, (controled)-cloud(p-Joke Yves:-)), EC2)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="kevproject_concepts">
+    <header>
+        <h2>Kevoree concepts reminder</h2>
+    </header>
+    <ul>
+        <li class="next"><strong class="kevOrange">ComponentType</strong>
+            <ul>
+                <li>Encapsulates domain features</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">ChannelType</strong>
+            <ul>
+                <li>Encapsulates communication semantics</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">GroupType</strong>
+            <ul>
+                <li>Encapsulates model@runtime dissemination semantics</li>
+            </ul>
+        </li>
+        <li class="next"><strong class="kevOrange">NodeType</strong>
+            <ul>
+                <li>Encapsulates adaptation semantics</li>
+            </ul>
+        </li>
+    </ul>
+    <object style="position:absolute;top: 150px;right: 10px;" data="figures/kevConcepts.png" type="image/png"
+            height="360"></object>
+</section>
+
+
+<section class="slide" id="kevcloud_intro">
+    <header>
+        <h2>Managing isolation with Kevoree nodes</h2>
+    </header>
+    <ul>
+        <li>Kevoree node is a container of components <code>AND</code> child nodes !</li>
+        <li>A parent node has responsibility for child's nodes life-cycle (start/stop)</li>
+        <li>Hosting <span style="font-size: 30px;" class="iconic move_horizontal_alt2 kevOrange"></span> isolation
+            (parent does not follow children life-cycle(crash))
+        </li>
+        <li>NodeType refine adaptation strategy</li>
+        <li>Think the Cloud as a hierarchy : IaaSNode -> PaaSNode -> SaaSNode</li>
+        <img src="kevoreeIsolationLevels.png"/>
+    </ul>
+</section>
+
+<section class="slide" id="kevcloud_nodeType">
+    <header>
+        <h2>IaaS and PaaS nodes</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">Add/Remove children nodes</li>
+            <li class="next">Available NodeType
+                <ul>
+                    <li class="next">MiniCloud : (Add/Remove Java Virtual Machine)</li>
+                    <li class="next">FreeBSD Jails: (Add/Remove VM in the same kernel space)</li>
+                    <li class="next">SmartOS Zone: (same as Jail)</li>
+                    <li class="next">KVM: Hypervisor management</li>
+                    <li class="next">Amazon EC2: Add/Remove EC2 Virtual Machine</li>
+                    <li class="next">LXC: User space virtualization</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml">
+    <header>
+        <h2>KevScript as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">KevoreeScript abstracts model manipulation</li>
+            <li class="next">IaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+//add IaaSPlatform 
+addNode iaasKVM21 : KVMNode {ip="10.0.1.5"}
+//add two user node
+addNode userNode1 : JavaSENode
+addNode userNode2 : UbuntuNode {version="12.04"}
+//attach to IaaSNode42
+addChild userNode1,userNode2@iaasKVM21
+			  			</pre>
+            </li>
+            <li class="next">PaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+addNode worker2@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+addNode worker3@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+moveComponent *@worker1 => worker2
+removeNode worker1@IaaSNode42
+			  			</pre>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide" id="kevcloud_kevsADcloudml2">
+    <header>
+        <h2>Kevoree as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">SaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+moveComponent mongoDB@userNode1 => userNode2
+moveComponent nodeJS@userNode1 => userNode2
+			  			</pre>
+            </li>
+            <li>KevScript is a backend to express cloud elasticity
+			            <pre class="brush: java toolbar:false;">
+							if(detectOverHead()){
+							this.interpretAndDeploy("script ");
+							//call local adaptation layer, propagation is done through groups
+							}
+			  			</pre>
+                Like any component cloud reasoning engines are able to interact with Model@Runtime layer.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide shout" id="ElasticCloud">
+    <h2><span class="kevOrange">></span>Elastic Kevoree</h2>
+</section>
+
+<section class="slide" id="elasticKexperiment_0">
+    <header>
+        <h2>A simple multi-axial optimisation</h2>
+    </header>
+    Let define, two toy rules to illustrate elasticity <span class="kevGray" style="font-size: 20px;">(done with Jorge and Donia)</span>
+    <ul>
+        <li><span class="kevOrange">CPULoad: </span> load balance node to ensure CPU time of customer</li>
+        <li><span class="kevOrange">Security: </span> ensure that !customer PaaS node don't share an IaaS node</li>
+        <li><span class="kevOrange">Cost: </span> reduce the number of IaaS nodes used</li>
+    </ul>
+    Let define reactions, <span class="kevOrange">move PNode</span> to :
+    <ul>
+        <li>ensure that (father.CPULoad <= SUM(child.CPULoad))</li>
+        <li>ensure that on same host (child1.OWNER==child2.OWNER)</li>
+    </ul>
+</section>
+
+<section class="slide" id="elasticKexperiment_1">
+    <header>
+        <h2>Different adaptation speeds</h2>
+    </header>
+    It costs far more computational time to optimize the cloud, rather to extend it.
+    Define two kind of rules and corresponding reasoners:
+    <ul>
+        <li><span class="kevOrange">Reactive</span> ECA like engine to quick reply to load</li>
+        <li><span class="kevOrange">Long terme</span> Genetic or Gredy engine to perform optimization</li>
+    </ul>
+    <code>Difficulty to combine reasoners</code>
+
+    <p><span class="iconic arrow_right_alt1 kevOrange"></span>Solution : define reasoners as chained hierarchical
+        components</p>
+</section>
+
+<section class="slide" id="elasticKexperiment_2">
+    <header>
+        <h2>Experiment on Kevoree</h2>
+    </header>
+    <p>We define CPU load and OWNER as <span class="kevOrange">Kevoree property</span> on Kevoree nodes.<br/>
+    We embedded ECA algorithm as <span class="kevOrange">component</span> in a ControlledCloud (Java Process virtualisation).
+    </p>
+        <img src="elasticCloud" style="width: 350px; position: absolute;right: 50px;bottom: 50px;">
+
+</section>
+
+<section class="slide" id="elasticKexperiment_3">
+    <header>
+        <h2>Preliminary results : V1</h2>
+    </header>
+    Detect overloaded nodes
+<pre class="brush: java toolbar:false; highlight:[6];">
+for(ContainerNode IAASNODE: model.getNodesForJ()){
+    if(ModelHelper.isHostNode(IAASNODE)){
+        Integer sumVal = ModelHelper.sumChildIntegerProperty(IAASNODE,propertyName);
+        Integer capacityPower = ModelHelper.sumIntegerProperty(IAASNODE,propertyName);
+        Integer powerNeeded = ModelHelper.sumIntegerProperty(overloadedNode.getHostsForJ().get(0),propertyName);
+        if(powerNeeded < (capacityPower - sumVal)){
+            //call move
+        }
+    }
+}
+</pre>
+
+    Look for new host candidate (iaasNode) and apply transition
+
+<pre class="brush: java toolbar:false; highlight:[5];">
+KevScriptOfflineEngine kevScriptEngine2 =new KevScriptOfflineEngine(model,bs);
+kevScriptEngine2.addVariable("nodeViolated",nodeViolated.getName());
+kevScriptEngine2.addVariable("overloadedNode",overloadedNode.getName());
+kevScriptEngine2.addVariable("iaasNode",IAASNODE.getName());
+kevScriptEngine2.append("moveChild {nodeViolated}@{overloadedNode} => {iaasNode}");
+return kevScriptEngine2.interpret();
+</pre>
+</section>
+
+<section class="slide" id="elasticKexperiment_3bis">
+    <header>
+        <h2>Preliminary results #2</h2>
+    </header>
+    Version #2 is write with Rule engine <span class="kevGray">(Hammurabi)</span>
+<pre class="brush: scala toolbar:false; highlight:[11];">
+val r = rule("Security Rule 1") let {
+  val parentNode = kindOf[ContainerNode].having(_.getHosts.size > 0)
+  val childNode_1 = kindOf[ContainerNode].having(getProperty(_, "OWNER") != null)
+  val childNode_2 = kindOf[ContainerNode].having(getProperty(_, "OWNER") != null)
+  when {
+    (
+      (childNode_1 != parentNode)
+        && (childNode_2 != parentNode)
+        && (parentNode.getHosts.contains(childNode_1))
+        && (parentNode.getHosts.contains(childNode_2))
+        && (getProperty(childNode_1, "OWNER") != getProperty(childNode_2, "OWNER"))
+      )
+  } then {
+   //apply optimisation
+  }
+}
+</pre>
+</section>
+
+<section class="slide" id="elasticKexperiment_4">
+    <header>
+        <h2>Preliminary results #2</h2>
+    </header>
+    <span style="font-size: 20px;" class="kevOrange">JavaSENode.CPU=700, MiniCloud.CPU=1000, custDonia.OWNER=C1, custDonia.OWNER=C2</span>
+
+    <div style="text-align: center;">
+        <img src="pr_step1" style="width: 550px;"/><br/>
+        <span class="iconic arrow_down_alt1 kevOrange"></span><br/>
+        <img src="pr_step2" style="width: 550px;"/>
+    </div>
+</section>
+
+
+<section class="slide" id="elasticKexperiment_5">
+    <header>
+        <h2>What about scalability ?</h2>
+    </header>
+    Micro BenchMark with <span class="kevGray">Google Caliper</span> (10trials/each, only offline)
+
+    <div style="text-align: center;"><img src="pr_scal.png" style="width: 500px;">
+<pre class="brush: kevs toolbar:false; highlight:[12, 13];">
+size        benchmark     ms linear runtime
+   5      RuleMatcher  16,32 ==
+   5 HandWriteMatcher   2,97 =
+  10      RuleMatcher  10,48 =
+  10 HandWriteMatcher   3,29 =
+  50      RuleMatcher   8,96 =
+  50 HandWriteMatcher  13,10 ==
+ 100      RuleMatcher  32,75 =====
+ 100 HandWriteMatcher  29,97 ====
+ 200      RuleMatcher 163,39 ===========================
+ 200 HandWriteMatcher  46,96 =======
+ 500      RuleMatcher 181,44 ==============================
+ 500 HandWriteMatcher 116,77 ===================
+    </pre>
+    </div>
+</section>
+
+<section class="slide shout" id="HybridSmartMeter">
+    <h2><span class="kevOrange">></span>IoT Kevoree</h2>
+</section>
+
+<section class="slide" id="SmartGrid_IOT_DDAS_CONVERGENCY">
+    <header>
+        <h2>DDAS are non only composed by Cloud computer frames !</h2>
+    </header>
+    <p><span class="iconic arrow_right_alt1 kevOrange"></span>But also with sensors, low consumption computers, smartphones,...</p>
+    <p><span class="iconic chat kevOrange"></span>IoT and DDAS(IoS) convergence</p>
+    <p><span class="iconic link kevOrange"></span>Hybrid cloud to extend DataCenters with nodes closer to users with sensing ability
+    <div style="text-align:center;">
+        <span class="kevOrange">public</span><span style="font-size:70px;"
+                                                   class="iconic cloud kevOrange"></span>
+        <span style="font-size:30px;color: #CCC;" class="iconic spin"></span>
+        <span style="font-size:100px;" class="kevGRay iconraph">k</span>
+        <span class="kevGray">private</span>
+    </div>
+    </p>
+</section>
+
+<section class="slide" id="SmartGrid_IOT_DDAS_CONVERGENCY_0">
+    <header class="next">
+        <h2>Hybrid cloud extends elasticity requirements !</h2>
+    </header>
+    <ul>
+        <li class="next">Composed by cheap low consumption computer
+            <img src="cbsefig/RasperryPi.jpg"
+                 style="position: absolute;right:190px;height:150px;top:420px;border-radius: 10px;"/>
+        </li>
+        <li class="next">Personal dynamic hosting
+            <ul>
+                <li>Load balance between data-centers frames and home computer</li>
+            </ul>
+        </li>
+        <li class="next"><code>Can SmartGrid reuse such an architecture ?</code></li>
+    </ul>
+</section>
+
+<section class="slide" id="SmartGrid_IOT_DDAS_CONVERGENCY_1">
+    <header>
+        <h2>Next generation SmartGrid requirements !</h2>
+    </header>
+    Next generation SmartGrid must help to build reactive power consumption to reduce load peaks
+    <ul>
+        <li>Provider will host monitoring <span class="iconic chart_alt kevOrange"></span> components and sensors</li>
+        <li>User will deploy added value services and connections to home devices</li>
+        <li><span class="iconic pin kevOrange"></span> A long term goal : local micro energy generation managment !</li>
+    </ul>
+    Thesis ongoing on this subject <span class="kevGray"><br />(Triskell+OpenUniversity)</span> (Jacky Bourgeois)
+</section>
+
+<section class="slide" id="smartGrid_meet_cloud">
+    <header>
+        <h2>SmartGrid meet *Cloud requirements</h2>
+    </header>
+    Finally SmartGrid devices share *Cloud concepts
+    <ul>
+        <li><span class="kevOrange">Elasticity:</span> to balance components' load between remote infrastructure and
+            customer hosting
+        </li>
+        <li><span class="kevOrange">Isolation:</span> of critical section and keep smartMeters opened for customers' components
+            For instance, virtualization between user casual service and electricity provider administration tools
+        </li>
+    </ul>
+</section>
+
+<section class="slide" id="smartGrid_meet_cloud_bis">
+    <header>
+        <h2>SmartGrid meet *Cloud requirements</h2>
+    </header>
+    For instance, <span class="kevOrange">isolation</span> can be represented in Kevoree model with nodes
+    <div style="text-align:center;">
+	<img src="smartMeterModel.png">
+	</div>
+</section>
+
+<section class="slide" id="smartGrid_meet_cloud_2">
+    <header>
+        <h2>SmartGrid meet *Clouds requirements</h2>
+    </header>
+    <span class="iconic battery_charging kevOrange"></span> SmartGrid must also meet embedded systems requirements
+    <ul>
+        <li>Be able to run on small devices like ARMv6 and ARMv7</li>
+        <li>Lightweight virtualization (Shared Kernel and Para-Virtualisation)</li>
+    </ul>
+    <p>Can we reuse DDAS platform like Kevoree to build such devices ?<br />
+        <span class="iconic arrow_right_alt1 kevOrange"></span> Porting of Kevoree on ARM is on the go to optimize the deployment and runtime
+    </p>
+</section>
+
+<section class="slide" id="opening">
+    <header>
+        <h2>Wide opening : I have a dream...</h2>
+    </header>
+    <p><span class="iconic rss kevOrange"></span> As cloud cost, envisaged SmartGrid will be highly dynamic</p>
+
+    <p><span class="iconic image kevOrange"></span> In 4 years, electricity costs (prevision in UK) will change every 15
+        minutes according to load.</p>
+
+    <p><span class="iconic arrow_right_alt1 kevOrange"></span> Can we adapt consumption with multi-axials criteria ?</p>
+    <p><span class="iconic arrow_right_alt1 kevOrange"></span> Manage SmartGrid like we optimize *Cloud resources ?</p>
+</section>
+
+
+<!-- Last slide, last chance -->
+
+<section class="slide" id="onlyRetains">
+    <header><h2>Only one slide to remember</h2></header>
+    <p>If you got lost <span class="kevOrange iconraph">R</span></p>
+    <ul>
+        <li class="next">Kevoree <span class="iconic move_horizontal_alt2 kevOrange"></span> Abstraction model for
+            distributed adaptive systems <span class="kevOrange iconraph">Ü</span></li>
+        <li class="next">Model@Runtime eases the manipulation of systems <span class="kevOrange iconraph">P</span></li>
+        <li class="next">Ready for cloud and elasticity algorithms development <span class="kevOrange iconraph">k</span>
+        </li>
+        <li class="next">We plan to extends elasticity ideas to IoT like SmartGrid <span class="iconraph kevOrange">U</span></li>
+        <li class="next">Open source <span class="iconraph kevOrange">U</span></li>
+        <li class="next">If you don't like cloud, we also build drone with Kevoree ;-) <br/>
+			 <span class="iconic arrow_right_alt1 kevOrange"></span> to fly to the clouds <span class="iconraph kevOrange">2</span>
+            <img src="kevDrone.jpg" style="right: 50px; top:150px;width: 400px;position: absolute; border-radius: 5px;">
+        </li>
+    </ul>
+</section>
+
+<section class="slide shout" id="ThanksYouCover">
+    <h2><span class="kevOrange">></span>Thank you</h2>
+</section>
+
+<!-- Kevoree Publication -->
+<section class="slide" id="ref">
+    <header>
+        <h2>References</h2>
+    </header>
+    <ul style="font-size: 12px;">
+        <li>Fouquet, Francois and Daubert, Erwan and Plouzeau, Noel and Barais, Olivier and Bourcier, Johann and
+            Jezequel, Jean-Marc -- Dissemination of reconfiguration policies on mesh networks
+        </li>
+        <li>F. Fouquet, O. Barais, N. Plouzeau, J-M. Jézéquel, B. Morin and F. Fleurey. -- A Dynamic Component Model for
+            Cyber Physical Systems. -- In CBSE: 15th International ACM SIGSOFT Symposium on Component Based Software
+            Engineering. Bertinoro, Italy, June 2012.
+        </li>
+        <li>E. Daubert, F. Fouquet, O. Barais, G. Nain, G. Sunyé, J-M. Jézéquel, J-L. Pazat and B. Morin. -- A
+            models@runtime framework for designing and managing Service-Based Applications. -- In ICSE Workshop on
+            European Sofware Services and Systems Research - Research and Challenges (S-Cube). Zurich, Switzerland, May
+            2012.
+        </li>
+        <li>Nain, Grégory , Fouquet, François , Morin, Brice , Barais, Olivier and
+            Jézéquel, Jean-Marc (2010) Integrating IoT and IoS with a Component-Based approach. In Procedings of
+            the 36th EUROMICRO Conference on Software Engineering and Advanced Applications (SEAA 2010). Lille,
+            France.
+        </li>
+        <li>André, Francoise, Daubert, Erwan , Nain Grégory , Morin, Brice and Barais,
+            Olivier (2010) F4Plan: An Approach to build Efficient Adaptation Plans. In MobiQuitous.
+        </li>
+        <li>Brice Morin, Olivier Barais, Grégory Nain, Jean-Marc Jézéquel: Taming
+            Dynamically Adaptive Systems using models and aspects. ICSE 2009: 122-132
+        </li>
+        <li>Brice Morin, Olivier Barais, Jean-Marc Jézéquel, Franck Fleurey, Arnor
+            Solberg:s Models@Run.time to Support Dynamic Adaptation. IEEE Computer 42(10): 44-51 (2009)
+        </li>
+    </ul>
+    <h2 style="text-align: center;font-size: 30px;">Kevoree is open source <span class="iconraph">U</span>, try it at
+        <a href="http://kevoree.org">kevoree.org</a></h2>
+</section>
+
+<div class="progress">
+    <div></div>
+</div>
+</body>
+</html>

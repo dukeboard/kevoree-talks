@@ -12,21 +12,23 @@
 
     <modules>
         <module>../org.kevoree.talks.framework</module>
-        <module>../org.kevoree.talks.adam</module>
+       <!-- <module>../org.kevoree.talks.adam</module> -->
         <module>../org.kevoree.talks.ubimob2012</module>
         <module>../org.kevoree.talks.ubimob2012Demo</module>
         <module>../org.kevoree.talks.ws</module>
         <module>../org.kevoree.talks.dais2012</module>
         <module>../org.kevoree.talks.cbse2012</module>
         <module>../org.kevoree.talks.snt2012</module>
+		<module>../org.kevoree.talks.snt2012.servalSeminar</module>
         <module>../org.kevoree.talks.models2012</module>
-        <module>../org.kevoree.talks.mavenplugin</module>
+        <!--<module>../org.kevoree.talks.curitiba2012</module>
+        <module>../org.kevoree.talks.mavenplugin</module>-->
     </modules>
 
     <properties>
         <talks.version>2.1.0-SNAPSHOT</talks.version>
         <talks.framework.version>2.1.2</talks.framework.version>
-        <kevoree.version>1.8.8</kevoree.version>
+        <kevoree.version>2.0.0-SNAPSHOT</kevoree.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
