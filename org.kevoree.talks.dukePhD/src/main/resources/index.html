@@ -1101,7 +1101,7 @@
         </ul>
     </div>
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Extension et distribution
-        du Model@Runtime
+        du Model@Runtime (D-M@R)
     </div>
     <div class="next"><span class="icon-map-marker kevOrange" style="font-size:35px;"></span> Entité dédiée à
         l'explicitation de la cohérence réflexive
@@ -1223,7 +1223,8 @@
 
     <div style="padding-top:280px;">
         <ul>
-            <li class="next">À réception, orchestration Model@Runtime <span class="cog kevOrange" style="font-size:25px;"></span> migre d'état
+            <li class="next">À réception, orchestration Model@Runtime <span class="cog kevOrange"
+                                                                            style="font-size:25px;"></span> migre d'état
                 <span style="font-size:35px;position:absolute;right:490px;top:240px;"
                       class="kevOrange icon-arrow-down"></span>
                 <span style="font-size:35px;position:absolute;right:490px;top:195px;"
@@ -1261,14 +1262,16 @@
                     </div>
                 </div>
             </li>
-            <li class="next"><span class="kevOrange">Différence</span> de modèle sur la partie spécifique au noeud 0 (ajout module)
+            <li class="next"><span class="kevOrange">Différence</span> de modèle sur la partie spécifique au noeud 0
+                (ajout module)
                 <span class="icon-circle-arrow-left"
                       style="color:#000;position:absolute;right:320px;top:275px;font-size:40px;"></span>
                 <span class="icon-circle-arrow-up"
                       style="color:#000;position:absolute;right:120px;top:270px;font-size:40px;"></span>
             </li>
             <li class="next">
-                Après <span class="kevOrange">application</span> des différences, <span class="kevOrange">lien causal local</span> assuré et sauvegarde
+                Après <span class="kevOrange">application</span> des différences, <span class="kevOrange">lien causal local</span>
+                assuré et sauvegarde
             </li>
         </ul>
     </div>
@@ -1297,21 +1300,24 @@
             <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
         </div>
     </div>
-    <span class="next"><span class="kevOrange icon-exclamation-sign "></span> Chaque noeud <div class=" icon-hdd kevGray" style="font-size:30px;"></div> possède un M@R</span>
-
+    <span class="next"><span class="kevOrange icon-exclamation-sign "></span> Chaque noeud <div
+            class=" icon-hdd kevGray" style="font-size:30px;"></div> possède un M@R</span>
     <ul>
-        <li class="next">Interaction réflexive (structurelle) uniquement au travers de modèles <span class="icon-sitemap kevOrange"></span></li>
+        <li class="next">Interaction réflexive (structurelle) uniquement au travers de modèles <span
+                class="icon-sitemap kevOrange"></span></li>
         <li class="next">Intéraction locale (précédent slide)
             <!-- Anim -->
             <span class="icon-cogs kevGray" style="position:absolute;left:150px;top:270px;"></span>
+
             <div style="background-color:#666;width:100px;position:absolute;left:212px;top:260px;height:75px;width:44px;opacity: 0.3;border-radius:5px;"></div>
             <span class="icon-arrow-left kevOrange" style="position:absolute;left:185px;top:270px;"></span>
             <span class="icon-sitemap kevOrange" style="position:absolute;left:150px;top:295px;"></span>
             <span class="icon-arrow-right kevOrange" style="position:absolute;left:185px;top:300px;"></span>
         </li>
 
-        <li class="next">Après modification, <span class="kevOrange">propagation d'adaptation</span> <i>via</i> l'envoi de modèles <span
-                class="icon-random kevOrange"></span>
+        <li class="next">Après modification, <span class="kevOrange">propagation d'adaptation</span> <i>via</i> l'envoi
+            de modèles <span
+                    class="icon-random kevOrange"></span>
             <!-- Anim -->
             <span class="icon-arrow-right kevOrange" style="position:absolute;left:270px;top:270px;"></span>
             <span class="icon-sitemap kevOrange" style="position:absolute;left:310px;top:270px;"></span>
@@ -1397,7 +1403,8 @@
     <header>
         <h2>Modèle de composant étendu</h2>
     </header>
-    <p class="next"><span class="kevOrange icon-comment"></span> Expliciter la topologie des nœuds, composants et communications</p>
+    <p class="next"><span class="kevOrange icon-comment"></span> Expliciter la topologie des nœuds, composants et
+        communications</p>
     <img src="figures/kevConcepts.png" style="right:20px;position:absolute;border-radius:5px;width:350px;"/>
     <ul>
         <li class="next"><span class="kevOrange">Nœuds</span> : plate-forme d'adaptation et d'exécution
@@ -1455,15 +1462,27 @@
     <div style="height:200px;padding-left:100px;">
         <!-- Stack 1-->
         <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 0</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:70px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1488,24 +1507,28 @@
                     <div style="clear:both;"></div>
                 </div>
             </div>
-        </div>
-
-        <div style="font-size:30px;float:left;margin:5px;padding-top:165px;">
-            <div class=" icon-resize-horizontal kevOrange"></div>
-            <div class=" icon-refresh kevOrange"></div>
-            <div class=" icon-resize-horizontal kevOrange"></div>
         </div>
 
         <!-- Stack 2-->
-        <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+        <div style="float:left;margin-left:90px;">
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 1</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:50px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1532,23 +1555,27 @@
             </div>
         </div>
 
-        <div style="font-size:30px;float:left;margin:5px;padding-top:165px;">
-            <div class=" icon-resize-horizontal kevOrange"></div>
-            <div class=" icon-refresh kevOrange"></div>
-            <div class=" icon-resize-horizontal kevOrange"></div>
-        </div>
-
         <!-- Stack 3-->
-        <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+        <div style="float:left;margin-left:115px;">
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 2</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:70px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1577,10 +1604,32 @@
         <div style="clear:both;"></div>
     </div>
     <div style="clear:both;margin-bottom:20px;"></div>
-    <p><span class="kevOrange icon-warning-sign"></span> Une réplique du Model@Runtime par nœud</p>
 
-    <p><span class="kevOrange icon-rss"></span> Synchronisation du DDAS <span class="kevOrange icon-reorder"></span>
-        synchronisation des répliques de M@R</p>
+    <div>
+        <ul>
+            <li class="next"><span class="kevOrange icon-warning-sign"></span> Un réplique du <span class="kevOrange">modèle globale</span> par noeud,
+                lien causal local
+            </li>
+            <li class="next"><span class="kevOrange icon-rss"></span> Synchronisation gloable du DDAS <span
+                    class="kevOrange icon-reorder"></span>
+                synchronisation des répliques
+                <!-- Anim -->
+                <div style="position:absolute;font-size:30px;left:329px;top:300px;">
+                    <div class=" icon-resize-horizontal kevOrange"></div>
+                    <div class=" icon-refresh kevOrange"></div>
+                    <div class=" icon-resize-horizontal kevOrange"></div>
+                </div>
+                <div style="position:absolute;font-size:30px;right:330px;top:300px;">
+                    <div class=" icon-resize-horizontal kevOrange"></div>
+                    <div class=" icon-refresh kevOrange"></div>
+                    <div class=" icon-resize-horizontal kevOrange"></div>
+                </div>
+            </li>
+            <li class="next">Se ramène donc à un problème d'algorithme distribué</li>
+        </ul>
+    </div>
+
+
 </section>
 
 
@@ -1633,18 +1682,28 @@
     <header>
         <h2>Cohérence hétérogène</h2>
     </header>
-    <div style="height:200px;padding-left:100px;">
+    <div style="height:200px;padding-left:50px;">
         <!-- Stack 1-->
         <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 0</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:70px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1680,14 +1739,25 @@
 
         <!-- Stack 2-->
         <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-hdd kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 1</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:70px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1723,15 +1793,25 @@
 
         <!-- Stack 3-->
         <div style="float:left;">
-            <div style="background-color:#CCC;width:100px;height:50px;opacity: 0.6;border-radius:5px;padding:5px;">
-                <div class=" icon-tablet kevGray" style="font-size:30px;float:left;"></div>
-                <div style="clear:both;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-                <div class=" icon-folder-close-alt" style="font-size:20px;color:#000;float:left;"></div>
-            </div>
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div style="width:60px;text-align:center;float:left;line-height:10px;">
+                            <span class="kevGray" style="font-size:15px;">Noeud 2</span>
+                            <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:5px;"></span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <div class="kevRuntime kevGray"
+                             style="float:right;padding:5px;font-size:20px;width:70px;line-height:0px;">
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                            <span class=" icon-folder-close-alt"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
             <div style="text-align:center;width:100px;">
-                <span class="icon-lock kevGray" style="font-size:30px;"></span>
                 <span class="icon-cogs kevGray" style="font-size:30px;"></span>
                 <span class="icon-resize-vertical kevGray" style="font-size:30px;"></span>
             </div>
@@ -1761,13 +1841,11 @@
     </div>
     <div style="clear:both;margin-bottom:20px;"></div>
     <div class="next">
-        <p><span class="kevOrange icon-warning-sign"></span> Différentes garanties de synchronisation de M@R</p>
+        <span class="kevOrange icon-warning-sign"></span> Différentes garanties de synchronisation de M@R
     </div>
     <div class="next">
-        <p><span class="kevOrange icon-rss"></span> <span class="kevOrange">Groupe : </span> explicitation du lien de
-            cohérence</p>
-
-        <div style="position:absolute;left:365px;top:220px;text-align:center;">
+        <span class="kevOrange icon-rss"></span> <span class="kevOrange">Entité Groupe : </span> explicitation du lien de cohérence</span>
+        <div style="position:absolute;left:345px;top:220px;text-align:center;">
             <div class="kgroup">
                 <div class="kgroup_title">
                     G_Paxos
@@ -1784,6 +1862,10 @@
             <div class="kevOrange icon-circle-arrow-down"></div>
         </div>
     </div>
+    <div class="next">
+        <span class="kevOrange icon-tag"></span> <span class="kevOrange">encapsule</span> les différents algorithmes de <span class="kevOrange">synchronisation distribué</span>
+    </div>
+
 </section>
 
 <section class="slide" id="kevoree_groupDetails">
@@ -1794,7 +1876,7 @@
         <li class="next"><span class="kevOrange">Fragmenté</span> sur chaque nœud abonné, communication inter-fragment
             <img src="figures/groupFragmentation.png" style="width:60%;position:absolute;bottom:20px;right:50px;"/>
         </li>
-        <li class="next">Intercepte le processus M@R local pour introduire la synchronisation
+        <li class="next">Intercepte le processus M@R local
             <ul>
                 <li><span class="kevOrange">Avant</span> modification locale : Paxos</li>
                 <li><span class="kevOrange">Après</span> modification locale : Gossip, Rollback distribué,etc...
