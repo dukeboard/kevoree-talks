@@ -21,6 +21,9 @@
         <module>../org.kevoree.talks.snt2012</module>
 		<module>../org.kevoree.talks.snt2012.servalSeminar</module>
         <module>../org.kevoree.talks.models2012</module>
+		
+		<module>../org.kevoree.talks.dukePhD</module>
+		
         <!--<module>../org.kevoree.talks.curitiba2012</module>
         <module>../org.kevoree.talks.mavenplugin</module>-->
     </modules>
