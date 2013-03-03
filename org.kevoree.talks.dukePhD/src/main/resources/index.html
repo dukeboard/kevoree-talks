@@ -728,7 +728,7 @@
         <div class="next">
             <span class=" icon-map-marker kevOrange" style="font-size:30px;"></span>
             <span> Si plusieurs noeuds capable de calculer les adaptations, alors</span>
-            <br />
+            <br/>
             Divergence conflictuel de C et A en cas d'adaptations concurrentes
             <span class="kevGray" style="font-size:18px;position:absolute;top:150px;right:220px;">Ajout composant à <b
                     class="kevOrange">B</b></span>
@@ -1060,7 +1060,9 @@
             <li class="next">La plupart des DDAS se base sur une <span class="kevOrange">adaptation centralisé</span>
             </li>
             <li class="next">Peu/Pas de prise en compte de la <span class="kevOrange">divergence</span></li>
-            <li class="next">M@R offre une <span class="kevOrange">reflexion asynchrone</span>, applicable en sur les DDAS ?</li>
+            <li class="next">M@R offre une <span class="kevOrange">reflexion asynchrone</span>, applicable en sur les
+                DDAS ?
+            </li>
         </ul>
     </div>
 </section>
@@ -1653,7 +1655,7 @@
                     <li>Ordre partiel : algorithme de type <span class="kevOrange">Gossip</span></li>
                 </ul>
                 <div style="right:50px;position:absolute;top:250px;">
-                    <span class="kevGray" style="font-size:25px;">Inondation de réseau</span><br />
+                    <span class="kevGray" style="font-size:25px;">Inondation de réseau</span><br/>
                     <span class="icon-hdd kevOrange"></span>
                     <span class="icon-hdd"></span>
                     <span class="icon-hdd"></span>
@@ -1963,9 +1965,10 @@
         <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
             class="kevOrange icon-coffee"> Java </span> (KCL, OSGi, Frascati)
     </div>
-     <div class="next">
-         <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Cluster de deux noeuds : cohérence forte, un seul serveur Web
-     </div>
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Cluster de deux noeuds : cohérence forte, un
+        seul serveur Web
+    </div>
     <div class="next" style="text-align:center;">
         <img src="figures/clusterLoad_1.png" style="border-radius:5px;width:100%;"/>
     </div>
@@ -1975,7 +1978,8 @@
     <header>
         <h2>Exemple 1 : montée en charge de serveurs</h2>
     </header>
-    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Montée en charge, <span class="kevOrange">réplication</span> du serveur Web sur le noeud 0</p>
+    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Montée en charge, <span class="kevOrange">réplication</span>
+        du serveur Web sur le noeud 0</p>
 
     <div style="text-align:center;">
         <img src="figures/clusterLoad_2.png" style="border-radius:5px;width:100%;"/>
@@ -1986,11 +1990,17 @@
     <header>
         <h2>Exemple 2 : intégration de nœud mobiles</h2>
     </header>
-    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes Dalvik (
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes Dalvik (
         <span class="kevOrange">Android</span> <span class="kevOrange icon-tablet" style="font-size:40px;"></span> <span
-                class="kevOrange icon-mobile-phone" style="font-size:40px;"></span> ) </p>
-
-    <div style="text-align:center;">
+            class="kevOrange icon-mobile-phone" style="font-size:40px;"></span> )
+    </div>
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Cohérence <span
+            class="kevOrange">forte</span> entre noeuds clusters, <span class="kevOrange">à terme</span> entre noeuds
+        mobiles
+    </div>
+    <div class="next" style="text-align:center;">
         <img src="figures/clusterLoad_3.png" style="border-radius:5px;position:absolute;left:15px;width:97%;"/>
     </div>
 </section>
@@ -1999,11 +2009,17 @@
     <header>
         <h2>Exemple 3 : smartBuilding</h2>
     </header>
-    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
-            class="kevOrange">embarquées Arduino</span></p>
 
-    <div style="text-align:center;">
-        <img src="figures/iot.png" style="border-radius:5px;position:absolute;left:20px;width:95%;"/>
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
+            class="kevOrange">embarquées Arduino</span>
+    </div>
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Intégration noeuds IoT, capteur domotique,
+        lié au hub d'étage
+    </div>
+    <div class="next" style="text-align:center;">
+        <img src="figures/iot.png" style="border-radius:5px;width:60%;"/>
     </div>
 </section>
 
@@ -2012,28 +2028,38 @@
     <header>
         <h2>Kevoree face aux besoins des DDAS</h2>
     </header>
-    <ul>
-        <li class="next">Composants, Channels
-            <div class="icon-circle-arrow-right kevOrange"></div>
-            modularité
-        </li>
-        <li class="next">TypeDefinition et arbre de dépendance
-            <div class="icon-circle-arrow-right kevOrange"></div>
-            conception continue
-        </li>
-        <li class="next">Nœud abstrait
-            <div class="icon-circle-arrow-right kevOrange"></div>
-            hétérogénité
-        </li>
-        <li class="next">Model@Runtime
-            <div class="icon-circle-arrow-right kevOrange"></div>
-            réflexion asynchrone
-        </li>
-        <li class="next">Groupe
-            <div class="icon-circle-arrow-right kevOrange"></div>
-            synchronisation et réflexion distribuée
-        </li>
-    </ul>
+    <div class="">
+        <span class="kevOrange icon-bookmark"></span> Abstraction des concepts des DAS
+        <ul>
+            <li class="next">Composants, Channels
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                modularité
+            </li>
+            <li class="next">TypeDefinition et arbre de dépendance
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                conception continue
+            </li>
+        </ul>
+    </div>
+
+    <div class="next">
+        <span class="kevOrange icon-bookmark"></span> Nouvelles entités dédiés au DDAS
+        <ul>
+            <li class="next">Nœud abstrait
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                hétérogénité
+            </li>
+            <li class="next">Model@Runtime
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                réflexion asynchrone
+            </li>
+            <li class="next">Groupe
+                <div class="icon-circle-arrow-right kevOrange"></div>
+                synchronisation et réflexion distribuée
+            </li>
+        </ul>
+    </div>
+
 </section>
 
 
@@ -2121,7 +2147,7 @@
         <ul>
             <li>Capteur embarqué sur processeur de type AVR-8 (328,2560)</li>
             <li>Forte contrainte processeur 16 Mhz et mémoire 1-8kByte</li>
-            <li>Architecture <span class="kevOrange">exemple 3</span>, poussé depuis le nœud d'étage (Java)</li>
+            <li>Architecture <span class="kevOrange">exemple 3</span>, adaptation poussé depuis le nœud d'étage (Java)</li>
         </ul>
         <img src="figures/atmel.jpg" style="right:90px;bottom:200px;position:absolute;width:170px;">
     </div>
@@ -2334,17 +2360,20 @@
     <header>
         <h2>Kevoree : framework Open Source</h2>
     </header>
-    <p>Projet collaboratif open source implantant le Model@Runtime distribué</p>
+    <p><span class="icon-wrench kevOrange"></span> Concrétisation du Model@Runtime distribué</p>
 
     <div>
         <ul>
-            <li class="next">Framework ouvert de développement</li>
-            <li class="next">Implantation des opérateurs Model@Runtime</li>
-            <li class="next">Outils de modélisation spécifique à l'usage @Runtime (MODELS'2012)</li>
-            <li class="next">Librarie de type définition pour différentes types de noeuds
-            <li>Java, Android, Arduino, Frascati, OSGi, Clouds...</li>
+            <li class="next">Projet Kevoree : <span class="kevOrange">Framework</span> OpenSource
+                <ul><li>initié en février 2010, ~300 KLOC (Java,Scala,C,Kotlin)</li></ul>
             </li>
-            <li class="next">Premier commit février 2010, ~300KLOC (Java,Scala,C,Kotlin)</li>
+            <li class="next">Implantation des opérateurs et algorithmes Model@Runtime</li>
+            <li class="next">Outils de modélisation spécifique à l'usage@Runtime <span class="kevOrange icon-dashboard"></span> <i class="kevGray">(MODELS'2012)</i></li>
+            <li class="next"><span class="icon-list kevOrange"></span> Librarie de type définition pour différentes types de noeuds
+                <ul>
+                    <li class="kevGray"><i>Java, Android, Arduino, Frascati, OSGi, Clouds...</i></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </section>
@@ -2355,24 +2384,24 @@
     </header>
     <div>
         <ul>
-            <li><span class="kevOrange icon-ambulance"></span> <span class="kevOrange">Projet DAUM</span> : système
+            <li><span class="kevOrange icon-ambulance"></span> <span class="kevOrange">Projet DAUM</span> : Système
                 d'information d'urgence
                 <ul>
-                    <li>Domaine sapeurs-pompiers, fortement distribué et mobile</li>
+                    <li>Domaine sapeurs-pompiers, <i class="kevGray">fortement distribué et mobile</i></li>
                 </ul>
             </li>
             <li><span class="kevOrange icon-home"></span> <span class="kevOrange">SmartHome</span> : Laboratoire IoT
-                Luxembourg
+                Luxembourg, Entimid
                 <ul>
-                    <li>fortement dynamique, hétérogénéité des nœuds</li>
+                    <li><i class="kevGray">fortement dynamique, hétérogénéité des nœuds</i></li>
                 </ul>
             </li>
             <li><span class="kevOrange icon-cloud"></span> <span class="kevOrange">KevoreeCloud</span> (collaboration
                 avec E.Daubert)
                 <ul>
-                    <li>Définition d'une hiérarchie des nœuds</li>
-                    <li>Extension des nœuds pour piloter les infrastructures Cloud</li>
-                    <li>fortement dynamique, large échelle et distribué</li>
+                    <li>Définition d'une hiérarchie des nœuds pour piloter les Clouds</li>
+                    <li>Essai d'infrastructure dirigé par l'approche Model@Runtime</li>
+                    <li><i class="kevGray">fortement dynamique, large échelle et distribué</i></li>
                 </ul>
             </li>
         </ul>
@@ -2404,17 +2433,9 @@
             <li class="next"><span class="kevOrange">Model@Runtime distribué</span> pour exploiter et expliciter la
                 <span>divergence</span></li>
             <li class="next">Une approche qui couvre l'adaptation de l'IoT au <i>Cloud computing</i></li>
-            <li class="next">Inclusion de la <span class="kevOrange">dynamicité</span> dans la conception des logiciels
-            </li>
-            <li class="next"><span class="kevOrange icon-wrench"></span>Kevoree concrétisé par un projet OpenSource
-                (~300 KLOC)
-                <ul>
-                    <li>Validation continue en termes de performance</li>
-                    <li>Validation continue en termes d'expressivité</li>
-                    <li>Contribution en termes de modélisation @Runtime</li>
-                </ul>
-            </li>
-
+            <li class="next">Inclusion de la <span class="kevOrange">dynamicité</span> dans la conception des logiciels</li>
+            <li class="next">Offre une programmation orienté architecture (ex: définition d'élasticité)</li>
+            <li class="next">Concrétisé sous forme de projet opensource pour collaborations</li>
         </ul>
     </div>
 </section>
