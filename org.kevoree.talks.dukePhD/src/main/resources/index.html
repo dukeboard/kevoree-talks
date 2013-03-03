@@ -374,7 +374,7 @@
                     Système <b class="kevOrange">A'</b>
                 </span>
             </li>
-            <li class="next">Calcul d'(auto-)adaptation nécessite un contexte d'état</li>
+            <li class="next">Calcul d'(auto-)adaptation nécessite un <span class="kevOrange">contexte d'état</span></li>
             <li class="next">Boucle d'adaptation <span class="kevOrange">M</span>onitoring <span
                     class="kevOrange">A</span>nalyse <span class="kevOrange">P</span>lanification <span
                     class="kevOrange">E</span>xecution (MAPE)
@@ -730,7 +730,7 @@
             <span> Si plusieurs noeuds capable de calculer les adaptations, alors</span>
             <br />
             Divergence conflictuel de C et A en cas d'adaptations concurrentes
-            <span class="kevGray" style="font-size:18px;position:absolute;top:150px;right:200px;">Ajout composant à <b
+            <span class="kevGray" style="font-size:18px;position:absolute;top:150px;right:220px;">Ajout composant à <b
                     class="kevOrange">B</b></span>
             <span class="icon-refresh kevOrange" style="position:absolute;top:185px;left:605px;"></span>
             <span class="icon-cogs kevGray" style="position:absolute;top:155px;left:605px;"></span>
@@ -1060,6 +1060,7 @@
             <li class="next">La plupart des DDAS se base sur une <span class="kevOrange">adaptation centralisé</span>
             </li>
             <li class="next">Peu/Pas de prise en compte de la <span class="kevOrange">divergence</span></li>
+            <li class="next">M@R offre une <span class="kevOrange">reflexion asynchrone</span>, applicable en sur les DDAS ?</li>
         </ul>
     </div>
 </section>
@@ -1636,7 +1637,7 @@
 
 <section class="slide" id="kevoree_background_distributed">
     <header>
-        <h2>Algorithme distribués pour la synchronisation</h2>
+        <h2>Algorithme distribués pour répondre à la synchronisation de données</h2>
     </header>
     <div>
         <ul>
@@ -1888,8 +1889,8 @@
         </li>
         <li class="next">Intercepte le processus M@R local
             <ul>
-                <li><span class="kevOrange">Avant</span> modification locale : Paxos</li>
-                <li><span class="kevOrange">Après</span> modification locale : Gossip, Rollback distribué,etc...
+                <li><span class="kevOrange">Avant</span> modification locale : ex Paxos</li>
+                <li><span class="kevOrange">Après</span> modification locale : ex Gossip, Rollback distribué,etc...
                 </li>
             </ul>
         </li>
@@ -1909,7 +1910,7 @@
                     class="kevOrange">adaptation abstraite</span>
                 <ul>
                     <li><span class="kevOrange">Indépendant de la plate-forme</span></li>
-                    <li>exemple : <i>Ajouter composant, groupe fragment</i></li>
+                    <li>exemple : <i class="kevGray">Ajouter composant, groupe fragment</i></li>
                 </ul>
 
                 <div style="position:absolute;right:40px;top:200px;border-color:#666;border-radius:5px;border-width:2px;border-style:solid;padding:5px;">
@@ -1925,7 +1926,7 @@
                 <span class="kevOrange">actions concrètes</span>
                 <ul>
                     <li><span class="kevOrange">Plate-forme dépendant !</span></li>
-                    <li>Ajouter JAR, Instancier Objet Java</li>
+                    <li>exemple : <i class="kevGray">Ajouter JAR, Instancier Objet Java</i></li>
                 </ul>
 
                 <div style="position:absolute;right:40px;top:350px;border-color:#666;border-radius:5px;border-width:2px;border-style:solid;padding:5px;">
@@ -1958,10 +1959,14 @@
     <header>
         <h2>Exemple 1 : montée en charge de serveurs</h2>
     </header>
-    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
-            class="kevOrange icon-coffee"> Java </span> (KCL, OSGi, Frascati)</p>
-
-    <div style="text-align:center;">
+    <div class="next">
+        <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
+            class="kevOrange icon-coffee"> Java </span> (KCL, OSGi, Frascati)
+    </div>
+     <div class="next">
+         <span class="kevOrange icon-wrench" style="font-size:30px;"></span> Cluster de deux noeuds : cohérence forte, un seul serveur Web
+     </div>
+    <div class="next" style="text-align:center;">
         <img src="figures/clusterLoad_1.png" style="border-radius:5px;width:100%;"/>
     </div>
 </section>
@@ -1970,8 +1975,7 @@
     <header>
         <h2>Exemple 1 : montée en charge de serveurs</h2>
     </header>
-    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes <span
-            class="kevOrange icon-coffee"> Java </span> (KCL, OSGi, Frascati)</p>
+    <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Montée en charge, <span class="kevOrange">réplication</span> du serveur Web sur le noeud 0</p>
 
     <div style="text-align:center;">
         <img src="figures/clusterLoad_2.png" style="border-radius:5px;width:100%;"/>
@@ -1980,7 +1984,7 @@
 
 <section class="slide" id="kevoree_utilisation_concrete_tablet_distributed">
     <header>
-        <h2>Exemple 2 : intégration de nœud mobile</h2>
+        <h2>Exemple 2 : intégration de nœud mobiles</h2>
     </header>
     <p><span class="kevOrange icon-wrench" style="font-size:30px;"></span> Implantation pour les plates-formes Dalvik (
         <span class="kevOrange">Android</span> <span class="kevOrange icon-tablet" style="font-size:40px;"></span> <span
