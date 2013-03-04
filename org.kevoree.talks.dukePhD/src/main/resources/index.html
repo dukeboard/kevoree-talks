@@ -154,7 +154,7 @@
             <span style="text-align : justify;color: #FFF;font:normal 40px/40px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 42px #FFF, 0 0 10px #FFF;">
                 pour le développement continu de systèmes adaptatifs distribués hétérogènes
             </span><br/>
-        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+        <span style="text-align : justify;color: #DF9D00;font-size : 30px;">
             <span class="iconFont3">G</span>
             +
             <span class="iconFont3">g</span>
@@ -170,7 +170,7 @@
         </div>
         <div style="position : absolute;right: 12px;bottom: 0;">
            <span style="text-align : justify;color: #CCC;font:normal 15px/15px 'PT Sans Narrow', sans-serif;">
-		   <span class="iconic arrow_right"> by </span> François FOUQUET, Triskell Team, IRISA/INRIA Rennes</span>
+		   <span class="iconic arrow_right"> par </span> François FOUQUET sous la Direction de Jean-Marc JEZEQUEL, Triskell Team, IRISA/INRIA Rennes</span>
         </div>
     </header>
 </section>
@@ -230,7 +230,7 @@
         <ul>
             <li class="next">Acquis : grand système logiciel
                 <div class="icon-circle-arrow-right kevOrange"></div>
-                conception modulaire
+                conception modulaire (<i class="kevGray">Dijkstra'74</i>)
                 <ul>
                     <li class="next">Modularité : division du système en sous-parties <span class="kevGray"
                                                                                             style="font-style : italic;">(par fonctionnalité)</span>
@@ -327,8 +327,8 @@
 
     <div style="padding-top:50px;">
         <ul>
-            <li>Cycle en V : granularité déploiement => application</li>
-            <li>Cycle continu : granularité de déploiement : modules
+            <li>Cycle en V : granularité déploiement <span class="kevOrange icon-circle-arrow-right"></span> application</li>
+            <li>Cycle continu : granularité de déploiement : modules <i class="kevGray">Crnkovic'07</i>
                 <ul>
                     <li>module <span class=" icon-reorder kevGray"></span> unité de déploiement</li>
                     <li>évolution <span class=" icon-reorder kevOrange"></span> modification d'une <span
@@ -377,7 +377,7 @@
             <li class="next">Calcul d'(auto-)adaptation nécessite un <span class="kevOrange">contexte d'état</span></li>
             <li class="next">Boucle d'adaptation <span class="kevOrange">M</span>onitoring <span
                     class="kevOrange">A</span>nalyse <span class="kevOrange">P</span>lanification <span
-                    class="kevOrange">E</span>xecution (MAPE)
+                    class="kevOrange">E</span>xecution (<i class="kevGray">IBM'03</i>)
                 <div style="position:absolute;left:250px;bottom:100px;">
                     <div class="icon-dashboard kevOrange" style="font-size:30px"></div>
                     <span class="kevGray">introspection</span>
@@ -863,7 +863,7 @@
         <h2>Concepts de programmation modulaire</h2>
     </header>
     <div class="next">
-        <span class="icon-tag kevOrange"></span> Agents : Sémantique réactif asynchrone, files d'attente
+        <span class="icon-tag kevOrange"></span> Agents (<i class="kevGray">Fipa'97</i>) : Sémantique réactif asynchrone, files d'attente
         <ul>
             <li><span class="icon-ok-circle kevGreen" style="font-size:30px;"></span> Isolation et distribution sur
                 plusieurs ressources
@@ -884,7 +884,7 @@
               style="font-size:30px;position:absolute;right:185px;top:263px;"></span>
     </div>
     <div class="next">
-        <span class="icon-tag kevOrange"></span> Modèle à composants
+        <span class="icon-tag kevOrange"></span> Modèle à composants (<i class="kevGray">Medvidovic'00</i>)
         <ul>
             <li><span class="icon-ok-circle kevGreen" style="font-size:30px;"></span> Dépendances et typage (ports)
                 <span style="font-size:50px;" class="kevOrange iconraph">Ö</span></li>
@@ -902,11 +902,11 @@
 
 <section class="slide" id="background_divergency_asynchrone">
     <header>
-        <h2>Manipulation et réflexion asynchrone : Model@Runtime (M@R) (Morin'09)</h2>
+        <h2>Manipulation et réflexion asynchrone : Model@Runtime (M@R)</h2>
     </header>
     <div>
         <ul>
-            <li class="next">Un <span class="kevOrange">modèle comme abstraction d'architecture</span> à l'exécution
+            <li class="next">Un <span class="kevOrange">modèle comme abstraction d'architecture</span> à l'exécution (<i class="kevGray">Morin'09</i>)
                 <div style="position:absolute;left:100px;bottom:40px;">
                     <div style="line-height:0px;margin-left: 5px;text-align:center;">
                         <div class="kevModel"
@@ -1046,7 +1046,7 @@
     <div>
         <ul>
             <li class="next">Modèle à composants <span class="kevOrange icon-circle-arrow-right"></span> base de
-                systèmes <span class="kevOrange">reflexifs</span>
+                systèmes <span class="kevOrange">réflexifs</span>
                 <ul>
                     <li>Fractal, Frascati, OSGi, iPOJO, SAM, SOFA2, Rainbow</li>
                 </ul>
@@ -1057,10 +1057,10 @@
                     <li>Akka, Jade, S4</li>
                 </ul>
             </li>
-            <li class="next">La plupart des DDAS se base sur une <span class="kevOrange">adaptation centralisé</span>
+            <li class="next">La plupart des DDAS se basent sur une <span class="kevOrange">adaptation centralisé</span>
             </li>
             <li class="next">Peu/Pas de prise en compte de la <span class="kevOrange">divergence</span></li>
-            <li class="next">M@R offre une <span class="kevOrange">reflexion asynchrone</span>, applicable en sur les
+            <li class="next">M@R offre une <span class="kevOrange">reflexion asynchrone</span>, applicable sur les
                 DDAS ?
             </li>
         </ul>
@@ -1284,7 +1284,7 @@
     <header>
         <h2>Réflexion distribuée orientée Modèle</h2>
     </header>
-    <div style="height:190px;">
+    <div style="height:180px;">
         <div style="clear:both;">
             <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:100px;"></div>
             <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
@@ -1304,7 +1304,7 @@
         </div>
     </div>
     <span class="next"><span class="kevOrange icon-exclamation-sign "></span> Chaque noeud <div
-            class=" icon-hdd kevGray" style="font-size:30px;"></div> possède un M@R</span>
+            class=" icon-hdd kevGray" style="font-size:30px;"></div> possède une réplique de la pile Model@Runtime</span>
     <ul>
         <li class="next">Interaction réflexive (structurelle) uniquement au travers de modèles <span
                 class="icon-sitemap kevOrange"></span></li>
@@ -1447,7 +1447,7 @@
                 <li>Isolation des processus de chaque composant</li>
             </ul>
         </li>
-        <li class="next"><span class="kevOrange">Channel</span>
+        <li class="next"><span class="kevOrange">Channel (proche des connecteurs)</span>
             <ul>
                 <li>Fragmenté sur chaque nœud</li>
                 <li>Sémantique d'acteur par fragment</li>
@@ -1606,7 +1606,7 @@
         </div>
         <div style="clear:both;"></div>
     </div>
-    <div style="clear:both;margin-bottom:20px;"></div>
+    <div style="clear:both;margin-bottom:10px;"></div>
 
     <div>
         <ul>
@@ -1614,7 +1614,7 @@
                 par noeud,
                 lien causal local
             </li>
-            <li class="next"><span class="kevOrange icon-rss"></span> Synchronisation gloable du DDAS <span
+            <li class="next"><span class="kevOrange icon-rss"></span> Synchronisation global du DDAS <span
                     class="kevOrange icon-reorder"></span>
                 synchronisation des répliques
                 <!-- Anim -->
@@ -1641,7 +1641,7 @@
     <header>
         <h2>Algorithme distribués pour répondre à la synchronisation de données</h2>
     </header>
-    <div>
+    <div style="height:70%;">
         <ul>
             <li class="next">Algorithmes de <span class="kevOrange">consensus</span>
                 <ul>
@@ -1906,7 +1906,7 @@
     <header>
         <h2>Indépendance des plate-formes</h2>
     </header>
-    <div>
+    <div style="height:70%;">
         <ul>
             <li class="next">Comparaison de modèle produit <span class="kevOrange icon-circle-arrow-right"></span> <span
                     class="kevOrange">adaptation abstraite</span>
@@ -2161,41 +2161,42 @@
     <div style="text-align: center;position:absolute;left:25px;right:25px;">
 
         <div>
-            <object class="next" data="figures/rawMemory.png" type="image/png" style="width:65%;height:144px;"></object>
+            <object class="next" data="figures/rawMemory.png" type="image/png" style="width:65%;height:165px;"></object>
             <span class="kevGray" style="font-size:20px;position:absolute;left:50px;top:50px;">Mémoire</span>
         </div>
 
         <div>
-            <object class="next" data="figures/rawDownTime.png" type="image/png" style="width:65%;height:144px;"></object>
+            <object class="next" data="figures/rawDownTime.png" type="image/png" style="width:65%;height:165px;"></object>
             <span class="kevGray" style="font-size:20px;position:absolute;left:00px;top:210px;">Temps d'adaptation</span>
         </div>
 
 
         <div class="next" id="AdaptationSpeed_A1">
             <span class="iconic move_vertical_alt2 kevOrange"
-                  style="position:absolute;left:285px;font-size:25px;top:115px;"></span>
+                  style="position:absolute;left:285px;font-size:25px;top:145px;"></span>
             <span class="iconic move_vertical_alt2 kevOrange"
-                  style="position:absolute;left:490px;font-size:25px;top:115px;"></span>
+                  style="position:absolute;left:490px;font-size:25px;top:145px;"></span>
             <span class="iconic move_vertical_alt2 kevOrange"
-                  style="position:absolute;left:695px;font-size:25px;top:115px;"></span>
-            <span class="kevOrange" style="position:absolute;left:210px;top:70px;font-size:30px;">Pics : garbage collector</span>
+                  style="position:absolute;left:695px;font-size:25px;top:145px;"></span>
+            <span class="kevOrange" style="position:absolute;left:210px;top:100px;font-size:30px;">Pics : garbage collector</span>
 
         </div>
 
 
         <div class="next">
             <hr class="kevOrange"
-                style="position:absolute;left:205px;top:245px;width: 600px; color: #DF9D00; background-color :#DF9D00; height: 2px; border: none;">
-            <span class="kevOrange" style="position:absolute;left:210px;top:200px;font-size:30px;">Temps moyen d'adaptation : 234ms</span>
+                style="position:absolute;left:205px;top:280px;width: 600px; color: #DF9D00; background-color :#DF9D00; height: 2px; border: none;">
+            <span class="kevOrange" style="position:absolute;left:210px;top:240px;font-size:30px;">Temps moyen d'adaptation : 234ms</span>
         </div>
         <div class="next"
-             style="text-align: left;background-color:#FFF;position:absolute;top:310px;height:150px;padding-left:120px;">
+             style="text-align: left;background-color:#FFF;position:absolute;top:350px;height:100px;padding-left:120px;">
             <ul>
                 <li>Valeur proche des 200 ms difficilement perceptible par un utilisateur</li>
                 <li>Surcoût du M@R : 15% de la mémoire, capacité de plus de 100 composants</li>
+                <!--
                 <li>Conclusion : M@R est exploitable pour ces capteurs embarqués <span class="icon-thumbs-up kevOrange"
                                                                                        style="font-size:30px;"></span>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
@@ -2233,8 +2234,8 @@
         groupe Kevoree dédié
         <ul>
             <li class="next">Lien causal inter-nœud faible, lien causal local fort</li>
-            <li class="next">Propagation épidémique (Gossip) des modèles</li>
-            <li class="next">Utilisation d'horloge vectorielle pour détecter la divergence</li>
+            <li class="next">Propagation épidémique (<span class="kevOrange">Gossip</span>) des modèles</li>
+            <li class="next">Utilisation d'<span class="kevOrange">horloge vectorielle</span> pour détecter la divergence</li>
         </ul>
         <div class="next">
             <span class="icon-screenshot kevOrange" style="font-size:30px;"></span>Critères d'évaluations
@@ -2281,18 +2282,10 @@
     </div>
 
     <div class="next">
-        <span class="kevGray" style="position:absolute;right:50px;bottom:80px;"><span class="icon-thumbs-up kevGray"></span> 100% des noeuds atteingables atteinds</span>
-        <span class="kevGray" style="position:absolute;right:50px;bottom:40px;">Temps décroissant dût à l'isolation de noeuds</span>
+        <span class="kevGray" style="position:absolute;right:50px;bottom:80px;"><span class="icon-thumbs-up kevGray"></span> 100% des noeuds atteingables atteints</span>
+        <span class="kevGray" style="position:absolute;right:50px;bottom:40px;">Temps décroissant dû à l'isolation de noeuds</span>
     </div>
 
-       <!--
-    <div class="next">
-        <span class="kevOrange" style="color:#666;position:absolute;left:465px;top:245px;width: 470px;"> Effondrement à 67% de fautes</span>
-        <hr class="kevOrange"
-
-            style="position:absolute;left:465px;top:245px;width: 470px; color: #DF9D00; background-color :#DF9D00; height: 2px; border: none;">
-    </div>
-    -->
 </section>
 
 <section class="slide" id="valid_4large_ExpResult_2">
@@ -2374,7 +2367,9 @@
     </header>
     <div class="next">
         <ul>
-            <li><span class="kevOrange icon-beaker"></span> Évaluation sur un panel de chercheurs et d'ingénieurs</li>
+            <li><span class="kevOrange icon-beaker"></span> Évaluation sur un panel de chercheurs et d'ingénieurs
+                <ul><li>environ 20 personnes, Workshop Projet ITN RELATE</li></ul>
+            </li>
             <li><span class="kevOrange icon-group"></span> Évaluation durant des travaux pratiques d'étudiants de
                 Master 2
             </li>
@@ -2383,8 +2378,7 @@
     <div>
         <ul>
             <li class="next">Prise en main des concepts et déploiement de DDAS inférieur à 2 h</li>
-            <li class="next">Réalisation d'<span class="kevOrange">algorithme élastique</span> (simple) inférieur à 3 h
-            </li>
+            <li class="next">Réalisation d'<span class="kevOrange">algorithme élastique</span> (simple) inférieur à 3 h</li>
             <li class="next">Première implantation de <span class="kevOrange">groupes</span> 3 h à 4 h</li>
         </ul>
     </div>
@@ -2404,9 +2398,9 @@
                 </ul>
             </li>
             <li class="next">Implantation des opérateurs et algorithmes Model@Runtime</li>
-            <li class="next">Outils de modélisation spécifique à l'usage@Runtime <span
+            <li class="next">Outils de modélisation spécifiques @Runtime <span
                     class="kevOrange icon-dashboard"></span> <i class="kevGray">(MODELS'2012)</i></li>
-            <li class="next"><span class="icon-list kevOrange"></span> Librarie de type définition pour différentes
+            <li class="next"><span class="icon-list kevOrange"></span> Librairie de type définition pour différentes
                 types de noeuds
                 <ul>
                     <li class="kevGray"><i>Java, Android, Arduino, Frascati, OSGi, Clouds...</i></li>
@@ -2467,7 +2461,7 @@
     </header>
     <div>
         <ul>
-            <li class="next">L'<span class="kevOrange">abstraction</span> en réponse à la complexité des DDAS</li>
+            <li class="next">L'<span class="kevOrange">abstraction</span> architecturale en réponse à la complexité des DDAS</li>
             <li class="next"><span class="kevOrange">Model@Runtime distribué</span> pour exploiter et expliciter la
                 <span>divergence</span></li>
             <li class="next">Une approche qui couvre l'adaptation de l'IoT au <i>Cloud computing</i></li>
