@@ -2091,7 +2091,7 @@
         <ul>
             <li class="next">Performances <span class="icon-bar-chart kevOrange"></span> et systèmes hétérogènes
                 <ul>
-                    <li>combinaison nœud fortement et faiblement <span class="kevOrange">contraints</span></li>
+                    <li>combinaison nœuds fortement et faiblement <span class="kevOrange">contraints</span></li>
                     <li>évaluation de <span class="kevOrange">performance</span> sur des nœuds embarqués</li>
                 </ul>
             </li>
@@ -2111,22 +2111,18 @@
 <!-- Kevoree 4 Small -->
 <section class="slide" id="valid_4small_problem">
     <header>
-        <h2>Gestion de nœud hétérogène</h2>
+        <h2>Gestion de nœuds hétérogènes</h2>
     </header>
     <div>
-        <span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivation
+        <span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivations
         <ul>
-            <li class="next">Abstraction représente et pilote différents types de nœud</li>
-            <li class="next">Distribution : motivée par l'inclusion de nœuds physiquement adaptés</li>
-            <li class="next">Nœud des réseaux de capteurs, IoT, CPS <span
-                    class="kevOrange icon-circle-arrow-right"></span>
-                contraintes embarquées
-            </li>
+            <li class="next">DDAS hétérogène <span class="kevOrange icon-circle-arrow-right"></span> containtes hétérogènes des différents noeuds </li>
+            <li class="next">Nœud des réseaux de capteurs, IoT, <span class="kevOrange icon-circle-arrow-right"></span> contraintes embarquées</li>
+            <li class="next">Validation par le pire cas <span class="kevOrange icon-ok-circle"></span></li>
         </ul>
         <div class="next">
             <span class="icon-screenshot kevOrange" style="font-size:30px;"></span>Problème et risque
-            <p>La couche de réflexion distribuée M@R est-elle utilisable, en terme de <span class="kevOrange">performance,</span>
-                pour inclure les nœuds IoT au reste des DDAS ?</p>
+            <p><span class="kevOrange">Performance</span> du M@R pour l'inclusion des nœuds IoT aux DDAS ?</p>
         </div>
     </div>
 </section>
@@ -2211,11 +2207,11 @@
         <h2>Couche de réflexion pour DDAS sporadiques</h2>
     </header>
     <div>
-        <span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivation
+        <span class="next icon-tag kevOrange" style="font-size:30px;"></span>Motivations
         <ul>
             <li class="next">Cas d'usage : flotte de nœuds mobiles, connexions intermittentes</li>
-            <li class="next">Décision d'adaption distribuée, réseau pair-à-pair</li>
-            <li class="next">Besoin de cohérence à terme et propagation d'adaptation partielle</li>
+            <li class="next">Décision d'adaption distribuée (concurrente), réseau pair-à-pair</li>
+            <li class="next">Objectif : cohérence à terme de la couche réflexive</li>
         </ul>
         <div class="next">
             <span class="icon-screenshot kevOrange" style="font-size:30px;"></span>Problème et risque
@@ -2281,11 +2277,15 @@
     </div>
 
     <div class="next">
+        <span class="kevGray" style="position:absolute;right:50px;bottom:80px;"><span class="icon-thumbs-up kevGray"></span> 100% des nœuds atteignables atteints</span>
+    </div>
+
+    <div class="next">
         <object data="figures/result_exp3_V2.png" type="image/png" class="middle" width="550px" style="position:absolute;right:50px;top:125px;"></object>
     </div>
 
     <div class="next">
-        <span class="kevGray" style="position:absolute;right:50px;bottom:80px;"><span class="icon-thumbs-up kevGray"></span> 100% des nœuds atteignables atteints</span>
+        <div style="background-color:#CCC;position:absolute;right:250px;top:200px;height:100px;width:300px;opacity: 0.5;border-radius:5px;"></div>
         <span class="kevGray" style="position:absolute;right:50px;bottom:40px;">Temps décroissant dû à l'isolation de nœuds</span>
     </div>
 
@@ -2338,8 +2338,8 @@
                     class="kevOrange">résolution</span> et <span class="kevOrange">propagation</span> du
                 modèle résolu
                 <div id="valid_li_sanity_network_2">
-                    <div style="background-color:#00CC66;position:absolute;left:100px;top:150px;height:250px;width:380px;opacity: 0.3;border-radius:5px;"></div>
-                    <div style="background-color:#00CC66;position:absolute;left:830px;top:150px;height:280px;width:100px;opacity: 0.3;border-radius:5px;"></div>
+                    <div style="background-color:#00CC66;position:absolute;left:100px;top:150px;height:250px;width:380px;opacity: 0.2;border-radius:5px;"></div>
+                    <div style="background-color:#00CC66;position:absolute;left:830px;top:150px;height:280px;width:100px;opacity: 0.2;border-radius:5px;"></div>
                 </div>
             </li>
         </ul>
@@ -2403,7 +2403,7 @@
             <li class="next">Implantation des opérateurs et algorithmes Model@Runtime</li>
             <li class="next">Outils de modélisation spécifiques @Runtime <span
                     class="kevOrange icon-dashboard"></span> <i class="kevGray">(MODELS'2012)</i></li>
-            <li class="next"><span class="icon-list kevOrange"></span> Librairie de type définition pour différents
+            <li class="next"><span class="icon-list kevOrange"></span> Librairie de <i class="kevOrange">type définitions</i> pour différents
                 types de nœuds
                 <ul>
                     <li class="kevGray"><i>Java, Android, Arduino, Frascati, OSGi, Clouds...</i></li>
@@ -2468,10 +2468,12 @@
             <li class="next">L'<span class="kevOrange">abstraction</span> architecturale en réponse à la complexité des DDAS</li>
             <li class="next"><span class="kevOrange">Model@Runtime distribué</span> pour exploiter et expliciter la
                 <span>divergence</span></li>
-            <li class="next">Une approche qui couvre l'adaptation de l'IoT au <i>Cloud computing</i></li>
-            <li class="next">Inclusion de la <span class="kevOrange">dynamicité</span> dans la conception des logiciels
+            <li class="next">Inclure l'adaptation <span class="kevOrange">dynamique</span> directement dans la conception
+                <ul>
+                    <li>couvre de l'IoT au <i>Cloud computing</i></li>
+                    <li class="next"><span class="kevOrange">Programmation orientée architecture</span> (p. ex. définition d'élasticité)</li>
+                </ul>
             </li>
-            <li class="next">Programmation orientée architecture (p. ex. définition d'élasticité)</li>
             <li class="next">Concrétisé sous forme de projet OpenSource collaboratif</li>
         </ul>
     </div>
@@ -2498,7 +2500,7 @@
     </div>
     <div class="next">
         <ul>
-            <li>Apprentissage et traitement d'erreur opportuniste (modèle dynamique)
+            <li>Apprentissage et traitement d'erreurs opportuniste (modèle dynamique)
                 <ul>
                     <li>Détecter les patrons d'élasticité et d'<span class="kevOrange">erreurs</span> d'adaptation</li>
                     <li><span class="kevOrange">Contremesures</span> épidémiques, intégration d'<span class="kevOrange">hétérogénéité</span>
