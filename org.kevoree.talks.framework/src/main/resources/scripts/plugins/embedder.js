@@ -54,6 +54,8 @@ function KEmbedder (kslide) {
         }
     };
 
+    this.initialize = function () {};
+
     function openPopup () {
         var url = slideURL.substring(0, slideURL.lastIndexOf("/")) + "/";
         remote = window.open(url + "popup", 'slides', 'width=800,height=600,personalbar=0,toolbar=0,scrollbars=1,resizable=1');

@@ -12,7 +12,6 @@ function KNotes () {
         }
     };
 
-    this.start = function () {
-
-    };
+    this.start = function () {};
+    this.initialize = function () {};
 }

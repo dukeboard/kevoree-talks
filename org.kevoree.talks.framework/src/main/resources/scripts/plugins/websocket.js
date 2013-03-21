@@ -5,7 +5,7 @@
  * Time: 13:40
  */
 
-function KWebsocketSlave (kslide, wsUrl, roomID) {
+function KWebsocketSlave(kslide, wsUrl, roomID) {
     var ws = null;
     var self = this;
 
@@ -15,7 +15,7 @@ function KWebsocketSlave (kslide, wsUrl, roomID) {
                 ws = new WebSocket(wsUrl);
                 ws.onopen = function (e) {
                     console.log('* Connected!');
-                    ws.send(JSON.stringify({"type":"JOIN", "id":roomID}));
+                    ws.send(JSON.stringify({"type": "JOIN", "id": roomID}));
                     document.addEventListener('keydown', newKeyEventListener, false);
                 };
                 ws.onclose = function (e) {
@@ -32,15 +32,19 @@ function KWebsocketSlave (kslide, wsUrl, roomID) {
             console.error("Unable to initialize the web socket");
         }
         if (ws != null) {
-            kslide.sendEvent(self, {"type":"FULL"});
+            kslide.sendEvent(self, {"type": "FULL"});
         }
+    };
+
+    this.stop = function () {
+        document.removeEventListener('keydown', newKeyEventListener, false);
     };
 
     this.listener = function (message) {
     };
 
 
-    function newKeyEventListener (e) {
+    function newKeyEventListener(e) {
         // Shortcut for alt, shift and meta keys
         if (e.altKey || e.ctrlKey || e.metaKey) {
             return;
@@ -48,7 +52,7 @@ function KWebsocketSlave (kslide, wsUrl, roomID) {
         switch (e.which) {
             case 70: // f
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"FULLSCREEN"});
+                kslide.sendEvent(self, {"type": "FULLSCREEN"});
                 break;
             default:
             // Behave as usual
@@ -56,12 +60,12 @@ function KWebsocketSlave (kslide, wsUrl, roomID) {
     }
 
 
-    function manageMessage (messageString) {
+    function manageMessage(messageString) {
         kslide.sendEvent(self, JSON.parse(messageString));
     }
 }
 
-function KWebsocketMaster (kslide, wsUrl, roomID) {
+function KWebsocketMaster(kslide, wsUrl, roomID) {
     var ws = null;
     var self = this;
     var currentSlide = null;
@@ -73,6 +77,9 @@ function KWebsocketMaster (kslide, wsUrl, roomID) {
         } else if (wsUrl != undefined && roomID != null) {
             connectWS();
         }
+    };
+
+    this.initialize = function () {
     };
 
     this.listener = function (message) {
@@ -88,7 +95,7 @@ function KWebsocketMaster (kslide, wsUrl, roomID) {
         }
     };
 
-    function connectWS () {
+    function connectWS() {
         try {
             if (roomID === undefined) {
                 roomID = window.prompt("Keynote id: ");
@@ -97,9 +104,9 @@ function KWebsocketMaster (kslide, wsUrl, roomID) {
                 ws = new WebSocket(wsUrl);
                 ws.onopen = function (e) {
                     console.log('* Connected!');
-                    ws.send(JSON.stringify({"type":"JOIN", "id":roomID}));
-                    kslide.sendEvent(self, {"type":"SET_CURSOR", "cursor":currentSlide});
-                    ws.send(JSON.stringify({"type":"SET_CURSOR", "cursor":currentSlide}));
+                    ws.send(JSON.stringify({"type": "JOIN", "id": roomID}));
+                    kslide.sendEvent(self, {"type": "SET_CURSOR", "cursor": currentSlide});
+                    ws.send(JSON.stringify({"type": "SET_CURSOR", "cursor": currentSlide}));
                     var slideurl = document.URL.replace("keynote", "slave");
                     alert(slideurl + roomID)
                 };
@@ -114,6 +121,12 @@ function KWebsocketMaster (kslide, wsUrl, roomID) {
                 };
             }
         } catch (e) {
+        }
+    }
+
+    function disconnectWS () {
+        if (ws != null) {
+            ws.close();
         }
     }
 }

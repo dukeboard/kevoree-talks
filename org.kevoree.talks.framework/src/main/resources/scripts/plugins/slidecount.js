@@ -16,11 +16,13 @@ function KSlideCount (kslide) {
     };
 
     this.start = function () {
-        document.querySelector('#slideidx').addEventListener("touchstart", function (e) {
-            kslide.sendEvent(this, {"type":"SET_CURSOR", "cursor":+prompt('Go to slide...', '1') - 1});
-        }, false);
-        document.querySelector('#slideidx').addEventListener("click", function (e) {
-            kslide.sendEvent(this, {"type":"SET_CURSOR", "cursor":+prompt('Go to slide...', '1') - 1});
-        }, false);
+        document.querySelector('#slideidx').addEventListener("touchstart", setCursor, false);
+        document.querySelector('#slideidx').addEventListener("click", setCursor, false);
     };
+
+    function setCursor (event) {
+        kslide.sendEvent(this, {"type":"SET_CURSOR", "cursor":+prompt('Go to slide...', '1') - 1});
+    }
+
+    this.initialize = function () {};
 }

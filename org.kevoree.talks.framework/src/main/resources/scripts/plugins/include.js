@@ -5,16 +5,27 @@
  * Time: 13:24
  */
 
-function IncludePlugin (kslide) {
+function IncludePlugin(kslide) {
     var self = this;
 
     this.listener = function (message) {
     };
 
-    this.start = function () {
+    this.initialize = function () {
+        var includes = jQuery(".includeHtml");
+        var callbacks = [];
         //Load sub talk slides
-        jQuery(".includeHtml").each(function (i) {
-            jQuery(this).load(this.id + ".html");
+        includes.each(function () {
+            var callback = jQuery.Deferred();
+            callbacks.push(callback);
+            jQuery(this).load(this.id + ".html", function () {
+                callback.resolve();
+            });
         });
-    }
-    }
+        return jQuery.when.apply(null, callbacks);
+
+    };
+
+    this.start = function () {
+    };
+}

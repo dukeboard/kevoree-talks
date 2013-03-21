@@ -45,4 +45,6 @@ function KTime () {
         document.querySelector('#talk-time').addEventListener("click", talkTime, false);
     };
 
+    this.initialize = function () {};
+
 }

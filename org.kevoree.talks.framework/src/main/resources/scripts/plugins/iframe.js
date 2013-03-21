@@ -17,8 +17,9 @@ function KIFrameSlave (kslide) {
             window.addEventListener("message", manageMessage, false);
             kslide.sendEvent(self, {"type":"FULL"});
         }
-
     };
+
+    this.initialize = function () {};
 
     function manageMessage (event) {
         if (window.parent.document != document && window.parent === event.source) {
@@ -30,6 +31,7 @@ function KIFrameSlave (kslide) {
                 if (response != null && response.type == "LENGTH") {
                     window.parent.postMessage(JSON.stringify(response), '*');
                 }
+                // TODO do the same for GET_CURSOR
             }else if (message.type === "EMPTY_SLIDE") {
                 if (message.position === "START") {
                     message.position = 0;
@@ -116,6 +118,12 @@ function KIFrameMaster (kslide, slideURL) {
     this.start = function () {
         window.addEventListener('message', manageMessage, false);
         loadIframes();
+    };
+
+    this.initialize = function () {};
+
+    this.update = function () {
+         views.present.source.postMessage(JSON.stringify({"type":"GET_LENGTH"}), '*');
     };
 
     function manageMessage (event) {

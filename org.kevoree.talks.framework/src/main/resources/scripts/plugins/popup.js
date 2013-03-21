@@ -25,6 +25,8 @@ function KPopupSlave (kslide) {
         }
     };
 
+    this.initialize = function () {};
+
     function manageMessage (event) {
         var message = JSON.parse(event.data);
         if (event.source === window.opener) {
@@ -70,4 +72,6 @@ function KPopupMaster (kslide, slideUrl) {
         document.querySelector('#popup-button').addEventListener("touchstart", createPopup, false);
         document.querySelector('#popup-button').addEventListener("click", createPopup, false);
     };
+
+    this.initialize = function () {};
 }

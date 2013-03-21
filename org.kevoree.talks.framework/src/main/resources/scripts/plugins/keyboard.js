@@ -5,14 +5,14 @@
  * Time: 15:14
  */
 
-function KKeyboard (kslide) {
+function KKeyboard(kslide) {
 
     var self = this;
 
     var orgX, newX;
     var tracking = false;
 
-    function keyEventListener (e) {
+    function keyEventListener(e) {
         // Shortcut for alt, shift and meta keys
         if (e.altKey || e.ctrlKey || e.metaKey) {
             return;
@@ -20,11 +20,11 @@ function KKeyboard (kslide) {
 
         switch (e.which) {
             case 13: // Enter
-                kslide.sendEvent(self, {"type":"FULL"});
+                kslide.sendEvent(self, {"type": "FULL"});
                 break;
 
             case 27: // Esc
-                kslide.sendEvent(self, {"type":"LIST"});
+                kslide.sendEvent(self, {"type": "LIST"});
                 break;
 
             case 33: // PgUp
@@ -33,7 +33,7 @@ function KKeyboard (kslide) {
             case 72: // h
             case 75: // k
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"BACK"});
+                kslide.sendEvent(self, {"type": "BACK"});
                 break;
 
             case 34: // PgDown
@@ -42,17 +42,17 @@ function KKeyboard (kslide) {
             case 76: // l
             case 74: // j
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"FORWARD"});
+                kslide.sendEvent(self, {"type": "FORWARD"});
                 break;
 
             case 36: // Home
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"START"});
+                kslide.sendEvent(self, {"type": "START"});
                 break;
 
             case 35: // End
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"END"});
+                kslide.sendEvent(self, {"type": "END"});
                 break;
 
             case 9: // Tab = +1; Shift + Tab = -1
@@ -61,17 +61,17 @@ function KKeyboard (kslide) {
                 var response = kslide.getCursor();
                 if (!e.shiftKey) {
                     if (response != null && response.type === "CURSOR") {
-                        kslide.sendEvent(self, {"type":"SET_CURSOR", "cursor":+(response.cursor) + 1});
+                        kslide.sendEvent(self, {"type": "SET_CURSOR", "cursor": +(response.cursor) + 1});
                     }
                 } else {
                     if (response != null && response.type === "CURSOR") {
-                        kslide.sendEvent(self, {"type":"SET_CURSOR", "cursor":+(response.cursor) - 1});
+                        kslide.sendEvent(self, {"type": "SET_CURSOR", "cursor": +(response.cursor) - 1});
                     }
                 }
                 break;
             case 70: // f
                 e.preventDefault();
-                kslide.sendEvent(self, {"type":"FULLSCREEN"});
+                kslide.sendEvent(self, {"type": "FULLSCREEN"});
                 break;
             default:
             // Behave as usual
@@ -84,18 +84,22 @@ function KKeyboard (kslide) {
     this.start = function () {
         document.addEventListener("touchstart", touchStartEvent, false);
         document.addEventListener("touchend", touchStopEvent, false);
-        document.addEventListener('click', function (e) {
-            var slideId = getContainingSlideId(e.target);
-            if ('' !== slideId) {
-                kslide.sendEvent(self, {"type":"SET_ID", "id":slideId});
-                kslide.sendEvent(self, {"type":"FULL"});
-            }
-        }, false);
+        document.addEventListener('click', click, false);
         document.addEventListener('keydown', keyEventListener, false);
     };
 
+    this.initialize = function () {
+    };
 
-    function getContainingSlideId (el) {
+    function click (event) {
+        var slideId = getContainingSlideId(event.target);
+        if ('' !== slideId) {
+            kslide.sendEvent(self, {"type": "SET_ID", "id": slideId});
+            kslide.sendEvent(self, {"type": "FULL"});
+        }
+    }
+
+    function getContainingSlideId(el) {
         var node = el;
         while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
             if (-1 !== node.className.indexOf('slide')) {
@@ -107,13 +111,13 @@ function KKeyboard (kslide) {
         return '';
     }
 
-    function touchStartEvent (aEvent) {
+    function touchStartEvent(aEvent) {
         aEvent.preventDefault();
         tracking = true;
         orgX = aEvent.changedTouches[0].pageX;
     }
 
-    function touchStopEvent (aEvent) {
+    function touchStopEvent(aEvent) {
         aEvent.preventDefault();
         if (!tracking) {
             return;
@@ -121,11 +125,11 @@ function KKeyboard (kslide) {
         newX = aEvent.changedTouches[0].pageX;
         tracking = false;
         if (orgX - newX > 100) {
-            kslide.sendEvent(self, {"type":"FORWARD"});
+            kslide.sendEvent(self, {"type": "FORWARD"});
         } else if (orgX - newX < -100) {
-            kslide.sendEvent(self, {"type":"BACK"});
+            kslide.sendEvent(self, {"type": "BACK"});
         } else {
-            kslide.sendEvent(self, {"type":"FULL"})
+            kslide.sendEvent(self, {"type": "FULL"})
         }
     }
 
