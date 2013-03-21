@@ -42,27 +42,72 @@
             <plugin>
                 <groupId>com.samaxes.maven</groupId>
                 <artifactId>minify-maven-plugin</artifactId>
-                <version>1.5.2</version>
+                <version>1.7</version>
                 <executions>
                     <execution>
-                        <id>default-minify</id>
+                        <id>minify-js</id>
                         <phase>process-resources</phase>
                         <configuration>
-                            <!--
-                            <cssSourceDir>css</cssSourceDir>
-                            <cssSourceFiles>
-                                <cssSourceFile>file-1.css</cssSourceFile>
-                                <cssSourceFile>file-n.css</cssSourceFile>
-                            </cssSourceFiles>
-                            <cssFinalFile>style.css</cssFinalFile>
-                        -->
-                            <jsSourceDir>${basedir}/src/main/resources/scripts</jsSourceDir>
+                            <webappSourceDir>${project.basedir}/src/main/resources</webappSourceDir>
+                            <webappTargetDir>${project.basedir}/src/main/resources</webappTargetDir>
+                            <jsSourceDir>scripts</jsSourceDir>
                             <jsSourceFiles>
                                 <jsSourceFile>jquery.min.js</jsSourceFile>
                                 <jsSourceFile>screenfull.min.js</jsSourceFile>
                                 <jsSourceFile>kslideshow.js</jsSourceFile>
+                                <jsSourceFile>kslideshowKeynote.js</jsSourceFile>
+
+                                <jsSourceFile>plugins/embedder.js</jsSourceFile>
+                                <jsSourceFile>plugins/iframe.js</jsSourceFile>
+                                <jsSourceFile>plugins/include.js</jsSourceFile>
+                                <jsSourceFile>plugins/keyboard.js</jsSourceFile>
+                                <jsSourceFile>plugins/notes.js</jsSourceFile>
+                                <jsSourceFile>plugins/popup.js</jsSourceFile>
+                                <jsSourceFile>plugins/slidecount.js</jsSourceFile>
+                                <jsSourceFile>plugins/time.js</jsSourceFile>
+                                <jsSourceFile>plugins/websocket.js</jsSourceFile>
                             </jsSourceFiles>
-                            <jsFinalFile>${project.build.directory}/kslideshow.min.js</jsFinalFile>
+                            <jsFinalFile>kslideshow.merged.js</jsFinalFile>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>minify-theme-default-print-css</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <webappSourceDir>${project.basedir}/src/main/resources/styles/themes/default</webappSourceDir>
+                            <webappTargetDir>${project.basedir}/src/main/resources/styles/themes/default</webappTargetDir>
+                            <cssSourceDir>.</cssSourceDir>
+                            <cssSourceFiles>
+                                <cssSourceFile>../../reset/reset.css</cssSourceFile>
+                                <cssSourceFile>../../print/print.css</cssSourceFile>
+                                <cssSourceFile>default.css</cssSourceFile>
+                                <cssSourceFile>fonts.css</cssSourceFile>
+                                <cssSourceFile>default.print.css</cssSourceFile>
+                            </cssSourceFiles>
+                            <cssFinalFile>default.print.merged.css</cssFinalFile>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>minify-theme-default-screen-css</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <webappSourceDir>${project.basedir}/src/main/resources/styles/themes/default</webappSourceDir>
+                            <webappTargetDir>${project.basedir}/src/main/resources/styles/themes/default</webappTargetDir>
+                            <cssSourceDir>.</cssSourceDir>
+                            <cssSourceFiles>
+                                <cssSourceFile>../../reset/reset.css</cssSourceFile>
+                                <cssSourceFile>../../screen/screen.css</cssSourceFile>
+                                <cssSourceFile>default.css</cssSourceFile>
+                                <cssSourceFile>fonts.css</cssSourceFile>
+                                <cssSourceFile>default.screen.css</cssSourceFile>
+                            </cssSourceFiles>
+                            <cssFinalFile>default.screen.merged.css</cssFinalFile>
                         </configuration>
                         <goals>
                             <goal>minify</goal>
@@ -72,6 +117,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
