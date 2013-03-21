@@ -5,23 +5,26 @@
     <title>Kevoree Keynote Showcase</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=1274, user-scalable=yes"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>-->
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.merged.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.merged.css" media="screen"/>
     <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
     <!-- Kevoree Keynote Framework -->
-    <script src="scripts/jquery.min.js"></script>
+    <!--<script src="scripts/jquery.min.js"></script>
     <script src="scripts/screenfull.min.js"></script>
     <script type="text/javascript" src="scripts/kslideshow.js"></script>
 	<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-    <script type="text/javascript" src="scripts/plugins/include.js"></script>
+    <script type="text/javascript" src="scripts/plugins/include.js"></script>-->
+    <script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>
 	<script type="text/javascript" id="kSlideshow">
 	jQuery(document).ready(function ($) {
-	var ks = new KSlideShow();
-	var keyboardPlugin = new KKeyboard(ks);
-    var includePlugin = new IncludePlugin(ks);
-	ks.addPluginListener(keyboardPlugin);
-    ks.addPluginListener(includePlugin);
-	ks.startKeynote();
+        var ks = new KSlideShow();
+        var keyboardPlugin = new KKeyboard(ks);
+        var includePlugin = new IncludePlugin(ks);
+        ks.addPluginListener(keyboardPlugin);
+        ks.addPluginListener(includePlugin);
+        ks.startKeynote();
 	});
 	</script>
 </head>
@@ -34,7 +37,7 @@
 
 <section class="slide cover" id="Cover">
     <header>
-        <h2>Kevoree Keynote showcase</h2>
+        <h1>Kevoree Keynote showcase</h1>
     </header>
     <object data="figures/kevoree-logo.png" type="image/png" class="low_middle" height="227" width="400"
             style="position:absolute;top:30%;left:30%;"></object>
@@ -71,7 +74,7 @@
 <section class="slide" id="ol">
     <h2>Next step</h2>
 
-    <p>Incremental content can be numbered too</p>
+    <p>Incremental content can be numbered too using <code>ol</code> tag instead of <code>ul</code></p>
     <ol>
         <li class="next">first number</li>
         <li class="next">second number</li>
@@ -81,7 +84,7 @@
 
 <section class="slide" id="image1">
     <h2>Image is good for comprehension</h2>
-    <img src="http://kevoree.org/img/kevoree-logo.png"/>
+    <img src="figures/kevoree-logo.png"/>
 </section>
 
 <section class="slide" id="image2">
@@ -133,7 +136,7 @@ MacOS user ? [This app is 4U](http://mouapp.com/).
 
 <section class="slide">
     <h2>You can also Highlight some code</h2>
-    <p>This is a very complexe code</p>
+    <p>This is a very complex code</p>
     <pre class="brush: java toolbar:false;">
     public class MyClass {
         public static void main(String[] args){
@@ -194,6 +197,8 @@ addToGroup sync node0
 </section>
 
 <div id="include" class="includeHtml"></div>
+<div id="include2" class="includeHtml"></div>
+<div id="include3" class="includeHtml"></div>
 
 <section class="slide shout">
     <h2>One more thing !</h2>
@@ -203,7 +208,7 @@ addToGroup sync node0
     <header>
         <h2>Extend by yourself</h2>
     </header>
-    <img class="next" src="http://kevoree.org/img/kevoree-logo.png" width="300px" id="animImg1"/>
+    <img class="next" src="figures/kevoree-logo.png" width="300px" id="animImg1"/>
     <div class="next" id="divBackground">
         Some information
     </div>
