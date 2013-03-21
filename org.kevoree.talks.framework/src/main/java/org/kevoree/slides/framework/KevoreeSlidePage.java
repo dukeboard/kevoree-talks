@@ -75,7 +75,9 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 	private static String kslideshowFrameScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
+            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
 			+ "\t\tvar iframePlugin = new KIFrameSlave(ks);\n"
+            + "\t\tks.addPluginListener(includePlugin);\n"
 			+ "\t\tks.addPluginListener(iframePlugin);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
@@ -84,16 +86,20 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tvar ks = new KSlideShow();\n"
 			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
 			+ "\t\tvar popupPlugin = new KPopupSlave(ks);\n"
+            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
 			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
 			+ "\t\tks.addPluginListener(popupPlugin);\n"
+            + "\t\tks.addPluginListener(includePlugin);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
 		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
 				+ "\t\tvar ks = new KSlideShowKeynote();\n"
 				+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
+                + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
 				+ "\t\tvar embedderPlugin = new KEmbedder(ks);\n"
 				+ "\t\tks.addPluginListener(keyboardPlugin);\n"
+                + "\t\tks.addPluginListener(includePlugin);\n"
 				+ "\t\tks.addPluginListener(embedderPlugin);\n"
 				+ "\t\tks.startKeynote();\n"
 				+ "\t\tks.sendEvent(null, {'type':'RELOAD', 'url':'{slideurl}'});\n"
