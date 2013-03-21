@@ -88,7 +88,7 @@
                                 <cssSourceFile>fonts.css</cssSourceFile>
                                 <cssSourceFile>default.print.css</cssSourceFile>
                             </cssSourceFiles>
-                            <jsTargetDir>.</jsTargetDir>
+                            <cssTargetDir>.</cssTargetDir>
                             <cssFinalFile>default.print.merged.css</cssFinalFile>
                         </configuration>
                         <goals>
@@ -109,7 +109,7 @@
                                 <cssSourceFile>fonts.css</cssSourceFile>
                                 <cssSourceFile>default.screen.css</cssSourceFile>
                             </cssSourceFiles>
-                            <jsTargetDir>.</jsTargetDir>
+                            <cssTargetDir>.</cssTargetDir>
                             <cssFinalFile>default.screen.merged.css</cssFinalFile>
                         </configuration>
                         <goals>
