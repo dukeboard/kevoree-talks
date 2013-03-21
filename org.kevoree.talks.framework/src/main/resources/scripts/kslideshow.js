@@ -1,4 +1,4 @@
-function KSlideShow () {
+function KSlideShow() {
 
     var url = null;
     var body = null;
@@ -9,59 +9,74 @@ function KSlideShow () {
     var pluginListeners = [];
     var self = this;
 
-    function initializeSlidesList () {
+    function initializeSlidesList() {
         slideList = [];
-        slides = jQuery('.slide');
+        slides = jQuery('* .slide');
         slides.each(function (index, slide) {
             if (!slide.id) {
                 slide.id = index;
             }
             slideList.push({
-                id:slide.id,
-                hasInnerNavigation:null !== slide.querySelector('.next')
+                id: slide.id,
+                hasInnerNavigation: null !== slide.querySelector('.next')
             });
         });
     }
 
     this.startKeynote = function () {
-        url = window.location;
-        body = document.body;
-        progress = document.querySelector('div.progress div');
-        initializeSlidesList();
-
-//        document.addEventListener('click', dispatchSingleSlideModeFromEvent, false);
-
-        window.addEventListener('resize', function () {
-            if (!isListMode()) {
-                applyTransform(getTransform());
-            }
-        }, false);
-
-        if (!isListMode()) {
-            goToFull();
-        }
+        var callbacks = [];
         if (pluginListeners) {
             for (var i = 0; i < pluginListeners.length; i++) {
                 try {
-                    pluginListeners[i].listener.start();
+                    var callback = pluginListeners[i].listener.initialize();
+                    if (callback) {
+                        callbacks.push(callback);
+                    }
+
                 } catch (e) {
                     console.error(e.message);
-                    console.warn("Unable to execute the method 'start' on ", pluginListeners[i].listener);
+                    console.warn("Unable to execute the method 'initialize' on ", pluginListeners[i].listener);
                 }
             }
         }
+        var promise = jQuery.when.apply(null, callbacks);
+        promise.then(function () {
+            window.addEventListener('resize', function () {
+                if (!isListMode()) {
+                    applyTransform(getTransform());
+                }
+            }, false);
+            url = window.location;
+            body = document.body;
+            progress = document.querySelector('div.progress div');
+            initializeSlidesList();
+
+            if (!isListMode()) {
+                goToFull();
+            }
+            if (pluginListeners) {
+                for (var i = 0; i < pluginListeners.length; i++) {
+                    try {
+                        pluginListeners[i].listener.start();
+                    } catch (e) {
+                        console.error(e.message);
+                        console.warn("Unable to execute the method 'start' on ", pluginListeners[i].listener);
+                    }
+                }
+            }
+        })
     };
 
     this.getNotes = function () {
-        return {"type":"NOTES", "notes":getDetails(getCurrentSlideNumber())};
+        return {"type": "NOTES", "notes": getDetails(getCurrentSlideNumber())};
     };
 
     this.getLength = function () {
-        return {"type":"LENGTH", "length":slideList.length};
+        return {"type": "LENGTH", "length": slideList.length};
     };
 
     this.getCursor = function () {
-        return {"type":"CURSOR", "cursor":getCurrentSlideNumber()};
+        return {"type": "CURSOR", "cursor": getCurrentSlideNumber()};
     };
 
     this.sendEvent = function (sender, message) {
@@ -108,12 +123,12 @@ function KSlideShow () {
 
     this.addPluginListener = function (f) {
         pluginListeners.push({
-            id:pluginListeners.length,
-            listener:f
+            id: pluginListeners.length,
+            listener: f
         });
     };
 
-    function getCurrentSlideNumber () {
+    function getCurrentSlideNumber() {
         var currentSlideId = url.hash.substr(1);
         for (var i = 0; i < slideList.length; ++i) {
             if (currentSlideId === slideList[i].id) {
@@ -123,15 +138,15 @@ function KSlideShow () {
         return -1;
     }
 
-    function back () {
+    function back() {
         goToPreviousSlide(getCurrentSlideNumber());
     }
 
-    function forward () {
+    function forward() {
         goToNextSlide(getCurrentSlideNumber());
     }
 
-    function scrollToCurrentSlide () {
+    function scrollToCurrentSlide() {
         // do nothing if currentSlideNumber is unknown (-1)
         if (-1 === getCurrentSlideNumber()) {
             return;
@@ -143,7 +158,7 @@ function KSlideShow () {
         }
     }
 
-    function addEmptySlide (position) {
+    function addEmptySlide(position) {
         if (position != undefined) {
             emptySlide = document.createElement("section");
             emptySlide.className = "slide";
@@ -159,11 +174,11 @@ function KSlideShow () {
         }
     }
 
-    function isListMode () {
+    function isListMode() {
         return 'full' !== url.search.substr(1);
     }
 
-    function normalizeSlideNumber (slideNumber) {
+    function normalizeSlideNumber(slideNumber) {
         if (0 > slideNumber) {
             return slideList.length - 1;
         } else if (slideList.length <= slideNumber) {
@@ -173,7 +188,7 @@ function KSlideShow () {
         }
     }
 
-    function updateProgress (slideNumber) {
+    function updateProgress(slideNumber) {
         // TODO move this kind of style modification into css
         if (null === progress) {
             return;
@@ -187,11 +202,11 @@ function KSlideShow () {
         }
     }
 
-    function getSlideHash (slideNumber) {
+    function getSlideHash(slideNumber) {
         return '#' + slideList[normalizeSlideNumber(slideNumber)].id;
     }
 
-    function goToSlide (slideNumber) {
+    function goToSlide(slideNumber) {
         if (-1 == slideNumber || slideNumber >= slideList.length) {
             return;
         }
@@ -224,13 +239,13 @@ function KSlideShow () {
      }
      }*/
 
-    function gotToList () {
+    function gotToList() {
         history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
         enterListMode();
         scrollToCurrentSlide();
     }
 
-    function goToFull () {
+    function goToFull() {
         // there is no slide selected, we select the first one
         if (-1 === getCurrentSlideNumber()) {
             url.hash = getSlideHash(0);
@@ -243,17 +258,17 @@ function KSlideShow () {
         updateProgress(getCurrentSlideNumber());
     }
 
-    function enterSlideMode () {
+    function enterSlideMode() {
         body.className = 'full';
         applyTransform(getTransform());
     }
 
-    function enterListMode () {
+    function enterListMode() {
         body.className = 'list';
         applyTransform('none');
     }
 
-    function getTransform () {
+    function getTransform() {
         var denominator = Math.max(
             (body.clientWidth / window.innerWidth),
             (body.clientHeight / window.innerHeight)
@@ -261,7 +276,7 @@ function KSlideShow () {
         return 'scale(' + (1 / denominator) + ')';
     }
 
-    function applyTransform (transform) {
+    function applyTransform(transform) {
         body.style.WebkitTransform = transform;
         body.style.MozTransform = transform;
         body.style.msTransform = transform;
@@ -269,7 +284,7 @@ function KSlideShow () {
         body.style.transform = transform;
     }
 
-    function initializeInnerTransition (slideNumber) {
+    function initializeInnerTransition(slideNumber) {
         if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length) {
             return;
         }
@@ -284,7 +299,7 @@ function KSlideShow () {
         }
     }
 
-    function goToNextSlide (slideNumber) {
+    function goToNextSlide(slideNumber) {
         // there is no inner navigation or it is not the slideshow view so we just go back to the next slide
         if (!slideList[slideNumber].hasInnerNavigation || url.toString().indexOf("?full#") == -1) {
             // do nothing if slideNumber is larger than the number of slides
@@ -318,7 +333,7 @@ function KSlideShow () {
         }
     }
 
-    function getNextInner (slideNumber) {
+    function getNextInner(slideNumber) {
         var slide = slides[slideNumber];
         var inners = slide.querySelectorAll('.next');
         var activeInners = slide.querySelectorAll('.next.active');
@@ -326,7 +341,7 @@ function KSlideShow () {
         return inners[nbActiveInner];
     }
 
-    function rollbackInnerTransition (slideNumber) {
+    function rollbackInnerTransition(slideNumber) {
         // update new current slide according to innerTransition (all the inner must be displayed)
         if (slideList[slideNumber].hasInnerNavigation) {
             var activeNodes = slides[slideNumber].querySelectorAll('.next');
@@ -338,7 +353,7 @@ function KSlideShow () {
         }
     }
 
-    function goToPreviousSlide (slideNumber) {
+    function goToPreviousSlide(slideNumber) {
         // there is no inner navigation or it is not the slideshow view so we just go back to the previous slide
         if (!slideList[slideNumber].hasInnerNavigation || url.toString().indexOf("?full#") == -1) {
             // do nothing if slideNumber is smaller than 0
@@ -370,7 +385,7 @@ function KSlideShow () {
         }
     }
 
-    function fullscreen () {
+    function fullscreen() {
         /* On Firefox + slide as cover  unable to switch to next slide.
          * You need to go to fullscreen, try to go to next slide, then go back to the previous slide and then the slides work fine.
          * */
@@ -380,26 +395,31 @@ function KSlideShow () {
         }
     }
 
-    function goToStart () {
+    function goToStart() {
         initializeInnerTransition(0);
         goToSlide(0);
     }
 
-    function goToEnd () {
+    function goToEnd() {
         rollbackInnerTransition(slideList.length - 1);
         goToSlide(slideList.length - 1);
     }
 
-    function getDetails (slideNumber) {
+    function getDetails(slideNumber) {
         if (document.body.className == "full") {
-            try {
-                // the nth equals slideNumber+1 because the slide 0 is the first
-                slideNumber++;
-                var activeNodes = document.querySelectorAll(".slide:nth-of-type(" + slideNumber + ")");
-                var d = activeNodes[activeNodes.length - 1].querySelector("details");
-            } catch (e) {
-                alert("Unable to get DOMElement.\nPlease check special characters on the id: " + getSlideHash(slideNumber))
+//            try {
+            // the nth equals slideNumber+1 because the slide 0 is the first
+            slideNumber++;
+            if (slideNumber <= slides.length) {
+                var slide = slides[slideNumber];
+                var d;
+                if (slide) {
+                    d = slide.querySelector("details");
+                }
             }
+            /*} catch (e) {
+             alert("Unable to get DOMElement.\nPlease check special characters on the id: " + getSlideHash(slideNumber))
+             }*/
             return d ? d.innerHTML : "";
         } else {
             return "";
