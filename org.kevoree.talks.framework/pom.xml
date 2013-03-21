@@ -67,6 +67,7 @@
                                 <jsSourceFile>plugins/time.js</jsSourceFile>
                                 <jsSourceFile>plugins/websocket.js</jsSourceFile>
                             </jsSourceFiles>
+                            <jsTargetDir>scripts</jsTargetDir>
                             <jsFinalFile>kslideshow.merged.js</jsFinalFile>
                         </configuration>
                         <goals>
@@ -87,6 +88,7 @@
                                 <cssSourceFile>fonts.css</cssSourceFile>
                                 <cssSourceFile>default.print.css</cssSourceFile>
                             </cssSourceFiles>
+                            <jsTargetDir>.</jsTargetDir>
                             <cssFinalFile>default.print.merged.css</cssFinalFile>
                         </configuration>
                         <goals>
@@ -107,6 +109,7 @@
                                 <cssSourceFile>fonts.css</cssSourceFile>
                                 <cssSourceFile>default.screen.css</cssSourceFile>
                             </cssSourceFiles>
+                            <jsTargetDir>.</jsTargetDir>
                             <cssFinalFile>default.screen.merged.css</cssFinalFile>
                         </configuration>
                         <goals>
