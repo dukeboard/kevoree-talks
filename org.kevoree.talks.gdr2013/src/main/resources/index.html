@@ -202,23 +202,13 @@
 <span class="iconic arrow_right"> by </span> Francois Fouquet, Brice Morin, Franck Fleurey, Olivier Barais, Noel Plouzeau, Jean-Marc Jezequel</span>
         </div>
     </header>
-</section>
-
-<section class="slide shout" id="Motivations">
-    <header>
-        <h2 style="font-size : 70px;">
-            Research on<br/>
-            Software engineering <span class="iconFont3 kevOrange">G</span><br/>
-            <br/>
-            to abstract <span class="iconFont3 kevOrange">g</span><br/>
-            distributed systems <span class="iconFont3 kevOrange">3</span><br/>
-        </h2>
-    </header>
-    <img style="position:absolute;top: 10px;left:10px;" src="figures/logoInria.png" width="200px"/>
-    <img style="position:absolute;top: 10px;right:10px;" src="figures/logoUniv.png" width="200px"/>
-    <img style="position:absolute;bottom: 10px;left:10px;" src="cbsefig/Sintef-logo.gif" width="200px"/>
-    <img style="position:absolute;bottom: 10px;right:10px;" src="cbsefig/logoirisa2010hd.png" width="200px"/>
-    <details>We do software engineering for D-Sys, method / methodology / tools to develop</details>
+    
+    <div>
+        <img src="logo/logo-irisa-bc.png" style="position:absolute;bottom:35px;left:25px;width:200px;" >
+        <img style="position:absolute;bottom:100px;left:25px;width:180px;" src="logo/INRIA_SCIENTIFIQUE_UK_BLANC.png" />
+        <img style="position:absolute;bottom:140px;left:25px;width:180px;" src="logo/sintef_logo-BC.png" />
+    </div>
+    
 </section>
 
 <!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
@@ -523,12 +513,12 @@
     <header><h2>&mu;Kev : modèle à composant</h2></header>
     <ul>
         <li class="next">Type définition/instance <b class="kevOrange">(quoi/où)</b></li>
-        <li class="next">Composants avec ports (in/out) and parameters</li>
-        <li class="next">Communication channels between ports <code>(bindings)</code></li>
+        <li class="next">Composants avec ports (entrée/sortie) and paramètres</li>
+        <li class="next">Modèle de canaux de communication entre ports <code>(bindings)</code></li>
         <li class="next">
-            Write code (C/Processing/Java)
+            Types via code (C/Processing/Java)
             <span class="iconic arrow_right_alt1 kevOrange"></span>
-            Instantiate in a model
+            Instanciation via modèle
 <pre class="brush:java toolbar:false;">
 @ComponentType
 @DictionaryType({
@@ -553,63 +543,66 @@ public class TempSensor
 </section>
 
 <section class="slide">
-    <header><h2>Behind the scene</h2></header>
-    <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 400px; right : 50px; top:280px;"/>
+    <header><h2>Derrière le modèle...</h2></header>
+    <img class="next" src="cbsefig/ctFig.png" style="position: absolute; width: 350px; right : 50px; top:280px;"/>
     <ul>
-        <li class="next">Asynchronous message passing
-            <span class="iconic kevOrange mail" style="position: absolute; top:370px; right: 460px;"></span>
-            <span class="iconic kevOrange mail" style="position: absolute; top:325px; right: 15px;"></span>
+        <li class="next">Echanges de messages asynchones
+            <span class="kevOrange icon-envelope" style="position: absolute; top:365px; right: 400px;"></span>
+            <span class="kevOrange icon-envelope" style="position: absolute; top:325px; right: 15px;"></span>
         </li>
-        <li class="next">FIFO on each ports (Actor semantics)
-            <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 65px;"></span>
-            <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 65px;"></span>
-            <span class="iconic kevOrange layers" style="position: absolute; top:300px; right: 410px;"></span>
-            <span class="iconic kevOrange layers" style="position: absolute; top:345px; right: 410px;"></span>
+        <li class="next">File d'attente FIFO devant chaque port (Sémantique d'acteur)
+                        
+            <span class="iconic kevOrange layers" style="position: absolute; top:295px; right: 60px;"></span>
+            <span class="iconic kevOrange layers" style="position: absolute; top:335px; right: 60px;"></span>
+            <span class="iconic kevOrange layers" style="position: absolute; top:295px; right: 365px;"></span>
+            <span class="iconic kevOrange layers" style="position: absolute; top:335px; right: 365px;"></span>
         </li>
-        <li class="next">No OS == no multi-threading</li>
-        <li class="next">Opportunistic scheduler driven by
+        <li class="next">Pas OS <span class="kevOrange icon-exchange"></span> Pas de multi-threading</li>
+        <li class="next"><b class="kevGray">Scheduler</b> oportuniste (Soft RT) dirigé par
             <ul>
-                <li>FIFO pending message number</li>
-                <li>Periodic execution subscriptions</li>
+                <li>Nombre de messages en attentes</li>
+                <li>Executions périodiques des instances</li>
             </ul>
             <span class="kevOrange iconraph"
-                  style="position: absolute; top:220px; right: 220px; font-size: 80px;">0</span>
+                  style="position: absolute; top:240px; right: 200px; font-size: 60px;">0</span>
+            <span class="kevGray icon-time"
+                  style="position: absolute; top:250px; right: 150px; font-size: 40px;"></span>
         </li>
-        <li class="next">Transactional <code>KevScript</code> interpreter</li>
-        <li class="next">Generated flat reflexive layer for dynamic instantiations</li>
-        <li class="next">Token ring dynamic memory allocation</li>
+        <li class="next">Interpréteur <b class="kevOrange">KevScript</b> transactionnel</li>
+        <li class="next">Génération d'une <b class="kevOrange">couche réflexive</b> à plat pour l'instanciation dynamique</li>
+        <li class="next">Allocation de mémoire de type <b class="kevOrange">Token ring</b></li>
     </ul>
 </section>
 
 
 <section class="slide" id="muKevoree2">
-    <header><h2>Dynamic adaptation with (&mu;)Kevoree</h2></header>
+    <header><h2>Adaptation dynamique avec (&mu;)Kevoree</h2></header>
     <ul>
-        <li class="next"><span class="kevOrange">Level 1: Parametric adaptation: parameter update</span>
+        <li class="next"><span class="kevOrange">Niveau 1: Parametric adaptation: parameter update</span>
             <ul>
-                <li>Action: send adaptation (kev)script</li>
+                <li><span class="kevOrange icon-wrench"></span> envoi d'un (kev)script</li>
             </ul>
             <img src="cbsefig/updateParamL1.png"
                  style="position:absolute;right:15px;width: 350px;top: 200px; border-radius: 5px;"/>
         </li>
-        <li class="next"><span class="kevOrange">Level 2: Architectural adaptation</span>
+        <li class="next"><span class="kevOrange">Niveau 2: adaptation architecturelle</span>
             <ul>
-                <li>Action: send adaptation (kev)script</li>
+                <li><span class="kevOrange icon-wrench"></span> envoi d'un (kev)script</li>
             </ul>
             <span class='iconic arrow_down kevOrange'
                   style="position:absolute;right:30px;width: 180px;top: 350px; font-size: 30px;"></span>
             <img src="cbsefig/addInst.png"
                  style="position:absolute;right:100px;width: 180px;top: 400px; border-radius: 5px;"/>
         </li>
-        <li class="next"><span class="kevOrange">Level 3: Dynamic provisioning of types</span>
+        <li class="next"><span class="kevOrange">Niveau 3: déploiement dynamique de types</span>
             <ul>
-                <li>Components, Channels <-> C Struct</li>
-                <li>Action: generate new firmware, reboot</li>
+                <li>Components, Channels <span class="icon-random kevOrange"></span> C Struct</li>
+                <li><span class="kevOrange icon-wrench"></span> génération d'un nouveau firmware, reboot</li>
             </ul>
         </li>
-        <li class="next"><span class="kevOrange">Level 4: Adaptation for remote management</span>
+        <li class="next"><span class="kevOrange">Niveau 4: Adaptation et gestion distante</span>
             <ul>
-                <li>Limited action: forward script to peers</li>
+                <li><span class="kevOrange icon-wrench"></span> retransmission d'un script à un peer</li>
             </ul>
         </li>
     </ul>
