@@ -180,10 +180,10 @@
         <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
             A Dynamic Component Model
         </span><br/>
-            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+            <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow';">
                 for Cyber Physical Systems
             </span><br/>
-        <span style="text-align : justify;color: #DF9D00;font-size : 40px;">
+        <span style="text-align : justify;color: #DF9D00;font-size : 30px;">
             <span class="iconFont3">G</span>
             +
             <span class="iconFont3">g</span>
@@ -210,20 +210,6 @@
     </div>
     
 </section>
-
-<!-- Overview / context et problem category / Kevoree 4 distributed DAS - Kevoree features /  -->
-<section class="slide" id="outline">
-    <header>
-        <h2>Talk outline</h2>
-    </header>
-    <ul>
-        <li class="next"><code>Cyber Physical Systems</code> : context, distribution ,mobility</li>
-        <li class="next">Distributed <code>Model@Runtime</code> (M@R) for CPS</li>
-        <li class="next"><code>&mu;Kevoree</code>, adaptation of M@R for &mu;-controller</li>
-        <li class="next">Performance and overhead evaluation</li>
-        <li class="next">Open questions <span class="iconic question_mark kevOrange"></span></li>
-    </ul>
-</section>
   
 <!-- ================ Domaine =================== -->
 <section class="slide shout" id="context_cover">
@@ -232,6 +218,122 @@
     <h2 style="position: absolute;top:72%;font-size: 50px;color:#CCC;">&mu;Kevoree</h2>
     <h2 style="position: absolute;top:79%;font-size: 50px;color:#CCC;">Validation</h2>
     <h2 style="position: absolute;top:86%;font-size: 50px;color:#CCC;">Conclusion</h2>
+</section>
+    
+<section class="slide" id="CPSContext2">
+    <header><h2>Cyber Physical System (CPS)</h2></header>
+    <p class="next">Intégration du monde <b class="kevOrange">physique</b> avec les systèmes <b class="kevOrange">informatiques</b></p> 
+    <div class="next">
+        <ul>
+            <li>Noeud proche des utilisateurs
+                <div style="position:absolute;right:100px;top:250px;">
+                    <div class=" icon-user kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-tablet kevOrange" style="font-size:30px;"></div>
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Informatique <span class="kevOrange">mobile</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="next">
+        <ul>
+            <li>Noeud adapté au contexte physique
+                <div style="position:absolute;right:100px;top:405px;">
+                    <div class=" icon-fire kevOrange" style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div class=" icon-resize-horizontal kevOrange"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;">
+                        <div class=" icon-mobile-phone kevOrange" style="font-size:30px;"></div>
+                        <div style="border-color:#DF9D00;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                    <div class=" icon-resize-horizontal kevGray"
+                         style="font-size:30px;float:left;margin-left: 5px;"></div>
+                    <div style="line-height:0px;float:left;margin-left: 5px;">
+                        <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+                        <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:24px;padding:5px;line-height:5px;">
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Informatique <span class="kevOrange">embarquée</span></li>
+                    <li>Réseau de capteurs</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <p>Construction de système hybride distribué</p>
+</section>
+
+<section class="slide" id="cpsUseCaseSmartBuilding">
+    <header><h2>Cas d'usage SmartBuilding</h2></header>
+    <img class="next" src="cbsefig/towerLogo.png" style="position:absolute; height:420px;right:100px;"/>
+    <ul>
+        <li class="next">
+            Capteurs de températures (chaque étages, bureaux...)
+            <span class="kevOrange iconraph" style="position:absolute; top:230px;right:80px;font-size: 40px;">$</span>
+            <span class="kevOrange iconraph" style="position:absolute; top:330px;right:80px;font-size: 40px;">$</span>
+            <span class="kevOrange iconraph" style="position:absolute; top:430px;right:80px;font-size: 40px;">$</span>
+        </li>
+        <li class="next">Alarmes et notifications (écran, sonnerie, etc.)
+            <span class="kevOrange iconraph" style="position:absolute; top:250px;right:290px;font-size: 40px;">s</span>
+            <span class="kevOrange iconraph" style="position:absolute; top:350px;right:290px;font-size: 40px;">s</span>
+            <span class="kevOrange iconraph" style="position:absolute; top:450px;right:290px;font-size: 40px;">s</span>
+        </li>
+        <li class="next">Points de monitoring et décisions autonomes
+            <span class="iconFont3 kevOrange" style="position:absolute; top:280px;right:290px;font-size: 40px;">4</span>
+            <span class="iconFont3 kevOrange" style="position:absolute; top:380px;right:290px;font-size: 40px;">4</span>
+        </li>
+        <li class="next">Points de décision globales (legacy)
+            <span class="kevOrange iconraph" style="position:absolute; top:540px;right:100px;font-size: 40px;">Ä</span>
+        </li>
+        <li class="next">Utilisateurs accompagné de périphériques mobiles
+            <span class="kevOrange iconraph" style="position:absolute; top:500px;right:290px;font-size: 40px;">L</span>
+            <span class="kevOrange iconic iphone"
+                  style="position:absolute; top:500px;right:310px;font-size: 30px;"></span>
+            <span class="kevOrange iconraph" style="position:absolute; top:520px;right:250px;font-size: 40px;">L</span>
+            <span class="kevOrange iconic iphone"
+                  style="position:absolute; top:520px;right:270px;font-size: 30px;"></span>
+        </li>
+    </ul>
 </section>
     
 <section class="slide" id="CPSContext">
@@ -254,60 +356,8 @@
             <img src="cbsefig/chrome-android.png"
                  style="position: absolute;right:10px;height:150px;top:480px;border-radius: 10px;"/>
         </li>
-        <li class="next">Low consumption Cloud VM based on ARM</li>
     </ul>
-</section>
-
-<section class="slide" id="CPSContext2">
-    <header><h2>CPS challenges</h2></header>
-    <ul>
-        <li class="next">Buzz words: IoT and CPS <br/>
-            In a nutshell mix them all to build pervasive systems
-        </li>
-        <li class="next">Not new: Cyber physical systems (CPS) are identified as key research by NSF since 2006</li>
-        <li class="next"><span class="iconFont3 kevOrange">8</span>Highly dynamic domain, new chip, tools, languages
-            every year
-        </li>
-        <li class="next"><span class="iconFont3 kevOrange">2</span>But introducing heterogeneity <span
-                class="iconic arrow_right_alt1 kevOrange"></span> complexity
-        </li>
-        <li class="next">Short time to market</li>
-        <li class="next"><span class="iconFont3 kevOrange">2</span>Many interconnection protocols</li>
-    </ul>
-</section>
-
-<section class="slide" id="cpsUseCaseSmartBuilding">
-    <header><h2>CPS use case : SmartBuilding</h2></header>
-    <span>SmartBuilding</span> case study
-    <img class="next" src="cbsefig/towerLogo.png" style="position:absolute; height:420px;right:100px;"/>
-    <ul>
-        <li class="next">
-            Temperature sensors (each floor, office...)
-            <span class="kevOrange iconraph" style="position:absolute; top:230px;right:80px;font-size: 40px;">$</span>
-            <span class="kevOrange iconraph" style="position:absolute; top:330px;right:80px;font-size: 40px;">$</span>
-            <span class="kevOrange iconraph" style="position:absolute; top:430px;right:80px;font-size: 40px;">$</span>
-        </li>
-        <li class="next">Alarm and notification points (screen, sound, etc.)
-            <span class="kevOrange iconraph" style="position:absolute; top:250px;right:290px;font-size: 40px;">s</span>
-            <span class="kevOrange iconraph" style="position:absolute; top:350px;right:290px;font-size: 40px;">s</span>
-            <span class="kevOrange iconraph" style="position:absolute; top:450px;right:290px;font-size: 40px;">s</span>
-        </li>
-        <li class="next">Autonomous decision and monitoring points
-            <span class="iconFont3 kevOrange" style="position:absolute; top:280px;right:290px;font-size: 40px;">4</span>
-            <span class="iconFont3 kevOrange" style="position:absolute; top:380px;right:290px;font-size: 40px;">4</span>
-        </li>
-        <li class="next">Global decision nodes (legacy)
-            <span class="kevOrange iconraph" style="position:absolute; top:540px;right:100px;font-size: 40px;">Ä</span>
-        </li>
-        <li class="next">Of course, users with smartphones, tablets
-            <span class="kevOrange iconraph" style="position:absolute; top:500px;right:290px;font-size: 40px;">L</span>
-            <span class="kevOrange iconic iphone"
-                  style="position:absolute; top:500px;right:310px;font-size: 30px;"></span>
-            <span class="kevOrange iconraph" style="position:absolute; top:520px;right:250px;font-size: 40px;">L</span>
-            <span class="kevOrange iconic iphone"
-                  style="position:absolute; top:520px;right:270px;font-size: 30px;"></span>
-        </li>
-    </ul>
+    <span>Diversité des langages de dév et support !</span>
 </section>
 
 <section class="slide" id="uC4CPS">
@@ -384,14 +434,12 @@
         autonomous nodes configurations
     </blockquote>
     <br/>
-
     <h2 style="text-align : center;">Component based design<br/></h2>
-
     <h2 style="text-align : center;">Model reflexion layer <span class="iconFont3 kevOrange">g</span><br/></h2>
 </section>
 
 <section class="slide shout" id="marCPS">
-    <h2><span class="kevOrange">></span>Model@Runtime for CPS?</h2>
+    <h2><span class="kevOrange">></span>Model@Runtime pour CPS?</h2>
 </section>
 
 <!-- DMARContext -->
@@ -405,98 +453,255 @@
     </h2>
 </section>
 
-<!-- Kevoree Overview -->
-<section class="slide" id="MAR_PROCESS">
+<section class="slide" id="kevoree_causalLink">
     <header>
-        <h2>Model@Runtime process</h2>
+        <h2>D-M@R : lien causal local, vision globale</h2>
     </header>
-    <object style="position : absolute;top: 150px;left : 150px;" data="figures/modelATruntimeFinal.png" type="image/png"
-            class="middle" height="450"></object>
-</section>
 
-<section class="slide shout" id="DMAR_CONCEPTS">
-    <h2 style="font-size : 60px">
-        Model@Runtime for distributed<br/>
-        <br/>
-        <span class='iconFont3 kevOrange'>g</span> modelling distributed <span class='iconFont3 kevOrange'>3</span><br/>
-        <br/>
-        share <span class='iconic share kevOrange'></span> distributed model itself
-    </h2>
-</section>
-
-<!-- Model@Runtime sample view -->
-<section class="slide" id="WiaModel">
-    <header>
-        <h2>A model for abstract node configurations</h2>
-    </header>
-    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
-</section>
-<section class="slide" id="WiaModel2">
-    <header>
-        <h2>Each node hosts a model@runtime engine</h2>
-    </header>
-    <img src="figures/dmar_sample.png" style="border-radius: 10px;">
-    <span id="marDengine1" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 280px;top:300px;">Ñ</span>
-    <span id="marDengine2" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 720px;top:290px;">Ñ</span>
-    <span id="marDengine3" class="iconraph kevOrange"
-          style="font-size: 160px; position: absolute; left: 720px;top:130px;">Ñ</span>
-    <script type="text/javascript">
-        //jQuery.noConflict();
-        jQuery(document).ready(function () {
-            setInterval("jQuery('#marDengine1').fadeOut(500);jQuery('#marDengine1').fadeIn(500);", 1000);
-            setInterval("jQuery('#marDengine2').fadeOut(500);jQuery('#marDengine2').fadeIn(500);", 1000);
-            setInterval("jQuery('#marDengine3').fadeOut(500);jQuery('#marDengine3').fadeIn(500);", 1000);
-        });
-    </script>
-</section>
-
-<section class="slide" id="WiaModel3">
-    <header>
-        <h2>M@R nodes exchange models (Gossip,...)</h2>
-    </header>
-    <img class="next" src="figures/dmar_sample.png" style="border-radius: 10px;">
-
-    <div class="next" id="WiaModel3_s1">
-              <span id="mar2Dengine1" class="iconraph kevOrange"
-                    style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
-    <span id="mar2Dengine2" class="iconraph kevOrange"
-          style="font-size: 100px; position: absolute; left: 280px;top:300px;">Ü</span>
+    <div class="next">
+        <div style="position:absolute;left:350px;top:160px;">
+            <div style="width:80px;text-align:center;float:left;line-height:0px;">
+                <span class=" icon-hdd kevGray" style="font-size:30px;padding-right:10px;"></span>
+                <span class="kevGray" style="font-size:18px;">Noeud 0</span>
+            </div>
+            <div class="kevRuntime kevGray" style="float:right;padding:5px;font-size:25px;width:150px;line-height:0px;">
+                <span class=" icon-folder-close-alt"></span>
+                <span class=" icon-folder-close-alt"></span>
+                <span class=" icon-folder-close-alt"></span>
+                <span class=" icon-folder-close-alt"></span>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div class="kevGray" style="position:absolute;left:220px;top:160px;font-size:18px;">plate-forme</div>
+        <div class="kevGray icon-hand-right" style="position:absolute;left:320px;top:170px;font-size:18px;"></div>
     </div>
-    <script type="text/javascript">
-        jQuery("#WiaModel3_s1").bind('nextActivated', function (event, param1, param2) {
-            jQuery(document).ready(function () {
-                $('#mar2Dengine1').
-                        transition({ x:'0px', y:'0px' }, 0).
-                        transition({ x:'0px' }, 800).
-                        transition({ y:'-60px', x:'-60px' }, 800).
-                        transition({ x:'220px' }, 1000);
-                $('#mar2Dengine2').
-                        transition({ x:'0px', y:'0px' }, 0).
-                        transition({ x:'0px' }, 800).
-                        transition({ y:'-60px', x:'-60px' }, 800).
-                        transition({ x:'220px', y:'80px' }, 1000);
-            });
-        });
-    </script>
+
+    <div class="next">
+        <div style="position:absolute;left:325px;top:200px;">
+            <div style="border-color:#666;border-radius:5px;border-width:2px;border-style:solid;padding:5px;line-height:5px;width:290px;padding:15px;margin-left:25px;margin-top:10px;">
+                <span class="cog kevGray" style="font-size:30px;margin-right:5px;"></span><span
+                    class="kevGray" style="font-size:25px;margin-right:5px;">Orchestration M@R</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="next">
+        <div class="kevGray" style="position:absolute;left:50px;top:260px;font-size:18px;">modèle courant (vue du nœud
+            0)
+        </div>
+        <div class="kevGray icon-hand-right" style="position:absolute;left:320px;top:270px;font-size:18px;"></div>
+        <div style="position:absolute;left:370px;top:250px;">
+            <table>
+                <tr>
+                    <td style="text-align: center;vertical-align: top;">
+                        <div class="icon-sitemap kevGray" style="font-size:30px;"></div>
+                    </td>
+                    <td>
+                        <div class="kevModel"
+                             style="background-color:#DF9D00;width:250px;opacity: 0.7;border-radius:5px;padding:5px;margin:10px;">
+                            <table>
+                                <tr>
+                                    <td style="text-align: center;vertical-align: middle;"><span class="kevGray"
+                                                                                                 style="opacity: 1.4;font-size:18px;">Nœud 0</span>
+                                    </td>
+                                    <td>
+                                        <div class="knode"
+                                             style="height:25px;margin-top:5px;border-color:#000;border-style:solid;border-width:3px;width:160px;margin-left:5px;">
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td style="text-align: center;vertical-align: middle;"><span class="kevGray"
+                                                                                                 style="opacity: 1.4;font-size:18px;">Nœud 1</span>
+                                    </td>
+                                    <td>
+                                        <div class="knode"
+                                             style="height:25px;margin-top:5px;border-color:#000;border-style:solid;border-width:3px;width:160px;margin-left:5px;">
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td style="text-align: center;vertical-align: middle;"><span class="kevGray"
+                                                                                                 style="opacity: 1.4;font-size:18px;">Nœud 2</span>
+                                    </td>
+                                    <td>
+                                        <div class="knode"
+                                             style="height:25px;margin-top:5px;border-color:#000;border-style:solid;border-width:3px;width:160px;margin-left:5px;">
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div class="components" style="height:10px;width:15px;float:left;"></div>
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="next">
+        <!-- Anim MAPE Loop -->
+        <span style="font-size:60px;position:absolute;right:300px;top:320px;" class="kevGray iconraph">.</span>
+        <span style="font-size:40px;position:absolute;right:240px;top:320px;" class="kevGray icon-sitemap"></span>
+        <span style="font-size:40px;position:absolute;right:240px;top:260px;" class="kevGray icon-arrow-up"></span>
+        <span style="font-size:40px;position:absolute;right:230px;top:215px;" class="kevGray icon-cogs"></span>
+        <span style="font-size:40px;position:absolute;right:300px;top:215px;" class="kevGray icon-arrow-left"></span>
+
+        <div class="kevGray" style="position:absolute;right:30px;top:330px;font-size:18px;">copie du M@R globale</div>
+        <div class="kevGray icon-hand-left" style="position:absolute;right:220px;top:340px;font-size:18px;"></div>
+    </div>
+
+    <div style="padding-top:280px;">
+        <ul>
+            <li class="next">À réception, orchestration Model@Runtime <span class="cog kevOrange"
+                                                                            style="font-size:25px;"></span> migre d'état
+                <span style="font-size:35px;position:absolute;right:490px;top:240px;"
+                      class="kevOrange icon-arrow-down"></span>
+                <span style="font-size:35px;position:absolute;right:490px;top:195px;"
+                      class="kevOrange icon-arrow-up"></span>
+                <!-- View RIGHT -->
+                <div style="position:absolute;right:20px;top:150px;">
+                    <div class=" icon-chevron-left"
+                         style="font-size:30px;float:left;margin-left: 15px;color: #CCC;margin-top:70px;"></div>
+                    <div style="float:left;margin-left: 15px;border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;">
+                        <div style="line-height:8px;float:left;margin-left: 5px;">
+                            <div class=" kevGray" style="font-size:12px;">Nœud 0</div>
+                            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;width:24px;padding:5px;line-height:5px;">
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close kevOrange" style="font-size:20px;"></div>
+                            </div>
+                        </div>
+                        <div style="line-height:8px;float:left;margin-left: 5px;">
+                            <div class="kevGray" style="font-size:12px;">Nœud 1</div>
+                            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;width:24px;padding:5px;line-height:5px;">
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            </div>
+                        </div>
+                        <div style="line-height:8px;float:left;margin-left: 5px;">
+                            <div class="kevGray" style="font-size:12px;">Nœud 2</div>
+                            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:dotted;width:24px;padding:5px;line-height:5px;">
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="next"><span class="kevOrange">Différence</span> de modèle sur la partie spécifique au nœud 0
+                (ajout module)
+                <span class="icon-circle-arrow-left"
+                      style="color:#000;position:absolute;right:320px;top:275px;font-size:40px;"></span>
+                <span class="icon-circle-arrow-up"
+                      style="color:#000;position:absolute;right:113px;top:270px;font-size:40px;"></span>
+            </li>
+            <li class="next">
+                Après <span class="kevOrange">application</span> des différences, <span class="kevOrange">lien causal local</span>
+                assuré et sauvegarde
+            </li>
+        </ul>
+    </div>
 </section>
 
-<section class="slide" id="muKevoree1">
-    <header><h2>Challenges of adaptation on &mu;C</h2></header>
-    <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
-         style="position: absolute;right:100px;height:100px;top:280px;"/>
-    <span class="kevOrange">&mu;C nodes can't manage every adaptation capability!</span><br/>
-    Dynamic adaptation on &mu;C faces several challenges
+<section class="slide" id="kevoree_distributedModelRuntime">
+    <header>
+        <h2>Réflexion distribuée orientée Modèle</h2>
+    </header>
+    <div style="height:180px;">
+        <div style="clear:both;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:100px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+        </div>
+        <div style="clear:both;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:200px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+        </div>
+        <div style="clear:both;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:100px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+            <div class=" icon-hdd kevGray" style="font-size:30px;margin-left:150px;"></div>
+        </div>
+    </div>
+    <span class="next"><span class="kevOrange icon-exclamation-sign "></span> Chaque nœud <div
+            class=" icon-hdd kevGray" style="font-size:30px;"></div> possède une réplique de la pile Model@Runtime</span>
     <ul>
-        <li>Downtime must be minimal</li>
-        <li>Volatile memory usage must fit in few kB</li>
-        <li>Persistent memory writes are limited</li>
-        <li>Reconfiguration must be statefull, to recover from power failure</li>
+        <li class="next">Interaction réflexive (structurelle) uniquement au travers de modèles <span
+                class="icon-sitemap kevOrange"></span></li>
+        <li class="next">Interaction locale (slide précédent)
+            <!-- Anim -->
+            <span class="icon-cogs kevGray" style="position:absolute;left:150px;top:270px;"></span>
+
+            <div style="background-color:#666;width:100px;position:absolute;left:212px;top:260px;height:75px;width:44px;opacity: 0.3;border-radius:5px;"></div>
+            <span class="icon-arrow-left kevOrange" style="position:absolute;left:185px;top:270px;"></span>
+            <span class="icon-sitemap kevOrange" style="position:absolute;left:150px;top:295px;"></span>
+            <span class="icon-arrow-right kevOrange" style="position:absolute;left:185px;top:300px;"></span>
+        </li>
+
+        <li class="next">Après modification, <span class="kevOrange">propagation d'adaptation</span> <i>via</i> l'envoi
+            de modèles <span
+                    class="icon-random kevOrange"></span>
+            <!-- Anim -->
+            <span class="icon-arrow-right kevOrange" style="position:absolute;left:270px;top:270px;"></span>
+            <span class="icon-sitemap kevOrange" style="position:absolute;left:310px;top:270px;"></span>
+            <span class="icon-arrow-right kevOrange" style="position:absolute;left:350px;top:270px;"></span>
+
+            <span class="icon-arrow-right kevOrange" style="position:absolute;left:450px;top:270px;"></span>
+            <span class="icon-sitemap kevOrange" style="position:absolute;left:500px;top:270px;"></span>
+            <span class="icon-arrow-right kevOrange" style="position:absolute;left:540px;top:270px;"></span>
+
+            <span class="icon-arrow-up kevOrange" style="position:absolute;left:400px;top:195px;"></span>
+            <span class="icon-sitemap kevOrange" style="position:absolute;left:400px;top:220px;"></span>
+            <span class="icon-arrow-up kevOrange" style="position:absolute;left:400px;top:245px;"></span>
+        </li>
+        <li class="next">Nœud responsable du lien causal <span class="icon-lock kevOrange"></span> local, adaptation
+            locale seulement
+            <!-- Anim -->
+            <span class="icon-cogs kevGray" style="position:absolute;left:620px;top:270px;"></span>
+
+            <div class="kevRuntime" style="position:absolute;left:575px;top:300px;line-height:0px;">
+                <span class="icon-folder-close-alt kevGray"></span>
+                <span class="icon-folder-close-alt kevGray"></span>
+            </div>
+            <div style="background-color:#DF9D00;width:500px;position:absolute;left:570px;top:260px;height:80px;width:90px;opacity: 0.3;border-radius:5px;"></div>
+        </li>
     </ul>
-    <span class="kevOrange">
-        <span class="iconic arrow_right_alt1"></span> use more powerful sibling to pre-compile adaptations<br/>
-    </span>
+</section>
+    
+<section class="slide" id="muKevoree1">
+    <header><h2>Challenges pour l'adaptation sur &mu;C</h2></header>
+    <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
+         style="position: absolute;right:100px;height:100px;top:250px;"/>
+    <ul>
+        <li class="next">Les temps d'arrêt doit être minimaux</li>
+        <li class="next">La mémoire volatile doit tenir dans quelques kB</li>
+        <li class="next">Le nombre d'écriture mémoire sont limités</li>
+        <li class="next">La reconfiguration doit <b class="kevOrange">statefull</b>, pour redémarrer en cas de crash</li>
+    </ul>
+    <span class="next kevOrange"><span class="kevOrange icon-bullhorn"></span> architectures d'&mu;C prioritisant les niveaux d'adaptation</span><br/>
+    <span class="next kevOrange"><span class="iconic icon-bullhorn"></span> exploiter les noeuds voisins pour la pré-compilation des adaptations<br/></span>
 </section>
 
 
