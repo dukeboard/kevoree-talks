@@ -466,15 +466,14 @@
 
 <section class="slide" id="mr_dissemination_problem_overview">
     <header>
-        <h2>Architectural abstraction needed !</h2>
+        <h2>Abstraction d'architecture !</h2>
     </header>
-    <code>Claim : </code>
-    <blockquote>To address all these problems, we need to provide an abstraction to manipulate and compose
-        autonomous nodes configurations
+    <code>Proposition : </code>
+    <blockquote>abstraction <span class="kevOrange">désynchronisable</span> pour la manipulation grain fin des éléments architecturaux, modèle de délégation pour l'hétérogénité
     </blockquote>
     <br/>
-    <h2 style="text-align : center;">Component based design<br/></h2>
-    <h2 style="text-align : center;">Model reflexion layer <span class="iconFont3 kevOrange">g</span><br/></h2>
+    <h2 style="text-align : center;">Modularité via modèle à composant<br/></h2>
+    <h2 style="text-align : center;">Couche de réflexion dynamique modèle <span class="iconFont3 kevOrange">g</span><br/></h2>
 </section>
 
 <section class="slide shout" id="marCPS">
@@ -729,13 +728,13 @@
 </section>
     
 <section class="slide" id="muKevoree1">
-    <header><h2>Défit pour l'adaptation sur &mu;C</h2></header>
+    <header><h2>Défits pour l'adaptation sur &mu;C</h2></header>
     <img src="cbsefig/atmel-atmega328p-with-arduino-bootloader.jpg"
          style="position: absolute;right:100px;height:100px;top:200px;"/>
     <ul>
-        <li class="next">Les temps d'arrêt doit être minimaux</li>
+        <li class="next">Les temps d'arrêts doit être minimisés</li>
         <li class="next">La mémoire volatile doit tenir dans quelques kB</li>
-        <li class="next">Le nombre d'écriture mémoire sont limités</li>
+        <li class="next">Le nombre de cycle d'écriture mémoire sont limités</li>
         <li class="next">Reconfiguration <b class="kevOrange">statefull</b>, pour redémarrer en cas de crash (électrique)</li>
     </ul>
     <span class="next kevOrange"><span class="kevOrange icon-bullhorn"></span> architectures d'&mu;C prioritisant les niveaux d'adaptation</span><br/>
@@ -756,7 +755,7 @@
     <header><h2>&mu;Kev : modèle à composant</h2></header>
     <ul>
         <li class="next">Type définition/instance <b class="kevOrange">(quoi/où)</b></li>
-        <li class="next">Composants avec ports (entrée/sortie) and paramètres</li>
+        <li class="next">Composants avec ports (entrée/sortie) et paramètres</li>
         <li class="next">Modèle de canaux de communication entre ports <code>(bindings)</code></li>
         <li class="next">
             Types via code (C/Processing/Java)
@@ -821,7 +820,7 @@ public class TempSensor
 <section class="slide" id="muKevoree2">
     <header><h2>Adaptation dynamique avec (&mu;)Kevoree</h2></header>
     <ul>
-        <li class="next"><span class="kevOrange">Niveau 1: Parametric adaptation: parameter update</span>
+        <li class="next"><span class="kevOrange">Niveau 1: adaptation paramétrique: modification valeur</span>
             <ul>
                 <li><span class="kevOrange icon-wrench"></span> envoi d'un (kev)script</li>
             </ul>
