@@ -337,9 +337,9 @@
 </section>
     
 <section class="slide" id="CPSContext">
-    <header><h2>Devices diversity</h2></header>
+    <header><h2>Diversité des plateformes</h2></header>
+    <p class="next">De nombreuses solutions techniques...</p>
     <ul>
-        <li class="next">New mobility usages boost low consumption computer development</li>
         <li class="next">FPGA (VHDL)
             <img src="cbsefig/FPGA_cell_example.png" style="position: absolute;right:200px;height:100px;top:220px;"/>
         </li>
@@ -357,72 +357,112 @@
                  style="position: absolute;right:10px;height:150px;top:480px;border-radius: 10px;"/>
         </li>
     </ul>
-    <span>Diversité des langages de dév et support !</span>
+    <p class="next"><span class="kevOrange icon-pushpin"></span> Diversité des langages et hétérogénité des noeuds !</p>
 </section>
 
 <section class="slide" id="uC4CPS">
-    <header><h2>&mu;Controllers are candidates for CPS!</h2></header>
+    <header><h2>&mu;Controlleurs sont de bons candidates !</h2></header>
     <img src="cbsefig/chipFactory.jpg"
          style="position:absolute;border-radius: 10px;height: 200px;right:15px;top: 210px;"/>
     <ul>
-        <li class="next">AVR derived processors are still the most sold nowadays</li>
-        <li class="next">&mu;Controllers are ready for mass production and cheap</li>
-        <li class="next">Pro: Low consumption, reliable, predictable</li>
-        <li class="next">Cons: Very constrained, complicated soft development</li>
+        <li class="next">Les AVR sont toujours les processeurs les plus vendus aujourd'hui</li>
+        <li class="next">Les &mu;C sont peu cher et produit en masse</li>
+        <li class="next"><span class="kevOrange icon-thumbs-up"></span> faible consommation, sûre, prédictible</li>
+        <li class="next"><span class="kevOrange icon-thumbs-down"></span> très contraints, développement complexe</li>
+        <li class="next"><span class="kevOrange">Compromis</span> entre performance et consommation ?</li>
     </ul>
-    <p class="next">
-        CPS devices need <code>tradeoff</code> between, consumption, computational power, cost, development cost.<br/>
-        Push <code>cleverness</code> directly in &mu;C is more reliable, especially for reflex rules,
-        data filtering, smoothing ...
-    </p>
+    
+    <p class="next"><span class="kevOrange icon-warning-sign"></span> Déployer l'<span class="kevOrange">intelligence</span> directement dans les &mu;C est plus sûr, particuliement pour les règles réflexes, lissages de mesures,etc..</p>
 </section>
 
 <section class="slide" id="CPSasDDAS">
     <header>
-        <h2>Considering CPS as adaptive systems</h2>
+        <h2>Les CPS,  systèmes adaptatifs ?</h2>
     </header>
     <ul>
-        <li>CPS tend to be volatile ubiquitous systems, node appear and disappear</li>
-        <li>CPS are versatile, many usages, many use cases
+        <li class="next">Les CPS sont des systèmes ubiquitaires volatiles (perte/gain de noeuds)</li>
+        <li class="next">Les noeuds des CPS sont volatiles et peuvent servir à plusieurs cas
             <ul>
-                <li>Exemple : your temp sensor can be used for home automation usage or emergency presence detector</li>
+                <li>Un capteur de température <span class="kevOrange icon-fire"></span> peut servir à la fois au confort (domotique) et urgence (alarme)</li>
             </ul>
         </li>
-        <li>Time to market too short to wait for exhaustive design</li>
+        <li class="next"><span class="kevGray">Time to market</span> trop court pour faire un design exaustif !</li>
     </ul>
-    <code>
-        Consider CPS as DDAS to ensure evolution?
-        <br/>
-        How to manage distributed reconfiguration?
-        <br/>
-        How to manage runtime heterogeneity?
-    </code>
+    <div class="next">
+        <span><span class="kevOrange icon-map-marker"></span>Problèmes communs aux noeuds "classiques" : noeuds Cloud <span class="kevOrange icon-cloud-download"></span>...</span><br />
+        <span><span class="kevOrange icon-lightbulb"></span> construire ces systèmes comme assemblage de noeuds adaptatifs</span>
+    </div>
 </section>
-
-<section class="slide" id="DistributedProblems">
+    
+<section class="slide" id="problem_sporadic">
     <header>
-        <h2>Adaptive systems need reflexion</h2>
+        <h2>Adaptation et besoin en réflexion</h2>
     </header>
-    but direct access on reflexive layer is problematic in several distributed architectures
-    <ul>
-        <li class="next"><strong class="kevOrange">Sporadic nodes</strong>: direct reflexive access is not
-            always<code>reachable</code>
-            <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">g</span><span
-                    class="glyph general">u</span><span class="glyph general">p</span>
-        </li>
-        <li class="next"><strong class="kevOrange">Heterogeneous nodes</strong>: direct access is not always provided
-            by restrictive runtime
-            <span class="glyph general">p</span><span class="glyph general">v</span><span class="glyph general">t</span><span
-                    class="glyph general">u</span><span class="glyph general">q</span>
-        </li>
-        <li class="next"><strong class="kevOrange">Embedded nodes</strong>: direct access can be an issue for the
-            <code>battery life</code>
-            <span class="glyph general">p</span> <!-- computer -->
-            <span class="glyph general">v</span><span class="glyph general">u</span>
-            <span class="iconic battery_half"></span>
-            <span class='iconic iphone'></span>
-        </li>
-    </ul>
+    <div class="next" style="margin-left:280px;margin-top:100px;">
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div class=" kevGray" style="font-size:15px;margin-bottom:10px;margin-top:5px;text-align:center;">Nœud A
+            </div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div class=" kevGray" style="font-size:15px;margin-bottom:10px;margin-top:5px;text-align:center;">Nœud B
+            </div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+        <div class=" icon-resize-horizontal kevGray" style="font-size:30px;float:left;margin-left: 5px;"></div>
+        <div style="line-height:0px;float:left;margin-left: 5px;">
+            <div class=" icon-hdd kevGray" style="font-size:30px;"></div>
+            <div class=" kevGray" style="font-size:15px;margin-bottom:10px;margin-top:5px;text-align:center;">Nœud C
+            </div>
+            <div style="border-color:#CCC;border-radius:5px;border-width:2px;border-style:solid;width:20px;padding:5px;line-height:5px;">
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+                <div class=" icon-folder-close-alt kevGray" style="font-size:20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="next" style="clear:both;padding-top:30px;">
+        <span class="icon-refresh kevOrange" style="position:absolute;top:190px;left:405px;"></span>
+        <span class="icon-cogs kevGray" style="position:absolute;top:160px;left:405px;"></span>
+        <span style="color:#666;position:absolute;top:150px;left:230px;font-size:20px;">boucle d'adaptation</span>
+        <ul>
+            <li>Adaptation : passage d'un état <i class="kevGray">(tous les noeuds)</i> M à M'</li>
+            <li class="next">Adaptation distante <span class="icon-comment kevGray" style="font-size:30px;"></span>
+                besoin de connaissances de l'état distant
+            </li>
+            <li class="next"><span class="icon-warning-sign kevOrange" style="font-size:30px;"></span> En cas d'erreur
+                réseau, lecture directe d'état impossible
+                <span class=" icon-warning-sign kevGray"
+                      style="font-size:30px;position:absolute;left:525px;top:221px;color:#E80000;"></span>
+                <span class=" icon-resize-horizontal kevGray"
+                      style="font-size:30px;position:absolute;left:551px;top:221px;color:#E80000;"></span>
+            </li>
+            <li class="next"><span class="icon-warning-sign kevOrange" style="font-size:30px;"></span> Impact significatif sur la durée de vie sur batterie !</li>
+             <li class="next">
+                <span class="icon-comment kevOrange"></span> Garder une <span class="kevOrange">capture d'état </span>
+                (vue) des
+                informations de tous les nœuds
+                <img src="figures/thought-bubble.png" style="height:40px;position:absolute;left:360px;top:200px;"/>
+
+                <div class="kevGray"
+                     style="position:absolute;left:255px;top:200px;border-color:#666;border-radius:5px;border-width:2px;border-style:dotted;padding:5px;font-size:10px;">
+                    Nœud A : 2 modules<br/>
+                    Nœud B : 2 modules<br/>
+                    Nœud C : 2 modules
+                </div>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <section class="slide" id="mr_dissemination_problem_overview">
@@ -441,8 +481,7 @@
 <section class="slide shout" id="marCPS">
     <h2><span class="kevOrange">></span>Model@Runtime pour CPS?</h2>
 </section>
-
-<!-- DMARContext -->
+    
 <section class="slide shout" id="ContextMARIntro">
     <h2 style="font-size : 60px">
         Node = Runtime
