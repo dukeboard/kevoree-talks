@@ -12,18 +12,19 @@
 
     <modules>
         <module>../org.kevoree.talks.framework</module>
-       <!-- <module>../org.kevoree.talks.adam</module> -->
+        <!-- <module>../org.kevoree.talks.adam</module> -->
         <module>../org.kevoree.talks.ubimob2012</module>
         <module>../org.kevoree.talks.ubimob2012Demo</module>
         <module>../org.kevoree.talks.ws</module>
         <module>../org.kevoree.talks.dais2012</module>
         <module>../org.kevoree.talks.cbse2012</module>
         <module>../org.kevoree.talks.snt2012</module>
-		<module>../org.kevoree.talks.snt2012.servalSeminar</module>
+        <module>../org.kevoree.talks.snt2012.servalSeminar</module>
         <module>../org.kevoree.talks.models2012</module>
-		
-		<module>../org.kevoree.talks.dukePhD</module>
-		
+
+        <module>../org.kevoree.talks.dukePhD</module>
+        <module>../org.kevoree.talks.gdr2013</module>
+
         <!--<module>../org.kevoree.talks.curitiba2012</module>
         <module>../org.kevoree.talks.mavenplugin</module>-->
     </modules>
