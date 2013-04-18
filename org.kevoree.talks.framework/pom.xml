@@ -46,7 +46,7 @@
                 <executions>
                     <execution>
                         <id>minify-js</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-resources</phase>
                         <configuration>
                             <webappSourceDir>${project.basedir}/src/main/resources</webappSourceDir>
                             <webappTargetDir>${project.basedir}/src/main/resources</webappTargetDir>
@@ -76,7 +76,7 @@
                     </execution>
                     <execution>
                         <id>minify-theme-default-print-css</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-resources</phase>
                         <configuration>
                             <webappSourceDir>${project.basedir}/src/main/resources/styles/themes/default</webappSourceDir>
                             <webappTargetDir>${project.basedir}/src/main/resources/styles/themes/default</webappTargetDir>
@@ -97,7 +97,7 @@
                     </execution>
                     <execution>
                         <id>minify-theme-default-screen-css</id>
-                        <phase>process-resources</phase>
+                        <phase>generate-resources</phase>
                         <configuration>
                             <webappSourceDir>${project.basedir}/src/main/resources/styles/themes/default</webappSourceDir>
                             <webappTargetDir>${project.basedir}/src/main/resources/styles/themes/default</webappTargetDir>
