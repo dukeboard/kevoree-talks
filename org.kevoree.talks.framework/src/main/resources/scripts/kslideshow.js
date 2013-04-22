@@ -54,6 +54,12 @@ function KSlideShow() {
             if (!isListMode()) {
                 goToFull();
             }
+
+            // following lines allow to display include content instead of black screen in slide mode (and select the slide in list mode)
+            var anchor = url.hash;
+            url.hash = '';
+            url.hash = anchor;
+
             if (pluginListeners) {
                 for (var i = 0; i < pluginListeners.length; i++) {
                     try {
@@ -103,7 +109,7 @@ function KSlideShow() {
         } else if (message.type === "FULL") {
             goToFull();
         } else if (message.type === "LIST") {
-            gotToList();
+            goToList();
         }
         if (pluginListeners) {
             for (var i = 0; i < pluginListeners.length; i++) {
@@ -189,7 +195,6 @@ function KSlideShow() {
     }
 
     function updateProgress(slideNumber) {
-        // TODO move this kind of style modification into css
         if (null === progress) {
             return;
         }
@@ -216,30 +221,7 @@ function KSlideShow() {
         }
     }
 
-    /*
-     function getContainingSlideId (el) {
-     var node = el;
-     while ('BODY' !== node.nodeName && 'HTML' !== node.nodeName) {
-     if (-1 !== node.className.indexOf('slide')) {
-     return node.id;
-     } else {
-     node = node.parentNode;
-     }
-     }
-     return '';
-     }*/
-
-    /*function dispatchSingleSlideModeFromEvent (e) {
-     var slideId = getContainingSlideId(e.target);
-     if ('' !== slideId && isListMode()) {
-     e.preventDefault();
-     url.hash = '#' + slideId;
-     goToFull();
-     self.sendEvent(self, {"type":"SET_CURSOR", "cursor":getCurrentSlideNumber()});
-     }
-     }*/
-
-    function gotToList() {
+    function goToList() {
         history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
         enterListMode();
         scrollToCurrentSlide();
@@ -314,9 +296,6 @@ function KSlideShow() {
             var newInner = getNextInner(slideNumber);
             if (newInner) {
                 newInner.className = newInner.className + ' active';
-                /*$(newInner).bind('nextActivate', function(event, param1, param2) {
-                 alert(event+ "\n" + param1 + "\n" + param2);
-                 });*/
                 try {
                     // create event to trigger listener that can manage animations on the appearing elements
                     jQuery(newInner).trigger('nextActivated');
@@ -407,7 +386,6 @@ function KSlideShow() {
 
     function getDetails(slideNumber) {
         if (document.body.className == "full") {
-//            try {
             // the nth equals slideNumber+1 because the slide 0 is the first
             slideNumber++;
             if (slideNumber <= slides.length) {
@@ -417,9 +395,6 @@ function KSlideShow() {
                     d = slide.querySelector("details");
                 }
             }
-            /*} catch (e) {
-             alert("Unable to get DOMElement.\nPlease check special characters on the id: " + getSlideHash(slideNumber))
-             }*/
             return d ? d.innerHTML : "";
         } else {
             return "";
