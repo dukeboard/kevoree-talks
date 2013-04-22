@@ -47,7 +47,6 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tvar slideCountPlugin = new KSlideCount(ks);\n"
 			+ "\t\tvar notesPlugin = new KNotes();\n"
 			+ "\t\tvar timePlugin = new KTime();\n"
-            + "\t\tvar h2list = new H2List(ks, 4);\n"
 			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
 			+ "\t\tks.addPluginListener(popupPlugin);\n"
 			+ "\t\tks.addPluginListener(websocketPlugin);\n"
@@ -55,7 +54,6 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.addPluginListener(slideCountPlugin);\n"
 			+ "\t\tks.addPluginListener(notesPlugin);\n"
 			+ "\t\tks.addPluginListener(timePlugin);\n"
-            + "\t\tks.addPluginListener(h2list);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
@@ -86,11 +84,11 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 	private static String kslideshowFrameScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-			+ "\t\tvar iframePlugin = new KIFrameSlave(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
+			+ "\t\tvar iframePlugin = new KIFrameSlave(ks);\n"
             + "\t\tks.addPluginListener(includePlugin);\n"
-			+ "\t\tks.addPluginListener(iframePlugin);\n"
             + "\t\tks.addPluginListener(h2list);\n"
+			+ "\t\tks.addPluginListener(iframePlugin);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 

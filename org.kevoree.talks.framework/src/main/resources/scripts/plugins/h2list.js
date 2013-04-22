@@ -49,6 +49,9 @@ function H2List(kslide, toDisplayInAddition) {
                 slide.appendChild(h2ToAddAfter[i]);
             }
         });
+        var callback = jQuery.Deferred();
+        callback.resolve();
+        return callback;
     };
     this.start = function () {
     };

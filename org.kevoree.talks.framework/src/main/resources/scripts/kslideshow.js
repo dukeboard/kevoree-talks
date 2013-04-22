@@ -6,6 +6,7 @@ function KSlideShow() {
     var progress = null;
     var slideList = [];
     var emptySlide = null;
+    var orderedpluginListeners = [];
     var pluginListeners = [];
     var self = this;
 
@@ -20,6 +21,44 @@ function KSlideShow() {
                 hasInnerNavigation: null !== slide.querySelector('.next')
             });
         });
+    }
+
+    function initializeOrderedListeners(index, lastCallback, previousCallback) {
+        if (index < orderedpluginListeners.length) {
+            try {
+                var newCallback = orderedpluginListeners[index].listener.initialize();
+                if (newCallback) {
+                    var callbacks = [];
+                    callbacks.push(newCallback);
+                    var promise = jQuery.when.apply(null, callbacks);
+                    if (index + 1 < orderedpluginListeners.length) {
+                        promise.then(function () {
+                            initializeOrderedListeners(index + 1, lastCallback, promise);
+                        });
+                    } else {
+                        promise.then(function () {
+                            lastCallback.resolve();
+                        });
+                    }
+                } else {
+                    if (index + 1 < orderedpluginListeners.length) {
+                        initializeOrderedListeners(index + 1, lastCallback, previousCallback);
+                    } else if (previousCallback) {
+                        previousCallback.then(function () {
+                            lastCallback.resolve();
+                        });
+                    } else {
+                        lastCallback.resolve();
+                    }
+
+                }
+            } catch (e) {
+                console.error(e.message);
+                console.warn("Unable to execute the method 'initialize' on ", pluginListeners[index].listener);
+            }
+        } else {
+            callback.resolve();
+        }
     }
 
     this.startKeynote = function () {
@@ -38,6 +77,13 @@ function KSlideShow() {
                 }
             }
         }
+
+        if (orderedpluginListeners) {
+            callback = jQuery.Deferred();
+            initializeOrderedListeners(0, callback);
+            callbacks.push(callback);
+        }
+
         var promise = jQuery.when.apply(null, callbacks);
         promise.then(function () {
             window.addEventListener('resize', function () {
@@ -126,11 +172,23 @@ function KSlideShow() {
         return response;
     };
 
-    this.addPluginListener = function (f) {
-        pluginListeners.push({
-            id: pluginListeners.length,
-            listener: f
-        });
+    /**
+     * register a listener to KSlideshow
+     * @param listener the listener to regsiter
+     * @param ordered true if the listener need to be initialize following the order in which the listeners were added, false, if order doesn't matter
+     */
+    this.addPluginListener = function (listener, ordered) {
+        if (ordered) {
+            orderedpluginListeners.push({
+                id: orderedpluginListeners.length,
+                listener: listener
+            });
+        } else {
+            pluginListeners.push({
+                id: pluginListeners.length,
+                listener: listener
+            });
+        }
     };
 
     function getCurrentSlideNumber() {

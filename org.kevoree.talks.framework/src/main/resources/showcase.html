@@ -29,9 +29,10 @@
         var keyboardPlugin = new KKeyboard(ks);
         var includePlugin = new IncludePlugin(ks);
         var h2list = new H2List(ks, 4);
-        ks.addPluginListener(keyboardPlugin);
-        ks.addPluginListener(includePlugin);
-        ks.addPluginListener(h2list);
+        // the order the plugins are added defined the order of their initialization and start (needed for include and h2list)
+        ks.addPluginListener(keyboardPlugin, false);
+        ks.addPluginListener(includePlugin, true);
+        ks.addPluginListener(h2list, true);
         ks.startKeynote();
 	});
 	</script>
@@ -211,10 +212,6 @@ addToGroup sync node0
 <div id="include" class="includeHtml"></div>
 <div id="include2" class="includeHtml"></div>
 <div id="include3" class="includeHtml"></div>
-
-<section class="slide shout">
-    <h2 class="h2-list">list of shouts</h2>
-</section>
 
 <section class="slide shout">
     <h2 class="h2-list">A new shout</h2>
