@@ -7,30 +7,3 @@ body {
     /*counter-reset: paging;*/
     font: 25px/2 'PT Sans', sans-serif;
 }
-
-.caption {
-    display: none !important;
-    /*margin: 0 0 50px;
-    color: #3C3D40;
-    text-shadow: 0 1px 1px #8D8E90;*/
-}
-
-/*
-.caption {
-    page-break-after: always !important;
-}
-
-.caption h1 {
-    font: bold 50px/1 'PT Sans Narrow', sans-serif;
-}
-
-.caption a {
-    color: #4B86C2;
-    text-shadow: 0 -1px 1px #1F3F60;
-    text-decoration: none;
-}
-
-.caption a:hover {
-    color: #5ca4ed;
-}
-*/

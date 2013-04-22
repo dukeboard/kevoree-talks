@@ -5,6 +5,25 @@
     margin: 0;
     border: 0;
     padding: 0;
+
+    /*@bottom-center{
+    content: "";
+    }
+    @top-center{
+    content: "";
+    }
+    @bottom-left{
+    content: "";
+    }
+    @bottom-right{
+    content: "Page: " counter(page);
+    }
+    @top-left{
+    content: "";
+    }
+    @top-right{
+    content: "";
+    }*/
 }
 
 * {
@@ -12,46 +31,31 @@
 }
 
 html {
-    /*width: 784px;*/
-    /*height: 569px;*/
-    overflow: visible;
-    border: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;
+    width: 784px !important;
+    height: 569px !important;
 }
 
 body {
-    /*width: 784px;*/
-    /*height: 569px;*/
-    border: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    float: none !important;
-    overflow: visible;
+    width: 784px !important;
+    height: 569px !important;
     background: #FFF;
     counter-reset: paging;
+}
 
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;
+.caption {
+    display: none !important;
 }
 
 details {
-    display: none;
+    display: none !important;
 }
 
 div.progress {
-    display: none;
+    display: none !important;
 }
 
 div.progress > div {
-    display: none;
+    display: none !important;
 }
 
 .list .slide ol,
@@ -90,40 +94,12 @@ div.progress > div {
 
     width: 784px !important;
     height: 569px !important;
+
     position: relative !important;
     float: left !important;
 
-    /*margin-top: 50px;*/
     opacity: 1 !important;
 
-    /*margin: 0 -432px -220px 0 !important;*/
-
-    /*-webkit-perspective: none !important;
-    -moz-perspective: none !important;
-    -ms-perspective: none !important;
-    perspective: none !important;*/
-
-    /*there isn't a none/auto value but 50-50 is the default*/
-    /*-webkit-perspective-origin: 50% 50% !important;
-    -moz-perspective-origin: 50% 50% !important;
-    -ms-perspective-origin: 50% 50% !important;
-    perspective-origin: 50% 50% !important;*/
-
-    /*-webkit-transform-style: flat !important;
-    -moz-transform-style: flat !important;
-    -ms-transform-style: flat !important;
-    transform-style: flat !important;*/
-
-    /*-webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    transform: none !important;*/
-
-    /*-webkit-transform-origin: 100% 0 !important;
-    -moz-transform-origin: 100% 0 !important;
-    -ms-transform-origin: 100% 0 !important;
-    transform-origin: 100% 0 !important;*/
-
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.005), 0 10px 10px rgba(42, 43, 45, 0.6);*/
     page-break-inside: avoid !important;
+    page-break-after: always !important;
 }
