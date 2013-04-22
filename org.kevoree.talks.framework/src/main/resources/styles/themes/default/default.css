@@ -286,6 +286,27 @@
     transform: translateY(-50%);
 }
 
+.slide.shout > h2.h2-list {
+    position: static;
+    line-height: 1;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+.slide.shout > h2.h2-list.slave {
+    line-height: 0.4;
+    font-size: 50px;
+    color: #CCC;
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
 /* Place */
 .place {
     /*position: absolute;*/

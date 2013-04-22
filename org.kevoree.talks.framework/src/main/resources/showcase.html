@@ -5,25 +5,33 @@
     <title>Kevoree Keynote Showcase</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=1274, user-scalable=yes"/>
-    <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>-->
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.merged.css" media="print"/>
-    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.merged.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/reset/reset.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="styles/print/print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/screen/screen.css" media="screen"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/fonts.css" media="all"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
+    <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.merged.css" media="print"/>-->
+    <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.merged.css" media="screen"/>-->
     <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
     <!-- Kevoree Keynote Framework -->
-    <!--<script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery.min.js"></script>
     <script src="scripts/screenfull.min.js"></script>
     <script type="text/javascript" src="scripts/kslideshow.js"></script>
 	<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
-    <script type="text/javascript" src="scripts/plugins/include.js"></script>-->
-    <script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>
+    <script type="text/javascript" src="scripts/plugins/include.js"></script>
+    <script type="text/javascript" src="scripts/plugins/h2list.js"></script>
+    <!--<script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>-->
 	<script type="text/javascript" id="kSlideshow">
 	jQuery(document).ready(function ($) {
         var ks = new KSlideShow();
         var keyboardPlugin = new KKeyboard(ks);
         var includePlugin = new IncludePlugin(ks);
+        var h2list = new H2List(ks, 4);
         ks.addPluginListener(keyboardPlugin);
         ks.addPluginListener(includePlugin);
+        ks.addPluginListener(h2list);
         ks.startKeynote();
 	});
 	</script>
@@ -203,6 +211,32 @@ addToGroup sync node0
 <div id="include" class="includeHtml"></div>
 <div id="include2" class="includeHtml"></div>
 <div id="include3" class="includeHtml"></div>
+
+<section class="slide shout">
+    <h2 class="h2-list">list of shouts</h2>
+</section>
+
+<section class="slide shout">
+    <h2 class="h2-list">A new shout</h2>
+</section>
+
+
+<section class="slide shout">
+    <h2 class="h2-list">A new shout 1</h2>
+</section>
+
+<section class="slide shout">
+    <h2 class="h2-list">A new shout 2</h2>
+</section>
+
+<section class="slide shout">
+    <h2 class="h2-list">A new shout 3</h2>
+</section>
+
+
+<section class="slide shout">
+    <h2 class="h2-list">A new shout 4</h2>
+</section>
 
 <section class="slide shout">
     <h2>One more thing !</h2>

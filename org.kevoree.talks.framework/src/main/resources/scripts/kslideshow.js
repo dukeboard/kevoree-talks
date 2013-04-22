@@ -10,7 +10,6 @@ function KSlideShow() {
     var self = this;
 
     function initializeSlidesList() {
-        slideList = [];
         slides = jQuery('* .slide');
         slides.each(function (index, slide) {
             if (!slide.id) {

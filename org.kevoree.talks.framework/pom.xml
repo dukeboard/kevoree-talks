@@ -60,6 +60,7 @@
                                 <jsSourceFile>plugins/embedder.js</jsSourceFile>
                                 <jsSourceFile>plugins/iframe.js</jsSourceFile>
                                 <jsSourceFile>plugins/include.js</jsSourceFile>
+                                <jsSourceFile>plugins/h2list.js</jsSourceFile>
                                 <jsSourceFile>plugins/keyboard.js</jsSourceFile>
                                 <jsSourceFile>plugins/notes.js</jsSourceFile>
                                 <jsSourceFile>plugins/popup.js</jsSourceFile>
