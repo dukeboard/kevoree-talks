@@ -57,7 +57,7 @@ function KSlideShow() {
                 console.warn("Unable to execute the method 'initialize' on ", pluginListeners[index].listener);
             }
         } else {
-            callback.resolve();
+            lastCallback.resolve();
         }
     }
 
