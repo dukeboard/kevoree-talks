@@ -52,6 +52,10 @@
   min-height: auto !important;
 }
 
+.syntaxhighlighter div.container{
+    font-size: inherit !important;
+}
+
 .syntaxhighlighter {
   width: 100% !important;
   margin: 1em 0 1em 0 !important;
