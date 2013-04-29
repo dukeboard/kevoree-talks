@@ -420,6 +420,10 @@ details {
     /*color: #4B86C2;*/
 }
 
+.list .slide .next.collapse> *:not(span) {
+    display: none;
+}
+
 /* Full
 ------------------------------- */
 .full {
@@ -461,16 +465,21 @@ details {
 /* Next Lists */
 .full .slide .next,
 .full .slide .next > * {
-    /*opacity: 0;*/
+    opacity: 0;
 }
+
 .full .slide .next.active,
 .full .slide .next.active > :not(.next) {
-    /*opacity: 1;*/
-    /*-webkit-transition: opacity 0.5s linear;*/
-    /*-moz-transition: opacity 0.5s linear;*/
-    /*-ms-transition: opacity 0.5s linear;*/
-    /*-o-transition: opacity 0.5s linear;*/
-    /*transition: opacity 0.5s linear;*/
+    opacity: 1;
+}
+
+.full .slide .next.active.collapse,
+.full .slide .next.active.collapse > *:not(span) {
+    opacity: 1;
+}
+
+.full .slide .next.active.collapse.collapsed> *:not(span) {
+    display: none;
 }
 
 .full .slide.cover:after {

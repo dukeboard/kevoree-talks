@@ -140,14 +140,8 @@ body {
 }
 
 /* Next Lists */
-.full .slide .next,
-.full .slide .next > * {
-    opacity: 0;
-}
-
 .full .slide .next.active,
 .full .slide .next.active > :not(.next) {
-    opacity: 1;
     -webkit-transition: opacity 0.5s linear;
     -moz-transition: opacity 0.5s linear;
     -ms-transition: opacity 0.5s linear;

@@ -150,6 +150,7 @@ function KSlideShow() {
             addEmptySlide(message.position);
         } else if (message.type === "SET_CURSOR") {
             initializeInnerTransition(message.cursor);
+            initializeCollapseTransition(message.cursor);
             goToSlide(message.cursor);
         } else if (message.type === "SET_ID") {
             if ('' !== message.id && isListMode()) {
@@ -297,6 +298,7 @@ function KSlideShow() {
             history.replaceState(null, null, url.pathname + '?full' + getSlideHash(getCurrentSlideNumber()));
         }
         initializeInnerTransition(getCurrentSlideNumber());
+        initializeCollapseTransition(getCurrentSlideNumber());
         enterSlideMode();
         updateProgress(getCurrentSlideNumber());
     }
@@ -334,11 +336,27 @@ function KSlideShow() {
         if (slideList[slideNumber].hasInnerNavigation) {
             var innerNodes = slides[slideNumber].querySelectorAll('.next');
             for (var i = 0, ii = innerNodes.length; i < ii; i++) {
-                if (innerNodes[i].className.indexOf("active") != -1) {
-                    innerNodes[i].className = innerNodes[i].className.substring(0, innerNodes[i].className.length - " active".length);
+                var indexOf = innerNodes[i].className.indexOf("active");
+                if (indexOf != -1) {
+                    innerNodes[i].className = innerNodes[i].className.substring(0, indexOf) + innerNodes[i].className.substring(indexOf + " active".length);
                 }
             }
             innerNodes[0].className = innerNodes[0].className + ' active';
+        }
+    }
+
+    function initializeCollapseTransition(slideNumber) {
+        if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length) {
+            return;
+        }
+        if (slideList[slideNumber].hasInnerNavigation) {
+            var innerNodes = slides[slideNumber].querySelectorAll('.collapse');
+            for (var i = 0, ii = innerNodes.length; i < ii; i++) {
+                var indexOf = innerNodes[i].className.indexOf("collapsed");
+                if (indexOf != -1) {
+                    innerNodes[i].className = innerNodes[i].className.substring(0, indexOf) + innerNodes[i].className.substring(indexOf + " collapsed".length);
+                }
+            }
         }
     }
 
@@ -351,6 +369,7 @@ function KSlideShow() {
             }
             slideNumber++;
             initializeInnerTransition(slideNumber);
+            initializeCollapseTransition(slideNumber);
             goToSlide(slideNumber);
             return slideNumber
         } else {
@@ -362,15 +381,41 @@ function KSlideShow() {
                     jQuery(newInner).trigger('nextActivated');
                 } catch (e) {
                 }
+
+                // manage collapse element
+                var activeInners = getActiveInners(slideNumber);
+                for (var i = activeInners.length - 2; i >= 0; i--) {
+                    if (activeInners[i].className.indexOf("collapse") != -1
+                        && (!isParentInner(activeInners[i], newInner) && newInner != activeInners[i])
+                        && activeInners[i].className.indexOf("collapsed") == -1) {
+                        activeInners[i].className = activeInners[i].className + " collapsed";
+                    }
+                }
                 return slideNumber;
             } else {
                 // there is no next inactive inner item so we just go to the next slide
                 slideNumber++;
                 initializeInnerTransition(slideNumber);
+                initializeCollapseTransition(slideNumber);
                 goToSlide(slideNumber);
                 return slideNumber;
             }
         }
+    }
+
+    function isParentInner(parent, potentialChild) {
+        var childs = parent.querySelectorAll("*");
+        for (var i = 0; i < childs.length; i++) {
+            if (childs[i] == potentialChild) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function getActiveInners(slideNumber) {
+        var slide = slides[slideNumber];
+        return slide.querySelectorAll('.next.active');
     }
 
     function getNextInner(slideNumber) {
@@ -393,6 +438,18 @@ function KSlideShow() {
         }
     }
 
+    function rollbackCollapseTransition(slideNumber) {
+        // update new current slide according to collapseTransition (all the collapse must be collapsed (except the last one)
+        if (slideList[slideNumber].hasInnerNavigation) {
+            var activeInners = slides[slideNumber].querySelectorAll('.collapse');
+            for (var i = 0, ii = activeInners.length - 1; i < ii; i++) {
+                if (activeInners[i].className.indexOf("collapsed") == -1) {
+                    activeInners[i].className = activeInners[i].className + " collapsed";
+                }
+            }
+        }
+    }
+
     function goToPreviousSlide(slideNumber) {
         // there is no inner navigation or it is not the slideshow view so we just go back to the previous slide
         if (!slideList[slideNumber].hasInnerNavigation || url.toString().indexOf("?full#") == -1) {
@@ -402,23 +459,38 @@ function KSlideShow() {
             }
             slideNumber--;
             rollbackInnerTransition(slideNumber);
+            rollbackCollapseTransition(slideNumber);
             goToSlide(slideNumber);
             return slideNumber
         } else {
-            var activeNodes = slides[slideNumber].querySelectorAll('.next.active');
-            var currentNode = activeNodes[activeNodes.length - 1];
-            if (activeNodes.length > 1 && currentNode) {
+            var activeInners = getActiveInners(slideNumber);
+            var activeInner = activeInners[activeInners.length - 1];
+            if (activeInners.length > 1 && activeInner) {
                 try {
                     // create event to trigger listener that can manage animations on the disappearing elements
-                    jQuery(currentNode).trigger('nextUnactivated');
+                    jQuery(activeInner).trigger('nextUnactivated');
                 } catch (e) {
                 }
-                currentNode.className = currentNode.className.substring(0, currentNode.className.length - " active".length);
+                var indexOf = activeInner.className.indexOf(" active");
+                activeInner.className = activeInner.className.substring(0, indexOf) + activeInner.className.substring(indexOf + " active".length);
+
+                // manage collapse element
+                activeInners = getActiveInners(slideNumber);
+                activeInner = activeInners[activeInners.length - 1];
+                for (var i = activeInners.length - 1; i >= 0; i--) {
+                    if (activeInners[i].className.indexOf("collapse") != -1
+                        && (isParentInner(activeInners[i], activeInner) || activeInner == activeInners[i])
+                        && activeInners[i].className.indexOf("collapsed") != -1) {
+                        indexOf = activeInners[i].className.indexOf(" collapsed");
+                        activeInners[i].className = activeInners[i].className.substring(0, indexOf) + activeInners[i].className.substring(indexOf + " collapsed".length);
+                    }
+                }
                 return slideNumber;
             } else {
                 // there is no previous active inner item so we just go back to the previous slide
                 slideNumber--;
                 rollbackInnerTransition(slideNumber);
+                rollbackCollapseTransition(slideNumber);
                 goToSlide(slideNumber);
                 return slideNumber
             }
@@ -437,11 +509,13 @@ function KSlideShow() {
 
     function goToStart() {
         initializeInnerTransition(0);
+        initializeCollapseTransition(0);
         goToSlide(0);
     }
 
     function goToEnd() {
         rollbackInnerTransition(slideList.length - 1);
+        rollbackCollapseTransition(slideList.length - 1);
         goToSlide(slideList.length - 1);
     }
 
