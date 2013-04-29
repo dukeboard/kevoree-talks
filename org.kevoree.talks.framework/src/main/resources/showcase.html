@@ -22,6 +22,7 @@
 	<script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
     <script type="text/javascript" src="scripts/plugins/include.js"></script>
     <script type="text/javascript" src="scripts/plugins/h2list.js"></script>
+    <script type="text/javascript" src="scripts/plugins/collapse.js"></script>
     <!--<script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>-->
 	<script type="text/javascript" id="kSlideshow">
 	jQuery(document).ready(function ($) {
@@ -29,10 +30,12 @@
         var keyboardPlugin = new KKeyboard(ks);
         var includePlugin = new IncludePlugin(ks);
         var h2list = new H2List(ks, 4);
+        var collapse = new Collapse(ks);
         // the order the plugins are added defined the order of their initialization and start (needed for include and h2list)
         ks.addPluginListener(keyboardPlugin, false);
         ks.addPluginListener(includePlugin, true);
         ks.addPluginListener(h2list, true);
+        ks.addPluginListener(collapse);
         ks.startKeynote();
 	});
 	</script>
@@ -81,6 +84,28 @@
         </li>
     </ul>
     <p class="next">It work also for P element</p>
+    <details>Some content for speaker (not display)</details>
+</section>
+
+<section class="slide" id="innerTestCollapse">
+    <h2>Next step</h2>
+
+    <p>You can collapse incremental content with the <code>collapse</code> CSS class</p>
+    <ul>
+        <li class="next collapse">Childs will be collapsed
+            <ul>
+                <li class="next">First collapsed item</li>
+                <li class="next">Second collapsed item</li>
+            </ul>
+        </li>
+        <li class="next">Child will not be collapse
+            <ul>
+                <li>First not collapsed item</li>
+                <li>Second not collaped item</li>
+            </ul>
+        </li>
+        <li class="next">No child to collapsed</li>
+    </ul>
     <details>Some content for speaker (not display)</details>
 </section>
 

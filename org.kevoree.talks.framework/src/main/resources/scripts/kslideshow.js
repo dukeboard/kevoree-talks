@@ -130,6 +130,10 @@ function KSlideShow() {
         return {"type": "CURSOR", "cursor": getCurrentSlideNumber()};
     };
 
+    this.getSlide = function () {
+        return {"type": "SLIDE", "slide": slides[getCurrentSlideNumber()]};
+    };
+
     this.sendEvent = function (sender, message) {
         var response = null;
         if (message.type === "BACK") {
