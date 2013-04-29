@@ -62,10 +62,12 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
+            + "\t\tvar collapse = new Collapse(ks);\n"
 			+ "\t\tvar webSocketPlugin = new KWebsocketMaster(ks, \"{wsurl}\", \"{roomID}\");\n"
 			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
             + "\t\tks.addPluginListener(includePlugin, true);\n"
             + "\t\tks.addPluginListener(h2list, true);\n"
+            + "\t\tks.addPluginListener(collapse);\n"
 			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
@@ -75,9 +77,11 @@ public class KevoreeSlidePage extends ParentAbstractPage {
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
 			+ "\t\tvar webSocketPlugin = new KWebsocketSlave(ks, \"{wsurl}\", \"{roomID}\");\n"
+            + "\t\tvar collapse = new Collapse(ks);\n"
             + "\t\tks.addPluginListener(includePlugin, true);\n"
             + "\t\tks.addPluginListener(h2list, true);\n"
 			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
+            + "\t\tks.addPluginListener(collapse);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
@@ -86,9 +90,11 @@ public class KevoreeSlidePage extends ParentAbstractPage {
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
 			+ "\t\tvar iframePlugin = new KIFrameSlave(ks);\n"
+            + "\t\tvar collapse = new Collapse(ks);\n"
             + "\t\tks.addPluginListener(includePlugin, true);\n"
             + "\t\tks.addPluginListener(h2list, true);\n"
 			+ "\t\tks.addPluginListener(iframePlugin);\n"
+            + "\t\tks.addPluginListener(collapse);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
@@ -98,10 +104,12 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tvar popupPlugin = new KPopupSlave(ks);\n"
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
+            + "\t\tvar collapse = new Collapse(ks);\n"
 			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
 			+ "\t\tks.addPluginListener(popupPlugin);\n"
             + "\t\tks.addPluginListener(includePlugin, true);\n"
             + "\t\tks.addPluginListener(h2list, true);\n"
+            + "\t\tks.addPluginListener(collapse);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
@@ -110,11 +118,13 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 				+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
                 + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
                 + "\t\tvar h2list = new H2List(ks, 4);\n"
+                + "\t\tvar collapse = new Collapse(ks);\n"
 				+ "\t\tvar embedderPlugin = new KEmbedder(ks);\n"
 				+ "\t\tks.addPluginListener(keyboardPlugin);\n"
                 + "\t\tks.addPluginListener(includePlugin, true);\n"
                 + "\t\tks.addPluginListener(h2list, true);\n"
 				+ "\t\tks.addPluginListener(embedderPlugin);\n"
+                + "\t\tks.addPluginListener(collapse);\n"
 				+ "\t\tks.startKeynote();\n"
 				+ "\t\tks.sendEvent(null, {'type':'RELOAD', 'url':'{slideurl}'});\n"
 				+ "\t});";

@@ -67,6 +67,7 @@
                                 <jsSourceFile>plugins/slidecount.js</jsSourceFile>
                                 <jsSourceFile>plugins/time.js</jsSourceFile>
                                 <jsSourceFile>plugins/websocket.js</jsSourceFile>
+                                <jsSourceFile>plugins/collapse.js</jsSourceFile>
                             </jsSourceFiles>
                             <jsTargetDir>scripts</jsTargetDir>
                             <jsFinalFile>kslideshow.merged.js</jsFinalFile>
