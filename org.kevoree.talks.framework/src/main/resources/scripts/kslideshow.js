@@ -98,6 +98,8 @@ function KSlideShow() {
 
             if (!isListMode()) {
                 goToFull();
+            } else {
+                goToList();
             }
 
             // following lines allow to display include content instead of black screen in slide mode (and select the slide in list mode)
@@ -207,11 +209,20 @@ function KSlideShow() {
     }
 
     function back() {
-        goToPreviousSlide(getCurrentSlideNumber());
+        if (getCurrentSlideNumber() === -1) {
+            goToSlide(0);
+        } else {
+            goToPreviousSlide(getCurrentSlideNumber());
+        }
+
     }
 
     function forward() {
-        goToNextSlide(getCurrentSlideNumber());
+        if (getCurrentSlideNumber() === -1) {
+            goToSlide(0);
+        } else {
+            goToNextSlide(getCurrentSlideNumber());
+        }
     }
 
     function scrollToCurrentSlide() {
@@ -257,11 +268,11 @@ function KSlideShow() {
     }
 
     function updateProgress(slideNumber) {
-        if (null === progress) {
+        if (null === progress || slideNumber === -1) {
             return;
         }
         var slide = slides[slideNumber];
-        if (slide.className.indexOf("cover") == -1 && slide.className.indexOf("shout") == -1) {
+        if (slide && slide.className.indexOf("cover") == -1 && slide.className.indexOf("shout") == -1) {
             progress.style.width = (100 / (slideList.length - 1) * normalizeSlideNumber(slideNumber)).toFixed(2) + '%';
             progress.style.visibility = "visible";
         } else {
@@ -284,7 +295,11 @@ function KSlideShow() {
     }
 
     function goToList() {
-        history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
+        if (getCurrentSlideNumber() === -1) {
+            history.pushState(null, null, url.pathname);
+        } else {
+            history.pushState(null, null, url.pathname + getSlideHash(getCurrentSlideNumber()));
+        }
         enterListMode();
         scrollToCurrentSlide();
     }
@@ -306,11 +321,13 @@ function KSlideShow() {
     function enterSlideMode() {
         body.className = 'full';
         applyTransform(getTransform());
+        jQuery(body).trigger('slide');
     }
 
     function enterListMode() {
         body.className = 'list';
         applyTransform('none');
+        jQuery(body).trigger('list');
     }
 
     function getTransform() {
@@ -342,6 +359,12 @@ function KSlideShow() {
                 }
             }
             innerNodes[0].className = innerNodes[0].className + ' active';
+            try {
+                // create event to trigger listener that can manage animations on the appearing elements
+                jQuery(innerNodes[0]).trigger('active');
+                jQuery(innerNodes[0]).trigger('currentActive');
+            } catch (e) {
+            }
         }
     }
 
@@ -361,6 +384,10 @@ function KSlideShow() {
     }
 
     function goToNextSlide(slideNumber) {
+        if (slideNumber === -1) {
+            // do nothing if slideNumber is wrong
+            return slideNumber;
+        }
         // there is no inner navigation or it is not the slideshow view so we just go back to the next slide
         if (!slideList[slideNumber].hasInnerNavigation || url.toString().indexOf("?full#") == -1) {
             // do nothing if slideNumber is larger than the number of slides
@@ -376,14 +403,17 @@ function KSlideShow() {
             var newInner = getNextInner(slideNumber);
             if (newInner) {
                 newInner.className = newInner.className + ' active';
+
+                var activeInners = getActiveInners(slideNumber);
                 try {
                     // create event to trigger listener that can manage animations on the appearing elements
-                    jQuery(newInner).trigger('nextActivated');
+                    jQuery(activeInners[activeInners.length - 2]).trigger('notCurrentActive');
+                    jQuery(newInner).trigger('active');
+                    jQuery(newInner).trigger('currentActive');
                 } catch (e) {
                 }
 
                 // manage collapse element
-                var activeInners = getActiveInners(slideNumber);
                 for (var i = activeInners.length - 2; i >= 0; i--) {
                     if (activeInners[i].className.indexOf("collapse") != -1
                         && (!isParentInner(activeInners[i], newInner) && newInner != activeInners[i])
@@ -434,6 +464,20 @@ function KSlideShow() {
                 if (activeNodes[i].className.indexOf("active") == -1) {
                     activeNodes[i].className = activeNodes[i].className + " active";
                 }
+                if (i == activeNodes.length - 1) {
+                    try {
+                        jQuery(activeNodes[i]).trigger('active');
+                        jQuery(activeNodes[i]).trigger('currentActive');
+                    } catch (e) {
+                    }
+                } else {
+                    try {
+                        jQuery(activeNodes[i]).trigger('active');
+                        jQuery(activeNodes[i]).trigger('notCurrentActive');
+                    } catch (e) {
+                    }
+                }
+
             }
         }
     }
@@ -466,16 +510,18 @@ function KSlideShow() {
             var activeInners = getActiveInners(slideNumber);
             var activeInner = activeInners[activeInners.length - 1];
             if (activeInners.length > 1 && activeInner) {
-                try {
-                    // create event to trigger listener that can manage animations on the disappearing elements
-                    jQuery(activeInner).trigger('nextUnactivated');
-                } catch (e) {
-                }
                 var indexOf = activeInner.className.indexOf(" active");
                 activeInner.className = activeInner.className.substring(0, indexOf) + activeInner.className.substring(indexOf + " active".length);
 
-                // manage collapse element
                 activeInners = getActiveInners(slideNumber);
+                try {
+                    jQuery(activeInner).trigger('notActive');
+                    jQuery(activeInner).trigger('notCurrentActive');
+                    jQuery(activeInners[activeInners.length - 1]).trigger('currentActive');
+                } catch (e) {
+                }
+
+                // manage collapse element
                 activeInner = activeInners[activeInners.length - 1];
                 for (var i = activeInners.length - 1; i >= 0; i--) {
                     if (activeInners[i].className.indexOf("collapse") != -1

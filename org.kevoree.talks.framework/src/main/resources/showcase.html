@@ -40,7 +40,6 @@
 <body class="list">
 <header class="caption">
     <h1>Kevoree Keynote showcase</h1>
-
     <p><a href="http://www.kevoree.org/">Fouquet Francois / Erwan Daubert / Kevoree Team</a></p>
 </header>
 
@@ -95,7 +94,7 @@
                 <li class="next">Second collapsed item</li>
             </ul>
         </li>
-        <li class="next collapse"><span>Another Childs will be collapsed</span>
+        <li class="next"><span>Another Childs will be collapsed</span>
             <ul>
                 <li>First collapsed item</li>
                 <li>Second collapsed item</li>
@@ -276,13 +275,33 @@ addToGroup sync node0
     </header>
     <img class="next" src="figures/kevoree-logo.png" width="300px" id="animImg1"/>
 
-    <div class="next" id="divBackground">
+    <div class="next" id="divBackground1">
         Some information
     </div>
+    <div class="next" id="divBackground2">
+        some other info
+    </div>
+    <div class="next" id="divBackground3">
+        some not used info
+    </div>
     <script type="text/javascript">
-        jQuery("#Anim1").bind('nextActivated', function (event, param1, param2) {
-            jQuery(document).ready(function () {
-                jQuery("#divBackground").css("background-color", "blue");
+        jQuery(document).ready(function () {
+            jQuery(document.body).on("list", function () {
+                jQuery("#divBackground1").css("background-color", "transparent");
+                jQuery("#divBackground2").css("background-color", "transparent");
+            });
+            jQuery("#animImg1").on('active', function (event, param1, param2) {
+                jQuery("#animImg1").css("background-color", "blue");
+            });
+            jQuery("#divBackground1").on('active', function (event, param1, param2) {
+                jQuery("#divBackground1").css("background-color", "blue");
+            });
+            var divBackground2 = jQuery("#divBackground2");
+            divBackground2.on('currentActive', function (event, param1, param2) {
+                jQuery("#divBackground2").css("background-color", "red");
+            });
+            divBackground2.on('notCurrentActive', function (event, param1, param2) {
+                jQuery("#divBackground2").css("background-color", "green");
             });
         });
     </script>
