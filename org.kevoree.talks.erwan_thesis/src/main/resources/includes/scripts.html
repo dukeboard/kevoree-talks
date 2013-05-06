@@ -1,0 +1,191 @@
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(document.body).on("list", function () {
+            // clear contribution kevoree concepts
+            clear();
+
+            // clear mar runtime on each node
+            var element = jQuery('#marDengine1').get(0);
+            var indexOf = element.className.indexOf("icon-spin");
+            if (indexOf != -1) {
+                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            }
+
+            element = jQuery('#marDengine2').get(0);
+            indexOf = element.className.indexOf("icon-spin");
+            if (indexOf != -1) {
+                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            }
+
+            element = jQuery('#marDengine3').get(0);
+            indexOf = element.className.indexOf("icon-spin");
+            if (indexOf != -1) {
+                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            }
+        });
+
+        jQuery(document.body).on("slide", function () {
+            // undo clear of mar runtime on each node
+            var element = jQuery('#marDengine1').get(0);
+            if (element.className.indexOf("icon-spin") == -1) {
+                element.className = element.className + " icon-spin";
+            }
+
+            element = jQuery('#marDengine2').get(0);
+            if (element.className.indexOf("icon-spin") == -1) {
+                element.className = element.className + " icon-spin";
+            }
+
+            element = jQuery('#marDengine3').get(0);
+            if (element.className.indexOf("icon-spin") == -1) {
+                element.className = element.className + " icon-spin";
+            }
+        });
+
+        var element = jQuery("#componentType");
+        element.on('currentActive', function () {
+            displayComponent();
+        });
+        element.on('notCurrentActive', function () {
+            clear();
+        });
+
+        element = jQuery("#channelType");
+        element.on('currentActive', function () {
+            displayChannel();
+        });
+        element.on('notCurrentActive', function () {
+            clear();
+        });
+
+        element = jQuery("#nodeType");
+        element.on('currentActive', function () {
+            displayNode();
+        });
+        element.on('notCurrentActive', function () {
+            clear();
+        });
+
+        element = jQuery("#groupType");
+        element.on('currentActive', function () {
+            displayGroup();
+        });
+        element.on('notCurrentActive', function () {
+            clear();
+        });
+
+        element = jQuery("#dmarsamplemodel");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#dmarsampleh2model").show();
+            jQuery("#dmarsampleh2mar").hide();
+        });
+        element.on('notActive', function () {
+            clear();
+        });
+        element = jQuery("#dmarsamplemar");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#dmarsampleh2model").hide();
+            jQuery("#dmarsampleh2mar").show();
+        });
+        element.on('notActive', function () {
+            clear();
+        });
+
+        element = jQuery("#hostComponent");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#kevoreehosts1").show();
+            jQuery("#kevoreehosts2").hide();
+        });
+        element.on('notActive', function () {
+            jQuery("#kevoreehosts1").hide();
+            jQuery("#kevoreehosts2").show();
+        });
+        element = jQuery("#hostNode");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#kevoreehosts1").hide();
+            jQuery("#kevoreehosts2").show();
+        });
+        element.on('notActive', function () {
+            jQuery("#kevoreehosts1").show();
+            jQuery("#kevoreehosts2").hide();
+        });
+    });
+
+    function clear() {
+        jQuery.noConflict();
+        var canvas = document.getElementById("c"),
+                context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function displayComponent() {
+        jQuery.noConflict();
+        var canvas = document.getElementById("c"),
+                context = canvas.getContext("2d");
+
+        context.lineWidth = 10;
+        context.strokeStyle = "#FF0000";
+
+        context.save();
+        context.scale(1, 0.50);
+        context.beginPath();
+        context.arc(122, 270, 70, 0, Math.PI * 2, false);
+        context.stroke();
+        context.closePath();
+        context.restore();
+    }
+
+    function displayChannel() {
+        jQuery.noConflict();
+        var canvas = document.getElementById("c"),
+                context = canvas.getContext("2d");
+
+        context.lineWidth = 8;
+        context.strokeStyle = "#FF0000";
+
+        context.save();
+        context.beginPath();
+        context.arc(213, 52, 40, 0, Math.PI * 2, false);
+        context.stroke();
+        context.closePath();
+        context.restore();
+    }
+
+    function displayNode() {
+        jQuery.noConflict();
+        var canvas = document.getElementById("c"),
+                context = canvas.getContext("2d");
+
+        context.lineWidth = 10;
+        context.strokeStyle = "#FF0000";
+
+        context.save();
+        context.scale(1, 0.75);
+        context.beginPath();
+        context.arc(110, 445, 80, 0, Math.PI * 2, false);
+        context.stroke();
+        context.closePath();
+        context.restore();
+    }
+
+    function displayGroup() {
+        jQuery.noConflict();
+        var canvas = document.getElementById("c"),
+                context = canvas.getContext("2d");
+
+        context.lineWidth = 8;
+        context.strokeStyle = "#FF0000";
+
+        context.save();
+        context.scale(1, 1);
+        context.beginPath();
+        context.arc(225, 252, 50, 0, Math.PI * 2, false);
+        context.stroke();
+        context.closePath();
+        context.restore();
+    }
+</script>

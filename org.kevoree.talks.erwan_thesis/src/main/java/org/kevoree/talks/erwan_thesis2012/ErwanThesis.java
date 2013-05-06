@@ -14,5 +14,5 @@ import org.kevoree.slides.framework.KevoreeSlidePage;
  * @version 1.0
  */
 @ComponentType
-public class ErwanThesis2012 extends KevoreeSlidePage {
+public class ErwanThesis extends KevoreeSlidePage {
 }

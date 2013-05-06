@@ -1,0 +1,317 @@
+<section class="slide shout">
+    <h2 class="h2-list">Contribution</h2>
+</section>
+
+<section class="slide shout">
+    <header>
+        <h2 style="line-height: 0.3;">Kevoree<br/>
+            <span style="font-size: 40px;">A Model@Runtime implementation for Distributed Dynamically Adaptive systems</span><br/><br/>
+            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">François Fouquet 's thesis</a>
+        </h2>
+    </header>
+</section>
+
+<section class="slide">
+    <header><h2>What is Model@Runtime ?</h2></header>
+    <ul>
+        <li class="next collapse hidden">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Abstraction layer</span>
+            <ul>
+                <li class="hidden">Architectural model which defines how the system is configured
+                    <ul>
+                        <li>Components and their interactions</li>
+                        <li>Nodes</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next hidden">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Offline reflexion layer</span>
+            <ul>
+                <li class="next hidden collapse">
+                    <div>Dynamic adaptive system are online reflexive systems
+                        <ul>
+                            <li class="hidden">
+                                <span class="icon-minus-sign colorRed"></span>Strongly connected with the running system
+                                <ul>
+                                    <li class="hidden"><span class="icon-minus-sign colorRed"></span>Misconfiguration can crash the system
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li class="next hidden">
+                    <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Test and validate configuration before applying it</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section class="slide">
+    <header>
+        <h2>Model@Runtime process</h2>
+    </header>
+    <img style="position : absolute;top: 150px;left : 150px;" src="figures/contribution/kevoree/modelATruntimeFinal.png" height="450px"/>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Kevoree Concepts</h2>
+    </header>
+    <ul>
+        <li class="hidden">A Component-based approach
+            <ul>
+                <li class="next collapse" id="componentType"><span><strong class="colorOrange">ComponentType</strong></span>
+                    <ul>
+                        <li>Encapsulate business features</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next hidden">Extend with distributed features
+            <ul>
+                <li class="next collapse" id="channelType"><span><strong class="colorOrange">ChannelType</strong></span>
+                    <ul>
+                        <li>Encapsulate communication semantics</li>
+                    </ul>
+                </li>
+                <li class="next collapse" id="nodeType"><span><strong class="colorOrange">NodeType</strong></span>
+                    <ul>
+                        <li>Encapsulate runtime heterogeneity</li>
+                        <!--<li>Encapsulate adaptation semantics</li>-->
+                    </ul>
+                </li>
+                <li class="next collapse" id="groupType"><span><strong class="colorOrange">GroupType</strong></span>
+                    <ul>
+                        <li>Encapsulate model@runtime dissemination semantics</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
+    <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Kevoree and Distributed system</h2>
+    </header>
+    <img class="next" id="dmarsamplemodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
+
+    <div class="next" id="dmarsamplemar">
+        <span id="marDengine1" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 280px;top:300px;"></span>
+        <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:290px;"></span>
+        <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:130px;"></span>
+    </div>
+</section>
+
+
+<section class="slide">
+    <header>
+        <h2>Kevoree Script (KevScript) language <br/>to build reasonning engine</h2>
+    </header>
+    <pre class="brush: kevscript toolbar:false;">
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javasenode"
+updateDictionary instance1 {port="8080"}
+addComponent component1@node1:ComponentType1
+addChannel channel1 : ChannelType1
+bind component1.port1@node1 -> channel1
+unbind component3.port1@node1 -> channel1
+removeComponent component3@node1
+removeChannel channel2
+moveComponent component1@node1 -> node2
+addGroup group1 : GroupType1
+removeGroup group1
+addToGroup node1@group1
+removeFromGroup node1@group1
+addNode node1 : NodeType1
+removeNode node1
+network node1 -> node2 {"ip" = "192.168.0.1"}
+addNode node1 : NodeType1
+removeNode node1
+addChild node2@node1
+removeChild node2@node1</pre>
+</section>
+
+<section class="slide shout">
+    <h2 style="position:absolute;top:250px;">Kevoree Kloud<br/>
+        <span style="font-size: 60px;">How to build and <strong class="colorOrange">adapt</strong> Cloud system ?</span>
+    </h2>
+    <!--<img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="old/figures/167830.strip_.sunday.gif"/>-->
+</section>
+
+<section class="slide">
+    <header><h2>What is a Cloud system ?</h2></header>
+    <ul>
+        <li class="hidden">Layers are
+            <ul>
+                <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span
+                        class="colorOrange">Distributed systems</span><br/></li>
+                <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span
+                        class="colorOrange">Heterogeneous systems</span></li>
+                <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dynamic adaptive systems (DAS)</span>
+                </li>
+                <li class="next hidden"><span class="icon-ok colorGreen"></span><span class="colorOrange">Kevoree systems</span></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>How Kevoree modelize Cloud systems ?</h2>
+    </header>
+    <ul>
+        <li class="next">Components
+            <ul>
+                <li class="next">Software (SaaS)</li>
+                <li class="next">Layer management (PaaS, IaaS)</li>
+            </ul>
+        </li>
+        <li class="next">Nodes
+            <ul>
+                <li class="next">Software runtime (SaaS)</li>
+                <li class="next">VM system (PaaS)</li>
+                <li class="next">Concrete hardware system (IaaS)</li>
+            </ul>
+        </li>
+        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span
+                class="colorOrange">All layers are independant</span></li>
+        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-layers is only partial</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Kevoree MetaModel</h2>
+    </header>
+    <ul>
+        <li>Kevoree Node
+            <ul>
+                <li class="next" id="hostComponent">Hosts components</li>
+                <li class="next" id="hostNode"><strong class="colorOrange">Hosts nodes</strong></li>
+            </ul>
+        </li>
+    </ul>
+    <img id="kevoreehosts1" style="position:absolute;bottom: 30px;right:10px;"
+         src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg"/>
+    <img id="kevoreehosts2" style="position:absolute;bottom: 30px;right:10px;"
+         src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg"/>
+</section>
+
+
+<section class="slide">
+    <header>
+        <h2>Kevoree MetaModel</h2>
+    </header>
+    <img style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
+    <ul>
+        <li class="next">A parent node has <span class="kevOrange">responsibility for child's nodes life cycle</span>
+            <ul>
+                <li class="next">create, start, stop, destroy, ...</li>
+                <li class="next hidden u"><span class="kevOrange">Each node can define its own adaptation capabilities</span></li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>IaaS and PaaS nodes</h2>
+    </header>
+    <ul>
+        <li class="next">Basic adaptation primitives: Add/Remove node
+            <ul>
+                <li class="next hidden u"><span class="kevOrange">Specific implementations for each node type</span></li>
+            </ul>
+        </li>
+        <li class="next">Available node types
+            <ul>
+                <li class="next">MiniCloud : Add/Remove Java Virtual Machine</li>
+                <li class="next">FreeBSD Jails: Add/Remove VM in the same kernel space</li>
+                <!--<li class="next">SmartOS Zone: (same as Jail) (on going work)</li>-->
+                <li class="next">LibVirt: Add/Remove VM with hardware virtualisation (on going work)</li>
+                <li class="next">Amazon EC2: Add/Remove EC2 Virtual Machine (on going work)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>KevScript as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">KevoreeScript abstracts model manipulation</li>
+            <li class="next">IaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+//add IaaSPlatform
+addNode iaasKVM21 : KVMNode {ip="10.0.1.5"}
+//add two user node
+addNode userNode1 : JavaSENode
+addNode userNode2 : UbuntuNode {version="12.04"}
+//attach to IaaSNode42
+addChild userNode1,userNode2@iaasKVM21</pre>
+            </li>
+            <li class="next">PaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+addNode worker2@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+addNode worker3@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
+moveComponent *@worker1 => worker2
+removeNode worker1@IaaSNode42</pre>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Kevoree as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">SaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+moveComponent mongoDB@userNode1 => userNode2
+moveComponent nodeJS@userNode1 => userNode2</pre>
+            </li>
+            <li>KevScript is a backend to express cloud elasticity
+			            <pre class="brush: java toolbar:false;">
+							if(detectOverHead()){
+							    this.interpretAndDeploy("script ");
+							    //call local adaptation layer, propagation is done through groups
+							}</pre>
+                Like any component, cloud reasoning engines are able to interact with Model@Runtime layer.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Kevoree cloud layer is cloud IaaS agnostic</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next">Hybrid cloud management
+                <pre class="brush: kevscript toolbar:false;">
+//create PaasNode
+addNode paasEC2 : EC2
+addNode paasRack : RackspaceVM
+addNode paasKloud : KevoreeCloudVM
+//hybrid adaptations
+moveComponent mongoDB@paasEC2 => paasRack
+moveComponent nodeJS@paasRack => paasKloud</pre>
+            </li>
+            <li>Sky (aggregation of cloud) is helped by the delegation model of Kevoree</li>
+            <li class="hidden">
+                <span class="icon-arrow-right colorOrange"></span>Each Cloud (each node of each Cloud) is responsible of its reconfiguration
+            </li>
+        </ul>
+    </div>
+</section>

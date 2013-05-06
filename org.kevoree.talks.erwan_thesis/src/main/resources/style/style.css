@@ -1,0 +1,23 @@
+.colorOrange {
+    color: #DF9D00;
+}
+
+.colorRed {
+    color: #FF0000;
+}
+
+.colorGreen {
+    color: #00FF00;
+}
+
+.colorBlue {
+    color: #0000FF;
+}
+
+a:link.thesis-talks,
+a:visited.thesis-talks,
+a:active.thesis-talks,
+a:hover.thesis-talks {
+    text-decoration: none;
+    color: #DF9D00;
+}

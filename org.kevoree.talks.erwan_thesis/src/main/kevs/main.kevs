@@ -26,7 +26,8 @@ addComponent wsSrv@node0 : WsServer
 //bind webSockGateway.broad@node0 => gatewayToTalk
 //bind wsSrv.in@node0 => gatewayToTalk
 
-addComponent slideshow@node0 : ErwanThesis2012Dev { urlpattern="/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
+addComponent slideshow@node0 : ErwanThesisDev { urlpattern="/new/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
+addComponent slideshow1@node0 : ErwanThesisDev { main="index.old.html", urlpattern="/old/",paperURL = "", templateFolder="{basedir}/src/main/resources/",wsurl="ws://localhost:8092/keynote"}
 
 
 addChannel req : defMSG
@@ -34,6 +35,6 @@ addChannel res : defMSG
 bind webSrv.handler@node0 => req
 bind slideshow.request@node0 => req
 bind slideshow.content@node0 => res
+bind slideshow1.request@node0 => req
+bind slideshow1.content@node0 => res
 bind webSrv.response@node0 => res
-addGroup sync : NanoRestGroup
-addToGroup sync node0
