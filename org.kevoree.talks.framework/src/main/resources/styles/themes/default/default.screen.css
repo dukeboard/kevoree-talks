@@ -13,8 +13,8 @@ body {
     padding: 80px 0 40px 100px;
     background: #585A5E url(images/linen.png);
 }
-/*
-*//* Caption *//*
+
+/* Caption */
 .list .caption {
     margin: 0 0 50px;
     color: #3C3D40;
@@ -33,7 +33,7 @@ body {
 
 .list .caption a:hover {
     color: #5ca4ed;
-}*/
+}
 
 .list .slide:before {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.005), 0 20px 50px rgba(42, 43, 45, 0.6);
