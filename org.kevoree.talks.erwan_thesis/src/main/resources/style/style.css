@@ -21,3 +21,9 @@ a:hover.thesis-talks {
     text-decoration: none;
     color: #DF9D00;
 }
+
+p.author {
+    text-decoration: none;
+    color: #4B86C2;
+    text-shadow: 0 -1px 1px #1F3F60;
+}
