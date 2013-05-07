@@ -113,6 +113,27 @@
             jQuery("#kevoreehosts1").show();
             jQuery("#kevoreehosts2").hide();
         });
+
+        element = jQuery("#nodewithoutprimitive");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#kevoreenodetype1").show();
+            jQuery("#kevoreenodetype2").hide();
+        });
+        element.on('notActive', function () {
+            jQuery("#kevoreenodetype1").hide();
+            jQuery("#kevoreenodetype2").hide();
+        });
+        element = jQuery("#nodewithprimitive");
+        element.on('currentActive', function () {
+            jQuery.noConflict();
+            jQuery("#kevoreenodetype1").hide();
+            jQuery("#kevoreenodetype2").show();
+        });
+        element.on('notCurrentActive', function () {
+            jQuery("#kevoreenodetype1").show();
+            jQuery("#kevoreenodetype2").hide();
+        });
     });
 
     function clear() {

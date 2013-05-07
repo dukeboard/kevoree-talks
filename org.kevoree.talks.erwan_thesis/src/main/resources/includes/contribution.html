@@ -181,7 +181,7 @@ removeChild node2@node1</pre>
         </li>
         <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span
                 class="colorOrange">All layers are independant</span></li>
-        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-layers is only partial</li>
+        <li class="next hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-layers is only partial</li>
     </ul>
 </section>
 
@@ -208,15 +208,16 @@ removeChild node2@node1</pre>
     <header>
         <h2>Kevoree MetaModel</h2>
     </header>
-    <img style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
     <ul>
-        <li class="next">A parent node has <span class="kevOrange">responsibility for child's nodes life cycle</span>
+        <li>A parent node has <span class="colorOrange">responsibility for hosting element's life cycle</span>
             <ul>
-                <li class="next">create, start, stop, destroy, ...</li>
-                <li class="next hidden u"><span class="kevOrange">Each node can define its own adaptation capabilities</span></li>
+                <li class="next" id="nodewithoutprimitive">add, start, stop, remove, ...</li>
+                <li class="next" id="nodewithprimitive"><span class="colorOrange">Each node can define its own adaptation capabilities</span></li>
             </ul>
         </li>
     </ul>
+    <img id="kevoreenodetype1" style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_node_type.svg"/>
+    <img id="kevoreenodetype2" style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
 </section>
 
 <section class="slide">

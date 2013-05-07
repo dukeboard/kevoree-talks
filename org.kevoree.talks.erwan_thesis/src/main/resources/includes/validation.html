@@ -8,7 +8,8 @@
     </header>
     <ul>
         <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Is it scalable ?</span></li>
-        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">How to use it to do cross layer adaptation ?</span></li>
+        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">How to use it to do cross layer adaptation ?</span>
+        </li>
     </ul>
 </section>
 
@@ -22,21 +23,24 @@
     <header>
         <h2>Continuous Integration context</h2>
     </header>
-    <blockquote class="next">continuous integration (CI) is the practice of merging all developer workspaces with a shared mainline several
-        times a day. ...CI was originally intended to be used in
-        combination with
-        automated unit tests written through the practices of Test driven development.
+    <blockquote class="next">Continuous Integration (CI) is the practice of merging all developer workspaces with a shared mainline several
+        times a day. ...CI was originally intended to be used in combination with automated unit tests written through the practices of Test
+        driven development.<span class="cite">*1</span>
     </blockquote>
     <ul>
         <li class="next">Continuous Integration is time consuming
             <ul>
                 <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Especially the test execution</span>
                 </li>
-                <li class="next">Apache Camel: 7205 tests, 1h 23min</li>
-                <li class="next">Rothermel et al. says some projecs needs more than 7 weeks</li>
+                <!--<li class="next">Apache Camel: 7205 tests, 1h 40min</li>-->
+                <li class="next">Some projects need more than 7 weeks<span class="cite">*2</span></li>
             </ul>
         </li>
     </ul>
+    <p class="cite"><span>*1</span><a>http://en.wikipedia.org/wiki/Continuous_integration</a><br/>
+        <span>*2</span>Rothermel, G. et al - Prioritizing test cases for regression testing - 2001
+    </p>
+
 </section>
 
 <section class="slide">
@@ -46,10 +50,10 @@
     <ul>
         <li class="next">Dynamically distribute the tests execution on Cloud
             <ul>
-                <li class="next">Dynamically building the complex application representing the tests execution</li>
+                <li class="next">Dynamically building the application representing the tests execution</li>
                 <li class="next">Dynamically building the needed platform
                     <ul>
-                        <li class="next">Managing the specific requirement of the tests (OS, RAM, etc)</li>
+                        <li class="next">Managing the specific requirements of the tests (OS, RAM, ...)</li>
                     </ul>
                 </li>
                 <li class="next">Reusing already defined platform</li>
@@ -60,28 +64,41 @@
 
 <section class="slide">
     <header>
+        <h2>Usecase: Apache Camel<span class="cite">*</span></h2>
+    </header>
+    <ul>
+        <li>Implementation of Enterprise Integration Patterns</li>
+        <li>Using version 2.8
+            <ul>
+                <li>175 modules</li>
+                <li>3875 test suites</li>
+            </ul>
+        </li>
+        <li>Execution time: 1h40min</li>
+    </ul>
+    <p class="cite"><span>*</span><a href="http://camel.apache.org/">http://camel.apache.org/</a></p>
+</section>
+
+<section class="slide">
+    <header>
         <h2>Results</h2>
     </header>
     <ul>
-        <li class="next">Decrease the tests execution time: speedup = 3.40 (around 40 minutes)
+        <li class="next">Execution time: 40mins (speedup = 3.40)
             <ul>
-                <li>The much longer test is around 20 minutes
-                    <ul>
-                        <li>limit the speedup</li>
-                    </ul>
-                </li>
+                <li>The much longer test is around 20 minutes<span class="colorOrange icon-arrow-right colorOrange"></span>limit the speedup</li>
             </ul>
         </li>
         <li class="next">Able to reuse already defined platform
             <ul>
-                <li>Keep alive platform help to reduce the time needed to start VMs</li>
+                <li>Keep alive platform helps to reduce the time needed to start VMs</li>
             </ul>
         </li>
         <li class="next">Use lightweight virtualization
             <ul>
-                <li>using user space virtualization instead of hardware virtualization if possible
+                <li>using user-space virtualization instead of hardware one if possible
                     <ul>
-                        <li>Managed by the IaaS taking into account PaaS specificities</li>
+                        <li class="hidden"><span class="colorOrange icon-arrow-right"></span>Managed by the IaaS taking into account PaaS specificities</li>
                     </ul>
                 </li>
             </ul>
