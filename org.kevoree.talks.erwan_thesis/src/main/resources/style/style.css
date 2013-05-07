@@ -27,3 +27,16 @@ p.author {
     color: #4B86C2;
     text-shadow: 0 -1px 1px #1F3F60;
 }
+
+span.cite,
+.cite span {
+    vertical-align: super;
+    font-size: 0.8em;
+}
+
+p.cite {
+    position: absolute;
+    bottom: 5px;
+    left: 70px;
+    font-size: 20px;
+}

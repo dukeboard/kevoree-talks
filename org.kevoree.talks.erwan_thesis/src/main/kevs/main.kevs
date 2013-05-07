@@ -1,14 +1,16 @@
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.javaseNode/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.nanohttp/{kevoree.version}"
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.defaultChannels/{kevoree.version}"
-merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
+//merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.tjws/{kevoree.version}"
+merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.webserver.spray/{kevoree.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.erwan_thesis/{talks.version}"
 merge "mvn:org.kevoree.talks/org.kevoree.talks.ws/{talks.version}"
 
 merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.fakeDomo/{kevoree.version}"
 
-addNode node0 : JavaSENode {logLevel = "WARN"}
-addComponent webSrv@node0 : KTinyWebServer { port="8080" }
+addNode node0 : JavaSENode {logLevel = "INFO"}
+//addComponent webSrv@node0 : KTinyWebServer { port="8080" }
+addComponent webSrv@node0 : SprayWebServer { port="8080" }
 addComponent wsSrv@node0 : WsServer
 
 //addComponent webSockGateway@node0 : TalkGateway
