@@ -136,6 +136,10 @@ function KSlideShow() {
         return {"type": "SLIDE", "slide": slides[getCurrentSlideNumber()]};
     };
 
+    this.isSlideMode = function () {
+        return !isListMode();
+    };
+
     this.sendEvent = function (sender, message) {
         var response = null;
         if (message.type === "BACK") {

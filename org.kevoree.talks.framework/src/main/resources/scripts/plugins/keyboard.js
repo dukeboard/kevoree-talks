@@ -93,7 +93,7 @@ function KKeyboard(kslide) {
 
     function click (event) {
         var slideId = getContainingSlideId(event.target);
-        if ('' !== slideId && kslide.getSlide().slide.id !== slideId) {
+        if ('' !== slideId && (!kslide.isSlideMode() || kslide.getSlide().slide.id !== slideId)) {
             kslide.sendEvent(self, {"type": "SET_ID", "id": slideId});
             kslide.sendEvent(self, {"type": "FULL"});
         }
