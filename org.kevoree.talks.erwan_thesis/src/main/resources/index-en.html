@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Model@Runtime for dynamic distributed systems</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1274, user-scalable=no"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.merged.css" media="print"/>
+    <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.merged.css" media="screen"/>
+
+    <link type="text/css" rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="style/style.css">
+
+    <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css" media="all"/>
+    <script type="text/javascript" src="scripts/brush/shCore.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJScript.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
+    <script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
+
+    <script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>
+
+    <script type="text/javascript" id="kSlideshow">
+        jQuery(document).ready(function () {
+            var ks = new KSlideShow();
+            var keyboardPlugin = new KKeyboard(ks);
+            var includePlugin = new IncludePlugin(ks);
+            var h2list = new H2List(ks, 4);
+            ks.addPluginListener(keyboardPlugin);
+            ks.addPluginListener(includePlugin, true);
+            ks.addPluginListener(h2list, true);
+            ks.startKeynote();
+        });
+    </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            SyntaxHighlighter.all();
+        });
+    </script>
+</head>
+<body class="list">
+
+<header class="caption">
+    <h1>Kevoree & Cloud Computing</h1>
+
+    <p class="author">Erwan Daubert</p>
+</header>
+
+<!--Cover page  -->
+<section class="slide cover" id="CoverSlide"
+         style="background: #666666 url(figures/cover/KevKloudCoverBackground.svg) no-repeat top center;">
+    <header>
+        <div style="text-align: center;">
+            <br/><br/>
+                <span style="text-align : justify;color: #DF9D00;font:bold 50px/50px 'PT Sans Narrow', sans-serif;">
+                    Adaptation & Cloud Computing
+                </span><br/>
+                    <span style="text-align : justify;color: #FFF;font:normal 54px/54px 'PT Sans Narrow', sans-serif;text-shadow: 0 0 150px #FFF, 0 0 60px #FFF, 0 0 10px #FFF;">
+                        A global abstraction to manage adaptation as an orthogonal concern
+                    </span><br/>
+        </div>
+        <div style="position : absolute;right: 12px;bottom: 0;">
+           <span style="text-align : justify;color: #CCC;font:normal 18px/18px 'PT Sans Narrow', sans-serif;">
+				<span class="icon-circle-arrow-right"></span>
+				 PhD defense by Erwan Daubert, supervised by Olivier Barais (<a style="color:#313437"
+                                                                                href="http://www.irisa.fr/triskell/home_html">Triskell
+               team</a>) and Jean-Louis Pazat (<a style="color:#313437"
+                                                  href="http://www.irisa.fr/myriads/">Myriads team</a>)
+			</span>
+        </div>
+        <img style="position:absolute;top: 10px;left:10px;" src="figures/cover/inria.png" width="200px"/>
+        <img style="position:absolute;top: 30px;right:10px;" src="figures/cover/irisa-bc.png" width="200px"/>
+    </header>
+    <details>
+
+    </details>
+</section>
+
+<div id="includes-en/introduction" class="includeHtml"></div>
+<div id="includes-en/domains" class="includeHtml"></div>
+<div id="includes-en/issue" class="includeHtml"></div>
+<div id="includes-en/stateoftheart" class="includeHtml"></div>
+<div id="includes-en/contribution" class="includeHtml"></div>
+<div id="includes-en/validation" class="includeHtml"></div>
+<div id="includes-en/conclusion" class="includeHtml"></div>
+<div id="includes/scripts" class="includeHtml"></div>
+
+<div class="progress">
+    <div></div>
+</div>
+</body>
+</html>
