@@ -7,37 +7,47 @@
         <h2>Validation</h2>
     </header>
     <ul>
-        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Is it scalable ?</span></li>
-        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">How to use it to do cross layer adaptation ?</span>
+        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange"> Is it scalable ?</span>
+            <ul>
+                <li>How many nodes ?</li>
+                <li>How many components ?</li>
+                <li>Can it fit real Cloud ?</li>
+            </ul>
+        </li>
+        <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange"> How to use it to do adaptation ?</span>
+            <ul>
+                <li>How to use multi-layers information ?</li>
+                <li>How to use capabilities from one layer to adapt another ?</li>
+                <li>How to combine capabilities from layers to adapt all of them ?</li>
+            </ul>
         </li>
     </ul>
 </section>
 
 <section class="slide shout">
     <header>
-        <h2><span style="font-size: 60px;">Distribute tests execution for Continuous Integration process</span></h2>
+        <h2><span style="font-size: 60px;"><span class="colorOrange">Is it scalable ?</span><br/>Distribute tests execution <br/>for Continuous Integration process</span></h2>
     </header>
 </section>
 
 <section class="slide">
     <header>
-        <h2>Continuous Integration context</h2>
+        <h2>Continuous Integration</h2>
     </header>
     <blockquote class="next">Continuous Integration (CI) is the practice of merging all developer workspaces with a shared mainline several
         times a day. ...CI was originally intended to be used in combination with automated unit tests written through the practices of Test
         driven development.<span class="cite">*1</span>
     </blockquote>
     <ul>
-        <li class="next">Continuous Integration is time consuming
+        <li class="next"><span class="colorOrange">Continuous Integration is time consuming</span>
             <ul>
                 <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Especially the test execution</span>
                 </li>
-                <!--<li class="next">Apache Camel: 7205 tests, 1h 40min</li>-->
                 <li class="next">Some projects need more than 7 weeks<span class="cite">*2</span></li>
             </ul>
         </li>
     </ul>
-    <p class="cite"><span>*1</span><a>http://en.wikipedia.org/wiki/Continuous_integration</a><br/>
+    <p class="cite"><span>*1</span><a href="http://en.wikipedia.org/wiki/Continuous_integration">http://en.wikipedia.org/wiki/Continuous_integration</a><br/>
         <span>*2</span>Rothermel, G. et al - Prioritizing test cases for regression testing - 2001
     </p>
 
@@ -48,15 +58,15 @@
         <h2>Proposed solution</h2>
     </header>
     <ul>
-        <li class="next">Dynamically distribute the tests execution on Cloud
+        <li class="hidden next"><span class="colorOrange">Distribute the tests execution on Cloud</span>
             <ul>
-                <li class="next">Dynamically building the application representing the tests execution</li>
-                <li class="next">Dynamically building the needed platform
+                <li class="next">Building the application representing the tests execution</li>
+                <li class="next">Building the needed platform
                     <ul>
                         <li class="next">Managing the specific requirements of the tests (OS, RAM, ...)</li>
+                        <li class="next">Reusing already defined platform</li>
                     </ul>
                 </li>
-                <li class="next">Reusing already defined platform</li>
             </ul>
         </li>
     </ul>
@@ -64,14 +74,17 @@
 
 <section class="slide">
     <header>
-        <h2>Usecase: Apache Camel<span class="cite">*</span></h2>
+        <h2>Use case: Apache Camel<span class="cite">*</span></h2>
     </header>
     <ul>
         <li>Implementation of Enterprise Integration Patterns</li>
+    </ul>
+    <ul>
         <li>Using version 2.8
             <ul>
                 <li>175 modules</li>
                 <li>3875 test suites</li>
+                <li>8084 tests</li>
             </ul>
         </li>
         <li>Execution time: 1h40min</li>
@@ -84,9 +97,12 @@
         <h2>Results</h2>
     </header>
     <ul>
-        <li class="next">Execution time: 40mins (speedup = 3.40)
+        <li class="next">Execution time: 40min (speedup = 3.40)
             <ul>
-                <li>The much longer test is around 20 minutes<span class="colorOrange icon-arrow-right colorOrange"></span>limit the speedup</li>
+                <li>The much longer test is around 20 minutes
+                <ul>
+                    <li class="hidden"><span class="colorOrange icon-arrow-right colorOrange"></span>limit the speedup</li>
+                </ul></li>
             </ul>
         </li>
         <li class="next">Able to reuse already defined platform
@@ -98,7 +114,9 @@
             <ul>
                 <li>using user-space virtualization instead of hardware one if possible
                     <ul>
-                        <li class="hidden"><span class="colorOrange icon-arrow-right"></span>Managed by the IaaS taking into account PaaS specificities</li>
+                        <li class="hidden"><span class="colorOrange icon-arrow-right"></span>Managed by the IaaS taking into account PaaS
+                            specificities
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -106,9 +124,35 @@
     </ul>
 </section>
 
+<section class="slide">
+    <header>
+        <h2>Is it scalable ?</h2>
+    </header>
+    <ul>
+        <li>Apache Camel: First use case
+        <ul>
+            <li>50 nodes + 3845 components</li>
+        </ul>
+        </li>
+        <li>Extrapolation of bigger applications
+        <ul>
+            <li>500, 5000, 50000, 100000</li>
+        </ul>
+        </li>
+        <li>Build the Amazon EC2 Kevoree model</li>
+    </ul>
+    <img style="position:absolute;bottom: 20px;right:5px;" width="500px" src="figures/validation/graphique-deployment.png"/>
+    <details>
+        environ 4 secondes pour traiter 5000 nœuds du PaaS afin de les distribuer sur une infrastructure
+        Ensuite le temps devient assez important mais ce chargement correspond à un chargement complet c'est-à-dire qu'il faut positionner l'ensemble des nœuds du PaaS.
+        Or dans la réalité, on peut supposer que peu de situation vont nécessiter de placer autant de nœuds d'un coup et on va sans doute se retrouver dans des situations avec moins de 5000 nœuds à placer
+        On arrive à charger des modèles de la taille de celui d'amazon
+    </details>
+</section>
+
 <section class="slide shout">
     <header>
-        <h2><span style="font-size: 60px;">Distributed web server</span></h2>
+        <h2><span style="font-size: 60px;"><span class="colorOrange">How to use it to do adaptation ?</span><br/>Distributed web server</span></h2>
     </header>
 </section>
 
@@ -117,13 +161,13 @@
         <h2>Distributed web server context</h2>
     </header>
     <ul>
-        <li class="next"><span class="kevOrange">Need to manage Elasticity and Scalability</span>
+        <li class="next"><span class="colorOrange">Need to manage Elasticity and Scalability</span>
             <ul>
                 <li>Replication of web pages</li>
                 <li>Load balancing between requests</li>
             </ul>
         </li>
-        <li class="next hidden u"><span class="kevOrange">Dynamicaly managed by the platform</span></li>
+        <li class="next hidden"><span class="colorOrange icon-arrow-right"></span><span class="colorOrange">Dynamicaly managed by the platform</span></li>
     </ul>
 </section>
 

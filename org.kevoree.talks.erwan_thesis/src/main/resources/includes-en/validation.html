@@ -129,11 +129,25 @@
         <h2>Is it scalable ?</h2>
     </header>
     <ul>
-        <li><span class="colorRed">TODO</span>First use case to see if we are able to modelize "big" application</li>
-        <li>Extrapolation of bigger applications</li>
+        <li>Apache Camel: First use case
+        <ul>
+            <li>50 nodes + 3845 components</li>
+        </ul>
+        </li>
+        <li>Extrapolation of bigger applications
+        <ul>
+            <li>500, 5000, 50000, 100000</li>
+        </ul>
+        </li>
         <li>Build the Amazon EC2 Kevoree model</li>
     </ul>
-    <!-- Dire qu'on peut charger des modèles de la taille de celui d'amazon mais que l'on a pas l'infrastructure pour l'exécuter-->
+    <img style="position:absolute;bottom: 20px;right:5px;" width="500px" src="figures/validation/graphique-deployment.png"/>
+    <details>
+        environ 4 secondes pour traiter 5000 nœuds du PaaS afin de les distribuer sur une infrastructure
+        Ensuite le temps devient assez important mais ce chargement correspond à un chargement complet c'est-à-dire qu'il faut positionner l'ensemble des nœuds du PaaS.
+        Or dans la réalité, on peut supposer que peu de situation vont nécessiter de placer autant de nœuds d'un coup et on va sans doute se retrouver dans des situations avec moins de 5000 nœuds à placer
+        On arrive à charger des modèles de la taille de celui d'amazon
+    </details>
 </section>
 
 <section class="slide shout">
@@ -147,13 +161,13 @@
         <h2>Distributed web server context</h2>
     </header>
     <ul>
-        <li class="next"><span class="kevOrange">Need to manage Elasticity and Scalability</span>
+        <li class="next"><span class="colorOrange">Need to manage Elasticity and Scalability</span>
             <ul>
                 <li>Replication of web pages</li>
                 <li>Load balancing between requests</li>
             </ul>
         </li>
-        <li class="next hidden u"><span class="kevOrange">Dynamicaly managed by the platform</span></li>
+        <li class="next hidden"><span class="colorOrange icon-arrow-right"></span><span class="colorOrange">Dynamicaly managed by the platform</span></li>
     </ul>
 </section>
 

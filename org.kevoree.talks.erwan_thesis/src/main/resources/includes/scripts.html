@@ -22,6 +22,15 @@
             if (indexOf != -1) {
                 element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
             }
+
+            jQuery("#saasfigure").show();
+            jQuery("#paasfigure").show();
+            jQuery("#iaasfigure").show();
+
+            jQuery("#singlesystem").show();
+            jQuery("#singlesystemfigure").show();
+            jQuery("#coordinatedsystems").show();
+            jQuery("#coordinatedsystemsfigure").show();
         });
 
         jQuery(document.body).on("slide", function () {
@@ -40,9 +49,85 @@
             if (element.className.indexOf("icon-spin") == -1) {
                 element.className = element.className + " icon-spin";
             }
+// FIXME must be remove but currently event are not well organized and so slide event come after currentActive
+
+            jQuery("#saasfigure").show();
+            jQuery("#paasfigure").hide();
+            jQuery("#iaasfigure").hide();
+
+            jQuery("#singlesystemfigure").show();
+            jQuery("#coordinatedsystemsfigure").hide();
         });
 
-        var element = jQuery("#componentType");
+        var element = jQuery("#saas");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#saasfigure").show();
+        });
+        element.on('notActive', function () {
+            jQuery.noConflict();
+            jQuery("#saasfigure").hide();
+        });
+
+        element = jQuery("#paas");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#paasfigure").show();
+        });
+        element.on('notActive', function () {
+            jQuery.noConflict();
+            jQuery("#paasfigure").hide();
+        });
+
+        element = jQuery("#iaas");
+        element.on('active', function () {
+            jQuery.noConflict();
+            jQuery("#iaasfigure").show();
+        });
+        element.on('notActive', function () {
+            jQuery.noConflict();
+            jQuery("#iaasfigure").hide();
+        });
+
+        element = jQuery("#singlesystem");
+        element.on('currentActive', function () {
+            jQuery.noConflict();
+            jQuery("#singlesystem").show();
+            jQuery("#singlesystemfigure").show();
+        });
+        element.on('notCurrentActive', function () {
+            jQuery.noConflict();
+            jQuery("#singlesystem").hide();
+            jQuery("#singlesystemfigure").hide();
+        });
+
+        element = jQuery("#coordinatedsystems");
+        element.on('currentActive', function () {
+            jQuery.noConflict();
+            jQuery("#coordinatedsystems").show();
+            jQuery("#coordinatedsystemsfigure").show();
+        });
+        element.on('notCurrentActive', function () {
+            jQuery.noConflict();
+            jQuery("#coordinatedsystems").hide();
+            jQuery("#coordinatedsystemsfigure").hide();
+        });
+
+        element = jQuery("#globalabstraction");
+        element.on('currentActive', function () {
+            jQuery.noConflict();
+            jQuery("#singlesystem").show();
+            jQuery("#singlesystemfigure").show();
+            jQuery("#coordinatedsystems").show();
+            jQuery("#coordinatedsystemsfigure").show();
+        });
+        element.on('notCurrentActive', function () {
+            jQuery.noConflict();
+            jQuery("#singlesystem").hide();
+            jQuery("#singlesystemfigure").hide();
+        });
+
+        element = jQuery("#componentType");
         element.on('currentActive', function () {
             displayComponent();
         });

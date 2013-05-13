@@ -166,13 +166,13 @@ removeChild node2@node1</pre>
         <h2>How Kevoree modelize Cloud systems ?</h2>
     </header>
     <ul>
-        <li class="next">Components
+        <li class="next"><span class="colorOrange">Components</span>
             <ul>
                 <li class="next">Software (SaaS)</li>
                 <li class="next">Layer management (PaaS, IaaS)</li>
             </ul>
         </li>
-        <li class="next">Nodes
+        <li class="next"><span class="colorOrange">Nodes</span>
             <ul>
                 <li class="next">Software runtime (SaaS)</li>
                 <li class="next">VM system (PaaS)</li>
@@ -212,12 +212,18 @@ removeChild node2@node1</pre>
         <li>A parent node has <span class="colorOrange">responsibility for hosting element's life cycle</span>
             <ul>
                 <li class="next" id="nodewithoutprimitive">add, start, stop, remove, ...</li>
-                <li class="next" id="nodewithprimitive"><span class="colorOrange">Each node can define its own adaptation capabilities</span></li>
+                <li class="next" id="nodewithprimitive"><span
+                        class="colorOrange">Each node can define its own adaptation capabilities</span></li>
             </ul>
         </li>
     </ul>
-    <img id="kevoreenodetype1" style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_node_type.svg"/>
-    <img id="kevoreenodetype2" style="position:absolute;bottom: 40px;right:100px;" src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
+    <img id="kevoreenodetype1" style="position:absolute;bottom: 40px;right:100px;"
+         src="figures/contribution/kevoreekloud/kevoree_node_type.svg"/>
+    <img id="kevoreenodetype2" style="position:absolute;bottom: 40px;right:100px;"
+         src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
+    <details>
+        For example, with LibVirt, it is possible to change the amount of memory allocated to the VM.
+    </details>
 </section>
 
 <section class="slide">
@@ -227,7 +233,8 @@ removeChild node2@node1</pre>
     <ul>
         <li class="next">Basic adaptation primitives: Add/Remove node
             <ul>
-                <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Specific implementations for each node type</span></li>
+                <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Specific implementations for each node type</span>
+                </li>
             </ul>
         </li>
         <li class="next">Available node types
@@ -244,12 +251,12 @@ removeChild node2@node1</pre>
 
 <section class="slide">
     <header>
-        <h2>KevScript as a cloud modeling language</h2>
+        <h2>Kevoree as a cloud modeling language (1)</h2>
     </header>
-    <div>
-        <ul>
-            <li class="next">KevoreeScript abstracts model manipulation</li>
-            <li class="next">IaaS adaptation
+    <ul>
+        <li class="hidden next"><span class="colorOrange">Kevoree Script abstracts model manipulation</span>
+            <ul>
+                <li class="next collapse">IaaS adaptation
 			            <pre class="brush: kevscript toolbar:false;">
 //add IaaSPlatform
 addNode iaasKVM21 : KVMNode {ip="10.0.1.5"}
@@ -258,44 +265,94 @@ addNode userNode1 : JavaSENode
 addNode userNode2 : UbuntuNode {version="12.04"}
 //attach to IaaSNode42
 addChild userNode1,userNode2@iaasKVM21</pre>
-            </li>
-            <li class="next">PaaS adaptation
+                </li>
+                <li class="next collapse">PaaS adaptation
 			            <pre class="brush: kevscript toolbar:false;">
 addNode worker2@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
 addNode worker3@IaaSNode44 : JavaSENode {cpufreq="800mhz",arch="32bits",ram="2gb"}
 moveComponent *@worker1 => worker2
 removeNode worker1@IaaSNode42</pre>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="slide">
-    <header>
-        <h2>Kevoree as a cloud modeling language</h2>
-    </header>
-    <div>
-        <ul>
-            <li class="next">SaaS adaptation
+                </li>
+                <li class="next collapse">SaaS adaptation
 			            <pre class="brush: kevscript toolbar:false;">
 moveComponent mongoDB@userNode1 => userNode2
 moveComponent nodeJS@userNode1 => userNode2</pre>
-            </li>
-            <li>KevScript is a backend to express cloud elasticity
+                </li>
+            </ul>
+        </li>
+        <li class="hidden next collapse"><span class="colorOrange">KevScript is a backend to express cloud elasticity</span>
 			            <pre class="brush: java toolbar:false;">
 							if(detectOverHead()){
 							    this.interpretAndDeploy("script ");
 							    //call local adaptation layer, propagation is done through groups
 							}</pre>
-                Like any component, cloud reasoning engines are able to interact with Model@Runtime layer.
-            </li>
-        </ul>
-    </div>
+            <div><span class="colorOrange">Like any component, cloud reasoning engines are able to interact with Model@Runtime layer.</span>
+            </div>
+        </li>
+    </ul>
 </section>
 
 <section class="slide">
     <header>
-        <h2>Kevoree cloud layer is cloud IaaS agnostic</h2>
+        <h2>Kevoree as a cloud modeling language (2)</h2>
+    </header>
+    <ul>
+        <li class="hidden next"><span class="colorOrange">Kevoree kloud is cloud IaaS agnostic</span>
+            <ul>
+                <li class="next">Hybrid cloud management
+                    <pre class="brush: kevscript toolbar:false;">
+//create PaasNode
+addNode paasEC2 : EC2
+addNode paasRack : RackspaceVM
+addNode paasKloud : KevoreeCloudVM
+//hybrid adaptations
+moveComponent mongoDB@paasEC2 => paasRack
+moveComponent nodeJS@paasRack => paasKloud</pre>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden next"><span class="colorOrange icon-arrow-right"></span>
+            Each node (of each Cloud) is responsible of its reconfiguration
+        </li>
+    </ul>
+</section>
+
+<!--<section class="slide">
+    <header>
+        <h2>Kevoree to build multi-layers adaptations</h2>
+    </header>
+    <ul>
+        <li class="colorRed">TODO</li>
+    </ul>
+</section>-->
+
+<!--<section class="slide">
+    <header>
+        <h2>Kevoree as a cloud modeling language</h2>
+    </header>
+    <div>
+        <ul>
+            <li class="next collapse">SaaS adaptation
+			            <pre class="brush: kevscript toolbar:false;">
+moveComponent mongoDB@userNode1 => userNode2
+moveComponent nodeJS@userNode1 => userNode2</pre>
+            </li>
+            <li class="next collapse">KevScript is a backend to express cloud elasticity
+			            <pre class="brush: java toolbar:false;">
+							if(detectOverHead()){
+							    this.interpretAndDeploy("script ");
+							    //call local adaptation layer, propagation is done through groups
+							}</pre>
+            </li>
+            <li class="hidden"><span class="colorOrange">Like any component, cloud reasoning engines are able to interact with Model@Runtime layer.</span></li>
+        </ul>
+    </div>
+</section>-->
+
+<!--
+<section class="slide">
+    <header>
+        <h2>Kevoree kloud is cloud IaaS agnostic</h2>
     </header>
     <div>
         <ul>
@@ -315,4 +372,4 @@ moveComponent nodeJS@paasRack => paasKloud</pre>
             </li>
         </ul>
     </div>
-</section>
+</section>-->

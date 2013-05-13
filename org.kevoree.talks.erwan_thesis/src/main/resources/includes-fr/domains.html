@@ -1,5 +1,5 @@
 <section class="slide shout">
-    <h2 class="h2-list">Domains</h2>
+    <h2 class="h2-list">Problème</h2>
 </section>
 
 <section class="slide">
@@ -7,24 +7,26 @@
         <h2>Cloud Computing (1)</h2>
     </header>
     <ul>
-        <li>Fournir des ressources informatique sous forme de services</li>
-        <li>Payer selon l'usage</li>
-    </ul>
-    <ul>
-        <li>Une hiérarchie de niveaux
+        <li class="hidden next collapse">Nouveau modèle informatique
             <ul>
-                <li>Application (Software - SaaS)</li>
-                <li>Plate-forme (Platform - PaaS)</li>
-                <li>Infrastructure (Infrastructure - IaaS)</li>
+                <li>Fournir les ressources informatiques sous forme de services</li>
+                <li>Paiement à l'usage</li>
+            </ul>
+        </li>
+        <li class="hidden next collapse">Marché en pleine progression
+            <ul>
+                <li>Prévision de 150 milliard de dollairs d'ici 2020 <span class="cite">*</span></li>
+            </ul>
+        </li>
+        <li class="hidden next">Avantages
+            <ul>
+                <li>Gestion de la montée en charge</li>
+                <li>Gestion de la disponibilité</li>
             </ul>
         </li>
     </ul>
-    <!--<ul>
-        <li class="hidden colorOrange"><span class="colorOrange icon-exclamation-sign"></span>Each layer is a distributed dynamic adaptive
-            system
-        </li>
-    </ul>-->
-    <img style="position:absolute;bottom:100px;right:100px;" src="figures/domains/cloud/cloudtriangle-plain.png">
+    <p class="cite"><span>*</span> Ried, S. et al (2011) - <a href="http://www.forrester.com/rb/Research/sizing_cloud/q/id/58161/t/2">Understanding
+        and quantifying the future of cloud computing</a></p>
 </section>
 
 <section class="slide">
@@ -32,25 +34,23 @@
         <h2>Cloud Computing (2)</h2>
     </header>
     <ul>
-        <li>Increasing market size which would reach 150 billions by 2020<span class="cite">*</span></li>
-        <li>Advantages:
+        <li>Une hiérarchie de niveaux
             <ul>
-                <li>Scalability</li>
-                <li>Availability</li>
+                <li id="saas" class="next">Application (Software - SaaS)</li>
+                <li id="paas" class="next">Plate-forme (Platform - PaaS)</li>
+                <li id="iaas" class="next">Infrastructure (Infrastructure - IaaS)</li>
             </ul>
         </li>
-    </ul>
-    <ul>
-        <li class="hidden"><span class="colorOrange">How to ensure accessibility/availability of the services ?</span>
-            <ul>
-                <li class="hidden"><span class="colorOrange icon-arrow-right"></span><span class="colorOrange">each service/layer need to be adaptive</span>
-                </li>
-            </ul>
+        <li class="hidden next"><span
+                class="colorOrange">Comment assurer la gestion de la montée en charge <br/>et la gestion de la disponibilité ?</span>
+        </li>
+        <li class="hidden next"><span class="colorOrange icon-arrow-right"></span><span class="colorOrange">Chaque service/niveau doit être adaptable</span>
         </li>
     </ul>
-    <p class="cite"><span>*</span> Ried, S. et al (2011) - <a href="http://www.forrester.com/rb/Research/sizing_cloud/q/id/58161/t/2">Understanding
-        and quantifying the future of cloud computing</a></p>
-
+    <img style="position:absolute;bottom:100px;right:10px;" src="figures/domains/cloud/cloudtriangle-plain.png">
+    <img id="saasfigure" style="position:absolute;bottom:260px;right:50px;" src="figures/domains/cloud/cloud-saas.png">
+    <img id="paasfigure" style="position:absolute;bottom:160px;right:20px;" src="figures/domains/cloud/cloud-paas.png">
+    <img id="iaasfigure" style="position:absolute;bottom:80px;right:0px;" src="figures/domains/cloud/cloud-iaas.png">
 </section>
 
 <section class="slide">
@@ -58,21 +58,117 @@
         <h2>Adaptation</h2>
     </header>
     <ul>
-        <li class="hidden next"><span class="colorOrange">Change a software according to the evolution of its environment</span>
+        <li class="hidden next"><span class="colorOrange">Modifier une application/ un système</span></li>
+        <li class="hidden next collapse"><span class="colorOrange icon-arrow-right"></span><span class="colorOrange">Par rapport aux changements de son environnement</span>
             <ul>
-                <li class="next">Response time</li>
-                <li class="next">CPU load</li>
-                <li class="next">Number of users</li>
+                <li class="next">Charge de la machine</li>
+                <li class="next">Nombre d'utilisateur</li>
+                <li class="next">...</li>
+            </ul>
+        </li>
+        <li class="hidden next collapse"><span class="colorOrange icon-arrow-right"></span><span
+                class="colorOrange">Pour atteindre certains objectifs</span>
+            <ul>
+                <li class="next">Assurer la disponibilité</li>
+                <li class="next">Ajout de nouvelles fonctionalités</li>
                 <li class="next">...</li>
             </ul>
         </li>
     </ul>
     <div class="next">
         <ul>
-            <li>MAPE loop<span class="cite">*</span></li>
+            <li class="hidden">Vision d'un système d'adaptation<span class="cite">*</span></li>
         </ul>
-        <img src="figures/domains/adaptation/mapeLoopIBM.png" style="position:absolute;bottom:120px;right:120px;"/>
+        <img src="figures/domains/adaptation/mapeLoopIBM.png" style="position:absolute;bottom:100px;right:120px;"/>
 
         <p class="cite"><span>*</span>Kephart, J. O., & Chess, D. M. (2003) - The vision of autonomic computing. Computer</p>
     </div>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Adaptation et Cloud Computing (1)</h2>
+    </header>
+    <ul>
+        <li class="hidden next"><span class="colorOrange">Adaptation au niveau SaaS</span>
+            <ul>
+                <li>Remplacement de Google Drive par Dropbox pour le stockage de documents</li>
+            </ul>
+        </li>
+        <li class="hidden next"><span class="colorOrange">Adaptation au niveau PaaS</span>
+            <ul>
+                <li>Migration d'un service d'une ressource de plate-forme à une autre</li>
+            </ul>
+        </li>
+        <li class="hidden next"><span class="colorOrange">Adaptation au niveau IaaS</span>
+            <ul>
+                <li>Migration d'une plate-forme d'une ressource d'infrastructure à une autre</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Adaptation et Cloud Computing (2)</h2>
+    </header>
+    <ul>
+        <li class="hidden next">Chaque adaptation peut avoir des effets de bords
+            <!-- <ul>
+                 <li id="layerimpacted" class="next">Chaque effet de bord peut avoir un impact sur les autres niveaux</li>
+                 <li id="adaptationsimpacted" class="next">Chaque effet de bord peut avoir un impact sur les autres adaptation en cours</li>
+             </ul>-->
+        </li>
+    </ul>
+    <img class="next" style="position:absolute;bottom:150px;left:50px;" height="180px"
+         src="figures/domains/adaptation-cloud/adaptation-current.png">
+
+    <div class="next">
+        <span style="position:absolute;bottom:400px;left:220px;">PaaS</span>
+        <img style="position:absolute;bottom:250px;left:220px;" height="75px"
+             src="figures/domains/adaptation-cloud/adaptation-paas-transition.png">
+        <img style="position:absolute;bottom:250px;left:300px;" height="180px"
+             src="figures/domains/adaptation-cloud/adaptation-paas-result.png">
+    </div>
+    <div class="next">
+        <span style="position:absolute;bottom:50px;left:220px;">IaaS</span>
+        <img style="position:absolute;bottom:150px;left:220px;" height="75px"
+             src="figures/domains/adaptation-cloud/adaptation-iaas-transition.png">
+        <img style="position:absolute;bottom:50px;left:300px;" height="180px"
+             src="figures/domains/adaptation-cloud/adaptation-iaas-result.png">
+    </div>
+
+    <div class="next">
+        <span class="icon-plus" style="position:absolute;bottom:220px;left:370px;"></span>
+        <span class="icon-minus" style="position:absolute;bottom:225px;left:490px;"></span>
+        <span class="icon-minus" style="position:absolute;bottom:215px;left:490px;"></span>
+        <img style="position:absolute;bottom:150px;right:325px;" height="180px"
+             src="figures/domains/adaptation-cloud/adaptation-both-result.png">
+    </div>
+    <div class="next">
+        <span class="icon-remove colorRed" style="position:absolute;bottom:180px;left:550px;font-size:150px;"></span>
+        <img style="position:absolute;bottom:150px;right:50px;" height="180px"
+             src="figures/domains/adaptation-cloud/adaptation-both-better-result.png">
+    </div>
+    <div class="next" style="position:absolute;bottom:50px;right:25px;">
+        <span class="colorOrange">Les adaptations doivent être coordonnées</span>
+    </div>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Adaptation et Cloud Computing (2)</h2>
+    </header>
+    <!--<ul>
+        <li id="singlesystem" class="hidden next colorOrange">Système d'adaptation centralisé</li>
+        <li id="coordinatedsystems" class="hidden next colorOrange" style="">Systèmes d'adaptation coordonés</li>
+    </ul>-->
+    <span id="singlesystem" class="hidden next colorOrange" style="position:absolute;left:50px;">Système d'adaptation centralisé</span>
+    <span id="coordinatedsystems" class="hidden next colorOrange"
+          style="position:absolute;right:50px;">Systèmes d'adaptation coordonnés</span>
+    <img id="singlesystemfigure" src="figures/domains/adaptation-cloud/single.png" style="position:absolute;bottom:80px;left:40px;"
+         height="320px"/>
+    <img id="coordinatedsystemsfigure" src="figures/domains/adaptation-cloud/coordinate.png"
+         style="position:absolute;bottom:80px;right:40px;" height="320px"/>
+    <span id="globalabstraction" class="next colorGreen" style="position:absolute;bottom:30px;left:350px;">Besoin d'une représentation globale</span>
 </section>
