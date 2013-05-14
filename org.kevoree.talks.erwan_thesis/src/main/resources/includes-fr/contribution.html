@@ -1,20 +1,20 @@
 <section class="slide shout">
-    <h2 class="h2-list">Contribution</h2>
+    <h2 class="h2-list">Proposition</h2>
 </section>
 
 <section class="slide shout">
     <header>
         <h2 style="line-height: 0.3;">Kevoree<br/>
-            <span style="font-size: 40px;">A Model@Runtime implementation for Distributed Dynamically Adaptive systems</span><br/><br/>
-            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">François Fouquet 's thesis</a>
+            <span style="font-size: 40px;">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes </span><br/><br/>
+            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet</a>
         </h2>
     </header>
 </section>
 
 <section class="slide">
-    <header><h2>What is Model@Runtime ?</h2></header>
+    <header><h2>Qu'est-ce que le Model@Runtime ?</h2></header>
     <ul>
-        <li class="next collapse hidden">
+        <!--<li class="next collapse hidden">
             <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Abstraction layer</span>
             <ul>
                 <li class="hidden">Architectural model which defines how the system is configured
@@ -24,17 +24,25 @@
                     </ul>
                 </li>
             </ul>
+        </li>-->
+        <li class="next">Objectif :
+            <ul>
+                <li>Réduire la séparation entre phase de conception et exécution d'une application
+                    <ul>En apportant les outils de la phase de conception à l'exécution</ul>
+                </li>
+            </ul>
         </li>
         <li class="next hidden">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Offline reflexion layer</span>
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Support réflexif désynchronisée</span>
             <ul>
                 <li class="next hidden collapse">
-                    <div>Dynamic adaptive system are online reflexive systems
+                    <div>Les systèmes adaptable sont basés sur le principe de la réflexion
                         <ul>
                             <li class="hidden">
-                                <span class="icon-minus-sign colorRed"></span>Strongly connected with the running system
+                                <span class="icon-arrow-right"></span>Fortement connecté avec le système en cours d'exécution
                                 <ul>
-                                    <li class="hidden"><span class="icon-minus-sign colorRed"></span>Misconfiguration can crash the system
+                                    <li class="hidden"><span class="icon-minus-sign colorRed"></span>
+                                        Une erreur dans la reconfiguration peut mettre le système dans un état instable
                                     </li>
                                 </ul>
                             </li>
@@ -44,20 +52,55 @@
             </ul>
             <ul>
                 <li class="next hidden">
-                    <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Test and validate configuration before applying it</span>
+                    <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Permet de tester et valider une configuration avant même de l'appliquer</span>
                 </li>
             </ul>
         </li>
     </ul>
 </section>
-<section class="slide">
-    <header>
-        <h2>Model@Runtime process</h2>
-    </header>
-    <img style="position : absolute;top: 150px;left : 150px;" src="figures/contribution/kevoree/modelATruntimeFinal.png" height="450px"/>
-</section>
 
 <section class="slide">
+    <header><h2>Model@Runtime dans Kevoree</h2></header>
+    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Une couche d'abstraction architecturale</span>
+    <ul>
+        <li class="hidden">Basée sur une approche à composant
+            <ul>
+                <li class="next collapse" id="componentType"><span><strong class="colorOrange">Composant</strong></span>
+                    <ul>
+                        <li>Encapule la logique métier d'une application</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next hidden">Étendue avec des concepts de distribution
+            <ul>
+                <li class="next collapse" id="channelType"><span><strong class="colorOrange">Canal de communication (channel)</strong></span>
+                    <ul>
+                        <li>Encapsule la sémantique de communication</li>
+                        <li>Correspond au connecteurs<span class="cite">*</span></li>
+                    </ul>
+                    <p class="cite colorRed"><span>*</span>TODO</p>
+                </li>
+                <li class="next collapse" id="nodeType"><span><strong class="colorOrange">Nœud</strong></span>
+                    <ul>
+                        <li>Explicite la notion d'hébergement</li>
+                        <li>Explicite les spécificités d'exécution</li>
+                        <!--<li>Encapsulate adaptation semantics</li>-->
+                    </ul>
+                </li>
+                <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
+                    <ul>
+                        <li>Encapsule la sémantique de dissémination des mises à jour</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
+    <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
+</section>
+
+<!--<section class="slide">
     <header>
         <h2>Kevoree Concepts</h2>
     </header>
@@ -81,7 +124,6 @@
                 <li class="next collapse" id="nodeType"><span><strong class="colorOrange">NodeType</strong></span>
                     <ul>
                         <li>Encapsulate runtime heterogeneity</li>
-                        <!--<li>Encapsulate adaptation semantics</li>-->
                     </ul>
                 </li>
                 <li class="next collapse" id="groupType"><span><strong class="colorOrange">GroupType</strong></span>
@@ -94,11 +136,11 @@
     </ul>
     <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
     <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Kevoree and Distributed system</h2>
+        <h2>Kevoree, Model@Runtime et adaptation</h2>
     </header>
     <img class="next" id="dmarsamplemodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
 
@@ -107,7 +149,17 @@
         <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:290px;"></span>
         <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:130px;"></span>
     </div>
+    <div>
+        
+    </div>
 </section>
+
+<!--<section class="slide">
+    <header>
+        <h2>Model@Runtime process</h2>
+    </header>
+    <img style="position : absolute;top: 150px;left : 150px;" src="figures/contribution/kevoree/modelATruntimeFinal-new.png" height="450px"/>
+</section>-->
 
 
 <section class="slide">
