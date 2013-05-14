@@ -42,7 +42,7 @@ p.cite {
 }
 
 table.existingsolutions .next.active td,
-table.existingsolutions td{
+table.existingsolutions td {
     font-size: 20px;
     border: 1px solid black;
     border-collapse: collapse;
