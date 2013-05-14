@@ -6,20 +6,21 @@
         <h2>Existing abstractions (1)</h2>
     </header>
     <ul>
-        <li class="next"><span class="colorOrange">Reflexive architectures</span> (Component based, Service based)
+        <li class="next collapse"><span class="colorOrange">Architectures réflexives</span> (basé composants, basé services)
             <ul>
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-layers, hosting, distribution, heterogeneity</li>
+                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveaux, hébergement, distribution, hétérogénéité
+                </li>
             </ul>
         </li>
-        <li class="next"><span class="colorOrange">Cloud APIs</span> (EC2, OCCI, JCloud, GAE, ...)
+        <li class="next collapse"><span class="colorOrange">Cloud APIs de gestion</span> (EC2, OCCI, JCloud, GAE, ...)
             <ul>
                 <!--<li>Infrastructure specific</li>-->
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-layers, distribution, (heterogeneity)</li>
+                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveaux, distribution, (hétérogénéité)</li>
             </ul>
         </li>
-        <li class="next"><span class="colorOrange">Cloud frameworks</span> (gMDE, Neptune, CloudML, ConPaaS)
+        <li class="next collapse"><span class="colorOrange">Cloud frameworks</span> (gMDE, Neptune, CloudML, ConPaaS)
             <ul>
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-layers, hosting, (distribution)</li>
+                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveau, hébergement, (distribution)</li>
             </ul>
         </li>
     </ul>
@@ -59,3 +60,139 @@
             width="780"></object>
 </section>-->
 
+
+<section class="slide">
+    <header>
+        <h2></h2>
+    </header>
+
+    <table class="existingsolutions">
+        <tbody>
+        <tr>
+            <td style="width:100px;"></td>
+            <td style="width:200px;"><b>Multi-niveaux</b></td>
+            <td style="width:120px"><b>Hébergement</b></td>
+            <td style="width:120px"><b>Distribution</b></td>
+            <td style="width:130px"><b>Hétérogénéité</b></td>
+            <td style="width:130px"><b>Extensibilité</b></td>
+            <td style="width:130px"><b>Réfléxitivé</b></td>
+        </tr>
+        </tbody>
+        <tbody class="next">
+        <tr>
+            <td><b>Darwin</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+        </tr>
+        <tr>
+            <td><b>Fractal</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+        </tr>
+        <tr>
+            <td><b>iPOJO</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+        </tr>
+        <tr>
+            <td><b>FraSCAti</b></td>
+            <td>possible</td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+        </tr>
+        </tbody>
+        <tbody class="next">
+        <tr>
+            <td><b>PauWare</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td>limité</td>
+        </tr>
+        <tr>
+            <td><b>Genie</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+        </tr>
+        </tbody>
+        <tbody class="next">
+        <tr>
+            <td><b>RBAD</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+        </tr>
+        <tr>
+            <td><b>gMDE</b></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+        </tr>
+        <tr>
+            <td><b>Neptune</b></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+        </tr>
+        <tr>
+            <td><b>CloudML</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td>limité</td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+        </tr>
+        <tr>
+            <td><b>ConPaaS</b></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td>limité</td>
+        </tr>
+        </tbody>
+        <tbody class="next">
+        <tr>
+            <td><b>GCM</b></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FF0000">non</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#00FF00">oui</span></td>
+            <td><span style="color:#FFB200">en partie</span></td>
+        </tr>
+    </table>
+
+</section>

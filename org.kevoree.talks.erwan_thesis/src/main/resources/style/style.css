@@ -40,3 +40,22 @@ p.cite {
     left: 70px;
     font-size: 20px;
 }
+
+table.existingsolutions .next.active td,
+table.existingsolutions td{
+    font-size: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}
+
+table.existingsolutions .next td {
+    font-size: 20px;
+    border: 0px;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}

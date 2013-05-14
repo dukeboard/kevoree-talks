@@ -9,39 +9,48 @@
     <ul>
         <li class="next collapse"><span class="colorOrange">Multi-niveaux</span>
             <ul>
-                <li>Représente les applications, les plates-formes, les infrastructure</li>
+                <li>Pour représenter l'ensemble des éléments présents dans un Cloud</li>
             </ul>
         </li>
-        <li class="next collapse"><span class="colorOrange">Hosting</span>
+        <li class="next collapse"><span class="colorOrange">Hébergement</span>
             <ul>
-                <li>Représente l'hébergement des applications sur les plates-formes</li>
-                <li>Représente l'hébergement les plates-formes sur les infrastructures</li>
+                <li>Pour localiser l'exécution des services</li>
             </ul>
         </li>
         <li class="next collapse"><span class="colorOrange">Distribution</span>
             <ul>
-                <li>Represents interconnection between machines</li>
-                <li>Represents distribution of the services</li>
+                <li>Pour en tirer partie<span class="cite">*</span>
+                    <ul>
+                        <li>Dans la définition de nouvelles adaptations</li>
+                        <li>Dans le fonctionnement des services</li>
+                    </ul>
+                </li>
             </ul>
+            <p class="cite"><span>*</span>Guerraoui, R. et al - Oo distributed programming is not distributed oo programming - 1999</p>
         </li>
-        <li class="next collapse"><span class="colorOrange">Heterogeneity</span>
+        <li class="next collapse"><span class="colorOrange">Hétérogénéité</span>
             <ul>
-                <li>Permet de représenter l'ensemble des implémentations existantes</li>
-                <li>Permet de faire cohabiter plusieurs implémentations</li>
-                <li>Permet de représenter les spécificités d'une implémentation</li>
+                <li>Pour représenter de manière équivalente plusieurs implémentations d'un même service tout en explicitant leurs spécificités</li>
             </ul>
         </li>
         <li class="next collapse"><span class="colorOrange">Extensibilité</span>
             <ul>
-                <li>Permet d'intégrer de nouvelles implémentations et leur spécificité</li>
+                <li>Pour pouvoir intégrer les futures implémentations</li>
             </ul>
         </li>
-        <li class="next collapse"><span class="colorOrange">réflection désynchronisée</span>
+        <li class="next collapse"><span class="colorOrange">Réflection désynchronisée</span>
             <ul>
-                <li>Permet de valider une configuration avant de l'appliquer</li>
+                <li>Pour éviter les reconfigurations erronées</li>
             </ul>
         </li>
     </ul>
+    <details>
+        Distribution:
+            - Gerraoui a affirmé que pour faire des systèmes distribués efficaces, il est nécessaire d'expliciter cette notion de distribution plutôt que de la masquer
+            e.g. migration de composants pour rapprocher ceux qui interagissent entre eux => limiter la consommation de bande passante
+        Hétérogénéité:
+            e.g. être capable de différencier les types de virtualisation peut servir pour le choix de l'hébergement des machines virtuelles
+    </details>
 </section>
 
 <div id="includes/stateoftheart" class="includeHtml"></div>
