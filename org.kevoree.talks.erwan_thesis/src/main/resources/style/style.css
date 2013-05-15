@@ -14,6 +14,16 @@
     color: #0000FF;
 }
 
+
+a:link.section,
+a:visited.section,
+a:active.section,
+a:hover.section {
+    text-decoration: none;
+    color: #DF9D00;
+    border-bottom: none;
+}
+
 a:link.thesis-talks,
 a:visited.thesis-talks,
 a:active.thesis-talks,

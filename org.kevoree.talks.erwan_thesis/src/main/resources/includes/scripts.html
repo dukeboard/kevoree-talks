@@ -274,10 +274,10 @@ jQuery(document).ready(function () {
     });
 
     element = jQuery("#groupall");
-    element.on('active', function () {
+    element.on('currentActive', function () {
         displayGroupAll();
     });
-    element.on('notActive', function () {
+    element.on('notCurrentActive', function () {
         clearGroupIaaSPaaSAll();
     });
 });
@@ -374,7 +374,7 @@ function displayGroupIaaS() {
     context.save();
     context.scale(1, 1);
     context.beginPath();
-    context.arc(172, 37, 30, 0, Math.PI * 2, false);
+    context.arc(162, 37, 30, 0, Math.PI * 2, false);
     context.stroke();
     context.closePath();
     context.restore();
@@ -391,7 +391,7 @@ function displayGroupPaaS() {
     context.save();
     context.scale(1, 1);
     context.beginPath();
-    context.arc(295, 182, 30, 0, Math.PI * 2, false);
+    context.arc(284, 182, 30, 0, Math.PI * 2, false);
     context.stroke();
     context.closePath();
     context.restore();
@@ -408,7 +408,7 @@ function displayGroupAll() {
     context.save();
     context.scale(1, 1);
     context.beginPath();
-    context.arc(57, 182, 30, 0, Math.PI * 2, false);
+    context.arc(47, 184, 30, 0, Math.PI * 2, false);
     context.stroke();
     context.closePath();
     context.restore();
