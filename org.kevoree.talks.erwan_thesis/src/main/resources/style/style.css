@@ -29,16 +29,20 @@ p.author {
 }
 
 span.cite,
-.cite span {
+.cite  span {
     vertical-align: super;
     font-size: 0.8em;
+}
+.cite span.notstar {
+    vertical-align: baseline;
+    font-size: 16px;
 }
 
 p.cite {
     position: absolute;
     bottom: 5px;
     left: 70px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 table.existingsolutions .next.active td,
@@ -53,6 +57,44 @@ table.existingsolutions td {
 
 table.existingsolutions .next td {
     font-size: 20px;
+    border: 0px;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}
+
+table.evaluation .next.active td,
+table.evaluation td {
+    font-size: 18px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}
+
+table.evaluation .next td {
+    font-size: 18px;
+    border: 0px;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}
+
+table.memory .next.active td,
+table.memory td {
+    font-size: 18px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    line-height: 1.1;
+    text-align: left;
+    margin: 20px;
+}
+
+table.memory .next td {
+    font-size: 18px;
     border: 0px;
     border-collapse: collapse;
     line-height: 1.1;
