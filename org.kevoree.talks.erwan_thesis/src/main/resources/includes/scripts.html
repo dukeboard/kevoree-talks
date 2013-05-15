@@ -1,297 +1,416 @@
 <script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery(document.body).on("list", function () {
-            // clear contribution kevoree concepts
-            clear();
+jQuery(document).ready(function () {
+    jQuery(document.body).on("list", function () {
+        // clear contribution kevoree concepts
+        clear();
 
-            // clear mar runtime on each node
-            var element = jQuery('#marDengine1').get(0);
-            var indexOf = element.className.indexOf("icon-spin");
-            if (indexOf != -1) {
-                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
-            }
+        // clear mar runtime on each node
+        var engine = jQuery('#marDengine1');
+        var element = engine.get(0);
+        var indexOf = element.className.indexOf("icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+        }
+        engine.show();
 
-            element = jQuery('#marDengine2').get(0);
-            indexOf = element.className.indexOf("icon-spin");
-            if (indexOf != -1) {
-                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
-            }
+        engine = jQuery('#marDengine2');
+        element = engine.get(0);
+        indexOf = element.className.indexOf("icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+        }
+        engine.show();
 
-            element = jQuery('#marDengine3').get(0);
-            indexOf = element.className.indexOf("icon-spin");
-            if (indexOf != -1) {
-                element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
-            }
+        engine = jQuery('#marDengine3');
+        element = engine.get(0);
+        indexOf = element.className.indexOf("icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+        }
+        engine.show();
 
-            jQuery("#saasfigure").show();
-            jQuery("#paasfigure").show();
-            jQuery("#iaasfigure").show();
+        jQuery("#saasfigure").show();
+        jQuery("#paasfigure").show();
+        jQuery("#iaasfigure").show();
 
-            jQuery("#singlesystem").show();
-            jQuery("#singlesystemfigure").show();
-            jQuery("#coordinatedsystems").show();
-            jQuery("#coordinatedsystemsfigure").show();
-        });
+        jQuery("#singlesystem").show();
+        jQuery("#singlesystemfigure").show();
+        jQuery("#coordinatedsystems").show();
+        jQuery("#coordinatedsystemsfigure").show();
 
-        jQuery(document.body).on("slide", function () {
-            // undo clear of mar runtime on each node
-            var element = jQuery('#marDengine1').get(0);
-            if (element.className.indexOf("icon-spin") == -1) {
-                element.className = element.className + " icon-spin";
-            }
+        var model = jQuery("#marmodel");
+        model.css("position", "absolute");
+        model.css("top", "150px");
+        model.css("left", "300px");
+        model.height("200px");
+        model.show();
 
-            element = jQuery('#marDengine2').get(0);
-            if (element.className.indexOf("icon-spin") == -1) {
-                element.className = element.className + " icon-spin";
-            }
+        // TODO slide Kevoree, Model@Runtime et adaptation => what we need to display in list mode ?
 
-            element = jQuery('#marDengine3').get(0);
-            if (element.className.indexOf("icon-spin") == -1) {
-                element.className = element.className + " icon-spin";
-            }
-// FIXME must be remove but currently event are not well organized and so slide event come after currentActive
-
-            jQuery("#saasfigure").show();
-            jQuery("#paasfigure").hide();
-            jQuery("#iaasfigure").hide();
-
-            jQuery("#singlesystemfigure").show();
-            jQuery("#coordinatedsystemsfigure").hide();
-        });
-
-        var element = jQuery("#saas");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#saasfigure").show();
-        });
-        element.on('notActive', function () {
-            jQuery.noConflict();
-            jQuery("#saasfigure").hide();
-        });
-
-        element = jQuery("#paas");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#paasfigure").show();
-        });
-        element.on('notActive', function () {
-            jQuery.noConflict();
-            jQuery("#paasfigure").hide();
-        });
-
-        element = jQuery("#iaas");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#iaasfigure").show();
-        });
-        element.on('notActive', function () {
-            jQuery.noConflict();
-            jQuery("#iaasfigure").hide();
-        });
-
-        element = jQuery("#singlesystem");
-        element.on('currentActive', function () {
-            jQuery.noConflict();
-            jQuery("#singlesystem").show();
-            jQuery("#singlesystemfigure").show();
-        });
-        element.on('notCurrentActive', function () {
-            jQuery.noConflict();
-            jQuery("#singlesystem").hide();
-            jQuery("#singlesystemfigure").hide();
-        });
-
-        element = jQuery("#coordinatedsystems");
-        element.on('currentActive', function () {
-            jQuery.noConflict();
-            jQuery("#coordinatedsystems").show();
-            jQuery("#coordinatedsystemsfigure").show();
-        });
-        element.on('notCurrentActive', function () {
-            jQuery.noConflict();
-            jQuery("#coordinatedsystems").hide();
-            jQuery("#coordinatedsystemsfigure").hide();
-        });
-
-        element = jQuery("#globalabstraction");
-        element.on('currentActive', function () {
-            jQuery.noConflict();
-            jQuery("#singlesystem").show();
-            jQuery("#singlesystemfigure").show();
-            jQuery("#coordinatedsystems").show();
-            jQuery("#coordinatedsystemsfigure").show();
-        });
-        element.on('notCurrentActive', function () {
-            jQuery.noConflict();
-            jQuery("#singlesystem").hide();
-            jQuery("#singlesystemfigure").hide();
-        });
-
-        element = jQuery("#componentType");
-        element.on('currentActive', function () {
-            displayComponent();
-        });
-        element.on('notCurrentActive', function () {
-            clear();
-        });
-
-        element = jQuery("#channelType");
-        element.on('currentActive', function () {
-            displayChannel();
-        });
-        element.on('notCurrentActive', function () {
-            clear();
-        });
-
-        element = jQuery("#nodeType");
-        element.on('currentActive', function () {
-            displayNode();
-        });
-        element.on('notCurrentActive', function () {
-            clear();
-        });
-
-        element = jQuery("#groupType");
-        element.on('currentActive', function () {
-            displayGroup();
-        });
-        element.on('notCurrentActive', function () {
-            clear();
-        });
-
-        element = jQuery("#dmarsamplemodel");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#dmarsampleh2model").show();
-            jQuery("#dmarsampleh2mar").hide();
-        });
-        element.on('notActive', function () {
-            clear();
-        });
-        element = jQuery("#dmarsamplemar");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#dmarsampleh2model").hide();
-            jQuery("#dmarsampleh2mar").show();
-        });
-        element.on('notActive', function () {
-            clear();
-        });
-
-        element = jQuery("#hostComponent");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#kevoreehosts1").show();
-            jQuery("#kevoreehosts2").hide();
-        });
-        element.on('notActive', function () {
-            jQuery("#kevoreehosts1").hide();
-            jQuery("#kevoreehosts2").show();
-        });
-        element = jQuery("#hostNode");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#kevoreehosts1").hide();
-            jQuery("#kevoreehosts2").show();
-        });
-        element.on('notActive', function () {
-            jQuery("#kevoreehosts1").show();
-            jQuery("#kevoreehosts2").hide();
-        });
-
-        element = jQuery("#nodewithoutprimitive");
-        element.on('active', function () {
-            jQuery.noConflict();
-            jQuery("#kevoreenodetype1").show();
-            jQuery("#kevoreenodetype2").hide();
-        });
-        element.on('notActive', function () {
-            jQuery("#kevoreenodetype1").hide();
-            jQuery("#kevoreenodetype2").hide();
-        });
-        element = jQuery("#nodewithprimitive");
-        element.on('currentActive', function () {
-            jQuery.noConflict();
-            jQuery("#kevoreenodetype1").hide();
-            jQuery("#kevoreenodetype2").show();
-        });
-        element.on('notCurrentActive', function () {
-            jQuery("#kevoreenodetype1").show();
-            jQuery("#kevoreenodetype2").hide();
-        });
+        jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehost3").show();
     });
 
-    function clear() {
+    jQuery(document.body).on("slide", function () {
+        // undo clear of mar runtime on each node
+        var element = jQuery('#marDengine1').get(0);
+        if (element.className.indexOf("icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+
+        element = jQuery('#marDengine2').get(0);
+        if (element.className.indexOf("icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+
+        element = jQuery('#marDengine3').get(0);
+        if (element.className.indexOf("icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+// FIXME must be remove but currently event are not well organized and so slide event come after currentActive
+
+        jQuery("#saasfigure").show();
+        jQuery("#paasfigure").hide();
+        jQuery("#iaasfigure").hide();
+
+        jQuery("#singlesystemfigure").show();
+        jQuery("#coordinatedsystemsfigure").hide();
+// END FIXME
+        var model = jQuery("#marmodel");
+        model.css("position", "static");
+        model.height("400px");
+    });
+
+    var element = jQuery("#saas");
+    element.on('active', function () {
         jQuery.noConflict();
-        var canvas = document.getElementById("c"),
-                context = canvas.getContext("2d");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    function displayComponent() {
+        jQuery("#saasfigure").show();
+    });
+    element.on('notActive', function () {
         jQuery.noConflict();
-        var canvas = document.getElementById("c"),
-                context = canvas.getContext("2d");
+        jQuery("#saasfigure").hide();
+    });
 
-        context.lineWidth = 10;
-        context.strokeStyle = "#FF0000";
-
-        context.save();
-        context.scale(1, 0.50);
-        context.beginPath();
-        context.arc(122, 270, 70, 0, Math.PI * 2, false);
-        context.stroke();
-        context.closePath();
-        context.restore();
-    }
-
-    function displayChannel() {
+    element = jQuery("#paas");
+    element.on('active', function () {
         jQuery.noConflict();
-        var canvas = document.getElementById("c"),
-                context = canvas.getContext("2d");
-
-        context.lineWidth = 8;
-        context.strokeStyle = "#FF0000";
-
-        context.save();
-        context.beginPath();
-        context.arc(213, 52, 40, 0, Math.PI * 2, false);
-        context.stroke();
-        context.closePath();
-        context.restore();
-    }
-
-    function displayNode() {
+        jQuery("#paasfigure").show();
+    });
+    element.on('notActive', function () {
         jQuery.noConflict();
-        var canvas = document.getElementById("c"),
-                context = canvas.getContext("2d");
+        jQuery("#paasfigure").hide();
+    });
 
-        context.lineWidth = 10;
-        context.strokeStyle = "#FF0000";
-
-        context.save();
-        context.scale(1, 0.75);
-        context.beginPath();
-        context.arc(110, 445, 80, 0, Math.PI * 2, false);
-        context.stroke();
-        context.closePath();
-        context.restore();
-    }
-
-    function displayGroup() {
+    element = jQuery("#iaas");
+    element.on('active', function () {
         jQuery.noConflict();
-        var canvas = document.getElementById("c"),
-                context = canvas.getContext("2d");
+        jQuery("#iaasfigure").show();
+    });
+    element.on('notActive', function () {
+        jQuery.noConflict();
+        jQuery("#iaasfigure").hide();
+    });
 
-        context.lineWidth = 8;
-        context.strokeStyle = "#FF0000";
+    element = jQuery("#singlesystem");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#singlesystem").show();
+        jQuery("#singlesystemfigure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#singlesystem").hide();
+        jQuery("#singlesystemfigure").hide();
+    });
 
-        context.save();
-        context.scale(1, 1);
-        context.beginPath();
-        context.arc(225, 252, 50, 0, Math.PI * 2, false);
-        context.stroke();
-        context.closePath();
-        context.restore();
-    }
+    element = jQuery("#coordinatedsystems");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#coordinatedsystems").show();
+        jQuery("#coordinatedsystemsfigure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#coordinatedsystems").hide();
+        jQuery("#coordinatedsystemsfigure").hide();
+    });
+
+    element = jQuery("#globalabstraction");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#singlesystem").show();
+        jQuery("#singlesystemfigure").show();
+        jQuery("#coordinatedsystems").show();
+        jQuery("#coordinatedsystemsfigure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#singlesystem").hide();
+        jQuery("#singlesystemfigure").hide();
+    });
+
+    element = jQuery("#componentType");
+    element.on('currentActive', function () {
+        displayComponent();
+    });
+    element.on('notCurrentActive', function () {
+        clear();
+    });
+
+    element = jQuery("#channelType");
+    element.on('currentActive', function () {
+        displayChannel();
+    });
+    element.on('notCurrentActive', function () {
+        clear();
+    });
+
+    element = jQuery("#nodeType");
+    element.on('currentActive', function () {
+        displayNode();
+    });
+    element.on('notCurrentActive', function () {
+        clear();
+    });
+
+    element = jQuery("#groupType");
+    element.on('currentActive', function () {
+        displayGroup();
+    });
+    element.on('notCurrentActive', function () {
+        clear();
+    });
+
+    element = jQuery("#marmodel");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        var model = jQuery("#marmodel");
+        model.css("position", "static");
+        model.height("400px");
+        model.show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marmodel").hide();
+    });
+
+    element = jQuery("#marsystem");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marDengine1").show();
+        jQuery("#marDengine2").show();
+        jQuery("#marDengine3").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marDengine1").hide();
+        jQuery("#marDengine2").hide();
+        jQuery("#marDengine3").hide();
+    });
+
+    element = jQuery("#marprocess");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marsystem-process").hide();
+        jQuery("#marprocess").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marsystem-process").show();
+        jQuery("#marprocess").hide();
+    });
+
+    element = jQuery("#hostComponent");
+    element.on('active', function () {
+        jQuery.noConflict();
+        jQuery("#kevoreehosts1").show();
+        jQuery("#kevoreehosts2").hide();
+        jQuery("#kevoreehost3").hide();
+    });
+    element.on('notActive', function () {
+        jQuery("#kevoreehosts1").hide();
+        jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehost3").hide();
+    });
+    element = jQuery("#hostNode");
+    element.on('active', function () {
+        jQuery.noConflict();
+        jQuery("#kevoreehosts1").hide();
+        jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehost3").hide();
+    });
+    element.on('notActive', function () {
+        jQuery("#kevoreehosts1").show();
+        jQuery("#kevoreehosts2").hide();
+        jQuery("#kevoreehost3").hide();
+    });
+    element = jQuery("#hostSample");
+    element.on('active', function () {
+        jQuery.noConflict();
+        jQuery("#kevoreehosts1").hide();
+        jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehost3").show();
+    });
+    element.on('notActive', function () {
+        jQuery("#kevoreehosts1").hide();
+        jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehost3").hide();
+    });
+
+    element = jQuery("#groupiaas");
+    element.on('currentActive', function () {
+        displayGroupIaaS();
+    });
+    element.on('notCurrentActive', function () {
+        clearGroupIaaSPaaSAll();
+    });
+
+    element = jQuery("#grouppaas");
+    element.on('currentActive', function () {
+        displayGroupPaaS();
+    });
+    element.on('notCurrentActive', function () {
+        clearGroupIaaSPaaSAll();
+    });
+
+    element = jQuery("#groupall");
+    element.on('active', function () {
+        displayGroupAll();
+    });
+    element.on('notActive', function () {
+        clearGroupIaaSPaaSAll();
+    });
+});
+
+function clear() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c"),
+            context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function clearGroupIaaSPaaSAll() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c2"),
+            context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function displayComponent() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 10;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 0.50);
+    context.beginPath();
+    context.arc(122, 270, 70, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayChannel() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 8;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.beginPath();
+    context.arc(213, 52, 40, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayNode() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 10;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 0.75);
+    context.beginPath();
+    context.arc(110, 445, 80, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayGroup() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 8;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 1);
+    context.beginPath();
+    context.arc(225, 252, 50, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayGroupIaaS() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c2"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 8;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 1);
+    context.beginPath();
+    context.arc(172, 37, 30, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayGroupPaaS() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c2"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 8;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 1);
+    context.beginPath();
+    context.arc(295, 182, 30, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
+
+function displayGroupAll() {
+    jQuery.noConflict();
+    var canvas = document.getElementById("c2"),
+            context = canvas.getContext("2d");
+
+    context.lineWidth = 8;
+    context.strokeStyle = "#FF0000";
+
+    context.save();
+    context.scale(1, 1);
+    context.beginPath();
+    context.arc(57, 182, 30, 0, Math.PI * 2, false);
+    context.stroke();
+    context.closePath();
+    context.restore();
+}
 </script>

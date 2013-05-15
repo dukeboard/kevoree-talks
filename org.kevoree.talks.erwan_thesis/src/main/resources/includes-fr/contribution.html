@@ -1,5 +1,5 @@
 <section class="slide shout">
-    <h2 class="h2-list">Proposition</h2>
+    <h2 class="h2-list">Solution</h2>
 </section>
 
 <section class="slide shout">
@@ -14,17 +14,6 @@
 <section class="slide">
     <header><h2>Qu'est-ce que le Model@Runtime ?</h2></header>
     <ul>
-        <!--<li class="next collapse hidden">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Abstraction layer</span>
-            <ul>
-                <li class="hidden">Architectural model which defines how the system is configured
-                    <ul>
-                        <li>Components and their interactions</li>
-                        <li>Nodes</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>-->
         <li class="next">Objectif :
             <ul>
                 <li>Réduire la séparation entre phase de conception et exécution d'une application
@@ -60,6 +49,7 @@
 </section>
 
 <section class="slide">
+    <div class="fouquet">These François Fouquet</div>
     <header><h2>Model@Runtime dans Kevoree</h2></header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Une couche d'abstraction architecturale</span>
     <ul>
@@ -74,18 +64,19 @@
         </li>
         <li class="next hidden">Étendue avec des concepts de distribution
             <ul>
-                <li class="next collapse" id="channelType"><span><strong class="colorOrange">Canal de communication (channel)</strong></span>
+                <li class="next collapse" id="channelType"><span><strong class="colorOrange">Canal de communication
+                    (channel)</strong></span>
                     <ul>
                         <li>Encapsule la sémantique de communication</li>
                         <li>Correspond au connecteurs<span class="cite">*</span></li>
                     </ul>
-                    <p class="cite colorRed"><span>*</span>TODO</p>
+                    <p class="cite"><span>*</span>PHUNG-KHAC, An et al. - A Model-driven Architecture-based Approach to Runtime Adaptable
+                        and Evolvable Distributed Collaborations - 2008</p>
                 </li>
                 <li class="next collapse" id="nodeType"><span><strong class="colorOrange">Nœud</strong></span>
                     <ul>
                         <li>Explicite la notion d'hébergement</li>
                         <li>Explicite les spécificités d'exécution</li>
-                        <!--<li>Encapsulate adaptation semantics</li>-->
                     </ul>
                 </li>
                 <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
@@ -95,62 +86,69 @@
                 </li>
             </ul>
         </li>
+        <li class="hidden next collapse">Manipulable par un langage d'interaction tel que fscript<span class="cite">*</span>
+
+            <p class="cite"><span>*</span>DAVID, P.-Ch. et al. - Safe dynamic reconfigurations of fractal architectures with FScript - 2006.
+            </p>
+        </li>
     </ul>
     <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
     <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
 </section>
 
-<!--<section class="slide">
-    <header>
-        <h2>Kevoree Concepts</h2>
-    </header>
-    <ul>
-        <li class="hidden">A Component-based approach
-            <ul>
-                <li class="next collapse" id="componentType"><span><strong class="colorOrange">ComponentType</strong></span>
-                    <ul>
-                        <li>Encapsulate business features</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="next hidden">Extend with distributed features
-            <ul>
-                <li class="next collapse" id="channelType"><span><strong class="colorOrange">ChannelType</strong></span>
-                    <ul>
-                        <li>Encapsulate communication semantics</li>
-                    </ul>
-                </li>
-                <li class="next collapse" id="nodeType"><span><strong class="colorOrange">NodeType</strong></span>
-                    <ul>
-                        <li>Encapsulate runtime heterogeneity</li>
-                    </ul>
-                </li>
-                <li class="next collapse" id="groupType"><span><strong class="colorOrange">GroupType</strong></span>
-                    <ul>
-                        <li>Encapsulate model@runtime dissemination semantics</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
-    <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
-</section>-->
-
 <section class="slide">
+    <div class="fouquet">These François Fouquet</div>
     <header>
         <h2>Kevoree, Model@Runtime et adaptation</h2>
     </header>
-    <img class="next" id="dmarsamplemodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
+    <img class="next" id="marmodel" src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;">
 
-    <div class="next" id="dmarsamplemar">
-        <span id="marDengine1" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 280px;top:300px;"></span>
-        <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:290px;"></span>
-        <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:130px;"></span>
+    <div id="marsystem">
+        <div class="next">
+            <span class="icon-desktop" style="font-size: 80px; position: absolute; left: 100px;bottom:30px;"></span>
+            <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 130px;bottom:130px;"></span>
+            <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:155px;bottom:190px;"
+                 width="125px">
+
+            <div id="marsystem-process">
+                <span class="icon-mobile-phone" style="font-size: 80px; position: absolute; left: 500px;bottom:30px;"></span>
+                <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 510px;bottom:130px;"></span>
+                <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:535px;bottom:190px;"
+                     width="125px">
+
+                <span class="icon-desktop" style="font-size: 80px; position: absolute; left: 800px;bottom:30px;"></span>
+                <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 830px;bottom:130px;"></span>
+                <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:855px;bottom:190px;"
+                     width="125px">
+            </div>
+        </div>
+
+        <div class="next">
+            <span id="marDengine1" class="colorOrange icon-cog"
+                  style="font-size: 80px; position: absolute; left: 180px;bottom:40px;"></span>
+            <span id="marDengine2" class="colorOrange icon-cog"
+                  style="font-size: 80px; position: absolute; left: 520px;bottom:40px;"></span>
+            <span id="marDengine3" class="colorOrange icon-cog"
+                  style="font-size: 80px; position: absolute; left: 870px;bottom:40px;"></span>
+        </div>
     </div>
-    <div>
-        
+
+    <div id="marprocess" class="next">
+        <img src="figures/contribution/kevoree/marmodel-new.png"
+             style="border-radius: 10px;position:absolute;top:140px;right:340px;" width=125px>
+        <img src="figures/contribution/kevoree/modelatruntime2.png"
+             style="border-radius: 10px;position:absolute;bottom:30px;left:85px;" height=500px>
+    </div>
+
+    <div class="next">
+        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:155px;bottom:190px;"
+             width="125px">
+    </div>
+    <div class="next">
+        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:535px;bottom:190px;"
+             width="125px">
+        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:855px;bottom:190px;"
+             width="125px">
     </div>
 </section>
 
@@ -162,7 +160,7 @@
 </section>-->
 
 
-<section class="slide">
+<!--<section class="slide">
     <header>
         <h2>Kevoree Script (KevScript) language <br/>to build reasonning engine</h2>
     </header>
@@ -187,16 +185,91 @@ addNode node1 : NodeType1
 removeNode node1
 addChild node2@node1
 removeChild node2@node1</pre>
+</section>-->
+
+<section class="slide">
+    <div class="fouquet">These François Fouquet</div>
+    <header>
+        <h2>Kevoree</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="colorOrange">Model@Runtime</span>
+            <ul>
+                <li class="hidden next"><span class="icon-plus colorGreen"></span>Réflexion désynchronisée
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Pattern Type/Instance</span>
+            <ul>
+                <li class="hidden next"><span class="icon-plus colorGreen"></span>Hétérogénéité, Extensibilité
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Nœud</span>
+            <ul>
+                <li class="hidden next collapse"><span class="icon-exclamation-sign colorOrange"></span>Hébergement partiel
+                    <ul>
+                        <li>Pas d'hébergement des plates-formes par des infrastructure</li>
+                    </ul>
+                </li>
+                <li class="hidden next collapse"><span class="icon-exclamation-sign colorOrange"></span>Multi-niveaux partiel
+                    <ul>
+                        <li>Seulement application et plate-forme</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Propriétés réseaux</span>
+            <ul>
+                <li class="hidden next"><span class="icon-plus colorGreen"></span>Distribution</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+    </ul>
+
+    <table class="next existingsolutions" style="position:absolute;bottom:50px;right:120px;">
+        <tbody>
+        <tr>
+            <td style="width:180px;"><b>Multi-niveaux</b></td>
+            <td><span style="color:#DF9D00">en partie</span></td>
+        </tr>
+        <tr>
+            <td style="width:130px"><b>Hébergement</b></td>
+            <td><span style="color:#DF9D00">en partie</span></td>
+        </tr>
+        <tr>
+            <td style="width:130px"><b>Distribution</b></td>
+            <td><span style="color:#00FF00">oui</span></td>
+        </tr>
+        <tr>
+            <td style="width:130px"><b>Hétérogénéité</b></td>
+            <td><span style="color:#00FF00">oui</span></td>
+        </tr>
+        <tr>
+            <td style="width:130px"><b>Extensibilité</b></td>
+            <td><span style="color:#00FF00">oui</span></td>
+        </tr>
+        <tr>
+            <td style="width:130px"><b>Réfléxitivé</b></td>
+            <td><span style="color:#00FF00">oui</span></td>
+        </tr>
+        <tr>
+
+
+        </tr>
+        </tbody>
+    </table>
 </section>
 
 <section class="slide shout">
-    <h2 style="position:absolute;top:250px;">Kevoree Kloud<br/>
-        <span style="font-size: 60px;">How to build and <strong class="colorOrange">adapt</strong> Cloud system ?</span>
+    <h2 style="line-height: 0.3;">KevoreeKloud<br/>
+        <span style="font-size: 40px;">Un extension de Kevoree pour modéliser un Cloud</span>
     </h2>
     <!--<img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="old/figures/167830.strip_.sunday.gif"/>-->
 </section>
 
-<section class="slide">
+<!--<section class="slide">
     <header><h2>What is a Cloud system ?</h2></header>
     <ul>
         <li class="hidden">Layers are
@@ -211,9 +284,9 @@ removeChild node2@node1</pre>
             </ul>
         </li>
     </ul>
-</section>
+</section>-->
 
-<section class="slide">
+<!--<section class="slide">
     <header>
         <h2>How Kevoree modelize Cloud systems ?</h2>
     </header>
@@ -235,17 +308,18 @@ removeChild node2@node1</pre>
                 class="colorOrange">All layers are independant</span></li>
         <li class="next hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-layers is only partial</li>
     </ul>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Kevoree MetaModel</h2>
+        <h2>Extension du métamodèle (1)</h2>
     </header>
     <ul>
-        <li>Kevoree Node
+        <li class="hidden">Les nœuds Kevoree hébergent
             <ul>
-                <li class="next" id="hostComponent">Hosts components</li>
-                <li class="next" id="hostNode"><strong class="colorOrange">Hosts nodes</strong></li>
+                <li class="next" id="hostComponent">Des composants</li>
+                <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong></li>
+                <li class="hidden next" id="hostSample"></li>
             </ul>
         </li>
     </ul>
@@ -253,32 +327,132 @@ removeChild node2@node1</pre>
          src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg"/>
     <img id="kevoreehosts2" style="position:absolute;bottom: 30px;right:10px;"
          src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg"/>
+    <img id="kevoreehost3" style="position:absolute;bottom: 30px;right:10px;" width="200px"
+         src="figures/contribution/kevoreekloud/hosting-example.png"/>
 </section>
 
 
 <section class="slide">
     <header>
-        <h2>Kevoree MetaModel</h2>
+        <h2>Extension du métamodèle (2)</h2>
     </header>
     <ul>
-        <li>A parent node has <span class="colorOrange">responsibility for hosting element's life cycle</span>
+        <li class="hidden next">Le nœud est responsable de l'adaptation des entités qu'il héberge
             <ul>
-                <li class="next" id="nodewithoutprimitive">add, start, stop, remove, ...</li>
-                <li class="next" id="nodewithprimitive"><span
-                        class="colorOrange">Each node can define its own adaptation capabilities</span></li>
+                <li class="next">Ajout, démarrage, arrêt, suppression de composants, ...</li>
+            </ul>
+            <ul>
+                <li class="next colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds<br/>
+                    <img src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
+                </li>
             </ul>
         </li>
+        <li class="next">Le nœud est responsable de la phase de planification et d'exécution
+            <img src="figures/contribution/kevoreekloud/modelatruntime.png" height="220px" style="position:absolute;right:70px;"/>
+        </li>
     </ul>
-    <img id="kevoreenodetype1" style="position:absolute;bottom: 40px;right:100px;"
-         src="figures/contribution/kevoreekloud/kevoree_node_type.svg"/>
-    <img id="kevoreenodetype2" style="position:absolute;bottom: 40px;right:100px;"
-         src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
     <details>
-        For example, with LibVirt, it is possible to change the amount of memory allocated to the VM.
+        <b>Explicitation</b>:<br/>
+        Par exemple, LibVirt est capable de dynamiquement modifié la quantité de mémoire allouée à une VM
     </details>
 </section>
 
 <section class="slide">
+    <header>
+        <h2>Dissémination, Partitionnement et Filtrage</h2>
+    </header>
+    <ul>
+        <li class="next">Utilisation des groupes pour la dissémination
+            <img src="figures/contribution/kevoreekloud/dissemination.png" style="position:absolute;right:20px;top:150px;" height="200px"/>
+
+            <div id="groupiaas" class="next collapse">
+                <ul>
+                    <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
+                            class="colorOrange">Vision IaaS du système</span></li>
+                </ul>
+            </div>
+            <div id="grouppaas" class="next collapse">
+                <ul>
+                    <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
+                            class="colorOrange">Vision PaaS du système</span></li>
+                </ul>
+            </div>
+            <div id="groupall" class="next">
+                <ul>
+                    <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
+                            class="colorOrange">Vision globale du système</span></li>
+                </ul>
+            </div>
+        </li>
+        <li class="next">Utilisation des groupes pour le partitionnement/filtrage
+            <ul>
+                <li>Pour limiter la taille du modèle</li>
+                <li>Pour limiter les informations partagées</li>
+            </ul>
+        </li>
+    </ul>
+    <!--<ul>
+        <li>Type de partitionnement
+        <ul>
+            <li>Partionnement selon les niveaux</li>
+            <li>Partionnement selon les interactions</li>
+            <li>Filtrage par types abstraits</li>
+            <li>Filtrage à gros grain</li>
+        </ul>
+        </li>
+    </ul>-->
+    <canvas id="c2" width="320" height="220" style="position: absolute;top:140px;right:20px;"></canvas>
+    <details>
+        <b>Pour limiter la taille du modèle</b>:<br/>
+        D'un point de vue de la synchronisation, afin de partitionner la synchronisation entre les nœuds
+        D'un point de vue des performances, afin de limiter la recherche de la confioguration d'un nœud parmi des milliards
+        <b>Pour limiter les informations partagées</b>:<br/>
+        Notamment dans le cas de services provenant de fournisseurs différents qui souhaiteront garder cetaines informations pour eux
+        Même si c'est au détriment d'une adaptation plus efficace
+    </details>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Partionnement selon les niveaux</h2>
+    </header>
+    <!--<ul>
+        <li class="hidden"><span class="icon-minus colorRed"></span>Adaptation multi-niveaux limité</li>
+    </ul>-->
+    <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="300px"/>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Partionnement selon les interactions</h2>
+    </header>
+    <!--<ul>
+        <li class="hidden"><span class="icon-minus colorRed"></span>Pas de possibilité pour de l'adaptation multi-niveaux</li>
+    </ul>-->
+    <img src="figures/contribution/kevoreekloud/partition-interaction.png" height="300px"/>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Filtrage par types abstraits</h2>
+    </header>
+    <!--<ul>
+        <li class="hidden"><span class="icon-minus colorRed"></span>Pas de possibilité pour de l'adaptation multi-niveaux</li>
+    </ul>-->
+    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="300px"/>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Filtrage à gros grain</h2>
+    </header>
+    <!--<ul>
+        <li class="hidden"><span class="icon-minus colorRed"></span>Pas de possibilité pour de l'adaptation multi-niveaux</li>
+    </ul>-->
+    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="300px"/>
+</section>
+
+<!--<section class="slide">
     <header>
         <h2>IaaS and PaaS nodes</h2>
     </header>
@@ -293,7 +467,6 @@ removeChild node2@node1</pre>
             <ul>
                 <li class="next"><span class="colorOrange">MiniCloud</span>: Add/Remove Java Virtual Machine</li>
                 <li class="next"><span class="colorOrange">FreeBSD Jails</span>: Add/Remove VM in the same kernel space</li>
-                <!--<li class="next">SmartOS Zone: (same as Jail) (on going work)</li>-->
                 <li class="next"><span class="colorOrange">LibVirt</span>: Add/Remove VM with hardware virtualisation (on going work)</li>
                 <li class="next"><span class="colorOrange">Amazon EC2</span>: Add/Remove EC2 Virtual Machine (on going work)</li>
             </ul>
@@ -367,7 +540,7 @@ moveComponent nodeJS@paasRack => paasKloud</pre>
             Each node (of each Cloud) is responsible of its reconfiguration
         </li>
     </ul>
-</section>
+</section>-->
 
 <!--<section class="slide">
     <header>

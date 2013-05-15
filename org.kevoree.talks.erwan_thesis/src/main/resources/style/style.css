@@ -59,3 +59,11 @@ table.existingsolutions .next td {
     text-align: left;
     margin: 20px;
 }
+
+div.fouquet {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 16px;
+    color: #DF9D00;
+}
