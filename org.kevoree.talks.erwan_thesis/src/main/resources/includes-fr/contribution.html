@@ -360,13 +360,132 @@
 
 
 <section class="slide shout">
-    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud framework</span><br/>
+    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud API</span><br/>
         <span style="font-size: 40px;">Extensibilité et Réutilisation</span>
     </h2>
 </section>
 
-        <section class="slide">
-        <header>
-        <h2></h2>
-        </header>
-        </section>
+<section class="slide">
+    <header>
+        <h2>Implémentation</h2>
+    </header>
+    <ul>
+        <li class="next collapse"><span class="colorOrange">Qu'est-ce qu'un nœud de Cloud (PaaS ou IaaS) ?</span>
+            <ul>
+                <li class="next">Un ensemble de propriétés spécifiques</li>
+                <li class="next">Un ensemble de capacités d'adaptation spécifiques</li>
+                <li class="next">Un ensemble d'implémentations des capacités d'adaptation</li>
+                <li class="next">Une implémentation de la planification</li>
+            </ul>
+        </li>
+        <li class="next collapse"><span class="colorOrange">Quelles similarités dans les implémentations de Cloud ?</span>
+            <ul>
+                <li class="next collapse">
+                    Implémentations de même niveau <span class="icon-reorder colorOrange"></span> capacités d'adaptation communes
+                    <ul>
+                        <li>PaaS : Gestion des composants et channels</li>
+                        <li>IaaS : Gestion des nœuds de plate-forme</li>
+                        <li class="hidden">
+                            <span class="icon-arrow-right colorOrange"></span>
+                            <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="next collapse">Idem pour certaines propriétés
+                    <ul>
+                        <li>RAM, CPU, OS, ...</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden next collapse"><span class="icon-ok-sign colorGreen"></span><span class="colorGreen">Mutualisation des implémentations</span>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Définition de type abstraits</h2>
+    </header>
+    <ul>
+        <li class="next">Mise en commun de caractéristiques pour chaque niveau
+            <ul>
+                <li class="next"><span class="colorOrange">Nœud hébergeant des nœuds</span>
+                    <ul>
+                        <li>capacités d'adaptation spécifiques (ajout, suppression)</li>
+                    </ul>
+                </li>
+                <li class="next"><span class="colorOrange">Nœud de proxy</span> (accès à des Clouds non gérés par KevoreeKloud)
+                    <ul>
+                        <li>Point d'accès, identifiant(s) de sécurité</li>
+                    </ul>
+                </li>
+                <li class="next"><span class="colorOrange">Nœud de Cloud</span> (IaaS, PaaS)
+                    <ul>
+                        <li>Architecture matérielle, OS, RAM, CPU</li>
+                    </ul>
+                </li>
+                <li class="next"><span class="colorOrange">Nœud d'infrastructure</span>
+                    <ul>
+                        <li>plage réseau</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Définition d'implémentations de base</h2>
+    </header>
+    <ul>
+        <li><span class="colorOrange">Planification du JavaSeNode</span>
+            <ul>
+                <li>Gestion des applications (composant, channel) et des groupes</li>
+            </ul>
+        </li>
+        <li><span class="colorOrange">Extension pour le Cloud</span>
+            <ul>
+                <li>Intégration des capacités d'adaptation pour le Cloud
+                    <ul>
+                        <li>Ajout, démarrage suppression, arrêt d'un nœud</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Héritage et Composition</h2>
+    </header>
+    <ul>
+        <li class="next"><span class="colorOrange">Composition des spécifications</span>
+            <ul>
+                <li>Propriétés et types d'adaptation</li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Héritage/surcharge des implémentations</span>
+            <ul>
+                <li>Capacités d'adaptation et planification</li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Définition d'équivalence de type</span>
+            <ul>
+                <li>Utile pour la généricité des gestionnaires d'adaptation
+                   <!-- <ul>
+                        <li class="hidden">un gestionnaire est compatible avec un ensemble de type</li>
+                        <li class="hidden">si ceux-ci héritent du type abstrait sur lequel est basé le gestionnaire</li>
+                    </ul>-->
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Simplicité de comparaison de type</span>
+            <ul>
+                <li>parcours de type</li>
+            </ul>
+        </li>
+    </ul>
+</section>
