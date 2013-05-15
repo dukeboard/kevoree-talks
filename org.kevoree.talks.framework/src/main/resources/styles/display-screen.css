@@ -9,7 +9,7 @@ body {
 }
 
 #present, #future {
-    bottom: 234px;
+    bottom: 434px;
     position: absolute;
     top: 0;
     z-index: 5;
@@ -33,7 +33,7 @@ body {
     bottom: 0;
     color: #444;
     font-size: 30px;
-    height: 226px;
+    height: 426px;
     left: 0;
     padding: 0 240px 0 20px;
     position: absolute;
@@ -42,9 +42,8 @@ body {
 
 #system-time {
     background: #888;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    bottom: 0;
+    border-radius: 10px;
+    bottom: 200px;
     font-size: 40px;
     font-weight: bold;
     height: 52px;
@@ -57,16 +56,15 @@ body {
 
 #talk-time {
     background: #888;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     border: none;
-    bottom: 0;
+    bottom: 140px;
     font-size: 40px;
     font-weight: bold;
     color: #FFF;
     height: 52px;
     line-height: 52px;
-    right: 230px;
+    right: 20px;
     position: absolute;
     text-align: center;
     width: 200px;
@@ -97,7 +95,7 @@ iframe {
 #slideidx,
 #nextslideidx {
     border-bottom: 4px solid #555;
-    bottom: 230px;
+    bottom: 430px;
     padding: 0 10px;
 }
 
@@ -118,13 +116,13 @@ iframe {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: 4px solid #555;
-    bottom: 174px;
+    bottom: 374px;
     width: 200px;
     right: 20px;
 }
 
 #popup-button {
-    bottom: 115px;
+    bottom: 315px;
     background: #888;
     border: none;
     border-radius: 10px;
@@ -140,7 +138,7 @@ iframe {
 }
 
 #keynote-button {
-    bottom: 58px;
+    bottom: 258px;
     background: #888;
     border: none;
     border-radius: 10px;
