@@ -571,8 +571,6 @@ function KSlideShow() {
 
     function getDetails(slideNumber) {
         if (document.body.className == "full") {
-            // the nth equals slideNumber+1 because the slide 0 is the first
-            slideNumber++;
             if (slideNumber <= slides.length) {
                 var slide = slides[slideNumber];
                 var d;
