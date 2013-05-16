@@ -274,9 +274,10 @@ ul.icons li [class*=" icon-"] {
 .icon-minus-sign:before		{ content: "\f024"; }
 .icon-ok-sign:before		{ content: "\f025"; }
 .icon-arrow-right:before		{ content: "\f026"; }
-.icon-exclamation-sign:before		{ content: "\f027"; }
-.icon-reorder:before		{ content: "\f028"; }
-.icon-comment-alt:before		{ content: "\f029"; }
-.icon-comments-alt:before		{ content: "\f02a"; }
-.icon-desktop:before		{ content: "\f02b"; }
-.icon-mobile-phone:before		{ content: "\f02c"; }
+.icon-plus:before		{ content: "\f027"; }
+.icon-minus:before		{ content: "\f028"; }
+.icon-exclamation-sign:before		{ content: "\f029"; }
+.icon-comment-alt:before		{ content: "\f02a"; }
+.icon-comments-alt:before		{ content: "\f02b"; }
+.icon-desktop:before		{ content: "\f02c"; }
+.icon-mobile-phone:before		{ content: "\f02d"; }
