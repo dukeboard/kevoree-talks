@@ -6,64 +6,104 @@
 <section class="slide">
     <header><h2>Conclusion</h2></header>
     <ul>
-        <li>Kevoree
+        <li class="next collapse"><span class="colorOrange">Kevoree (collaboration)</span>
             <ul>
-                <li>Able to build and manage complex IT Systems
-                <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Extend to cope Cloud specificities</span>
-                </li>
-                <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Allow to manage adaptation as orthogonal concerns</span>
+                <li>Approche Model@Runtime pour concevoir et gérer des applications distribuées hétérogènes et adaptatifs
+            </ul>
+        </li>
+        <li class="next collapse"><span class="colorOrange">KevoreeKloud</span>
+            <ul>
+                <li class="hidden">Extension de Kevoree pour le Cloud
                     <ul>
-                        <li><span class="colorOrange">Coordinate adaptation between layers</span></li>
+                        <li class="hidden"><span class="icon-arrow-right"></span>Permet d'avoir une représentation globale</li>
                     </ul>
                 </li>
+            </ul>
+        </li>
+        <li class="next collapse"><span class="colorOrange">Les groupes Kevoree</span>
+            <ul>
+                <li>Permet de gérer la dissémination des reconfigurations
+                <ul>
+                    <li>Collaboration dans Kevoree</li>
+                </ul>
+                </li>
+                <li>Permet de faire du partitionnement/filtrage de modèle</li>
+            </ul>
+        </li>
+        <li class="next collapse"><span class="colorOrange">KevoreeKloud API</span>
+            <ul>
+                <li class="hidden"><span class="icon-arrow-right"></span>Facilite la réutilisation et l'implémentation de nouveaux types</li>
+            </ul>
+        </li>
+
+        <li class="hidden next collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet la gestion de l'adaptation de manière transverse</span>
+            <ul>
+                <li>Vision globale pour utiliser des informations des différents niveaux</li>
+                <li>Accès aux capacités d'adaptation de tous les niveaux</li>
+                <li>Possibilité de coordonner l'adaptation entre les différents niveaux</li>
             </ul>
         </li>
     </ul>
 </section>
 
 <section class="slide">
-    <header><h2>Perspectives</h2></header>
+    <header><h2>Perspectives à court terme</h2></header>
     <ul>
         <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Provide monitoring</span> (on going work)
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Fournir un modèle d'observation</span> (en cours)
             <ul>
-                <li class="hidden">How to provide monitoring information about nodes, components, ...?</li>
-                <li class="hidden">How to disseminate these monitoring information ?</li>
+                <li class="hidden">Comment fournir des informations fortement dynamiques concernant les nœuds, composants, ... ?</li>
+                <li class="hidden">Comment disséminer ce genre d'information ?</li>
             </ul>
         </li>
         <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Integrate smart reasoning engine</span>
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Définition de moteurs de décision</span>
             <ul>
-                <li class="hidden">Snooze: IaaS management on energy</li>
-                <li class="hidden">Multi reasoning engine (on going work)</li>
+                <li class="hidden">Snooze: Gestionnaire d'IaaS spécialisé dans la gestion de l'énergie</li>
+                <li class="hidden">Moteur de décision multi-objectifs (en cours)</li>
+                <li class="hidden"><span class="icon-arrow-right"></span>Les coordonner entre eux</li>
             </ul>
         </li>
         <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Use KevoreeKloud to test distributed system</span>
-            (on going work)
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud pour le test de système distribué</span> (en cours)
             <ul>
-                <li class="hidden">Dynamically deploy the system under test (SUT)</li>
-                <li class="hidden">Generate adapters to interact with the SUT</li>
-                <li class="hidden">Manage the test cases execution</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Use KevoreeKloud to build BigData solution</span>
-            <ul>
-                <li class="hidden">How to adapt data repartition according to system architecture ?</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Manage Trust and Security</span>
-            <ul>
-                <li class="hidden">Manage access rights to the model elements</li>
-                <li class="hidden">Manage trustability of dissemination/reconfigurations</li>
+                <li class="hidden">Déployer dynamiquement le système à tester (SUT)</li>
+                <li class="hidden">Générer les adaptateurs pour interagir avec le SUT</li>
+                <li class="hidden">Exécuter les cas de test</li>
             </ul>
         </li>
     </ul>
     <ul>
         <li class="next hidden collapse">
-            <!--<span class="icon-arrow-right colorOrange"></span>--><span class="colorOrange">In international collaboration</span>
+            <span class="colorOrange">Dans le cadre de collaborations internationales</span>
+            <ul>
+                <li class="hidden">Norvège (SINTEF), Luxembourg (SNT), Brésil (UFPR), Rennes (Triskell)</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+
+<section class="slide">
+    <header><h2>Perspectives à long terme</h2></header>
+    <ul>
+        <li class="next hidden collapse">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud pour les solutions de BigData</span>
+            <ul>
+                <li class="hidden">Comment adapter la répartition des données en fonction de l'architecture du système et de l'utilisation de ces données ?</li>
+            </ul>
+        </li>
+        <li class="next hidden collapse">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de confiance et de la sécurité</span>
+            <ul>
+                <li class="hidden">Comment limiter l'accès aux informations du modèle</li>
+                <li class="hidden">Comment avoir confiance dans les modèles disséminés ? (en cours)</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li class="next hidden collapse">
+            <span class="colorOrange">In international collaboration</span>
             <ul>
                 <li class="hidden">Norway (SINTEF), Luxembourg (SNT), Brazil (UFPR), Rennes (Triskell)</li>
             </ul>
