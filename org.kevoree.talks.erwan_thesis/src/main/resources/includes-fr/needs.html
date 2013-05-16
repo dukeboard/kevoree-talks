@@ -50,7 +50,9 @@
         <b>Distribution</b>:<br/>
         - Gerraoui a affirmé que pour faire des systèmes distribués efficaces, il est nécessaire d'expliciter cette notion de distribution
         plutôt que de la masquer<br/>
-        e.g. migration de composants pour rapprocher ceux qui interagissent entre eux => limiter la consommation de bande passante<br/><br/>
+        e.g. migration de composants pour rapprocher ceux qui interagissent entre eux afin de limiter la consommation de bande passante<br/>
+        e.g. Ou dans le fonctionnement des services afin de limiter les interactions avec d'autres services là encore pour limiter l'usage de la bande passante<br/>
+        <br/>
         <b>Hétérogénéité</b>:<br/>
         e.g. être capable de différencier les types de virtualisation peut servir pour le choix de l'hébergement des machines
         virtuelles<br/><br/>
@@ -66,14 +68,10 @@
 </section>-->
 <section class="slide">
     <header>
-        <h2>Existing abstractions (1)</h2>
+        <h2>Abstractions existantes (1)</h2>
     </header>
     <ul>
-        <li class="next"><span class="colorOrange">Architectures réflexives</span> (basé composants, basé services, basé modèles)
-            <!--<ul>
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveaux, hébergement, distribution, hétérogénéité
-                </li>
-            </ul>-->
+        <li class="next"><span class="colorOrange">Architectures réflexives</span> (basées composants/services/modèles)
             <table class="existingsolutions">
                 <tbody>
                 <tr>
@@ -121,25 +119,6 @@
                     <td><span style="color:#00FF00">oui</span></td>
                     <td><span style="color:#FFB200">en partie</span></td>
                 </tr>
-                <!--</tbody>
-                </table>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Model oriented architecture</span> (EC2, OCCI, JCloud, GAE, ...)
-            &lt;!&ndash;<ul>
-                &lt;!&ndash;<li>Infrastructure specific</li>&ndash;&gt;
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveaux, distribution, (hétérogénéité)</li>
-            </ul>&ndash;&gt;
-            <table class="existingsolutions">
-                <tbody>
-                <tr>
-                    <td style="width:100px;"></td>
-                    <td style="width:200px;"><b>Multi-niveaux</b></td>
-                    <td style="width:120px"><b>Hébergement</b></td>
-                    <td style="width:120px"><b>Distribution</b></td>
-                    <td style="width:130px"><b>Hétérogénéité</b></td>
-                    <td style="width:130px"><b>Extensibilité</b></td>
-                    <td style="width:130px"><b>Réfléxitivé</b></td>
-                </tr>-->
                 <tr>
                     <td><b>PauWare</b></td>
                     <td><span style="color:#FF0000">non</span></td>
@@ -162,9 +141,6 @@
             </table>
         </li>
         <li class="next"><span class="colorOrange">Solutions de Cloud</span>
-            <!--<ul>
-                <li class="hidden"><span class="colorRed icon-minus-sign"></span> multi-niveau, hébergement, (distribution)</li>
-            </ul>-->
             <table class="existingsolutions">
                 <tbody>
                 <tr>
@@ -225,6 +201,14 @@
             </table>
         </li>
     </ul>
+    <details>
+        <b>Architectures réfléxives</b>:<br/>
+            qui permettent de définir des applications<br/>
+        <b>Solutions de Cloud</b>:<br/>
+            Qui permettent de définir des niveaux de Cloud<br/>
+        <br/>
+        Dans l'ensemble, il n'y a pas de solution qui s'approche de ce dont on a besoin
+    </details>
 </section>
 
 <section class="slide">
@@ -232,24 +216,22 @@
         <h2>Existing abstractions (2)</h2>
     </header>
     <ul>
-        <li class="hidden"><span class="colorOrange">Grid oriented: GCM</span>
+        <li class="hidden"><span class="colorOrange">Orienté Grille: GCM</span>
             <ul>
-                <li>Extension of Fractal component model</li>
-                <li>Provide specific three communication semantics for grid applications</li>
-                <li>Virtual nodes
+                <li>Extension du modèle à composant Fractal</li>
+                <li>Sémantiques de communication pour les applications sur grilles</li>
+                <li>Nœuds virtuels
                     <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>multi-layers, hosting</li>
+                        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>multi-niveaux, <span class="icon-plus-sign colorGreen"></span>hébergement</li>
                     </ul>
                 </li>
-                <li>Offer the same interesting properties that Fractal offers
+                <li>Mêmes propriétés que Fractal
                     <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Extensibility, Reflexion</li>
+                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Extensibilité, <span class="icon-exclamation-sign colorOrange"></span>Réflexion (synchronisée)</li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <!--<li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-layers and Reflexion are only partial</li>
-        <li class="hidden"><span class="icon-minus-sign colorRed"></span>Distribution is missing</li>-->
     </ul>
     <table class="next existingsolutions">
         <tbody>
@@ -273,6 +255,9 @@
         </tr>
         </tbody>
     </table>
+    <details>
+        Sinon il existen aussi une solution orientée grille de calcul qui s'appelle GCM
+    </details>
 </section>
 
 <!--<section class="slide" id="existing_limitations">

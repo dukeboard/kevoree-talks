@@ -27,6 +27,14 @@
     </ul>
     <p class="cite"><span>*</span> Ried, S. et al (2011) - <a href="http://www.forrester.com/rb/Research/sizing_cloud/q/id/58161/t/2">Understanding
         and quantifying the future of cloud computing</a></p>
+    <details>
+        <b>Marché</b>:<br/>
+            C'est un marché qui est et sera très important dans les année à venir<br/>
+        <b>Montée en charge des services</b>:<br/>
+            Dû à l'augmentation du nombre d'utilisateur par exemple<br/>
+        <b>Disponibilité</b>:<br/>
+            Le but est de rendre ce service disponible n'importe quand et depuis n'importe où
+    </details>
 </section>
 
 <section class="slide">
@@ -51,6 +59,18 @@
     <img id="saasfigure" style="position:absolute;bottom:260px;right:50px;" src="figures/domains/cloud/cloud-saas.png">
     <img id="paasfigure" style="position:absolute;bottom:160px;right:20px;" src="figures/domains/cloud/cloud-paas.png">
     <img id="iaasfigure" style="position:absolute;bottom:80px;right:0px;" src="figures/domains/cloud/cloud-iaas.png">
+    <details>
+        L'ensemble des services que l'on peut trouver dans le Cloud Computing sont généralement ranger selon une hiérarchie de type que l'on appelle aussi une hiérarche de niveaux<br/>
+        <b>SaaS</b>:<br/>
+            Application pour les utilisateurs finaux avec par exemple les services de mail tel que gmail, ou les services d'édition de document tel que Office 365<br/>
+        <b>PaaS</b>:<br/>
+            qui héberge les applications et qui gèrent la montée en charge et la disponibilité de ces applications<br/>
+        <b>IaaS</b>:<br/>
+            qui héberge les plates-formes, c'est-à-dire qu'elles fournissent les ressources d'exécution et elles ont aussi en charge la gestion de la montée en charge et de la disponibilité<br/>
+        <br/>
+        <b>Question</b>:<br/>
+            Comment la plate-forme et l'infrastructure peuvent assurer la gestion de la montée en charge et la disponibilité
+    </details>
 </section>
 
 <section class="slide">
@@ -83,6 +103,13 @@
 
         <p class="cite"><span>*</span>Kephart, J. O., & Chess, D. M. (2003) - The vision of autonomic computing. Computer</p>
     </div>
+    <details>
+        <b>MAPE</b>:<br/>
+            Ce schéma montre le vision communement admise du fonctionnement de l'adaptation...<br/>
+        <br/>
+        stratégie d'adaptation
+
+    </details>
 </section>
 
 <section class="slide">
@@ -108,8 +135,12 @@
     </ul>
     <details>
         <b>Adaptation SaaS</b>:<br/>
-            Par exemple LucidChart qui est un service de création de schéma utilise Google Drive pour stocker les documents
-            L'adaptation envisageable serat de remplacer l'utilisation de Google Drive par Dropbox
+            Par exemple pour un service d'édition de document, il faut pouvoir stocker ces documents. LucidChart qui est un service de création de schéma utilise Google Drive pour stocker les documents
+            et une adaptation envisageable serait de remplacer l'utilisation de Google Drive par Dropbox<br/>
+        <b>Adaptation PaaS</b>:<br/>
+            Migration d'un service pour rapprocher deux services qui interagissent beaucoup et ainsi limiter la consommation de bande passante<br/>
+        <b>Adaptation IaaS</b>:<br/>
+            Migration d'une plate-forme pour pouvoir arrêter l'une des machines de l'infrastructure<br/>
     </details>
 </section>
 
@@ -153,6 +184,12 @@
     <div class="next" style="position:absolute;bottom:50px;right:25px;">
         <span class="colorGreen">Les adaptations doivent être coordonnées</span>
     </div>
+    <details>
+        <b>Adaptation pas efficace</b>:<br/>
+        On préfèrerait avoir seulement la migration du service applicatifs et l'arrêt du nœud de plate-forme devenu inutile<br/>
+        <br/>
+        Cet exemple montre bien le besoin de coordonner les adaptations afin qu'elles soient efficaces
+    </details>
 </section>
 
 <section class="slide">
@@ -167,4 +204,12 @@
     <img id="coordinatedsystemsfigure" src="figures/domains/adaptation-cloud/coordinate.png"
          style="position:absolute;bottom:80px;right:40px;" height="320px"/>
     <span id="globalabstraction" class="next colorGreen" style="position:absolute;bottom:30px;left:350px;">Besoin d'une représentation globale</span>
+    <details>
+        Pour coordonner l'adaptation, il y a deux possibilités<br/>
+        <br/>
+        <b>Besoin d'une abstraction globale</b>:<br/>
+            Dans les deux cas, il faut une abstraction globale<br/>
+            Que ce soit dans la version centralisée ou on a besoin d'avoir les infos sur l'ensemble des niveaux<br/>
+            Ou dans la version coordonnée, car il faut un langage commun pour l'ensemble des systèmes d'adaptation
+    </details>
 </section>

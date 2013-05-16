@@ -1,5 +1,8 @@
 <section class="slide shout" id="proposal">
     <h2 class="h2-list">Proposition</h2>
+    <details>
+        Je vais maintenant présenter ma proposition pour fournir une abstraction globale
+    </details>
 </section>
 
 <section class="slide">
@@ -29,6 +32,9 @@
             </ul>
         </li>
     </ul>
+    <details>
+        Cette proposition se découpe en 4 parties...
+    </details>
 </section>
 
 <section class="slide shout">
@@ -38,6 +44,11 @@
             <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet</a>
         </h2>
     </header>
+    <details>
+        Tout d'abord Kevoree, qui correspond aux travaux de thèse de François Fouquet et sur lesquels j'ai collaboré.<br/>
+        <b>Kevoree, c'est une approche M@R...</b>
+
+    </details>
 </section>
 
 <section class="slide">
@@ -45,8 +56,12 @@
     <ul>
         <li class="next">Objectif :
             <ul>
-                <li>Réduire la séparation entre phase de conception et exécution d'une application
-                    <ul>En apportant les outils de la phase de conception à l'exécution</ul>
+                <li>Réduire la séparation entre conception et exécution d'une application</li>
+                <li class="next collapse">Pour faciliter la conception de système adaptable
+                    <ul>
+                        <li>En apportant les outils de conception à l'exécution</li>
+                        <li>Pour les utiliser dans la conception de nouvelle configuration</li>
+                    </ul>
                 </li>
             </ul>
         </li>
@@ -75,11 +90,15 @@
             </ul>
         </li>
     </ul>
+    <details>
+        Quest-ce-que le M@R ? <br/>
+
+    </details>
 </section>
 
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
-    <header><h2>Model@Runtime dans Kevoree</h2></header>
+    <header><h2>Model@Runtime dans Kevoree (1)</h2></header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Une couche d'abstraction architecturale</span>
     <ul>
         <li class="hidden">Basée sur une approche à composant
@@ -115,7 +134,7 @@
                 </li>
             </ul>
         </li>
-        <li class="hidden next collapse">Manipulable par un langage d'interaction tel que fscript<span class="cite">*</span>
+        <li class="hidden next collapse">Manipulable par un langage d'interaction tel que FScript<span class="cite">*</span>
 
             <p class="cite"><span>*</span>DAVID, P.-Ch. et al. - Safe dynamic reconfigurations of fractal architectures with FScript - 2006.
             </p>
@@ -127,21 +146,27 @@
 
 <section class="slide">
     <header>
-        <h2>Patron Type/Instance<span class="cite">*</span></h2>
+        <h2>Model@Runtime dans Kevoree (1)<span class="cite">*</span></h2>
     </header>
     <ul>
-        <li><span class="colorOrange">Type</span>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Utilisant le patron Type/Instance</span>
             <ul>
-                <li>Définition des spécificités d'une implémentation</li>
+                <li class="next"><strong class="colorOrange">Type</strong>
+                    <ul>
+                        <li>Définition des spécificités d'une implémentation</li>
+                    </ul>
+                </li>
+                <li class="next"><strong class="colorOrange">Instance</strong>
+                    <ul>
+                        <li>Localisation de l'utilisation d'une implémentation</li>
+                    </ul>
+                </li>
+                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet de raisonner sur la substituabilité des fonctionnalités</span>
+                </li>
+                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet d'identifier les instances concernés par une mise à jour d'implémentation (de type)</span>
+                </li>
             </ul>
         </li>
-        <li><span class="colorOrange">Instance</span>
-            <ul>
-                <li>Localisation de l'utilisation d'une implémentation</li>
-            </ul>
-        </li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet de raisonner sur la substituabilité des fonctionnalités</span></li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet d'identifier les instances concernés par une mise à jour d'implémentation (de type)</span></li>
     </ul>
     <p class="cite"><span>*</span>Johnson, R. et Woolf, B. - Type object - 1997</p>
 </section>
