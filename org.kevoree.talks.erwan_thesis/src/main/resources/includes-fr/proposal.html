@@ -2,10 +2,39 @@
     <h2 class="h2-list">Proposition</h2>
 </section>
 
+<section class="slide">
+    <header>
+        <h2>Proposition</h2>
+    </header>
+    <ul>
+        <li class="next hidden collapse">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Kevoree</span>
+            <ul>
+                <li class="hidden">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</li>
+            </ul>
+        </li>
+        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
+            <ul>
+                <li class="hidden">Une extension de Kevoree pour modéliser un Cloud</li>
+            </ul>
+        </li>
+        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Kevoree Group</span>
+            <ul>
+                <li class="hidden">Partitionnement et filtrage de modèle</li>
+            </ul>
+        </li>
+        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud API</span>
+            <ul>
+                <li class="hidden">Extensibilité et réutilisation</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
 <section class="slide shout">
     <header>
         <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">Kevoree</span><br/>
-            <span style="font-size: 40px;">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes </span><br/><br/>
+            <span style="font-size: 40px;">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</span><br/><br/>
             <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet</a>
         </h2>
     </header>
@@ -97,6 +126,27 @@
 </section>
 
 <section class="slide">
+    <header>
+        <h2>Patron Type/Instance<span class="cite">*</span></h2>
+    </header>
+    <ul>
+        <li><span class="colorOrange">Type</span>
+            <ul>
+                <li>Définition des spécificités d'une implémentation</li>
+            </ul>
+        </li>
+        <li><span class="colorOrange">Instance</span>
+            <ul>
+                <li>Localisation de l'utilisation d'une implémentation</li>
+            </ul>
+        </li>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet de raisonner sur la substituabilité des fonctionnalités</span></li>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet d'identifier les instances concernés par une mise à jour d'implémentation (de type)</span></li>
+    </ul>
+    <p class="cite"><span>*</span>Johnson, R. et Woolf, B. - Type object - 1997</p>
+</section>
+
+<section class="slide">
     <div class="fouquet">These François Fouquet</div>
     <header>
         <h2>Kevoree, Model@Runtime et adaptation</h2>
@@ -140,16 +190,18 @@
              style="border-radius: 10px;position:absolute;bottom:30px;left:85px;" height=500px>
     </div>
 
-    <div class="next">
+    <div id="marmodel-new-local" class="next">
         <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:155px;bottom:190px;"
              width="125px">
     </div>
-    <div class="next">
+    <div id="marmodel-new-dissemination" class="next">
         <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:535px;bottom:190px;"
              width="125px">
         <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:855px;bottom:190px;"
              width="125px">
     </div>
+
+    <img class="next" id="marmodel-new" src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;">
 </section>
 
 <section class="slide">
@@ -229,7 +281,7 @@
 
 <section class="slide shout">
     <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud</span><br/>
-        <span style="font-size: 40px;">Un extension de Kevoree pour modéliser un Cloud</span>
+        <span style="font-size: 40px;">Une extension de Kevoree pour modéliser un Cloud</span>
     </h2>
     <!--<img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="old/figures/167830.strip_.sunday.gif"/>-->
 </section>
@@ -283,7 +335,7 @@
 
 <section class="slide shout">
     <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">Kevoree Group</span><br/>
-        <span style="font-size: 40px;">Partitionnement et Filtrage</span>
+        <span style="font-size: 40px;">Partitionnement et Filtrage de modèle</span>
     </h2>
 </section>
 
@@ -475,10 +527,10 @@
         <li class="next"><span class="colorOrange">Définition d'équivalence de type</span>
             <ul>
                 <li>Utile pour la généricité des gestionnaires d'adaptation
-                   <!-- <ul>
-                        <li class="hidden">un gestionnaire est compatible avec un ensemble de type</li>
-                        <li class="hidden">si ceux-ci héritent du type abstrait sur lequel est basé le gestionnaire</li>
-                    </ul>-->
+                    <!-- <ul>
+                         <li class="hidden">un gestionnaire est compatible avec un ensemble de type</li>
+                         <li class="hidden">si ceux-ci héritent du type abstrait sur lequel est basé le gestionnaire</li>
+                     </ul>-->
                 </li>
             </ul>
         </li>

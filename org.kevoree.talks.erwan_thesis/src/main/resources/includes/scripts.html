@@ -76,6 +76,7 @@ jQuery(document).ready(function () {
         jQuery("#singlesystemfigure").show();
         jQuery("#coordinatedsystemsfigure").hide();
 // END FIXME
+
         var model = jQuery("#marmodel");
         model.css("position", "static");
         model.height("400px");
@@ -218,6 +219,29 @@ jQuery(document).ready(function () {
         jQuery.noConflict();
         jQuery("#marsystem-process").show();
         jQuery("#marprocess").hide();
+    });
+
+    element = jQuery("#marmodel-new");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marsystem").hide();
+        jQuery("#marprocess").hide();
+        jQuery("#marmodel-new-local").hide();
+        jQuery("#marmodel-new-dissemination").hide();
+        var model = jQuery("#marmodel-new");
+        model.css("position", "static");
+        model.height("400px");
+        model.show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marmodel").hide();
+    });
+    element.on('notActive', function () {
+        jQuery.noConflict();
+        jQuery("#marsystem").show();
+        jQuery("#marmodel-new-local").show();
+        jQuery("#marmodel-new-dissemination").show();
     });
 
     element = jQuery("#hostComponent");
