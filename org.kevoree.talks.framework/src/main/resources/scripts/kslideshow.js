@@ -351,7 +351,7 @@ function KSlideShow() {
     }
 
     function initializeInnerTransition(slideNumber) {
-        if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length) {
+        if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length || isListMode()) {
             return;
         }
         if (slideList[slideNumber].hasInnerNavigation) {
@@ -373,7 +373,7 @@ function KSlideShow() {
     }
 
     function initializeCollapseTransition(slideNumber) {
-        if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length) {
+        if (slideNumber === undefined || slideNumber < 0 || slideNumber >= slideList.length || isListMode()) {
             return;
         }
         if (slideList[slideNumber].hasInnerNavigation) {
@@ -461,6 +461,9 @@ function KSlideShow() {
     }
 
     function rollbackInnerTransition(slideNumber) {
+        if (isListMode()) {
+            return;
+        }
         // update new current slide according to innerTransition (all the inner must be displayed)
         if (slideList[slideNumber].hasInnerNavigation) {
             var activeNodes = slides[slideNumber].querySelectorAll('.next');
@@ -487,6 +490,9 @@ function KSlideShow() {
     }
 
     function rollbackCollapseTransition(slideNumber) {
+        if (isListMode()) {
+            return;
+        }
         // update new current slide according to collapseTransition (all the collapse must be collapsed (except the last one)
         if (slideList[slideNumber].hasInnerNavigation) {
             var activeInners = slides[slideNumber].querySelectorAll('.collapse');
