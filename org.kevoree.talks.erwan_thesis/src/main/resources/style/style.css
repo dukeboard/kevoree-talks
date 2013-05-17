@@ -7,13 +7,21 @@
 }
 
 .colorGreen {
-    color: #00FF00;
+    color: #025520;
 }
 
 .colorBlue {
     color: #0000FF;
 }
 
+a:link.team,
+a:visited.team,
+a:active.team,
+a:hover.team {
+    text-decoration: none;
+    color: #CCC;
+    border-bottom: none;
+}
 
 a:link.section,
 a:visited.section,

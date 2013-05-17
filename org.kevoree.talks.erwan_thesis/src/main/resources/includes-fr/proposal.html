@@ -52,53 +52,46 @@
 </section>
 
 <section class="slide">
-    <header><h2>Qu'est-ce que le Model@Runtime ?</h2></header>
+    <header><h2>Model@Runtime et réflexion désynchronisée (1)</h2></header>
     <ul>
-        <li class="next">Objectif :
+        <li class="hidden next">Un modèle comme <span class="colorOrange">abstraction d'architecture</span> à l'exécution<span class="cite">*</span>
+        </li>
+        <li class="hidden next collapse"><span class="colorOrange">Support de réflexion désynchonisée</span>
             <ul>
-                <li>Réduire la séparation entre conception et exécution d'une application</li>
-                <li class="next collapse">Pour faciliter la conception de système adaptable
+                <li>Réflexion :
                     <ul>
-                        <li>En apportant les outils de conception à l'exécution</li>
-                        <li>Pour les utiliser dans la conception de nouvelle configuration</li>
+                        <li>capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
+                        <li>Lien causal entre le système et sa représentation
+                            <ul>
+                                <li class="hidden"><span class="icon-minus-sign colorRed"></span>Une erreur dans la reconfiguration <span
+                                        class="icon-arrow-right"></span> système instable
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <li class="next hidden">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Support réflexif désynchronisée</span>
-            <ul>
-                <li class="next hidden collapse">
-                    <div>Les systèmes adaptable sont basés sur le principe de la réflexion
-                        <ul>
-                            <li class="hidden">
-                                <span class="icon-arrow-right"></span>Fortement connecté avec le système en cours d'exécution
-                                <ul>
-                                    <li class="hidden"><span class="icon-minus-sign colorRed"></span>
-                                        Une erreur dans la reconfiguration peut mettre le système dans un état instable
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-            <ul>
-                <li class="next hidden">
-                    <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Permet de tester et valider une configuration avant même de l'appliquer</span>
-                </li>
-            </ul>
+        <li class="hidden next collapse">
+            <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Tester et validation d'une configuration avant même de l'appliquer</span>
         </li>
     </ul>
-    <details>
-        Quest-ce-que le M@R ? <br/>
+    <p class="cite"><span>*</span>Morin, B. et al. Models@ run. time to support dynamic adaptation - 2009</p>
+</section>
 
-    </details>
+<section class="slide">
+    <header>
+        <h2>Model@Runtime et réflexion désynchronisée (2)</h2>
+    </header>
+    <ul>
+        <li>Processus :</li>
+    </ul>
+    <img style="position : absolute;top: 250px;left : 150px;" src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="350px"/>
 </section>
 
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
-    <header><h2>Model@Runtime dans Kevoree (1)</h2></header>
+    <header><h2>Model@Runtime dans Kevoree</h2></header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Une couche d'abstraction architecturale</span>
     <ul>
         <li class="hidden">Basée sur une approche à composant
@@ -134,17 +127,30 @@
                 </li>
             </ul>
         </li>
-        <li class="hidden next collapse">Manipulable par un langage d'interaction tel que FScript<span class="cite">*</span>
+        <!--<li class="hidden next collapse">Manipulable par un langage d'interaction tel que FScript<span class="cite">*</span>
 
             <p class="cite"><span>*</span>DAVID, P.-Ch. et al. - Safe dynamic reconfigurations of fractal architectures with FScript - 2006.
             </p>
-        </li>
+        </li>-->
     </ul>
     <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
     <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
 </section>
 
 <section class="slide">
+    <header>
+        <h2>Model@Runtime dans Kevoree : Dissémination</h2>
+    </header>
+    <img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
+
+    <div class="next" id="dmarmodel-process">
+        <span id="marDengine1" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 280px;top:350px;"></span>
+        <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:340px;"></span>
+        <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:180px;"></span>
+    </div>
+</section>
+
+<!--<section class="slide">
     <header>
         <h2>Model@Runtime dans Kevoree (1)<span class="cite">*</span></h2>
     </header>
@@ -169,9 +175,9 @@
         </li>
     </ul>
     <p class="cite"><span>*</span>Johnson, R. et Woolf, B. - Type object - 1997</p>
-</section>
+</section>-->
 
-<section class="slide">
+<!--<section class="slide">
     <div class="fouquet">These François Fouquet</div>
     <header>
         <h2>Kevoree, Model@Runtime et adaptation</h2>
@@ -209,10 +215,8 @@
     </div>
 
     <div id="marprocess" class="next">
-        <img src="figures/contribution/kevoree/marmodel-new.png"
-             style="border-radius: 10px;position:absolute;top:140px;right:340px;" width=125px>
-        <img src="figures/contribution/kevoree/modelatruntime2.png"
-             style="border-radius: 10px;position:absolute;bottom:30px;left:85px;" height=500px>
+        <img src="figures/contribution/kevoree/modelATruntimeFinal.png"
+             style="border-radius: 10px;position:absolute;top:140px;left:340px;" width=400px>
     </div>
 
     <div id="marmodel-new-local" class="next">
@@ -227,7 +231,7 @@
     </div>
 
     <img class="next" id="marmodel-new" src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;">
-</section>
+</section>-->
 
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
@@ -274,27 +278,27 @@
         <tbody>
         <tr>
             <td style="width:180px;"><b>Multi-niveaux</b></td>
-            <td><span style="color:#DF9D00">en partie</span></td>
+            <td><span class="colorOrange">en partie</span></td>
         </tr>
         <tr>
             <td style="width:130px"><b>Hébergement</b></td>
-            <td><span style="color:#DF9D00">en partie</span></td>
+            <td><span class="colorOrange">en partie</span></td>
         </tr>
         <tr>
             <td style="width:130px"><b>Distribution</b></td>
-            <td><span style="color:#00FF00">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
         </tr>
         <tr>
             <td style="width:130px"><b>Hétérogénéité</b></td>
-            <td><span style="color:#00FF00">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
         </tr>
         <tr>
             <td style="width:130px"><b>Extensibilité</b></td>
-            <td><span style="color:#00FF00">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
         </tr>
         <tr>
             <td style="width:130px"><b>Réfléxitivé</b></td>
-            <td><span style="color:#00FF00">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
         </tr>
         <tr>
 
@@ -349,7 +353,8 @@
             </ul>
         </li>
         <li class="hidden next">Le nœud est responsable de la phase de planification et d'exécution
-            <img src="figures/contribution/kevoreekloud/modelatruntime.png" height="220px" style="position:absolute;right:70px;"/>
+            <img src="figures/domains/adaptation/mapeLoopIBM.png" height="200px" style="position:absolute;left:180px;bottom:20px;"/>
+            <img src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="200px" style="position:absolute;right:180px;bottom:20px;"/>
         </li>
     </ul>
     <details>

@@ -7,25 +7,25 @@ jQuery(document).ready(function () {
         // clear mar runtime on each node
         var engine = jQuery('#marDengine1');
         var element = engine.get(0);
-        var indexOf = element.className.indexOf("icon-spin");
+        var indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
         }
         engine.show();
 
         engine = jQuery('#marDengine2');
         element = engine.get(0);
-        indexOf = element.className.indexOf("icon-spin");
+        indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
         }
         engine.show();
 
         engine = jQuery('#marDengine3');
         element = engine.get(0);
-        indexOf = element.className.indexOf("icon-spin");
+        indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + "icon-spin".length);
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
         }
         engine.show();
 
@@ -38,12 +38,12 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystems").show();
         jQuery("#coordinatedsystemsfigure").show();
 
-        var model = jQuery("#marmodel");
+        /*var model = jQuery("#marmodel");
         model.css("position", "absolute");
         model.css("top", "150px");
         model.css("left", "300px");
         model.height("200px");
-        model.show();
+        model.show();*/
 
         // TODO slide Kevoree, Model@Runtime et adaptation => what we need to display in list mode ?
 
@@ -54,22 +54,22 @@ jQuery(document).ready(function () {
     jQuery(document.body).on("slide", function () {
         // undo clear of mar runtime on each node
         var element = jQuery('#marDengine1').get(0);
-        if (element.className.indexOf("icon-spin") == -1) {
+        if (element.className.indexOf(" icon-spin") == -1) {
             element.className = element.className + " icon-spin";
         }
 
         element = jQuery('#marDengine2').get(0);
-        if (element.className.indexOf("icon-spin") == -1) {
+        if (element.className.indexOf(" icon-spin") == -1) {
             element.className = element.className + " icon-spin";
         }
 
         element = jQuery('#marDengine3').get(0);
-        if (element.className.indexOf("icon-spin") == -1) {
+        if (element.className.indexOf(" icon-spin") == -1) {
             element.className = element.className + " icon-spin";
         }
 // FIXME must be remove but currently event are not well organized and so slide event come after currentActive
 
-        jQuery("#saasfigure").show();
+        jQuery("#saasfigure").hide();
         jQuery("#paasfigure").hide();
         jQuery("#iaasfigure").hide();
 
@@ -77,9 +77,9 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystemsfigure").hide();
 // END FIXME
 
-        var model = jQuery("#marmodel");
+       /* var model = jQuery("#marmodel");
         model.css("position", "static");
-        model.height("400px");
+        model.height("400px");*/
     });
 
     var element = jQuery("#saas");
@@ -182,7 +182,34 @@ jQuery(document).ready(function () {
         clear();
     });
 
-    element = jQuery("#marmodel");
+    /*element = jQuery("#dmarmodel");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        var model = jQuery("#marmodel");
+        model.css("position", "static");
+        model.height("400px");
+        model.show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marmodel").hide();
+    });*/
+
+    element = jQuery("#dmarmodel-process");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marDengine1").show();
+        jQuery("#marDengine2").show();
+        jQuery("#marDengine3").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#marDengine1").hide();
+        jQuery("#marDengine2").hide();
+        jQuery("#marDengine3").hide();
+    });
+
+    /*element = jQuery("#marmodel");
     element.on('currentActive', function () {
         jQuery.noConflict();
         var model = jQuery("#marmodel");
@@ -242,7 +269,7 @@ jQuery(document).ready(function () {
         jQuery("#marsystem").show();
         jQuery("#marmodel-new-local").show();
         jQuery("#marmodel-new-dissemination").show();
-    });
+    });*/
 
     element = jQuery("#hostComponent");
     element.on('active', function () {
