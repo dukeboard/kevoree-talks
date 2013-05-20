@@ -200,7 +200,7 @@
 
 <section class="slide">
     <header>
-        <h2>Est-ce que cela supporte la montée en charge ?</h2>
+        <h2>Est-ce que cela passe à l'échelle ?</h2>
     </header>
     <ul>
         <li class="hidden">Protocole expérimental
@@ -296,11 +296,11 @@
 
 <section class="slide">
     <header>
-        <h2>Cas d'usage (3)<span style="font-size: 18px;">(<a
-                href="http://camel.apache.org/">http://camel.apache.org/</a>)</span></h2>
+        <h2>Cas d'usage (3)</h2>
     </header>
     <ul>
-        <li>Application sur un exemple concret : Apache Camel
+        <li>Application sur un exemple concret : Apache Camel<span style="font-size: 18px;">(<a
+                href="http://camel.apache.org/">http://camel.apache.org/</a>)</span>
             <ul>
                 <li class="hidden next collapse">Implémentation de patrons d'intégration <span class="cite">*</span>
                     <ul>
@@ -400,14 +400,13 @@
     <header>
         <h2>Évaluation : Temps d'exécution (2)</h2>
     </header>
-    <img height="350px" src="figures/validation/eval_time-new.png"/>
-    <ul>
-        <li class="hidden">Temps d'exécution acceptable
-            <ul>
-                <li class="hidden"> comparé au temps nécessaire pour la création des VMs</li>
-            </ul>
-        </li>
-    </ul>
+    <img height="300px" src="figures/validation/eval_time-new.png"/>
+    <p style="line-height: 1;">Temps d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs (généralement plus de 100s par machine<span class="cite">*</span>)</p>
+    <p class="cite"><span>*</span>Mao, M.et al. - A performance study on the vm startup time in the cloud - 2012</p>
+    <details>
+        <b>Création d'une VM</b> = téléchargement de l'image du disque, réservation des ressources, création de la vm, démarrage de la vm<br/>
+        Le temps de création varie selon les impléms d'IaaS ainsi que selon le type de vms à créer et selon la charge de la machine qui doit héberger cette vm
+    </details>
 </section>
 
 <section class="slide">
