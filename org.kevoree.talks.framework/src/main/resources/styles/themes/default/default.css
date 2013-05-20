@@ -239,7 +239,8 @@
 }
 
 .slide.shout > h2.h2-list {
-    position: static;
+    position: relative;
+    top: 15%;
     line-height: 1;
     -webkit-transform: translateY(0%);
     -moz-transform: translateY(0%);
