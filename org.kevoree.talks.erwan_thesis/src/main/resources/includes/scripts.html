@@ -39,16 +39,22 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystemsfigure").show();
 
         /*var model = jQuery("#marmodel");
-        model.css("position", "absolute");
-        model.css("top", "150px");
-        model.css("left", "300px");
-        model.height("200px");
-        model.show();*/
+         model.css("position", "absolute");
+         model.css("top", "150px");
+         model.css("left", "300px");
+         model.height("200px");
+         model.show();*/
 
         // TODO slide Kevoree, Model@Runtime et adaptation => what we need to display in list mode ?
 
         jQuery("#kevoreehosts2").show();
-        jQuery("#kevoreehost3").show();
+
+        var figure = jQuery("#kevoreehostsample");
+        figure.css("position", "absolute");
+        figure.css("top", "500px");
+        figure.css("left", "800px");
+        figure.height("120px");
+        figure.show();
     });
 
     jQuery(document.body).on("slide", function () {
@@ -77,9 +83,9 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystemsfigure").hide();
 // END FIXME
 
-       /* var model = jQuery("#marmodel");
-        model.css("position", "static");
-        model.height("400px");*/
+        /* var model = jQuery("#marmodel");
+         model.css("position", "static");
+         model.height("400px");*/
     });
 
     var element = jQuery("#saas");
@@ -182,19 +188,6 @@ jQuery(document).ready(function () {
         clear();
     });
 
-    /*element = jQuery("#dmarmodel");
-    element.on('currentActive', function () {
-        jQuery.noConflict();
-        var model = jQuery("#marmodel");
-        model.css("position", "static");
-        model.height("400px");
-        model.show();
-    });
-    element.on('notCurrentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marmodel").hide();
-    });*/
-
     element = jQuery("#dmarmodel-process");
     element.on('currentActive', function () {
         jQuery.noConflict();
@@ -209,103 +202,38 @@ jQuery(document).ready(function () {
         jQuery("#marDengine3").hide();
     });
 
-    /*element = jQuery("#marmodel");
+    element = jQuery("#kevoreehostsample");
     element.on('currentActive', function () {
         jQuery.noConflict();
-        var model = jQuery("#marmodel");
-        model.css("position", "static");
-        model.height("400px");
-        model.show();
+        var figure = jQuery("#kevoreehostsample");
+        figure.css("position", "absolute");
+        figure.css("top", "180px");
+        figure.css("left", "100px");
+        figure.height("200px");
+        figure.show();
+
+        jQuery("#kevoreehosts1").hide();
+        jQuery("#kevoreehosts2").hide();
     });
     element.on('notCurrentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marmodel").hide();
+        var figure = jQuery("#kevoreehostsample");
+        figure.css("position", "absolute");
+        figure.css("top", "500px");
+        figure.css("left", "800px");
+        figure.height("120px");
+        figure.show();
     });
-
-    element = jQuery("#marsystem");
-    element.on('currentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marDengine1").show();
-        jQuery("#marDengine2").show();
-        jQuery("#marDengine3").show();
-    });
-    element.on('notCurrentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marDengine1").hide();
-        jQuery("#marDengine2").hide();
-        jQuery("#marDengine3").hide();
-    });
-
-    element = jQuery("#marprocess");
-    element.on('currentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marsystem-process").hide();
-        jQuery("#marprocess").show();
-    });
-    element.on('notCurrentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marsystem-process").show();
-        jQuery("#marprocess").hide();
-    });
-
-    element = jQuery("#marmodel-new");
-    element.on('currentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marsystem").hide();
-        jQuery("#marprocess").hide();
-        jQuery("#marmodel-new-local").hide();
-        jQuery("#marmodel-new-dissemination").hide();
-        var model = jQuery("#marmodel-new");
-        model.css("position", "static");
-        model.height("400px");
-        model.show();
-    });
-    element.on('notCurrentActive', function () {
-        jQuery.noConflict();
-        jQuery("#marmodel").hide();
-    });
-    element.on('notActive', function () {
-        jQuery.noConflict();
-        jQuery("#marsystem").show();
-        jQuery("#marmodel-new-local").show();
-        jQuery("#marmodel-new-dissemination").show();
-    });*/
-
     element = jQuery("#hostComponent");
-    element.on('active', function () {
+    element.on('currentActive', function () {
         jQuery.noConflict();
         jQuery("#kevoreehosts1").show();
         jQuery("#kevoreehosts2").hide();
-        jQuery("#kevoreehost3").hide();
-    });
-    element.on('notActive', function () {
-        jQuery("#kevoreehosts1").hide();
-        jQuery("#kevoreehosts2").show();
-        jQuery("#kevoreehost3").hide();
     });
     element = jQuery("#hostNode");
-    element.on('active', function () {
+    element.on('currentActive', function () {
         jQuery.noConflict();
         jQuery("#kevoreehosts1").hide();
         jQuery("#kevoreehosts2").show();
-        jQuery("#kevoreehost3").hide();
-    });
-    element.on('notActive', function () {
-        jQuery("#kevoreehosts1").show();
-        jQuery("#kevoreehosts2").hide();
-        jQuery("#kevoreehost3").hide();
-    });
-    element = jQuery("#hostSample");
-    element.on('active', function () {
-        jQuery.noConflict();
-        jQuery("#kevoreehosts1").hide();
-        jQuery("#kevoreehosts2").show();
-        jQuery("#kevoreehost3").show();
-    });
-    element.on('notActive', function () {
-        jQuery("#kevoreehosts1").hide();
-        jQuery("#kevoreehosts2").show();
-        jQuery("#kevoreehost3").hide();
     });
 
     element = jQuery("#groupiaas");

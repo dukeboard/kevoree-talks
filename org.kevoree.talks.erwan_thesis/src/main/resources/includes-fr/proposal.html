@@ -10,38 +10,39 @@
         <h2>Proposition</h2>
     </header>
     <ul>
-        <li class="next hidden collapse">
-            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Kevoree</span>
+        <li class="hidden next">Model@Runtime pour l'adaptation de systèmes de Cloud
             <ul>
-                <li class="hidden">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
-            <ul>
-                <li class="hidden">Une extension de Kevoree pour modéliser un Cloud</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Kevoree Group</span>
-            <ul>
-                <li class="hidden">Partitionnement et filtrage de modèle</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud API</span>
-            <ul>
-                <li class="hidden">Extensibilité et réutilisation</li>
+                <li class="hidden next collapse">
+                    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Model@Runtime</span>
+                    <ul>
+                        <li class="hidden">Un support de réflexion désynchronisée</li>
+                    </ul>
+                </li>
+                <li class="hidden next collapse">
+                    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Kevoree</span>
+                    <ul>
+                        <li class="hidden">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</li>
+                    </ul>
+                </li>
+                <li class="hidden next">
+                    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
+                    <ul>
+                        <li class="next">Une extension de Kevoree pour modéliser un Cloud</li>
+                        <li class="next">Utilisation des groupes pour garder l'indépendance des niveaux</li>
+                        <li class="next">Une API pour la réutilisation et la définition de nouvelles implémentations</li>
+                    </ul>
+                </li>
             </ul>
         </li>
     </ul>
-    <details>
-        Cette proposition se découpe en 4 parties...
-    </details>
 </section>
 
-<section class="slide shout">
+<!--<section class="slide shout">
     <header>
         <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">Kevoree</span><br/>
             <span style="font-size: 40px;">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</span><br/><br/>
-            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet</a>
+            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet
+                (06/03/2013)</a>
         </h2>
     </header>
     <details>
@@ -49,7 +50,7 @@
         <b>Kevoree, c'est une approche M@R...</b>
 
     </details>
-</section>
+</section>-->
 
 <section class="slide">
     <header><h2>Model@Runtime et réflexion désynchronisée (1)</h2></header>
@@ -60,11 +61,12 @@
             <ul>
                 <li>Réflexion :
                     <ul>
-                        <li>capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
+                        <li>Capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
                         <li>Lien causal entre le système et sa représentation
                             <ul>
-                                <li class="hidden"><span class="icon-minus-sign colorRed"></span>Une erreur dans la reconfiguration <span
-                                        class="icon-arrow-right"></span> système instable
+                                <li class="hidden">
+                                    <span class="icon-minus-sign colorRed"></span>Une erreur dans la reconfiguration
+                                    <span class="icon-arrow-right"></span> système instable
                                 </li>
                             </ul>
                         </li>
@@ -86,7 +88,8 @@
     <ul>
         <li>Processus :</li>
     </ul>
-    <img style="position : absolute;top: 250px;left : 150px;" src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="350px"/>
+    <img style="position : absolute;top: 250px;left : 250px;" src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png"
+         height="350px"/>
 </section>
 
 <section class="slide">
@@ -122,24 +125,20 @@
                 </li>
                 <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
                     <ul>
-                        <li>Encapsule la sémantique de dissémination des mises à jour</li>
+                        <li>Encapsule la sémantique de dissémination des mises à jour (modèle)</li>
                     </ul>
                 </li>
             </ul>
         </li>
-        <!--<li class="hidden next collapse">Manipulable par un langage d'interaction tel que FScript<span class="cite">*</span>
-
-            <p class="cite"><span>*</span>DAVID, P.-Ch. et al. - Safe dynamic reconfigurations of fractal architectures with FScript - 2006.
-            </p>
-        </li>-->
     </ul>
     <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
     <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
 </section>
 
 <section class="slide">
+    <div class="fouquet">These François Fouquet</div>
     <header>
-        <h2>Model@Runtime dans Kevoree : Dissémination</h2>
+        <h2>Model@Runtime dans Kevoree : Dissémination des reconfigurations</h2>
     </header>
     <img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
 
@@ -149,89 +148,6 @@
         <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:180px;"></span>
     </div>
 </section>
-
-<!--<section class="slide">
-    <header>
-        <h2>Model@Runtime dans Kevoree (1)<span class="cite">*</span></h2>
-    </header>
-    <ul>
-        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Utilisant le patron Type/Instance</span>
-            <ul>
-                <li class="next"><strong class="colorOrange">Type</strong>
-                    <ul>
-                        <li>Définition des spécificités d'une implémentation</li>
-                    </ul>
-                </li>
-                <li class="next"><strong class="colorOrange">Instance</strong>
-                    <ul>
-                        <li>Localisation de l'utilisation d'une implémentation</li>
-                    </ul>
-                </li>
-                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet de raisonner sur la substituabilité des fonctionnalités</span>
-                </li>
-                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permet d'identifier les instances concernés par une mise à jour d'implémentation (de type)</span>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <p class="cite"><span>*</span>Johnson, R. et Woolf, B. - Type object - 1997</p>
-</section>-->
-
-<!--<section class="slide">
-    <div class="fouquet">These François Fouquet</div>
-    <header>
-        <h2>Kevoree, Model@Runtime et adaptation</h2>
-    </header>
-    <img class="next" id="marmodel" src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;">
-
-    <div id="marsystem">
-        <div class="next">
-            <span class="icon-desktop" style="font-size: 80px; position: absolute; left: 100px;bottom:30px;"></span>
-            <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 130px;bottom:130px;"></span>
-            <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:155px;bottom:190px;"
-                 width="125px">
-
-            <div id="marsystem-process">
-                <span class="icon-mobile-phone" style="font-size: 80px; position: absolute; left: 500px;bottom:30px;"></span>
-                <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 510px;bottom:130px;"></span>
-                <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:535px;bottom:190px;"
-                     width="125px">
-
-                <span class="icon-desktop" style="font-size: 80px; position: absolute; left: 800px;bottom:30px;"></span>
-                <span class="icon-comment-alt" style="font-size: 180px; position: absolute; left: 830px;bottom:130px;"></span>
-                <img src="figures/contribution/kevoree/marmodel.png" style="border-radius: 10px;position:absolute;left:855px;bottom:190px;"
-                     width="125px">
-            </div>
-        </div>
-
-        <div class="next">
-            <span id="marDengine1" class="colorOrange icon-cog"
-                  style="font-size: 80px; position: absolute; left: 180px;bottom:40px;"></span>
-            <span id="marDengine2" class="colorOrange icon-cog"
-                  style="font-size: 80px; position: absolute; left: 520px;bottom:40px;"></span>
-            <span id="marDengine3" class="colorOrange icon-cog"
-                  style="font-size: 80px; position: absolute; left: 870px;bottom:40px;"></span>
-        </div>
-    </div>
-
-    <div id="marprocess" class="next">
-        <img src="figures/contribution/kevoree/modelATruntimeFinal.png"
-             style="border-radius: 10px;position:absolute;top:140px;left:340px;" width=400px>
-    </div>
-
-    <div id="marmodel-new-local" class="next">
-        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:155px;bottom:190px;"
-             width="125px">
-    </div>
-    <div id="marmodel-new-dissemination" class="next">
-        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:535px;bottom:190px;"
-             width="125px">
-        <img src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;position:absolute;left:855px;bottom:190px;"
-             width="125px">
-    </div>
-
-    <img class="next" id="marmodel-new" src="figures/contribution/kevoree/marmodel-new.png" style="border-radius: 10px;">
-</section>-->
 
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
@@ -247,7 +163,8 @@
         </li>
         <li class="next"><span class="colorOrange">Pattern Type/Instance</span>
             <ul>
-                <li class="hidden next"><span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité
+                <li class="hidden next">
+                    <span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité<span class="colorRed">TODO reprendre Olivier pas d'accord</span>
                 </li>
             </ul>
         </li>
@@ -300,40 +217,35 @@
             <td style="width:130px"><b>Réfléxitivé</b></td>
             <td><span class="colorGreen">oui</span></td>
         </tr>
-        <tr>
-
-
-        </tr>
         </tbody>
     </table>
 </section>
 
-<section class="slide shout">
-    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud</span><br/>
+<!--<section class="slide shout">
+    <h2 style="line-height: 0.7;font-size: 60px;">
+        <span class="colorOrange">KevoreeKloud</span><br/>
         <span style="font-size: 40px;">Une extension de Kevoree pour modéliser un Cloud</span>
     </h2>
-    <!--<img style="position:absolute;bottom: 20px;right:100px;height: 200px" src="old/figures/167830.strip_.sunday.gif"/>-->
-</section>
+</section>-->
 
 <section class="slide">
     <header>
         <h2>Extension du métamodèle (1)</h2>
     </header>
+    <img class="next" id="kevoreehostsample" style="position:absolute;top: 180px;left:100px;" height="200px"
+         src="figures/contribution/kevoreekloud/hosting-example.png"/>
     <ul>
-        <li class="hidden">Les nœuds Kevoree hébergent
+        <li class="hidden next">Les nœuds Kevoree hébergent
             <ul>
                 <li class="next" id="hostComponent">Des composants</li>
                 <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong></li>
-                <li class="hidden next" id="hostSample"></li>
             </ul>
         </li>
     </ul>
-    <img id="kevoreehosts1" style="position:absolute;bottom: 30px;right:10px;"
+    <img id="kevoreehosts1" style="position:absolute;bottom: 20px;right:10px;"
          src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg"/>
-    <img id="kevoreehosts2" style="position:absolute;bottom: 30px;right:10px;"
+    <img id="kevoreehosts2" style="position:absolute;bottom: 20px;right:10px;"
          src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg"/>
-    <img id="kevoreehost3" style="position:absolute;bottom: 30px;right:10px;" width="200px"
-         src="figures/contribution/kevoreekloud/hosting-example.png"/>
 </section>
 
 
@@ -347,15 +259,24 @@
                 <li class="next">Ajout, démarrage, arrêt, suppression de composants, ...</li>
             </ul>
             <ul>
-                <li class="next colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds<br/>
-                    <img src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg"/>
+                <li class="next"><span class="colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds</span><br/>
+                    <img src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg" style="position:relative;left:50px;"/>
                 </li>
             </ul>
         </li>
-        <li class="hidden next">Le nœud est responsable de la phase de planification et d'exécution
-            <img src="figures/domains/adaptation/mapeLoopIBM.png" height="200px" style="position:absolute;left:180px;bottom:20px;"/>
-            <img src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="200px" style="position:absolute;right:180px;bottom:20px;"/>
+        <li class="hidden next">Séparation des niveaux
+            <ul>
+                <li class="hidden next"><span class="icon-ok-sign colorGreen"></span>IaaS: Déplacer des nœuds de plate-forme</li>
+                <li class="hidden next"><span class="icon-remove-sign colorRed"></span>IaaS: Déplacer des composants d'application</li>
+                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Isolation entre les nœuds</span>
+                </li>
+            </ul>
         </li>
+        <!-- <li class="hidden next">Le nœud est responsable de la phase de planification et d'exécution
+             <img src="figures/domains/adaptation/mapeLoopIBM.png" height="200px" style="position:absolute;left:180px;bottom:20px;"/>
+             <img src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="200px"
+                  style="position:absolute;right:180px;bottom:20px;"/>
+         </li>-->
     </ul>
     <details>
         <b>Explicitation</b>:<br/>
@@ -363,19 +284,25 @@
     </details>
 </section>
 
-<section class="slide shout">
-    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">Kevoree Group</span><br/>
-        <span style="font-size: 40px;">Partitionnement et Filtrage de modèle</span>
+<!--<section class="slide">
+    <header>
+        <h2 class="colorRed">TODO : mettre un exemple Prise en charge de nœuds fils et prise en charge de l'adaptation</h2>
+    </header>
+</section>-->
+
+<!--<section class="slide shout">
+    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud</span><br/>
+        <span style="font-size: 40px;">Utilisation des groupes</span>
     </h2>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Dissémination, Partitionnement et Filtrage</h2>
+        <h2>Vision globale vs Séparation des niveaux (1)</h2>
     </header>
     <img src="figures/contribution/kevoreekloud/dissemination.png" style="position:absolute;right:10px;top:150px;" height="200px"/>
     <ul>
-        <li class="next collapse"><span class="colorOrange">Utilisation des groupes pour la dissémination</span>
+        <li class="next"><span class="colorOrange">Utilisation des groupes pour la dissémination</span>
 
             <div id="groupiaas" class="next collapse">
                 <ul>
@@ -393,30 +320,65 @@
                 </ul>
             </div>
         </li>
-        <li class="next"><span class="colorOrange">Utilisation des groupes pour le partitionnement/filtrage</span>
+        <li class="next">Vision Globale
             <ul>
-                <li>Pour limiter la taille du modèle</li>
-                <li>Pour limiter les informations partagées</li>
-                <li><span class="colorOrange">Toujours au niveau des nœuds</span></li>
+                <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Adaptation de manière orthogonale</li>
+                <li class="hidden"><span class="icon-remove-sign colorRed"></span>Séparation des préoccupations
+                    <ul>
+                        <li>SaaS : Fournir des services finaux de bonne qualité</li>
+                        <li>PaaS : Faire le lien entre les services finaux et les ressources</li>
+                        <li>IaaS : Gérer l'allocation des ressources</li>
+                    </ul>
+                </li>
+                <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Tout le monde est capable de tout faire</span>
+                </li>
             </ul>
         </li>
     </ul>
     <canvas id="c2" width="320" height="220" style="position: absolute;top:140px;right:00px;"></canvas>
-    <details>
-        <b>Pour limiter la taille du modèle</b>:<br/>
-        D'un point de vue de la synchronisation, afin de partitionner la synchronisation entre les nœuds
-        D'un point de vue des performances, afin de limiter la recherche de la confioguration d'un nœud parmi des milliards
-        <b>Pour limiter les informations partagées</b>:<br/>
-        Notamment dans le cas de services provenant de fournisseurs différents qui souhaiteront garder cetaines informations pour eux
-        Même si c'est au détriment d'une adaptation plus efficace
-    </details>
 </section>
 
 <section class="slide">
     <header>
+        <h2>Vision globale vs Séparation des niveaux (2)</h2>
+    </header>
+    <ul>
+        <li class="hidden next">Faire cohabiter
+            <span class="icon-plus" style="position:relative;top:80px;left:-180px"></span>
+            <ul>
+                <li class="hidden">Adaptation comme une problématique orthogonale</li>
+                <li class="hidden">Séparation des préoccupations
+            </ul>
+        </li>
+        <li class="hidden next colorOrange"><span class="icon-arrow-right"></span>Sélectionner les données mises à disposition
+            <ul>
+                <li class="hidden next">Partager différentes versions du modèle globale</li>
+                <li class="hidden next">En fonction de ce que l'on veut permettre comme interaction</li>
+                <li class="hidden next colorOrange">En utilisant les groupes</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Partionnement et Filtrage de modèle</h2>
+    </header>
+    <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="200px" style="position:absolute;top:150px;left:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-interaction.png" height="200px" style="position:absolute;top:150px;right:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="200px" style="position:absolute;bottom:30px;left:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px" style="position:absolute;bottom:30px;right:50px;"/>
+</section>
+
+<!--<section class="slide">
+    <header>
         <h2>Partionnement selon les niveaux</h2>
     </header>
     <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="300px"/>
+    <details>
+        Par exemple avec du partitionnement selon les niveaux et leur hébergement, la plate-forme ne peut pas connaître l'ensemble des
+        ressources disponibles au niveau de l'infrastructure et ne peut donc pas interférer dans la gestion de l'allocation de nouveau nœud
+    </details>
 </section>
 
 <section class="slide">
@@ -438,18 +400,18 @@
         <h2>Filtrage à gros grain</h2>
     </header>
     <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="300px"/>
-</section>
+</section>-->
 
 
-<section class="slide shout">
-    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud API</span><br/>
-        <span style="font-size: 40px;">Extensibilité et Réutilisation</span>
+<!--<section class="slide shout">
+    <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">KevoreeKloud</span><br/>
+        <span style="font-size: 40px;">Une API pour la réutilisation</span>
     </h2>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Implémentation</h2>
+        <h2>Implémentation d'un nœud</h2>
     </header>
     <ul>
         <li class="next collapse"><span class="colorOrange">Qu'est-ce qu'un nœud de Cloud (PaaS ou IaaS) ?</span>

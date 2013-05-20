@@ -127,3 +127,11 @@ div.fouquet {
     font-size: 16px;
     color: #DF9D00;
 }
+
+.slide.shout > h2.h2-list {
+    font-size: 85px;
+}
+
+.slide.shout > h2.h2-list.slave {
+    font-size: 50px;
+}

@@ -2,7 +2,7 @@
     <h2 class="h2-list">Validation</h2>
 </section>
 
-<section class="slide">
+<!--<section class="slide">
     <header>
         <h2>Validation</h2>
     </header>
@@ -23,61 +23,39 @@
             <ul>
                 <li>Comment utiliser les informations de plusieurs niveaux ?</li>
                 <li>Comment utiliser les capacités d'adaptation d'un niveau pour en adapter un autre ?</li>
-                <!--<li>Comment combiner les capacités d'adaptation de différents niveaux pour les adapter ensemble ?</li>-->
             </ul>
         </li>
     </ul>
-</section>
+</section>-->
 
-<section class="slide shout">
+<!--<section class="slide shout">
     <header>
         <h2 style="line-height: 0.3;">
             <span class="colorOrange" style="font-size: 60px;">Est-ce extensible et générique ?</span><br/>
             <span style="font-size: 40px;">Implémentation d'une solution d'infrastructure hybride</span>
         </h2>
     </header>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Différents types de Clouds</h2>
+        <h2>Est-ce extensible et générique ?</h2>
     </header>
-    <img src="figures/validation/cloudtypes.jpg" style="position:absolute;top:10px;right:10px;" width="300px"/>
     <ul>
-        <li class="hidden next"><span class="colorOrange">Clouds publics</span>
+        <li class="hidden">Protocole expérimental
             <ul>
-                <li>Utilisable au travers d'Internet</li>
-            </ul>
-        </li>
-        <li class="hidden next"><span class="colorOrange">Clouds privés</span>
-            <ul>
-                <li>Utilisable au sein d'une entreprise et seulement sur son réseau</li>
-            </ul>
-        </li>
-        <li class="hidden next"><span class="colorOrange">Clouds hybrides</span>
-            <ul>
-                <li>Cloud privé étendu par un Cloud public
+                <li>Définition de nouveaux types de nœuds d'infrastructure</li>
+                <li>Définition d'un gestionnaire d'infrastructure</li>
+                <li>Évaluation sur la quantité de code nécessaire<span class="cite">*</span>
                     <ul>
-                        <li>Pour l'usage de ressources spécifiques</li>
-                        <li>Pour pallier le manque de ressources au sein de l'entreprise</li>
+                        <li>Comparaison par rapport au code réutilisé
+                            <ul>
+                                <li>Model@Runtime</li>
+                                <li>JavaSeNode</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <header>
-        <h2>Protocole expérimental</h2>
-    </header>
-    <ul>
-        <li>Définition de nouveaux types de nœuds d'infrastructure</li>
-        <li>Définition d'un gestionnaire d'infrastructure</li>
-        <li>Évaluation sur la quantité de code nécessaire<span class="cite">*</span>
-            <ul>
-                <li>Le code généré n'est pas pris en compte</li>
-                <li>Comparaison par rapport au code réutilisé</li>
             </ul>
         </li>
     </ul>
@@ -88,22 +66,32 @@
 
 <section class="slide">
     <header>
-        <h2>Implémentation</h2>
+        <h2>Cas d'usage</h2>
     </header>
     <ul>
-        <li class="hidden">
+        <li>Implémentation d'un Cloud d'infrastructure hybride
+            <ul>
+                <li class="hidden">
             <span class="colorOrange">Utilisation d'un système de virtualisation d'espace utilisateur
                 (Jails<span class="cite">*1</span>)</span>
-            <ul>
-                <li>Partage du système d'exploitation</li>
-                <li>Séparation de l'espace de stockage</li>
-                <li>Séparation de l'adressage réseau</li>
-            </ul>
-        </li>
-        <li class="hidden"><span class="colorOrange">Proxy vers un Cloud public
+                    <!--<ul>
+                        <li>Partage du système d'exploitation</li>
+                        <li>Séparation de l'espace de stockage</li>
+                        <li>Séparation de l'adressage réseau</li>
+                    </ul>-->
+                </li>
+                <li class="hidden"><span class="colorOrange">Proxy vers un Cloud public
             (Amazon EC2<span class="cite">*2</span>)</span>
-            <ul>
-                <li>virtualisation du système d'exploitation</li>
+                    <!--<ul>
+                        <li>virtualisation du système d'exploitation</li>
+                    </ul>-->
+                </li>
+                <li class="hidden"><span class="colorOrange">Gestionnaire d'infrastructure</span>
+                    <ul>
+                        <li>Déploiement de machine virtuelle Window sur EC2</li>
+                        <li>Déploiement de machine virtuelle Unix/Linux sur Jails</li>
+                    </ul>
+                </li>
             </ul>
         </li>
     </ul>
@@ -113,7 +101,7 @@
     </p>
 </section>
 
-<section class="slide">
+<!--<section class="slide">
     <header>
         <h2>Gestionnaire d'infrastructure</h2>
     </header>
@@ -140,7 +128,7 @@
             </ul>
         </li>
     </ol>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
@@ -183,7 +171,7 @@
     <!--<img style="position:absolute;top:200px;left:100px;" width="400px" src="figures/validation/nbloc.png"/>-->
     <!--<img style="position:absolute;top:100px;right:50px;" width="400px" src="figures/validation/ratio_codereuse.png"/>-->
     <!--<img style="position:absolute;bottom:100px;right:100px;" width="300px" src="figures/validation/ratio_codeKevoreeKloud.png"/>-->
-    <img width="700px" src="figures/validation/eval_lineofcode.png"/>
+    <img width="700px" src="figures/validation/nbloc-new.png"/>
     <!--<ul>
         <li>Peu de nouveau code nécessaire
             <ul>
@@ -201,18 +189,43 @@
     <p>Peu de code nécessaire par rapport au code fourni</p>
 </section>
 
-<section class="slide shout">
+<!--<section class="slide shout">
     <header>
         <h2 style="line-height: 0.3;">
             <span class="colorOrange" style="font-size: 60px;">Est-ce que cela supporte la montée en charge ?</span><br/>
-            <span style="font-size: 40px;">Distribution de l'exécution des test dans le cadre de l'Intégration Continue</span>
+            <span style="font-size: 40px;">Distribution de l'exécution des tests dans le cadre de l'Intégration Continue</span>
         </h2>
     </header>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Protocole expériemental</h2>
+        <h2>Est-ce que cela supporte la montée en charge ?</h2>
+    </header>
+    <ul>
+        <li class="hidden">Protocole expérimental
+            <ul>
+                <li>Soumission de modèle de plate-forme</li>
+                <li>Évaluation du temps d'exécution
+                    <ol>
+                        <li>définition des nœuds de plate-forme à créer</li>
+                        <li>transmission du modèle depuis la plate-forme vers l'infrastructure</li>
+                        <li>placement des nœuds de plate-forme sur l'infrastructure</li>
+                    </ol>
+                </li>
+                <li>Évaluation de la quantité mémoire
+                    <ul>
+                        <li>pour le stockage du modèle globale</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<!--<section class="slide">
+    <header>
+        <h2>Protocole expérimental</h2>
     </header>
     <ul>
         <li>Soumission de modèle de plate-forme</li>
@@ -225,50 +238,55 @@
         </li>
         <li>Évaluation de la quantité mémoire
             <ul>
-                <li>Pour le stockage du modèle globale</li>
+                <li>pour le stockage du modèle globale</li>
             </ul>
         </li>
     </ul>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Intégration Continue</h2>
+        <h2>Cas d'usage (1)</h2>
     </header>
+    <span class="colorOrange">Intégration Continue</span>
     <blockquote class="next"><!--Continuous Integration (CI) is the practice of merging all developer workspaces with a shared mainline several
         times a day. ...CI was originally intended to be used in combination with automated unit tests written through the practices of Test
         driven development.<span class="cite">*1</span>-->
         L'intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code
-        source que le résultat des modifications ne produit pas de régression dans l'application développée.<span class="cite">*1</span>
+        source que le résultat des modifications ne produit pas de régression dans l'application développée.<span class="cite">*</span>
     </blockquote>
     <ul>
-        <li class="next"><span class="colorOrange">L'intégration Continue est consommatrice en temps</span>
+        <li class="hidden next"><span class="colorOrange">Consommatrice en temps</span>
             <ul>
                 <li class="next hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notamment l'exécution des tests</span>
                 </li>
-                <li class="next">Certains projets nécessite plus de 7 semaines<span class="cite">*2</span></li>
+                <!--<li class="next">Certains projets nécessite plus de 7 semaines<span class="cite">*2</span></li>-->
             </ul>
         </li>
     </ul>
     <p class="cite">
         <!--<span>*1</span><a href="http://en.wikipedia.org/wiki/Continuous_integration">http://en.wikipedia.org/wiki/Continuous_integration</a><br/>-->
-        <span>*1</span><a href="http://fr.wikipedia.org/wiki/Intégration_Continue">http://fr.wikipedia.org/wiki/Intégration_Continue</a>
-        <br/>
-        <span>*2</span>Rothermel, G. et al - Prioritizing test cases for regression testing - 2001
+        <span>*</span><a href="http://fr.wikipedia.org/wiki/Intégration_Continue">http://fr.wikipedia.org/wiki/Intégration_Continue</a>
+        <!--<br/>
+        <span>*2</span>Rothermel, G. et al - Prioritizing test cases for regression testing - 2001-->
     </p>
 </section>
 
 <section class="slide">
     <header>
-        <h2>Solution proposée</h2>
+        <h2>Cas d'usage (2)</h2>
     </header>
     <ul>
-        <li class="hidden next"><span class="colorOrange">Effectuer l'exécution des tests sur un Cloud</span>
+        <li class="hidden">Solution proposée
             <ul>
-                <li class="next">En parallélisant leur exécution</li>
-                <li class="next">En définissant la plate-forme d'exécution nécessaire
+                <li class="hidden next"><span class="colorOrange">Effectuer l'exécution des tests sur un Cloud</span>
                     <ul>
-                        <li class="next">En tenant compte des contraintes spécifiques à chaque test</li>
+                        <li class="next">En parallélisant leur exécution</li>
+                        <li class="next">En définissant la plate-forme d'exécution nécessaire
+                            <ul>
+                                <li class="next">En tenant compte des contraintes spécifiques à chaque test</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -278,25 +296,29 @@
 
 <section class="slide">
     <header>
-        <h2>Cas d'usage: Apache Camel 2.8 <span style="font-size: 18px;">(<a
+        <h2>Cas d'usage (3)<span style="font-size: 18px;">(<a
                 href="http://camel.apache.org/">http://camel.apache.org/</a>)</span></h2>
     </header>
     <ul>
-        <li class="hidden next collapse">Implémentation de patrons d'intégration <span class="cite">*</span>
+        <li>Application sur un exemple concret : Apache Camel
             <ul>
-                <li>facilite l'intégration d'applications en normalisant les communications entre elles</li>
-            </ul>
-        </li>
-        <li class="hidden next">175 modules, 3875 suites de tests, 8084 tests</li>
-        <li class="hidden next collapse"><span class="colorOrange">Temps d'exécution: 1h40min (sans le Cloud)</span>
-            <ul>
-                <li>Intel R, AtomTM D425 1.8GHz avec 8 Go de mémoire vive</li>
-            </ul>
-        </li>
-        <li class="hidden next collapse"><span class="colorOrange">Temps d'exécution: 40min (sur le Cloud)</span>
-            <ul>
-                <li>10 machines</li>
-                <li>Intel R, AtomTM D425 1.8GHz avec 8 Go de mémoire vive</li>
+                <li class="hidden next collapse">Implémentation de patrons d'intégration <span class="cite">*</span>
+                    <ul>
+                        <li>facilite l'intégration d'applications en normalisant les communications entre elles</li>
+                    </ul>
+                </li>
+                <li class="hidden next">175 modules, 3875 suites de tests, 8084 tests</li>
+                <li class="hidden next collapse"><span class="colorOrange">Temps d'exécution: 1h40min (sans le Cloud)</span>
+                    <ul>
+                        <li>Intel R, AtomTM D425 1.8GHz avec 8 Go de mémoire vive</li>
+                    </ul>
+                </li>
+                <li class="hidden next collapse"><span class="colorOrange">Temps d'exécution: 40min (sur le Cloud)</span>
+                    <ul>
+                        <li>10 machines au niveau infrastructure</li>
+                        <li>Intel R, AtomTM D425 1.8GHz avec 8 Go de mémoire vive</li>
+                    </ul>
+                </li>
             </ul>
         </li>
     </ul>
@@ -378,11 +400,11 @@
     <header>
         <h2>Évaluation : Temps d'exécution (2)</h2>
     </header>
-    <img height="350px" src="figures/validation/eval_time.png"/>
+    <img height="350px" src="figures/validation/eval_time-new.png"/>
     <ul>
-        <li class="hidden">Temps d'exécution acceptable jusqu'à 5 000 nœuds
+        <li class="hidden">Temps d'exécution acceptable
             <ul>
-                <li class="hidden">Inférieur à 5 secondes pour le placement des nœuds de plate-forme</li>
+                <li class="hidden"> comparé au temps nécessaire pour la création des VMs</li>
             </ul>
         </li>
     </ul>
@@ -392,84 +414,55 @@
     <header>
         <h2>Évaluation : Usage mémoire</h2>
     </header>
-    <!--<table border="1" class="memory">
-        <tr>
-            <td style="width:300px"><b>Modèle</b></td>
-            <td style="width:200px"><b>taille (Mega octets)</b></td>
-        </tr>
-        <tr>
-            <td>50 nœuds et 4000 éléments</td>
-            <td> 3,72</td>
-        </tr>
-        <tr>
-            <td>500 nœuds et 40000 éléments</td>
-            <td> 35,88</td>
-        </tr>
-        <tr>
-            <td>5000 nœuds et 100000 éléments</td>
-            <td> 91,97</td>
-        </tr>
-        <tr>
-            <td>5000 nœuds et 200000 éléments</td>
-            <td> 160,47</td>
-        </tr>
-        <tr>
-            <td>5000 nœuds et 300000 éléments</td>
-            <td> 269,58</td>
-        </tr>
-        <tr>
-            <td>5000 nœuds et 400000 éléments</td>
-            <td> 357,47</td>
-        </tr>
-        <tr>
-            <td>100000 nœuds et 400000 éléments</td>
-            <td> 424,44</td>
-        </tr>
-        <tr>
-            <td>507000 nœuds et 400000 éléments<span class="cite">*</span></td>
-            <td> 721,21</td>
-        </tr>
-    </table>-->
-    <img width="400px" src="figures/validation/correl_nbelem_memorysize.png"/>
     <ul>
-        <li class="hidden">Amazon EC2 : 507000 nœuds et 400000 éléments <span class="cite">*</span> = 721,21 Mo</li>
-        <!--<li>Utilisable même si quelque peu important</li>
-        <li>Ne tire pas parti des possibilités de partitionnement et de filtrage</li>-->
+        <li class="hidden"><span class="colorOrange">Extrapolation du modèle pour Amazon EC2</span><span class="cite">*</span>
+            <ul>
+                <li class="hidden">507000 nœuds (infrastructure + plate-forme) + 400000 éléments</li>
+            </ul>
+        </li>
+        <li class="hidden"><span class="colorOrange">Taille mémoire : 721,21 Mo</span>
+            <ul>
+                <li class="hidden">Sans partitionnement ni filtrage</li>
+            </ul>
+        </li>
     </ul>
-    </table>
-
-
-    <p class="cite"><span>*</span><span class="colorOrange notstar">Extrapolation du modèle pour Amazon EC2</span> à partir des informations
+    <p class="cite">
+        <span>*</span><span class="colorOrange notstar">Extrapolation du modèle pour Amazon EC2</span> à partir des informations
         obtenu dans<br/>
         ROSEN, Guy - Anatomy of an Amazon EC2 Resource ID - 2011 et
         <a href="http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/">http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/</a>
     </p>
 </section>
 
-<section class="slide shout">
+<!--<section class="slide shout">
     <header>
         <h2 style="line-height: 0.3;">
             <span class="colorOrange" style="font-size: 60px;">Est-ce possible de faire <br/>de l'adaptation multi-niveaux ?</span><br/>
             <span style="font-size: 40px;">Distribution d'un serveur web</span>
         </h2>
     </header>
-</section>
+</section>-->
 
 <section class="slide">
     <header>
-        <h2>Protocol expérimental</h2>
+        <h2>Notre abstraction répond-elle à notre objectif ?</h2>
     </header>
     <ul>
-        <li class="hidden">Implémentation de gestionnaires
+        <li class="hidden"><span class="colorOrange">Objectif : Gérer l'adaptation de manière transverse</span></li>
+        <li class="hidden">Protocole expérimental
             <ul>
-                <li>Infrastructure
+                <li>Implémentation de gestionnaires
                     <ul>
-                        <li>Utilisation des informations multi-niveaux</li>
-                    </ul>
-                </li>
-                <li>Plate-forme
-                    <ul>
-                        <li>Coordination de l'adpatation entre Infrastructure et Plate-forme</li>
+                        <li>Infrastructure
+                            <ul>
+                                <li>Utilisation des informations multi-niveaux</li>
+                            </ul>
+                        </li>
+                        <li>Plate-forme
+                            <ul>
+                                <li>Coordination de l'adaptation entre IaaS et PaaS</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -523,10 +516,6 @@
     <ul>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adpatation entre plusieurs niveaux</li>
-    </ul>
-    <ul>
-        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>Cas d'étude spécifique
-        </li>
     </ul>
     <details>
         <b>cas d'étude spécifique</b>:<br/>

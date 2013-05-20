@@ -4,45 +4,46 @@
 
 <section class="slide">
     <header>
-        <h2>Quelles caractéristiques pour une abstraction de Cloud ?</h2>
+        <h2>De quelle abstraction a-t-on besoin ?</h2>
     </header>
     <ul>
-        <li class="next collapse"><span class="colorOrange">Multi-niveaux</span>
+        <li class="hidden next">Caractéristiques de l'abstraction
             <ul>
-                <li>Pour représenter l'ensemble des éléments présents dans un Cloud</li>
-            </ul>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Hébergement</span>
-            <ul>
-                <li>Pour localiser l'exécution des services</li>
-            </ul>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Distribution</span>
-            <ul>
-                <li>Pour en tirer partie<span class="cite">*</span>
+                <li class="next collapse"><span class="colorOrange">Multi-niveaux</span>
+
+                    <p>Pour représenter l'ensemble des éléments présents dans un Cloud</p>
+                </li>
+                <li class="next collapse"><span class="colorOrange">Hébergement</span>
+
+                    <p>Pour localiser l'exécution des services</p>
+                </li>
+                <li class="next collapse"><span class="colorOrange">Distribution</span>
+
+                    <p>Pour en tirer partie<span class="cite">*</span></p>
                     <ul>
                         <li>Dans la définition de nouvelles adaptations</li>
                         <li>Dans le fonctionnement des services</li>
                     </ul>
-                </li>
-            </ul>
-            <p class="cite"><span>*</span>Guerraoui, R. et al - Oo distributed programming is not distributed oo programming - 1999</p>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Hétérogénéité</span>
-            <ul>
-                <li>Pour représenter de manière équivalente plusieurs implémentations d'un même service tout en explicitant leurs
-                    spécificités
+                    <p class="cite"><span>*</span>Guerraoui, R. et al - Oo distributed programming is not distributed oo programming - 1999
+                    </p>
                 </li>
             </ul>
         </li>
-        <li class="next collapse"><span class="colorOrange">Extensibilité</span>
+        <li class="hidden next">Qualité de l'abstraction
             <ul>
-                <li>Pour pouvoir intégrer les futures implémentations</li>
-            </ul>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Réflexion désynchronisée</span>
-            <ul>
-                <li>Pour éviter les reconfigurations erronées</li>
+                <li class="next collapse"><span class="colorOrange">Hétérogénéité</span>
+
+                    <p>Pour représenter de manière équivalente plusieurs implémentations d'un même service tout en explicitant leurs
+                        spécificités</p>
+                </li>
+                <li class="next collapse"><span class="colorOrange">Extensibilité</span>
+
+                    <p>Pour pouvoir intégrer les futures implémentations</p>
+                </li>
+                <li class="next collapse"><span class="colorOrange">Réflexion désynchronisée</span>
+
+                    <p>Pour éviter les reconfigurations erronées</p>
+                </li>
             </ul>
         </li>
     </ul>
@@ -51,7 +52,8 @@
         - Gerraoui a affirmé que pour faire des systèmes distribués efficaces, il est nécessaire d'expliciter cette notion de distribution
         plutôt que de la masquer<br/>
         e.g. migration de composants pour rapprocher ceux qui interagissent entre eux afin de limiter la consommation de bande passante<br/>
-        e.g. Ou dans le fonctionnement des services afin de limiter les interactions avec d'autres services là encore pour limiter l'usage de la bande passante<br/>
+        e.g. Ou dans le fonctionnement des services afin de limiter les interactions avec d'autres services là encore pour limiter l'usage
+        de la bande passante<br/>
         <br/>
         <b>Hétérogénéité</b>:<br/>
         e.g. être capable de différencier les types de virtualisation peut servir pour le choix de l'hébergement des machines
@@ -145,12 +147,12 @@
                 <tbody>
                 <tr>
                     <td style="width:85px;"></td>
-                    <td style="width:119px;"><b><!--Multi-niveaux--></b></td>
-                    <td style="width:119px"><b><!--Hébergement--></b></td>
-                    <td style="width:110px"><b><!--Distribution--></b></td>
-                    <td style="width:126px"><b><!--Hétérogénéité--></b></td>
-                    <td style="width:116px"><b><!--Extensibilité--></b></td>
-                    <td style="width:108px"><b><!--Réfléxitivé--></b></td>
+                    <td style="width:119px;"></td>
+                    <td style="width:119px"></td>
+                    <td style="width:110px"></td>
+                    <td style="width:126px"></td>
+                    <td style="width:116px"></td>
+                    <td style="width:108px"></td>
                 </tr>
                 <tr>
                     <td><b>RBAD</b></td>
@@ -203,9 +205,9 @@
     </ul>
     <details>
         <b>Architectures réfléxives</b>:<br/>
-            qui permettent de définir des applications<br/>
+        qui permettent de définir des applications<br/>
         <b>Solutions de Cloud</b>:<br/>
-            Qui permettent de définir des niveaux de Cloud<br/>
+        Qui permettent de définir des niveaux de Cloud<br/>
         <br/>
         Dans l'ensemble, il n'y a pas de solution qui s'approche de ce dont on a besoin
     </details>
@@ -213,7 +215,7 @@
 
 <section class="slide">
     <header>
-        <h2>Existing abstractions (2)</h2>
+        <h2>Abstractions existantes (2)</h2>
     </header>
     <ul>
         <li class="hidden"><span class="colorOrange">Orienté Grille: GCM</span>
@@ -222,12 +224,16 @@
                 <li>Sémantiques de communication pour les applications sur grilles</li>
                 <li>Nœuds virtuels
                     <ul>
-                        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>multi-niveaux, <span class="icon-plus-sign colorGreen"></span>hébergement</li>
+                        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>multi-niveaux, <span
+                                class="icon-plus-sign colorGreen"></span>hébergement
+                        </li>
                     </ul>
                 </li>
                 <li>Mêmes propriétés que Fractal
                     <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Extensibilité, <span class="icon-exclamation-sign colorOrange"></span>Réflexion (synchronisée)</li>
+                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Extensibilité, <span
+                                class="icon-exclamation-sign colorOrange"></span>Réflexion (synchronisée)
+                        </li>
                     </ul>
                 </li>
             </ul>
