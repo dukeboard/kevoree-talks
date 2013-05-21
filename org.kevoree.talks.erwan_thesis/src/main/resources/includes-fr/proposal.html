@@ -94,7 +94,7 @@
 
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
-    <header><h2>Model@Runtime dans Kevoree</h2></header>
+    <header><h2>Model@Runtime et Kevoree</h2></header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Une couche d'abstraction architecturale</span>
     <ul>
         <li class="hidden">Basée sur une approche à composant
@@ -138,7 +138,7 @@
 <section class="slide">
     <div class="fouquet">These François Fouquet</div>
     <header>
-        <h2>Model@Runtime dans Kevoree : Dissémination des reconfigurations</h2>
+        <h2>Model@Runtime et Distribution</h2>
     </header>
     <img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
 
@@ -157,34 +157,34 @@
     <ul>
         <li class="next"><span class="colorOrange">Model@Runtime</span>
             <ul>
-                <li class="hidden next"><span class="icon-plus-sign colorGreen"></span>Réflexion désynchronisée
+                <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Réflexion désynchronisée
                 </li>
             </ul>
         </li>
         <li class="next"><span class="colorOrange">Pattern Type/Instance</span>
             <ul>
-                <li class="hidden next">
+                <li class="hidden">
                     <span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité<span class="colorRed">TODO reprendre Olivier pas d'accord</span>
                 </li>
             </ul>
         </li>
         <li class="next"><span class="colorOrange">Nœud</span>
             <ul>
-                <li class="hidden next collapse"><span class="icon-exclamation-sign colorOrange"></span>Hébergement partiel
-                    <ul>
-                        <li>Pas d'hébergement des plates-formes par des infrastructures</li>
-                    </ul>
-                </li>
                 <li class="hidden next collapse"><span class="icon-exclamation-sign colorOrange"></span>Multi-niveaux partiel
                     <ul>
                         <li>Seulement application et plate-forme</li>
+                    </ul>
+                </li>
+                <li class="hidden next collapse"><span class="icon-exclamation-sign colorOrange"></span>Hébergement partiel
+                    <ul>
+                        <li>Pas d'hébergement des plates-formes par des infrastructures</li>
                     </ul>
                 </li>
             </ul>
         </li>
         <li class="next"><span class="colorOrange">Propriétés réseaux</span>
             <ul>
-                <li class="hidden next"><span class="icon-plus-sign colorGreen"></span>Distribution</li>
+                <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Distribution</li>
             </ul>
         </li>
     </ul>
@@ -256,14 +256,13 @@
     <ul>
         <li class="hidden next">Le nœud est responsable de l'adaptation des entités qu'il héberge
             <ul>
-                <li class="next">Ajout, démarrage, arrêt, suppression de composants, ...</li>
-            </ul>
-            <ul>
+                <li>Ajout, démarrage, arrêt, suppression de composants, ...</li>
                 <li class="next"><span class="colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds</span><br/>
                     <img src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg" style="position:relative;left:50px;"/>
                 </li>
             </ul>
         </li>
+        <li class="hidden next"><span class="colorOrange">Le nœud est responsable de la comparaison des modèles (planification)</span></li>
         <li class="hidden next">Séparation des niveaux
             <ul>
                 <li class="hidden next"><span class="icon-ok-sign colorGreen"></span>IaaS: Déplacer des nœuds de plate-forme</li>
