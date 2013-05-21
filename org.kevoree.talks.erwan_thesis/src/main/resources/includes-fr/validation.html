@@ -371,7 +371,7 @@
 
 <section class="slide">
     <header>
-        <h2>Évaluation : Temps d'exécution (1)</h2>
+        <h2>Évaluation</h2>
     </header>
     <ul>
         <li><span class="colorOrange">Apache Camel: Premier cas d'usage</span>
@@ -381,7 +381,7 @@
         </li>
         <li><span class="colorOrange">Extrapolation de plus gros modèle</span>
             <ul>
-                <li class="hidden">500 nœuds + 40 000 composants</li>
+                <!--<li class="hidden">500 nœuds + 40 000 composants</li>-->
                 <li class="hidden">5 000 nœuds + 400 000 composants</li>
                 <li class="hidden">50 000 nœuds + 400 000 composants</li>
                 <li class="hidden">100 000 nœuds + 400 000 composants</li>
@@ -402,14 +402,19 @@
 
 <section class="slide">
     <header>
-        <h2>Évaluation : Temps d'exécution (2)</h2>
+        <h2>Évaluation : Temps d'exécution</h2>
     </header>
     <img height="300px" src="figures/validation/eval_time-new.png"/>
-    <p style="line-height: 1;">Temps d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs (généralement plus de 100s par machine<span class="cite">*</span>)</p>
+
+    <p style="line-height: 1;">Temps d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
+        (généralement plus de 100s par machine<span class="cite">*</span>)</p>
+
     <p class="cite"><span>*</span>Mao, M.et al. - A performance study on the vm startup time in the cloud - 2012</p>
     <details>
-        <b>Création d'une VM</b> = téléchargement de l'image du disque, réservation des ressources, création de la vm, démarrage de la vm<br/>
-        Le temps de création varie selon les impléms d'IaaS ainsi que selon le type de vms à créer et selon la charge de la machine qui doit héberger cette vm
+        <b>Création d'une VM</b> = téléchargement de l'image du disque, réservation des ressources, création de la vm, démarrage de la
+        vm<br/>
+        Le temps de création varie selon les impléms d'IaaS ainsi que selon le type de vms à créer et selon la charge de la machine qui doit
+        héberger cette vm
     </details>
 </section>
 
@@ -418,19 +423,26 @@
         <h2>Évaluation : Usage mémoire</h2>
     </header>
     <ul>
-        <li class="hidden"><span class="colorOrange">Extrapolation du modèle pour Amazon EC2</span><span class="cite">*</span>
+        <li class="hidden next">
+            <table>
+                <tr>
+                    <td><img height="200px" src="figures/validation/eval_memory.png"/></td>
+                    <td style="vertical-align: top;">
+                        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span><br/>
+                        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>
+                    </td>
+                </tr>
+            </table>
+
+        <li class="hidden next collapse"><span class="colorOrange">Extrapolation du modèle pour Amazon EC2</span><span class="cite">*</span>
             <ul>
                 <li class="hidden">507000 nœuds (infrastructure + plate-forme) + 400000 éléments</li>
             </ul>
         </li>
-        <li class="hidden"><span class="colorOrange">Taille mémoire : 721,21 Mo</span>
+        <li class="hidden next"><span class="colorOrange">Taille mémoire : 721,21 Mo</span>
             <ul>
                 <li class="hidden">Sans partitionnement ni filtrage</li>
             </ul>
-        </li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span></li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>
-            <img style="position:absolute;right:10px;bottom:100px;" height="200px" src="figures/validation/eval_memory.png"/>
         </li>
     </ul>
     <p class="cite">

@@ -27,9 +27,9 @@
                 <li class="hidden next">
                     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
                     <ul>
-                        <li class="next">Une extension de Kevoree pour modéliser un Cloud</li>
-                        <li class="next">Utilisation des groupes pour garder l'indépendance des niveaux</li>
-                        <li class="next">Une API pour la réutilisation et la définition de nouvelles implémentations</li>
+                        <li>Une extension de Kevoree pour modéliser un Cloud</li>
+                        <li>Utilisation des groupes pour garder l'indépendance des niveaux</li>
+                        <li>Une API pour la réutilisation et la définition de nouvelles implémentations</li>
                     </ul>
                 </li>
             </ul>
@@ -57,23 +57,20 @@
     <ul>
         <li class="hidden next">Un modèle comme <span class="colorOrange">abstraction d'architecture</span> à l'exécution<span class="cite">*</span>
         </li>
-        <li class="hidden next collapse"><span class="colorOrange">Support de réflexion désynchonisée</span>
+        <li class="hidden next">Réflexion :
             <ul>
-                <li>Réflexion :
+                <li>Capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
+                <li class="next collapse">Lien causal entre le système et sa représentation
                     <ul>
-                        <li>Capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
-                        <li>Lien causal entre le système et sa représentation
-                            <ul>
-                                <li class="hidden">
-                                    <span class="icon-minus-sign colorRed"></span>Une erreur dans la reconfiguration
-                                    <span class="icon-arrow-right"></span> système instable
-                                </li>
-                            </ul>
+                        <li class="hidden">
+                            <span class="icon-minus-sign colorRed"></span>Une erreur dans la reconfiguration
+                            <span class="icon-arrow-right"></span> système instable
                         </li>
                     </ul>
                 </li>
             </ul>
         </li>
+        <li class="hidden next collapse"><span class="colorOrange">Support de réflexion désynchonisée</span></li>
         <li class="hidden next collapse">
             <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Tester et validation d'une configuration avant même de l'appliquer</span>
         </li>
@@ -125,7 +122,7 @@
                 </li>
                 <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
                     <ul>
-                        <li>Encapsule la sémantique de dissémination des mises à jour (modèle)</li>
+                        <li>Encapsule la sémantique de dissémination des mises à jour (modèles)</li>
                     </ul>
                 </li>
             </ul>
@@ -256,18 +253,24 @@
     <ul>
         <li class="hidden next">Le nœud est responsable de l'adaptation des entités qu'il héberge
             <ul>
-                <li>Ajout, démarrage, arrêt, suppression de composants, ...</li>
+                <li class="next collapse">Ajout, démarrage, arrêt, suppression de composants, ...
+                    <ul>
+                        <li class="hidden next"><span class="icon-exclamation-sign colorOrange"></span>Liste de primitives spécifiques au
+                            type de nœud
+                        </li>
+                    </ul>
+                </li>
                 <li class="next"><span class="colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds</span><br/>
                     <img src="figures/contribution/kevoreekloud/kevoree_primitive_type.svg" style="position:relative;left:50px;"/>
                 </li>
             </ul>
         </li>
         <li class="hidden next"><span class="colorOrange">Le nœud est responsable de la comparaison des modèles (planification)</span></li>
-        <li class="hidden next">Séparation des niveaux
+        <li class="hidden next">Isolation entre les nœuds
             <ul>
                 <li class="hidden next"><span class="icon-ok-sign colorGreen"></span>IaaS: Déplacer des nœuds de plate-forme</li>
                 <li class="hidden next"><span class="icon-remove-sign colorRed"></span>IaaS: Déplacer des composants d'application</li>
-                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Isolation entre les nœuds</span>
+                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Séparation des niveaux</span>
                 </li>
             </ul>
         </li>
@@ -278,8 +281,11 @@
          </li>-->
     </ul>
     <details>
-        <b>Explicitation</b>:<br/>
-        Par exemple, LibVirt est capable de dynamiquement modifié la quantité de mémoire allouée à une VM
+        <b>Liste de primitives</b>:<br/>
+        Par exemple, certaines implémentations de solution d'infrastructure sont capables de modifier dynamiquement les caractéristiques des
+        ressources de plate-forme telle que la quantité de mémoire vive qui lui est allouée<br/>
+        <b>Planification</b> : <br/>
+        Comme la liste des primitives d'adaptation est spécifiques au type de nœud, la comparaison de modèle pour identifier les actions d'adaptation qui sont nécessaire pour mettre en place la nouvelle configuration dépend elle aussi du type du nœud, c'est pourquoi les nœuds sont responsable de cette phase
     </details>
 </section>
 
@@ -315,14 +321,14 @@
             </div>
             <div id="groupall" class="next">
                 <ul>
-                    <li class="hidden"><span class="icon-arrow-right"></span>Vision globale du système</li>
+                    <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Vision globale du système</span></li>
                 </ul>
             </div>
         </li>
         <li class="next">Vision Globale
             <ul>
                 <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Adaptation de manière orthogonale</li>
-                <li class="hidden"><span class="icon-remove-sign colorRed"></span>Séparation des préoccupations
+                <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span><span class="colorOrange">Séparation des préoccupations</span>
                     <ul>
                         <li>SaaS : Fournir des services finaux de bonne qualité</li>
                         <li>PaaS : Faire le lien entre les services finaux et les ressources</li>
@@ -345,20 +351,25 @@
         <li class="hidden next">Faire cohabiter
             <span class="icon-plus" style="position:relative;top:80px;left:-180px"></span>
             <ul>
-                <li class="hidden">Adaptation comme une problématique orthogonale</li>
-                <li class="hidden">Séparation des préoccupations
+                <li class="hidden">Adaptation comme une problématique transverse</li>
+                <li class="hidden">Séparation des préoccupations (niveaux)
             </ul>
         </li>
-        <li class="hidden next colorOrange"><span class="icon-arrow-right"></span>Sélectionner les données mises à disposition
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Sélectionner les données mises à disposition</span>
             <ul>
                 <li class="hidden next">Partager différentes versions du modèle globale</li>
                 <li class="hidden next">En fonction de ce que l'on veut permettre comme interaction</li>
-                <li class="hidden next colorOrange">En utilisant les groupes</li>
+                <li class="hidden next colorOrange">En utilisant les groupes
+                <ul>
+                    <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Partitionnement et/ou filtrage</span></li>
+                </ul>
+                </li>
             </ul>
         </li>
     </ul>
     <details>
-        <b>Faire cohabiter</b> : Faire cohabiter l'adaptation et la séparation des préoccupations parce que dans la réalité, les fournisseurs de service ne veulent pas que les autres puissent adapter leurs implémentation<br/>
+        <b>Faire cohabiter</b> : Faire cohabiter l'adaptation et la séparation des préoccupations parce que dans la réalité, les
+        fournisseurs de service ne veulent pas que les autres puissent adapter leurs implémentation<br/>
         C'est le cas notamment d'Amazon qui ne fournit que très peu d'information concernant sa solution d'infrastructure
     </details>
 </section>
@@ -369,8 +380,10 @@
     </header>
     <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="200px" style="position:absolute;top:150px;left:50px;"/>
     <img src="figures/contribution/kevoreekloud/partition-interaction.png" height="200px" style="position:absolute;top:150px;right:50px;"/>
-    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="200px" style="position:absolute;bottom:30px;left:50px;"/>
-    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px" style="position:absolute;bottom:30px;right:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="200px"
+         style="position:absolute;bottom:30px;left:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px"
+         style="position:absolute;bottom:30px;right:50px;"/>
 </section>
 
 <!--<section class="slide">
