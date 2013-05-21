@@ -20,7 +20,7 @@ function KSlideCount (kslide) {
         document.querySelector('#slideidx').addEventListener("click", setCursor, false);
     };
 
-    function setCursor (event) {
+    function setCursor () {
         kslide.sendEvent(this, {"type":"SET_CURSOR", "cursor":+prompt('Go to slide...', '1') - 1});
     }
 

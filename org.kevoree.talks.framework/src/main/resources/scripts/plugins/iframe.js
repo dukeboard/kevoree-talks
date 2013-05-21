@@ -5,7 +5,7 @@
  * Time: 22:32
  */
 
-function KIFrameSlave (kslide) {
+function KIFrameSlave(kslide) {
 
     var self = this;
 
@@ -15,24 +15,24 @@ function KIFrameSlave (kslide) {
     this.start = function () {
         if (window.parent.document != document) {
             window.addEventListener("message", manageMessage, false);
-            kslide.sendEvent(self, {"type":"FULL"});
+            kslide.sendEvent(self, {"type": "FULL"});
         }
     };
 
     this.initialize = function () {};
 
-    function manageMessage (event) {
+    function manageMessage(event) {
         if (window.parent.document != document && window.parent === event.source) {
             var message = JSON.parse(event.data);
             if (message.type === "REGISTER") {
-                event.source.postMessage(JSON.stringify({"type":"REGISTERED"}), '*');
+                event.source.postMessage(JSON.stringify({"type": "REGISTERED"}), '*');
             } else if (message.type === "GET_LENGTH") {
                 var response = kslide.getLength();
                 if (response != null && response.type == "LENGTH") {
                     window.parent.postMessage(JSON.stringify(response), '*');
                 }
                 // TODO do the same for GET_CURSOR
-            }else if (message.type === "EMPTY_SLIDE") {
+            } else if (message.type === "EMPTY_SLIDE") {
                 if (message.position === "START") {
                     message.position = 0;
                 } else if (message.position === "END") {
@@ -57,25 +57,25 @@ function KIFrameSlave (kslide) {
     }
 }
 
-function KIFrameMaster (kslide, slideURL) {
+function KIFrameMaster(kslide, slideURL) {
     var self = this;
     var views = {
-        id:null,
-        present:null,
-        future:null,
-        length:null,
-        cursor:null
+        id: null,
+        present: null,
+        future: null,
+        length: null,
+        cursor: null
     };
 
     this.listener = function (message) {
         if (message.type === "START") {
-            views.present.postMessage(JSON.stringify({"type":"START"}), '*');
-            views.future.postMessage(JSON.stringify({"type":"START"}), '*');
-            views.future.postMessage(JSON.stringify({"type":"FORWARD"}), '*');
+            views.present.postMessage(JSON.stringify({"type": "START"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "START"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
         } else if (message.type === "SET_CURSOR") {
             views.present.postMessage(JSON.stringify(message), '*');
             views.future.postMessage(JSON.stringify(message), '*');
-            views.future.postMessage(JSON.stringify({"type":"FORWARD"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
         } else if (message.type === "BACK") {
             if (views.cursor != "0") {
                 views.present.postMessage(JSON.stringify(message), '*');
@@ -88,7 +88,7 @@ function KIFrameMaster (kslide, slideURL) {
     };
 
     /* Get url from hash or prompt and store it */
-    function getUrl () {
+    function getUrl() {
         if (slideURL == undefined) {
             slideURL = window.prompt("What is the URL of the slides?");
             if (slideURL) {
@@ -103,7 +103,7 @@ function KIFrameMaster (kslide, slideURL) {
         return slideURL + "frame";
     }
 
-    function loadIframes () {
+    function loadIframes(callback) {
         views.present = document.querySelector("#present iframe");
         views.future = document.querySelector("#future iframe");
         var url = getUrl();
@@ -111,32 +111,38 @@ function KIFrameMaster (kslide, slideURL) {
         views.present.onload = views.future.onload = function () {
             var id = this.parentNode.id;
             views[id] = this.contentWindow;
-            views[id].postMessage(JSON.stringify({"type":"REGISTER"}), '*');
+            views[id].postMessage(JSON.stringify({"type": "REGISTER"}), '*');
         };
+        jQuery("#present").find("iframe").load(function () {
+            callback.resolve();
+        })
     }
 
     this.start = function () {
         window.addEventListener('message', manageMessage, false);
-        loadIframes();
     };
 
-    this.initialize = function () {};
+    this.initialize = function () {
+        var callback = jQuery.Deferred();
+        loadIframes(callback);
+        return callback;
+    };
 
     this.update = function () {
-         views.present.source.postMessage(JSON.stringify({"type":"GET_LENGTH"}), '*');
+        views.present.source.postMessage(JSON.stringify({"type": "GET_LENGTH"}), '*');
     };
 
-    function manageMessage (event) {
+    function manageMessage(event) {
         if (event.source === views.present || event.source === views.future) {
             var message = JSON.parse(event.data);
             if (message.type === "REGISTERED") {
                 if (event.source === views.future) {
-                    event.source.postMessage(JSON.stringify({"type":"EMPTY_SLIDE", "position":"END"}), '*');
-                    event.source.postMessage(JSON.stringify({"type":"FORWARD"}), '*');
+                    event.source.postMessage(JSON.stringify({"type": "EMPTY_SLIDE", "position": "END"}), '*');
+                    event.source.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
                 } else {
 //                    event.source.postMessage(JSON.stringify({"type":"EMPTY_SLIDE", "position":"START"}), '*');
-                    event.source.postMessage(JSON.stringify({"type":"GET_LENGTH"}), '*');
-                    event.source.postMessage(JSON.stringify({"type":"GET_NOTES"}), '*');
+                    event.source.postMessage(JSON.stringify({"type": "GET_LENGTH"}), '*');
+                    event.source.postMessage(JSON.stringify({"type": "GET_NOTES"}), '*');
                 }
             } else if (message.type === "NOTES") {
                 if (event.source === views.present) {

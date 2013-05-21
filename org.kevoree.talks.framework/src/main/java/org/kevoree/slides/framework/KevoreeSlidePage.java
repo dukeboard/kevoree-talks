@@ -50,7 +50,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
 			+ "\t\tks.addPluginListener(popupPlugin);\n"
 			+ "\t\tks.addPluginListener(websocketPlugin);\n"
-			+ "\t\tks.addPluginListener(iframePlugin);\n"
+			+ "\t\tks.addPluginListener(iframePlugin, true);\n"
 			+ "\t\tks.addPluginListener(slideCountPlugin);\n"
 			+ "\t\tks.addPluginListener(notesPlugin);\n"
 			+ "\t\tks.addPluginListener(timePlugin);\n"
