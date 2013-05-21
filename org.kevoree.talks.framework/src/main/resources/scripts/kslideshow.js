@@ -5,12 +5,12 @@ function KSlideShow() {
     var slides = null;
     var progress = null;
     var slideList = [];
-    var emptySlide = null;
     var orderedpluginListeners = [];
     var pluginListeners = [];
     var self = this;
 
     function initializeSlidesList() {
+        slideList = [];
         slides = jQuery('* .slide');
         slides.each(function (index, slide) {
             if (!slide.id) {
@@ -243,7 +243,7 @@ function KSlideShow() {
 
     function addEmptySlide(position) {
         if (position != undefined) {
-            emptySlide = document.createElement("section");
+            var emptySlide = document.createElement("section");
             emptySlide.className = "slide";
             emptySlide.id = "EMPTY_SLIDE_" + position;
             // look for the position+1 th element on body

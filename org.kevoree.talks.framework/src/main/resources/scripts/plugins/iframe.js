@@ -103,7 +103,9 @@ function KIFrameMaster(kslide, slideURL) {
         return slideURL + "frame";
     }
 
-    function loadIframes(callback) {
+    function loadIframes() {
+        var callbackPresent = jQuery.Deferred();
+        var callbackFuture = jQuery.Deferred();
         views.present = document.querySelector("#present iframe");
         views.future = document.querySelector("#future iframe");
         var url = getUrl();
@@ -114,18 +116,24 @@ function KIFrameMaster(kslide, slideURL) {
             views[id].postMessage(JSON.stringify({"type": "REGISTER"}), '*');
         };
         jQuery("#present").find("iframe").load(function () {
-            callback.resolve();
-        })
+            callbackPresent.resolve();
+        });
+        jQuery("#future").find("iframe").load(function () {
+            callbackFuture.resolve();
+        });
+
+        var callbacks = [];
+        callbacks.push(callbackPresent);
+        callbacks.push(callbackFuture);
+        return jQuery.when.apply(null, callbacks);
     }
 
     this.start = function () {
-        window.addEventListener('message', manageMessage, false);
     };
 
     this.initialize = function () {
-        var callback = jQuery.Deferred();
-        loadIframes(callback);
-        return callback;
+        window.addEventListener('message', manageMessage, false);
+        return loadIframes();
     };
 
     this.update = function () {
