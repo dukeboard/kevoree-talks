@@ -6,32 +6,36 @@ jQuery(document).ready(function () {
 
         // clear mar runtime on each node
         var engine = jQuery('#marDengine1');
-        var element = engine.get(0);
+        /*var element = engine.get(0);
         var indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
             element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }
+        }*/
         engine.show();
 
         engine = jQuery('#marDengine2');
-        element = engine.get(0);
+        /*element = engine.get(0);
         indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
             element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }
+        }*/
         engine.show();
 
         engine = jQuery('#marDengine3');
-        element = engine.get(0);
+        /*element = engine.get(0);
         indexOf = element.className.indexOf(" icon-spin");
         if (indexOf != -1) {
             element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }
+        }*/
         engine.show();
 
         jQuery("#saasfigure").show();
         jQuery("#paasfigure").show();
         jQuery("#iaasfigure").show();
+
+        jQuery("#saas-sample-img").hide();
+        jQuery("#paas-sample-img").hide();
+        jQuery("#iaas-sample-img").hide();
 
         jQuery("#singlesystem").show();
         jQuery("#singlesystemfigure").show();
@@ -58,7 +62,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery(document.body).on("slide", function () {
-        // undo clear of mar runtime on each node
+        /*// undo clear of mar runtime on each node
         var element = jQuery('#marDengine1').get(0);
         if (element.className.indexOf(" icon-spin") == -1) {
             element.className = element.className + " icon-spin";
@@ -72,7 +76,7 @@ jQuery(document).ready(function () {
         element = jQuery('#marDengine3').get(0);
         if (element.className.indexOf(" icon-spin") == -1) {
             element.className = element.className + " icon-spin";
-        }
+        }*/
 // FIXME must be remove but currently event are not well organized and so slide event come after currentActive
 
         jQuery("#saasfigure").hide();
@@ -117,6 +121,63 @@ jQuery(document).ready(function () {
         jQuery.noConflict();
         jQuery("#iaasfigure").hide();
     });
+
+    element = jQuery("#saas-sample");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#saas-sample-img").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#saas-sample-img").hide();
+    });
+    element = jQuery("#paas-sample");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#paas-sample-img").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#paas-sample-img").hide();
+    });
+    element = jQuery("#iaas-sample");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#iaas-sample-img").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#iaas-sample-img").hide();
+    });
+    /* jQuery("#parallel-sample").on('active', function (event) {
+     //        console.log("parallel active");
+     var element = jQuery("#parallel-sample");
+     if (event.target === element.get(0)) {
+     scale(element);
+     }
+     });
+     element = jQuery("#sequencial-sample");
+     element.on('active', function (event) {
+     //        console.log("sequencial active");
+     var element = jQuery("#parallel-sample");
+     if (event.target === jQuery("#sequencial-sample").get(0)) {
+     jQuery.noConflict();
+
+     element.css("top", "200px");
+     element.css("left", "50px");
+     element.css("height", "200px");
+     element.css("width", "250px");
+     jQuery("#paas-text").hide();
+     jQuery("#iaas-text").hide();
+     }
+     });
+     element.on('notActive', function (event) {
+     //        console.log("sequencial notactive");
+     var element = jQuery("#parallel-sample");
+     if (event.target === jQuery("#sequencial-sample").get(0)) {
+     scale(element);
+     }
+     });*/
 
     element = jQuery("#singlesystem");
     element.on('currentActive', function () {
@@ -202,6 +263,18 @@ jQuery(document).ready(function () {
         jQuery("#marDengine3").hide();
     });
 
+    element = jQuery("#kevoree-node");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#kevoree-partial-multi-layers").show();
+        jQuery("#kevoree-partial-hosting").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#kevoree-partial-multi-layers").hide();
+        jQuery("#kevoree-partial-hosting").hide();
+    });
+
     element = jQuery("#kevoreehostsample");
     element.on('currentActive', function () {
         jQuery.noConflict();
@@ -260,6 +333,17 @@ jQuery(document).ready(function () {
         clearGroupIaaSPaaSAll();
     });
 });
+
+function scale(element) {
+    jQuery.noConflict();
+    element.css("top", "200px");
+    element.css("left", "50px");
+    element.css("height", "400px");
+    element.css("width", "500px");
+
+    jQuery("#paas-text").show();
+    jQuery("#iaas-text").show();
+}
 
 function clear() {
     jQuery.noConflict();

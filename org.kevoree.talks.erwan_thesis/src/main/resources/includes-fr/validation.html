@@ -28,6 +28,107 @@
     </ul>
 </section>-->
 
+
+<!--<section class="slide shout">
+    <header>
+        <h2 style="line-height: 0.3;">
+            <span class="colorOrange" style="font-size: 60px;">Est-ce possible de faire <br/>de l'adaptation multi-niveaux ?</span><br/>
+            <span style="font-size: 40px;">Distribution d'un serveur web</span>
+        </h2>
+    </header>
+</section>-->
+
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Utilisabilité</div>
+    </div>
+    <header>
+        <h2>Notre abstraction répond-elle à notre objectif ?</h2>
+    </header>
+    <ul>
+        <li class="hidden"><span class="colorOrange">Objectif : Gérer l'adaptation de manière transverse</span></li>
+        <li class="hidden">Protocole expérimental
+            <ul>
+                <li>Implémentation de gestionnaires
+                    <ul>
+                        <li>Infrastructure
+                            <ul>
+                                <li>Utilisation des informations multi-niveaux</li>
+                            </ul>
+                        </li>
+                        <li>Plate-forme
+                            <ul>
+                                <li>Coordination de l'adaptation entre IaaS et PaaS</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Utilisabilité</div>
+    </div>
+    <header>
+        <h2>Cas d'usage</h2>
+    </header>
+    <ul>
+        <li class="hidden next collapse"><span class="colorOrange">Définition d'un serveur web distribué</span>
+            <ul>
+                <li>Définition d'un serveur qui écoute sur un port réseau</li>
+                <li>Définition de page web répondant pour une url spécifique</li>
+                <li>Interconnexion du serveur et des pages grâce aux channels</li>
+            </ul>
+            <div>
+                <img height="150px" src="figures/validation/webserver-onenode.png"/>
+                <img class="next" height="150px" src="figures/validation/webserver-distributed.png"/>
+            </div>
+        </li>
+        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire d'infrastructure</span>
+            <ul>
+                <li>Tenant compte des interactions au niveau application
+                    <ul>
+                        <li>Pour le positionnement des machines virtuelles</li>
+                        <li>Pour rapprocher les machines virtuelles ayant beaucoup d'interactions</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire de plate-forme</span>
+            <ul>
+                <li>Capable de refuser des adaptations provenant de l'infrastructure
+                    <ul>
+                        <li>Pour éviter les migrations de VMs</li>
+                        <li>Pour les remplacer par des adaptations au niveau plate-forme</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Utilisabilité</div>
+    </div>
+    <header>
+        <h2>Évaluation</h2>
+    </header>
+    <ul>
+        <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
+        <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
+    </ul>
+    <details>
+        <b>cas d'étude spécifique</b>:<br/>
+        Les gestionnaires sont des implémentations spécifiques qui tiennent compte de certains informations et qui sont capable de se
+        coordonner dans le cadre de certaines adaptations<br/>
+        C'est le modèle qui permet de définir ces implémentations spécifiques.
+    </details>
+</section>
+
 <!--<section class="slide shout">
     <header>
         <h2 style="line-height: 0.3;">
@@ -38,8 +139,11 @@
 </section>-->
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+    </div>
     <header>
-        <h2>Est-ce extensible et générique ?</h2>
+        <h2>Notre abstraction est-elle extensible et générique ?</h2>
     </header>
     <ul>
         <li class="hidden">Protocole expérimental
@@ -65,6 +169,9 @@
 </section>
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+    </div>
     <header>
         <h2>Cas d'usage</h2>
     </header>
@@ -131,6 +238,9 @@
 </section>-->
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+    </div>
     <header>
         <h2>Évaluation</h2>
     </header>
@@ -199,8 +309,11 @@
 </section>-->
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
-        <h2>Est-ce que cela passe à l'échelle ?</h2>
+        <h2>Notre abstraction passe-t-elle à l'échelle ?</h2>
     </header>
     <ul>
         <li class="hidden">Protocole expérimental
@@ -245,6 +358,9 @@
 </section>-->
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Cas d'usage (1)</h2>
     </header>
@@ -277,6 +393,9 @@
 </section>
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Cas d'usage (2)</h2>
     </header>
@@ -299,6 +418,9 @@
 </section>
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Cas d'usage (3)</h2>
     </header>
@@ -327,7 +449,8 @@
         </li>
     </ul>
     <p class="cite">
-        <span>*</span>Hohpe, G. et al. - EIP: Designing, building, and deploying messaging solutions - 2004.
+        <span>*</span>Hohpe, G., et al. (2004). Enterprise integration patterns: Designing, building, and deploying messaging solutions.
+        Addison-Wesley Professional.
     </p>
     <details>
         <b>Sur le Cloud</b>:<br/>
@@ -370,6 +493,9 @@
 </section>-->
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Évaluation</h2>
     </header>
@@ -379,7 +505,7 @@
                 <li>50 nœuds + 3845 composants</li>
             </ul>
         </li>
-        <li><span class="colorOrange">Extrapolation de plus gros modèle</span>
+        <li><span class="colorOrange">Génération de plus gros modèle</span>
             <ul>
                 <!--<li class="hidden">500 nœuds + 40 000 composants</li>-->
                 <li class="hidden">5 000 nœuds + 400 000 composants</li>
@@ -401,15 +527,19 @@
 </section>
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Évaluation : Temps d'exécution</h2>
     </header>
     <img height="300px" src="figures/validation/eval_time-new.png"/>
 
-    <p style="line-height: 1;">Temps d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
+    <p style="line-height: 1;">Surcoût d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
         (généralement plus de 100s par machine<span class="cite">*</span>)</p>
 
-    <p class="cite"><span>*</span>Mao, M.et al. - A performance study on the vm startup time in the cloud - 2012</p>
+    <p class="cite"><span>*</span>Mao, M., et al. (2012). A performance study on the vm startup time in the cloud. In Cloud Computing, (pp.
+        423-430). IEEE.</p>
     <details>
         <b>Création d'une VM</b> = téléchargement de l'image du disque, réservation des ressources, création de la vm, démarrage de la
         vm<br/>
@@ -419,11 +549,14 @@
 </section>
 
 <section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
+    </div>
     <header>
         <h2>Évaluation : Usage mémoire</h2>
     </header>
     <ul>
-        <li class="hidden next">
+        <li class="hidden">
             <table>
                 <tr>
                     <td><img height="200px" src="figures/validation/eval_memory.png"/></td>
@@ -434,7 +567,7 @@
                 </tr>
             </table>
 
-        <li class="hidden next collapse"><span class="colorOrange">Extrapolation du modèle pour Amazon EC2</span><span class="cite">*</span>
+        <li class="hidden next collapse"><span class="colorOrange">Génération du modèle pour Amazon EC2</span><span class="cite">*</span>
             <ul>
                 <li class="hidden">507000 nœuds (infrastructure + plate-forme) + 400000 éléments</li>
             </ul>
@@ -446,100 +579,7 @@
         </li>
     </ul>
     <p class="cite">
-        <span>*</span><span class="colorOrange notstar">Extrapolation du modèle pour Amazon EC2</span> à partir des informations
-        obtenu dans<br/>
-        ROSEN, Guy - Anatomy of an Amazon EC2 Resource ID - 2011 et
+        <span>*</span>À partir des informations obtenu dans Rosen, G. (2011). Anatomy of an Amazon EC2 Resource ID. et<br/>
         <a href="http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/">http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/</a>
     </p>
-</section>
-
-<!--<section class="slide shout">
-    <header>
-        <h2 style="line-height: 0.3;">
-            <span class="colorOrange" style="font-size: 60px;">Est-ce possible de faire <br/>de l'adaptation multi-niveaux ?</span><br/>
-            <span style="font-size: 40px;">Distribution d'un serveur web</span>
-        </h2>
-    </header>
-</section>-->
-
-<section class="slide">
-    <header>
-        <h2>Notre abstraction répond-elle à notre objectif ?</h2>
-    </header>
-    <ul>
-        <li class="hidden"><span class="colorOrange">Objectif : Gérer l'adaptation de manière transverse</span></li>
-        <li class="hidden">Protocole expérimental
-            <ul>
-                <li>Implémentation de gestionnaires
-                    <ul>
-                        <li>Infrastructure
-                            <ul>
-                                <li>Utilisation des informations multi-niveaux</li>
-                            </ul>
-                        </li>
-                        <li>Plate-forme
-                            <ul>
-                                <li>Coordination de l'adaptation entre IaaS et PaaS</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <header>
-        <h2>Cas d'usage</h2>
-    </header>
-    <ul>
-        <li class="hidden next collapse"><span class="colorOrange">Définition d'un serveur web distribué</span>
-            <ul>
-                <li>Définition d'un serveur qui écoute sur un port réseau</li>
-                <li>Définition de page web répondant pour une url spécifique</li>
-                <li>Interconnexion du serveur et des pages grâce aux channels</li>
-            </ul>
-            <div>
-                <img height="150px" src="figures/validation/webserver-onenode.png"/>
-                <img class="next" height="150px" src="figures/validation/webserver-distributed.png"/>
-            </div>
-        </li>
-        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire d'infrastructure</span>
-            <ul>
-                <li>Tenant compte des interactions au niveau application
-                    <ul>
-                        <li>Pour le positionnement des machines virtuelles</li>
-                        <li>Pour rapprocher les machines virtuelles ayant beaucoup d'interactions</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire de plate-forme</span>
-            <ul>
-                <li>Capable de refuser des adaptations provenant de l'infrastructure
-                    <ul>
-                        <li>Pour éviter les migrations de VMs</li>
-                        <li>Pour les remplacer par des adaptations au niveau plate-forme</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <header>
-        <h2>Évaluation</h2>
-    </header>
-    <ul>
-        <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
-        <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
-    </ul>
-    <details>
-        <b>cas d'étude spécifique</b>:<br/>
-        Les gestionnaires sont des implémentations spécifiques qui tiennent compte de certains informations et qui sont capable de se
-        coordonner dans le cadre de certaines adaptations<br/>
-        C'est le modèle qui permet de définir ces implémentations spécifiques.
-    </details>
 </section>

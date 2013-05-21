@@ -14,6 +14,31 @@
     color: #0000FF;
 }
 
+div.guide {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    height: 24px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 0.6;
+    color: rgba(100, 100, 100, 0.7);
+}
+
+div.guide * {
+    margin: 4px;
+}
+
+
+.full .slide:after {
+    color: rgba(100, 100, 100, 0.7);
+}
+
+.full .progress div {
+    background: rgba(177, 177, 177, 0.7);
+}
+
+
 a:link.team,
 a:visited.team,
 a:active.team,
@@ -69,7 +94,7 @@ table.existingsolutions td {
     border: 1px solid black;
     border-collapse: collapse;
     line-height: 1.1;
-    text-align: left;
+    text-align: center;
     margin: 20px;
 }
 
@@ -78,13 +103,13 @@ table.existingsolutions .next td {
     border: 0px;
     border-collapse: collapse;
     line-height: 1.1;
-    text-align: left;
+    text-align: center;
     margin: 20px;
 }
 
 table.evaluation .next.active td,
 table.evaluation td {
-    font-size: 18px;
+    font-size: 22px;
     border: 1px solid black;
     border-collapse: collapse;
     line-height: 1.1;
@@ -93,7 +118,7 @@ table.evaluation td {
 }
 
 table.evaluation .next td {
-    font-size: 18px;
+    font-size: 22px;
     border: 0px;
     border-collapse: collapse;
     line-height: 1.1;
@@ -122,10 +147,11 @@ table.memory .next td {
 
 div.fouquet {
     position: absolute;
-    top: 2px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
     font-size: 16px;
     color: #DF9D00;
+    background-color: #FFFFFF;
 }
 
 .slide.shout > h2.h2-list {
