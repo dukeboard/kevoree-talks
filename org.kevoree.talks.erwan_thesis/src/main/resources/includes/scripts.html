@@ -4,30 +4,44 @@ jQuery(document).ready(function () {
         // clear contribution kevoree concepts
         clear();
 
+        jQuery("#needs-multi-layer-figure").hide();
+        jQuery("#needs-hosting-figure").hide();
+        jQuery("#needs-distribution-figure").hide();
+        jQuery("#needs-heterogeneity-figure").hide();
+        jQuery("#needs-extensibility-figure").hide();
+        jQuery("#needs-offline-reflexion-figure").show();
+
         // clear mar runtime on each node
         var engine = jQuery('#marDengine1');
         /*var element = engine.get(0);
-        var indexOf = element.className.indexOf(" icon-spin");
-        if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }*/
+         var indexOf = element.className.indexOf(" icon-spin");
+         if (indexOf != -1) {
+         element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+         }*/
         engine.show();
 
         engine = jQuery('#marDengine2');
         /*element = engine.get(0);
-        indexOf = element.className.indexOf(" icon-spin");
-        if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }*/
+         indexOf = element.className.indexOf(" icon-spin");
+         if (indexOf != -1) {
+         element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+         }*/
         engine.show();
 
         engine = jQuery('#marDengine3');
         /*element = engine.get(0);
-        indexOf = element.className.indexOf(" icon-spin");
-        if (indexOf != -1) {
-            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
-        }*/
+         indexOf = element.className.indexOf(" icon-spin");
+         if (indexOf != -1) {
+         element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+         }*/
         engine.show();
+
+
+        jQuery("#kevoree-partial-multi-layers").hide();
+        jQuery("#kevoree-partial-hosting").hide();
+
+        jQuery("#cloud-similarity-adaptation").hide();
+        jQuery("#cloud-similarity-property").hide();
 
         jQuery("#saasfigure").show();
         jQuery("#paasfigure").show();
@@ -63,20 +77,27 @@ jQuery(document).ready(function () {
 
     jQuery(document.body).on("slide", function () {
         /*// undo clear of mar runtime on each node
-        var element = jQuery('#marDengine1').get(0);
-        if (element.className.indexOf(" icon-spin") == -1) {
-            element.className = element.className + " icon-spin";
-        }
+         var element = jQuery('#marDengine1').get(0);
+         if (element.className.indexOf(" icon-spin") == -1) {
+         element.className = element.className + " icon-spin";
+         }
 
-        element = jQuery('#marDengine2').get(0);
-        if (element.className.indexOf(" icon-spin") == -1) {
-            element.className = element.className + " icon-spin";
-        }
+         element = jQuery('#marDengine2').get(0);
+         if (element.className.indexOf(" icon-spin") == -1) {
+         element.className = element.className + " icon-spin";
+         }
 
-        element = jQuery('#marDengine3').get(0);
-        if (element.className.indexOf(" icon-spin") == -1) {
-            element.className = element.className + " icon-spin";
-        }*/
+         element = jQuery('#marDengine3').get(0);
+         if (element.className.indexOf(" icon-spin") == -1) {
+         element.className = element.className + " icon-spin";
+         }*/
+
+        jQuery("#needs-multi-layer-figure").hide();
+        jQuery("#needs-hosting-figure").hide();
+        jQuery("#needs-distribution-figure").hide();
+        jQuery("#needs-heterogeneity-figure").hide();
+        jQuery("#needs-extensibility-figure").hide();
+        jQuery("#needs-offline-reflexion-figure").hide();
 // FIXME must be remove but currently event are not well organized and so slide event come after currentActive
 
         jQuery("#saasfigure").hide();
@@ -203,6 +224,61 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystemsfigure").hide();
     });
 
+    element = jQuery("#needs-multi-layer");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-multi-layer-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-multi-layer-figure").hide();
+    });
+    element = jQuery("#needs-hosting");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-hosting-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-hosting-figure").hide();
+    });
+    element = jQuery("#needs-distribution");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-distribution-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-distribution-figure").hide();
+    });
+    element = jQuery("#needs-heterogeneity");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-heterogeneity-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-heterogeneity-figure").hide();
+    });
+    element = jQuery("#needs-extensibility");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-extensibility-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-extensibility-figure").hide();
+    });
+    element = jQuery("#needs-offline-reflexion");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-offline-reflexion-figure").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#needs-offline-reflexion-figure").hide();
+    });
+
     element = jQuery("#globalabstraction");
     element.on('currentActive', function () {
         jQuery.noConflict();
@@ -273,6 +349,18 @@ jQuery(document).ready(function () {
         jQuery.noConflict();
         jQuery("#kevoree-partial-multi-layers").hide();
         jQuery("#kevoree-partial-hosting").hide();
+    });
+
+    element = jQuery("#cloud-similarity");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#cloud-similarity-adaptation").show();
+        jQuery("#cloud-similarity-property").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#cloud-similarity-adaptation").hide();
+        jQuery("#cloud-similarity-property").hide();
     });
 
     element = jQuery("#kevoreehostsample");

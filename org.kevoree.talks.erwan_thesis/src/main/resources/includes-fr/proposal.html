@@ -30,9 +30,9 @@
                 <li class="hidden next">
                     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
                     <ul>
-                        <li>Une extension de Kevoree pour modéliser un Cloud</li>
-                        <li>Utilisation des groupes pour garder l'indépendance des niveaux</li>
-                        <li>Une API pour la réutilisation et la définition de nouvelles implémentations</li>
+                        <li>Extension de Kevoree pour modéliser un Cloud</li>
+                        <li>Garantie de lindépendance des niveaux</li>
+                        <li>Réutilisation et définition de nouvelles implémentations</li>
                     </ul>
                 </li>
             </ul>
@@ -121,9 +121,10 @@
                     (channel)</strong></span>
                     <ul>
                         <li>Encapsule la sémantique de communication</li>
-                        <li>Correspond au connecteurs<span class="cite">*</span></li>
+                        <li>Correspond aux connecteurs<span class="cite">*</span></li>
                     </ul>
-                    <p class="cite"><span>*</span>Medvidovic, N. et al. (2000). A classification and comparison framework for software architecture description languages. Software Engineering, IEEE Transactions on, 26(1), 70-93.</p>
+                    <p class="cite"><span>*</span>Medvidovic, N. et al. (2000). A classification and comparison framework for software
+                        architecture description languages. Software Engineering, IEEE Transactions on, 26(1), 70-93.</p>
                 </li>
                 <li class="next collapse" id="nodeType"><span><strong class="colorOrange">Nœud</strong></span>
                     <ul>
@@ -142,24 +143,36 @@
     <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
     <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
 </section>
-
+<!--
 <section class="slide">
     <div class="guide">
         <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>Kevoree</div>
     </div>
     <div class="fouquet">Thèse François Fouquet</div>
     <header>
-        <h2>Kevoree : Gestion de l'hétérogénéïté</h2>
+        <h2>Kevoree : Gestion de l'hétérogénéité</h2>
     </header>
     <ul>
         <li>Patron type/instance
-            <ul></ul>
+            <ul>
+                <li class="hidden"><span class="colorOrange">Type</span> : spécification des fonctionnalités</li>
+                <li class="hidden"><span class="colorOrange">Unité de déploiement</span> : Brique logicielle définissant l'implémentation
+                </li>
+                <li class="hidden"><span class="colorOrange">Instance</span> : Localisation de l'utilisation des fonctionnalités</li>
+            </ul>
         </li>
-        <li>Notion d'unité de déploiement</li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de l'hétérogénéïté</span>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de l'hétérogénéité</span>
+            <ul>
+                <li class="hidden">Unité de déploiement spécifique à un type de nœud</li>
+            </ul>
+        </li>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de l'extensibilité</span>
+            <ul>
+                <li class="hidden">Génération de nouveaux types à partir de l'implémentation</li>
+            </ul>
         </li>
     </ul>
-</section>
+</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -188,7 +201,7 @@
     </header>
     <ul>
         <li>Développement continu de systèmes adaptatifs distribués hétérogènes
-            <ul>
+            <!--<ul>
                 <li class="next"><span class="colorOrange">Model@Runtime</span>
                     <ul>
                         <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Réflexion désynchronisée
@@ -214,9 +227,7 @@
                 </li>
                 <li class="next"><span class="colorOrange">Patron Type/Instance</span>
                     <ul>
-                        <li class="hidden">
-                            <span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité<br/><span class="colorRed">TODO reprendre Olivier pas d'accord</span>
-                        </li>
+                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité</li>
                     </ul>
                 </li>
                 <li class="next"><span class="colorOrange">Propriétés réseaux</span>
@@ -224,11 +235,35 @@
                         <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Distribution</li>
                     </ul>
                 </li>
-            </ul>
+            </ul>-->
+
+            <img src="figures/contribution/kevoree/kevoree-vs-needs.png" width="700px" style="position:absolute;top:250px;left:200px;">
         </li>
     </ul>
+    <table class="existingsolutions" style="position:absolute;bottom:50px;left:150px;">
+        <tbody>
+        <tr>
+            <td style="width:100px;"></td>
+            <td style="width:250px;"><b>Multi-niveaux</b></td>
+            <td style="width:120px"><b>Hébergement</b></td>
+            <td style="width:120px"><b>Distribution</b></td>
+            <td style="width:130px"><b>Hétérogénéité</b></td>
+            <td style="width:130px"><b>Extensibilité</b></td>
+            <td style="width:130px"><b>Réfléxitivé</b></td>
+        </tr>
+        <tr>
+            <td><b>Kevoree</b></td>
+            <td><span class="colorOrange">en partie</span></td>
+            <td><span class="colorGreen">en partie</span></td>
+            <td><span class="colorRed">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
+            <td><span class="colorOrange">oui</span></td>
+        </tr>
+        </tbody>
+    </table>
 
-    <table class="next existingsolutions" style="position:absolute;bottom:50px;right:120px;">
+    <!--<table class="next existingsolutions" style="position:absolute;bottom:50px;left:320px;">
         <tbody>
         <tr>
             <td style="width:180px;"><b>Multi-niveaux</b></td>
@@ -255,7 +290,7 @@
             <td><span class="colorGreen">oui</span></td>
         </tr>
         </tbody>
-    </table>
+    </table>-->
 </section>
 
 <!--<section class="slide shout">
@@ -267,7 +302,9 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Extension Kevoree
+        </div>
     </div>
     <header>
         <h2>Extension du métamodèle (1)</h2>
@@ -291,7 +328,9 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Extension Kevoree
+        </div>
     </div>
     <header>
         <h2>Extension du métamodèle (2)</h2>
@@ -352,7 +391,9 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Indépendance des niveaux
+        </div>
     </div>
     <header>
         <h2>Vision globale vs Séparation des niveaux (1)</h2>
@@ -398,31 +439,33 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Indépendance des niveaux
+        </div>
     </div>
     <header>
         <h2>Vision globale vs Séparation des niveaux (2)</h2>
     </header>
     <ul>
-        <li class="hidden next">Faire cohabiter
+        <li class="hidden next colorOrange">Faire cohabiter
             <span class="icon-plus" style="position:relative;top:80px;left:-180px"></span>
             <ul>
                 <li class="hidden">Adaptation comme une problématique transverse</li>
                 <li class="hidden">Séparation des préoccupations (niveaux)
             </ul>
         </li>
-        <li class="hidden next collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Système de type</span>
-            <ul>
-                <li class="hidden">Utilisation de types abstraits pour modéliser l'équivalence entre implémentations</li>
-            </ul>
-        </li>
-        <li class="hidden next collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Partitionnement et/ou filtrage de modèle</span>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Partitionnement et/ou filtrage de modèle</span>
             <ul>
                 <li class="hidden next">Partager différentes versions du modèle globale</li>
                 <li class="hidden next">En fonction de ce que l'on veut permettre comme interaction</li>
                 <li class="hidden next colorOrange">En utilisant les groupes</li>
             </ul>
         </li>
+        <!--<li class="hidden next collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Système de type</span>
+            <ul>
+                <li class="hidden">Utilisation de types abstraits pour modéliser l'équivalence entre implémentations</li>
+            </ul>
+        </li>-->
     </ul>
     <details>
         <b>Faire cohabiter</b> : Faire cohabiter l'adaptation et la séparation des préoccupations parce que dans la réalité, les
@@ -434,12 +477,36 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Indépendance des niveaux
+        </div>
+    </div>
+    <header>
+        <h2>Partionnement et Filtrage de modèle</h2>
+    </header>
+    <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="200px" style="position:absolute;top:150px;left:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-interaction.png" height="200px" style="position:absolute;top:150px;right:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="200px"
+         style="position:absolute;bottom:30px;left:50px;"/>
+    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px"
+         style="position:absolute;bottom:30px;right:50px;"/>
+</section>
+
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Utilisation
+        </div>
     </div>
     <header>
         <h2>Système de type (1)</h2>
     </header>
     <ul>
+        <li class="next">Filtrage par types abstraits
+            <ul>
+                <li class="hidden">Quels types abstraits ?</li>
+            </ul>
+        </li>
         <li class="next collapse"><span class="colorOrange">Qu'est-ce qu'un nœud de Cloud (PaaS ou IaaS) ?</span>
             <ul>
                 <li class="next">Un ensemble de propriétés spécifiques</li>
@@ -450,32 +517,47 @@
         </li>
         <li class="next"><span class="colorOrange">Quelles similarités dans les implémentations de Cloud ?</span>
             <ul>
-                <li class="next collapse">
-                    Implémentations de même niveau <span class="icon-reorder colorOrange"></span> capacités d'adaptation communes
-                    <ul>
-                        <li>PaaS : Gestion des composants et channels</li>
-                        <li>IaaS : Gestion des nœuds de plate-forme</li>
-                        <li class="hidden">
-                            <span class="icon-arrow-right colorOrange"></span>
-                            <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="next collapse">Idem pour certaines propriétés
-                    <ul>
-                        <li>RAM, CPU, OS, ...</li>
-                    </ul>
+                <li id="cloud-similarity" class="next collapse">
+                    Implémentations de même niveau <span class="icon-reorder colorOrange"></span>
+                    <br>
+                    <div class="next">
+                        capacités d'adaptation communes
+                        <div id="cloud-similarity-adaptation">
+                            <ul>
+                                <li>PaaS : Gestion des composants et channels</li>
+                                <li>IaaS : Gestion des nœuds de plate-forme</li>
+                                <li class="hidden">
+                                    <span class="icon-arrow-right colorOrange"></span>
+                                    <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="next">
+                        Idem pour certaines propriétés
+                        <div id="cloud-similarity-property">
+                            <ul>
+                                <li>RAM, CPU, OS, ...</li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </li>
         <li class="hidden next collapse"><span class="icon-ok-sign colorGreen"></span><span class="colorGreen">Mutualisation des implémentations</span>
+            <ul>
+                <li>Généricité des systèmes d'adaptation</li>
+                <li>Équivalence de type</li>
+            </ul>
         </li>
     </ul>
 </section>
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Utilisation
+        </div>
     </div>
     <header>
         <h2>Système de type (2)</h2>
@@ -493,21 +575,6 @@
             </ul>
         </li>
     </ul>
-</section>
-
-<section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud</div>
-    </div>
-    <header>
-        <h2>Partionnement et Filtrage de modèle</h2>
-    </header>
-    <img src="figures/contribution/kevoreekloud/partition-hosting.png" height="200px" style="position:absolute;top:150px;left:50px;"/>
-    <img src="figures/contribution/kevoreekloud/partition-interaction.png" height="200px" style="position:absolute;top:150px;right:50px;"/>
-    <img src="figures/contribution/kevoreekloud/partition-abstracttypes.png" height="200px"
-         style="position:absolute;bottom:30px;left:50px;"/>
-    <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px"
-         style="position:absolute;bottom:30px;right:50px;"/>
 </section>
 
 <!--<section class="slide">

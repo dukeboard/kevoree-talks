@@ -10,17 +10,14 @@
     <ul>
         <li class="hidden next">Caractéristiques de l'abstraction
             <ul>
-                <li class="next collapse"><span class="colorOrange">Multi-niveaux</span>
-
+                <li id="needs-multi-layer" class="next collapse"><span class="colorOrange">Multi-niveaux</span>
                     <p>Pour représenter l'ensemble des éléments présents dans un Cloud</p>
                 </li>
-                <li class="next collapse"><span class="colorOrange">Hébergement</span>
-
+                <li id="needs-hosting" class="next collapse"><span class="colorOrange">Hébergement</span>
                     <p>Pour localiser l'exécution des services</p>
                 </li>
-                <li class="next collapse"><span class="colorOrange">Distribution</span>
-
-                    <p>Pour en tirer partie<span class="cite">*</span></p>
+                <li id="needs-distribution" class="next collapse"><span class="colorOrange">Distribution</span>
+                    <p>Pour en tirer parti<span class="cite">*</span></p>
                     <ul>
                         <li>Dans la définition de nouvelles adaptations</li>
                         <li>Dans le fonctionnement des services</li>
@@ -31,22 +28,25 @@
         </li>
         <li class="hidden next">Qualité de l'abstraction
             <ul>
-                <li class="next collapse"><span class="colorOrange">Hétérogénéité</span>
-
+                <li id="needs-heterogeneity" class="next collapse"><span class="colorOrange">Hétérogénéité</span>
                     <p>Pour représenter de manière équivalente plusieurs implémentations d'un même service tout en explicitant leurs
                         spécificités</p>
                 </li>
-                <li class="next collapse"><span class="colorOrange">Extensibilité</span>
-
+                <li id="needs-extensibility" class="next collapse"><span class="colorOrange">Extensibilité</span>
                     <p>Pour pouvoir intégrer les futures implémentations</p>
                 </li>
-                <li class="next collapse"><span class="colorOrange">Réflexion désynchronisée</span>
-
+                <li id="needs-offline-reflexion" class="next collapse"><span class="colorOrange">Réflexion désynchronisée</span>
                     <p>Pour valider une configuration avant de l'appliquer</p>
                 </li>
             </ul>
         </li>
     </ul>
+    <img id="needs-multi-layer-figure" src="figures/needs/multi-layer.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-hosting-figure" src="figures/needs/hosting.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-distribution-figure" src="figures/needs/distribution.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-heterogeneity-figure" src="figures/needs/heterogeneity.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-extensibility-figure" src="figures/needs/extensibility.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-offline-reflexion-figure" src="figures/needs/offline-reflexion.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
     <details>
         <b>Distribution</b>:<br/>
         - Gerraoui a affirmé que pour faire des systèmes distribués efficaces, il est nécessaire d'expliciter cette notion de distribution
@@ -184,7 +184,7 @@
                 </tr>
                 <tr>
                     <td><b>CloudML</b></td>
-                    <td><span class="colorRed">non</span></td>
+                    <td><span class="colorOrange">en partie</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td>limité</td>
