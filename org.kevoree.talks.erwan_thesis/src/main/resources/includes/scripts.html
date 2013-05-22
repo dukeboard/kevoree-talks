@@ -40,9 +40,6 @@ jQuery(document).ready(function () {
         jQuery("#kevoree-partial-multi-layers").hide();
         jQuery("#kevoree-partial-hosting").hide();
 
-        jQuery("#cloud-similarity-adaptation").hide();
-        jQuery("#cloud-similarity-property").hide();
-
         jQuery("#saasfigure").show();
         jQuery("#paasfigure").show();
         jQuery("#iaasfigure").show();
@@ -69,10 +66,19 @@ jQuery(document).ready(function () {
 
         var figure = jQuery("#kevoreehostsample");
         figure.css("position", "absolute");
-        figure.css("top", "500px");
-        figure.css("left", "800px");
-        figure.height("120px");
+        figure.css("top", "150px");
+        figure.css("left", "500px");
+        figure.height("150px");
         figure.show();
+
+        jQuery("#kevoreehostmodel").show();
+
+        clearGroupIaaSPaaSAll();
+        displayGroupAll();
+
+
+        /*jQuery("#cloud-similarity-adaptation-example").hide();
+        jQuery("#cloud-similarity-property-example").hide();*/
     });
 
     jQuery(document.body).on("slide", function () {
@@ -106,6 +112,11 @@ jQuery(document).ready(function () {
 
         jQuery("#singlesystemfigure").show();
         jQuery("#coordinatedsystemsfigure").hide();
+
+        clearGroupIaaSPaaSAll();
+
+        /*jQuery("#cloud-similarity-adaptation-example").hide();
+        jQuery("#cloud-similarity-property-example").hide();*/
 // END FIXME
 
         /* var model = jQuery("#marmodel");
@@ -351,17 +362,24 @@ jQuery(document).ready(function () {
         jQuery("#kevoree-partial-hosting").hide();
     });
 
-    element = jQuery("#cloud-similarity");
+    /*element = jQuery("#cloud-similarity-adaptation");
     element.on('currentActive', function () {
         jQuery.noConflict();
-        jQuery("#cloud-similarity-adaptation").show();
-        jQuery("#cloud-similarity-property").show();
+        jQuery("#cloud-similarity-adaptation-example").show();
     });
     element.on('notCurrentActive', function () {
         jQuery.noConflict();
-        jQuery("#cloud-similarity-adaptation").hide();
-        jQuery("#cloud-similarity-property").hide();
+        jQuery("#cloud-similarity-adaptation-example").hide();
     });
+    element = jQuery("#cloud-similarity-property");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        jQuery("#cloud-similarity-property-example").show();
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        jQuery("#cloud-similarity-property-example").hide();
+    });*/
 
     element = jQuery("#kevoreehostsample");
     element.on('currentActive', function () {
@@ -375,13 +393,14 @@ jQuery(document).ready(function () {
 
         jQuery("#kevoreehosts1").hide();
         jQuery("#kevoreehosts2").hide();
+        jQuery("#kevoreehostmodel").hide();
     });
     element.on('notCurrentActive', function () {
         var figure = jQuery("#kevoreehostsample");
         figure.css("position", "absolute");
-        figure.css("top", "500px");
-        figure.css("left", "800px");
-        figure.height("120px");
+        figure.css("top", "150px");
+        figure.css("left", "500px");
+        figure.height("150px");
         figure.show();
     });
     element = jQuery("#hostComponent");
@@ -395,6 +414,7 @@ jQuery(document).ready(function () {
         jQuery.noConflict();
         jQuery("#kevoreehosts1").hide();
         jQuery("#kevoreehosts2").show();
+        jQuery("#kevoreehostmodel").show();
     });
 
     element = jQuery("#groupiaas");
@@ -417,7 +437,7 @@ jQuery(document).ready(function () {
     element.on('currentActive', function () {
         displayGroupAll();
     });
-    element.on('notCurrentActive', function () {
+    element.on('notActive', function () {
         clearGroupIaaSPaaSAll();
     });
 });

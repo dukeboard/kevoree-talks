@@ -31,8 +31,8 @@
                     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">KevoreeKloud</span>
                     <ul>
                         <li>Extension de Kevoree pour modéliser un Cloud</li>
-                        <li>Garantie de lindépendance des niveaux</li>
                         <li>Réutilisation et définition de nouvelles implémentations</li>
+                        <li>Garantie de l'indépendance des niveaux</li>
                     </ul>
                 </li>
             </ul>
@@ -310,9 +310,11 @@
         <h2>Extension du métamodèle (1)</h2>
     </header>
     <img class="next" id="kevoreehostsample" style="position:absolute;top: 160px;left:120px;" height="200px"
+         src="figures/contribution/kevoreekloud/missing-needs-hosting.png"/>
+    <img id="kevoreehostmodel" style="position:absolute;top: 160px;right:10px;" height="120px"
          src="figures/contribution/kevoreekloud/hosting-example.png"/>
     <ul>
-        <li class="hidden">Les nœuds Kevoree hébergent
+        <li class="next hidden">Les nœuds Kevoree hébergent
             <ul>
                 <li class="next" id="hostComponent">Des composants</li>
                 <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong></li>
@@ -377,6 +379,145 @@
     </details>
 </section>
 
+<section class="slide">
+    <div class="guide">
+        <div>
+            <span class="icon-angle-right"></span>Proposition
+            <span class="icon-angle-right"></span>KevoreeKloud
+            <span class="icon-angle-right"></span>Réutilisation
+        </div>
+    </div>
+    <header>
+        <h2>Représentation d'un Cloud (PaaS ou IaaS)</h2>
+    </header>
+    <ul>
+        <li class="next collapse">Ensemble de Nœuds
+            <ul>
+                <li>Nœud
+                    <ul>
+                        <li>Propriétés spécifiques</li>
+                        <li>Capacités d'adaptation spécifiques</li>
+                        <li>Implémentations des capacités d'adaptation</li>
+                        <li>Implémentation de la planification</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Similarités dans les implémentations de Cloud de même niveau</span>
+            <ul>
+                <li class="next">
+                    capacités d'adaptation
+                    <!--<div id="cloud-similarity-adaptation-example">-->
+                    <ul>
+                        <li>PaaS : Gestion des composants et channels</li>
+                        <li>IaaS : Gestion des nœuds de plate-forme</li>
+                        <li class="hidden">
+                            <span class="icon-arrow-right"></span>ajout, démarrage, arrêt, suppression
+                        </li>
+                    </ul>
+                    <!--</div>-->
+                </li>
+                <li class="next">
+                    Propriétés communes
+                    <!--<div id="cloud-similarity-property-example">-->
+                    <ul>
+                        <li>RAM, CPU, OS, ...</li>
+                    </ul>
+                    <!--</div>-->
+                </li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Réutilisation
+        </div>
+    </div>
+    <header>
+        <h2>Système de type</h2>
+    </header>
+    <ul>
+        <!--<li class="next collapse"><span class="colorOrange">Nœud de Cloud (PaaS ou IaaS)</span>
+            <ul>
+                <li class="next">Propriétés spécifiques</li>
+                <li class="next">Capacités d'adaptation spécifiques</li>
+                <li class="next">Implémentations des capacités d'adaptation</li>
+                <li class="next">Implémentation de la planification</li>
+            </ul>
+        </li>
+        <li class="next"><span class="colorOrange">Similarités dans les implémentations de Cloud de même niveau</span>
+            <ul>
+                <li id="cloud-similarity-adaptation" class="next">
+                    capacités d'adaptation communes
+                    <div id="cloud-similarity-adaptation-example">
+                        <ul>
+                            <li>PaaS : Gestion des composants et channels</li>
+                            <li>IaaS : Gestion des nœuds de plate-forme</li>
+                            <li class="hidden">
+                                <span class="icon-arrow-right colorOrange"></span>
+                                <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="cloud-similarity-property" class="next">
+                    Propriétés communes
+                    <div id="cloud-similarity-property-example">
+                        <ul>
+                            <li>RAM, CPU, OS, ...</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>-->
+        <li class="next"><span class="colorOrange">Définition de type abstraits</span>
+            <img src="figures/contribution/kevoreekloud/KloudAPIClassDiagramSimple.png"
+                 style="position:absolute;right:10px;top:5px;"
+                 height="270px"/>
+            </li>
+        <li class="next"><span class="colorOrange">Héritage et Composition de types</span>
+            <ul>
+                <li class="hidden next">Mutualisation des définitions des capacités d'adaptation</li>
+                <li class="hidden next">Mutualisation des propriétés</li>
+                <li class="hidden next">Mutualisation des implémentations
+                    <ul>
+                        <li>Planification</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Généricité des systèmes d'adaptation</span></li>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Équivalence de type</span></li>
+    </ul>
+</section>
+
+<!--<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
+                class="icon-angle-right"></span>Utilisation
+        </div>
+    </div>
+    <header>
+        <h2>Système de type (2)</h2>
+    </header>
+    <ul>
+        <li class="hidden"><span class="colorOrange">Notion de types abstraits</span>
+            <ul>
+                <li>Regroupant des caractéristiques communes</li>
+            </ul>
+        </li>
+        <li class="hidden"><span class="colorOrange">Héritage et composition de types</span>
+            <ul>
+                <li>Définition d'équivalence de type</li>
+                <li>Comparaison de type</li>
+            </ul>
+        </li>
+    </ul>
+</section>-->
+
 <!--<section class="slide">
     <header>
         <h2 class="colorRed">TODO : mettre un exemple Prise en charge de nœuds fils et prise en charge de l'adaptation</h2>
@@ -412,7 +553,7 @@
                     <li class="hidden"><span class="icon-arrow-right"></span>Vision PaaS du système</li>
                 </ul>
             </div>
-            <div id="groupall" class="next collapse">
+            <div id="groupall" class="next">
                 <ul>
                     <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
                             class="colorOrange">Vision globale du système</span></li>
@@ -490,91 +631,6 @@
          style="position:absolute;bottom:30px;left:50px;"/>
     <img src="figures/contribution/kevoreekloud/partition-coarsegrain.png" height="200px"
          style="position:absolute;bottom:30px;right:50px;"/>
-</section>
-
-<section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
-                class="icon-angle-right"></span>Utilisation
-        </div>
-    </div>
-    <header>
-        <h2>Système de type (1)</h2>
-    </header>
-    <ul>
-        <li class="next">Filtrage par types abstraits
-            <ul>
-                <li class="hidden">Quels types abstraits ?</li>
-            </ul>
-        </li>
-        <li class="next collapse"><span class="colorOrange">Qu'est-ce qu'un nœud de Cloud (PaaS ou IaaS) ?</span>
-            <ul>
-                <li class="next">Un ensemble de propriétés spécifiques</li>
-                <li class="next">Un ensemble de capacités d'adaptation spécifiques</li>
-                <li class="next">Un ensemble d'implémentations des capacités d'adaptation</li>
-                <li class="next">Une implémentation de la planification</li>
-            </ul>
-        </li>
-        <li class="next"><span class="colorOrange">Quelles similarités dans les implémentations de Cloud ?</span>
-            <ul>
-                <li id="cloud-similarity" class="next collapse">
-                    Implémentations de même niveau <span class="icon-reorder colorOrange"></span>
-                    <br>
-                    <div class="next">
-                        capacités d'adaptation communes
-                        <div id="cloud-similarity-adaptation">
-                            <ul>
-                                <li>PaaS : Gestion des composants et channels</li>
-                                <li>IaaS : Gestion des nœuds de plate-forme</li>
-                                <li class="hidden">
-                                    <span class="icon-arrow-right colorOrange"></span>
-                                    <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="next">
-                        Idem pour certaines propriétés
-                        <div id="cloud-similarity-property">
-                            <ul>
-                                <li>RAM, CPU, OS, ...</li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </li>
-        <li class="hidden next collapse"><span class="icon-ok-sign colorGreen"></span><span class="colorGreen">Mutualisation des implémentations</span>
-            <ul>
-                <li>Généricité des systèmes d'adaptation</li>
-                <li>Équivalence de type</li>
-            </ul>
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>KevoreeKloud<span
-                class="icon-angle-right"></span>Utilisation
-        </div>
-    </div>
-    <header>
-        <h2>Système de type (2)</h2>
-    </header>
-    <ul>
-        <li class="hidden"><span class="colorOrange">Notion de types abstraits</span>
-            <ul>
-                <li>Regroupant des caractéristiques communes</li>
-            </ul>
-        </li>
-        <li class="hidden"><span class="colorOrange">Héritage et composition de types</span>
-            <ul>
-                <li>Définition d'équivalence de type</li>
-                <li>Comparaison de type</li>
-            </ul>
-        </li>
-    </ul>
 </section>
 
 <!--<section class="slide">
