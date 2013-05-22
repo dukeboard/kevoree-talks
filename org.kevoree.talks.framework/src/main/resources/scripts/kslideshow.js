@@ -493,12 +493,18 @@ function KSlideShow() {
         if (isListMode()) {
             return;
         }
-        // update new current slide according to collapseTransition (all the collapse must be collapsed (except the last one)
+        // update new current slide according to collapseTransition (all the collapse must be collapsed (except the last one if it is the last active)
         if (slideList[slideNumber].hasInnerNavigation) {
-            var activeInners = slides[slideNumber].querySelectorAll('.collapse');
-            for (var i = 0, ii = activeInners.length - 1; i < ii; i++) {
-                if (activeInners[i].className.indexOf("collapsed") == -1) {
-                    activeInners[i].className = activeInners[i].className + " collapsed";
+            var collapseInners = slides[slideNumber].querySelectorAll('.collapse');
+            if (collapseInners.length > 0) {
+                for (var i = 0, ii = collapseInners.length - 1; i < ii; i++) {
+                    if (collapseInners[i].className.indexOf("collapsed") == -1) {
+                        collapseInners[i].className = collapseInners[i].className + " collapsed";
+                    }
+                }
+                var activeInners = slides[slideNumber].querySelectorAll('.next.active');
+                if (activeInners[activeInners.length - 1] != collapseInners[collapseInners.length - 1]) {
+                    collapseInners[collapseInners.length - 1].className = collapseInners[collapseInners.length - 1].className + " collapsed";
                 }
             }
         }
