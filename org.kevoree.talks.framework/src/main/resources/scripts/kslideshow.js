@@ -360,6 +360,11 @@ function KSlideShow() {
                 var indexOf = innerNodes[i].className.indexOf("active");
                 if (indexOf != -1) {
                     innerNodes[i].className = innerNodes[i].className.substring(0, indexOf) + innerNodes[i].className.substring(indexOf + " active".length);
+                    try {
+                        jQuery(innerNodes[i]).trigger('notActive');
+                        jQuery(innerNodes[i]).trigger('notCurrentActive');
+                    } catch (e) {
+                    }
                 }
             }
             innerNodes[0].className = innerNodes[0].className + ' active';
