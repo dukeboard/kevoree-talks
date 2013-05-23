@@ -40,21 +40,6 @@
     </ul>
 </section>
 
-<!--<section class="slide shout">
-    <header>
-        <h2 style="line-height: 0.7;font-size: 60px;"><span class="colorOrange">Kevoree</span><br/>
-            <span style="font-size: 40px;">Model@Runtime pour le développement continu de systèmes adaptatifs distribués hétérogènes</span><br/><br/>
-            <a class="thesis-talks" style="font-size: 24px;" href="http://kevoree.org/talks/DukePhD/popup">Thèse de François Fouquet
-                (06/03/2013)</a>
-        </h2>
-    </header>
-    <details>
-        Tout d'abord Kevoree, qui correspond aux travaux de thèse de François Fouquet et sur lesquels j'ai collaboré.<br/>
-        <b>Kevoree, c'est une approche M@R...</b>
-
-    </details>
-</section>-->
-
 <section class="slide">
     <div class="guide">
         <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>Model@Runtime</div>
@@ -114,7 +99,7 @@
             <ul>
                 <li class="next collapse" id="componentType"><span><strong class="colorOrange">Composant</strong></span>
                     <ul>
-                        <li>Encapule la logique métier d'une application</li>
+                        <li>Encapsule la logique métier d'une application</li>
                     </ul>
                 </li>
             </ul>
@@ -136,47 +121,18 @@
                         <li>Explicite les spécificités d'exécution</li>
                     </ul>
                 </li>
-                <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
+                <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span><span class="cite">*</span>
                     <ul>
                         <li><span class="colorOrange">Encapsule la sémantique de dissémination des modèles</span></li>
                     </ul>
+                    <p class="cite"><span>*</span>Fouquet, F. et al (2012). Dissemination of reconfiguration policies on mesh networks. Distributed Applications and Interoperable Systems</p>
                 </li>
             </ul>
         </li>
     </ul>
-    <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="360"/>
-    <canvas id="c" width="300" height="400" style="position: absolute;top:80px;right:-10px;"></canvas>
+    <img style="position:absolute;top: 100px;right: 10px;" src="figures/contribution/kevoree/kevConcepts.png" height="420"/>
+    <canvas id="c" width="320" height="460" style="position: absolute;top:80px;right:-10px;"></canvas>
 </section>
-<!--
-<section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Proposition<span class="icon-angle-right"></span>Kevoree</div>
-    </div>
-    <div class="fouquet">Thèse François Fouquet</div>
-    <header>
-        <h2>Kevoree : Gestion de l'hétérogénéité</h2>
-    </header>
-    <ul>
-        <li>Patron type/instance
-            <ul>
-                <li class="hidden"><span class="colorOrange">Type</span> : spécification des fonctionnalités</li>
-                <li class="hidden"><span class="colorOrange">Unité de déploiement</span> : Brique logicielle définissant l'implémentation
-                </li>
-                <li class="hidden"><span class="colorOrange">Instance</span> : Localisation de l'utilisation des fonctionnalités</li>
-            </ul>
-        </li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de l'hétérogénéité</span>
-            <ul>
-                <li class="hidden">Unité de déploiement spécifique à un type de nœud</li>
-            </ul>
-        </li>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Gestion de l'extensibilité</span>
-            <ul>
-                <li class="hidden">Génération de nouveaux types à partir de l'implémentation</li>
-            </ul>
-        </li>
-    </ul>
-</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -186,13 +142,6 @@
     <header>
         <h2>Model@Runtime, Kevoree et Distribution</h2>
     </header>
-    <!--<img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
-
-    <div class="next" id="dmarmodel-process">
-        <span id="marDengine1" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 280px;top:350px;"></span>
-        <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:340px;"></span>
-        <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:180px;"></span>
-    </div>-->
     <img class="next" src="figures/contribution/kevoree/distribution/mar-distribution-current.png" height="400px"
          style="position:absolute;top:150px;left:100px">
 
@@ -230,42 +179,6 @@
     </header>
     <ul>
         <li>Développement continu de systèmes adaptatifs distribués hétérogènes
-            <!--<ul>
-                <li class="next"><span class="colorOrange">Model@Runtime</span>
-                    <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Réflexion désynchronisée
-                        </li>
-                    </ul>
-                </li>
-                <li id="kevoree-node" class="next"><span class="colorOrange">Nœud</span>
-                    <ul>
-                        <li class="hidden"><span class="icon-exclamation-sign colorOrange"></span>Multi-niveaux partiel
-                            <div id="kevoree-partial-multi-layers">
-                                <ul>
-                                    <li>Seulement application et plate-forme</li>
-                                </ul>
-                            </div>
-                            <span class="icon-exclamation-sign colorOrange"></span>Hébergement partiel
-                            <div id="kevoree-partial-hosting">
-                                <ul>
-                                    <li>Pas d'hébergement des plates-formes par des infrastructures</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="next"><span class="colorOrange">Patron Type/Instance</span>
-                    <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Hétérogénéité, Extensibilité</li>
-                    </ul>
-                </li>
-                <li class="next"><span class="colorOrange">Propriétés réseaux</span>
-                    <ul>
-                        <li class="hidden"><span class="icon-plus-sign colorGreen"></span>Distribution</li>
-                    </ul>
-                </li>
-            </ul>-->
-
             <img src="figures/contribution/kevoree/kevoree-vs-needs.png" width="700px" style="position:absolute;top:250px;left:200px;">
         </li>
     </ul>
@@ -291,43 +204,7 @@
         </tr>
         </tbody>
     </table>
-
-    <!--<table class="next existingsolutions" style="position:absolute;bottom:50px;left:320px;">
-        <tbody>
-        <tr>
-            <td style="width:180px;"><b>Multi-niveaux</b></td>
-            <td><span class="colorOrange">en partie</span></td>
-        </tr>
-        <tr>
-            <td style="width:130px"><b>Hébergement</b></td>
-            <td><span class="colorOrange">en partie</span></td>
-        </tr>
-        <tr>
-            <td style="width:130px"><b>Distribution</b></td>
-            <td><span class="colorGreen">oui</span></td>
-        </tr>
-        <tr>
-            <td style="width:130px"><b>Hétérogénéité</b></td>
-            <td><span class="colorGreen">oui</span></td>
-        </tr>
-        <tr>
-            <td style="width:130px"><b>Extensibilité</b></td>
-            <td><span class="colorGreen">oui</span></td>
-        </tr>
-        <tr>
-            <td style="width:130px"><b>Réfléxitivé</b></td>
-            <td><span class="colorGreen">oui</span></td>
-        </tr>
-        </tbody>
-    </table>-->
 </section>
-
-<!--<section class="slide shout">
-    <h2 style="line-height: 0.7;font-size: 60px;">
-        <span class="colorOrange">KevoreeKloud</span><br/>
-        <span style="font-size: 40px;">Une extension de Kevoree pour modéliser un Cloud</span>
-    </h2>
-</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -365,21 +242,11 @@
                 </li>
             </ul>
         </li>
-        <!--<li class="next hidden">Les nœuds Kevoree hébergent
-            <ul>
-                <li class="next" id="hostComponent">Des composants</li>
-                <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>-->
     </ul>
     <img id="kevoreehosts1" style="position:absolute;top:130px;right:0px;"
-         src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg" width="400px"/>
+         src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg" width="500px"/>
     <img id="kevoreehosts2" style="position:absolute;top:130px;right:0px;"
-         src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg" width="400px"/>
+         src="figures/contribution/kevoreekloud/kevoree_hosted_node2.svg" width="500px"/>
 </section>
 
 
@@ -398,7 +265,7 @@
                 <li class="hidden next">
                     <span class="icon-exclamation-sign colorOrange"></span>Liste de primitives spécifiques au type de nœud
                     <ul>
-                        <li>Le représenter pour permettre d'en tenir compte</li>
+                        <li>Le spécifier pour en tenir compte</li>
                     </ul>
                 </li>
                 <li class="next"><span class="colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds</span><br/>
@@ -407,20 +274,6 @@
             </ul>
         </li>
         <li class="hidden next"><span class="colorOrange">Le nœud est responsable de la comparaison des modèles (planification)</span></li>
-        <!--<li class="hidden next">Isolation entre les nœuds
-            <ul>
-                <li class="hidden next"><span class="icon-ok-sign colorGreen"></span>IaaS: Déplacer des nœuds de plate-forme</li>
-                <li class="hidden next"><span class="icon-remove-sign colorRed"></span>IaaS: Déplacer des composants d'application</li>
-                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span
-                        class="colorOrange">Séparation des niveaux</span>
-                </li>
-            </ul>
-        </li>-->
-        <!-- <li class="hidden next">Le nœud est responsable de la phase de planification et d'exécution
-             <img src="figures/domains/adaptation/mapeLoopIBM.png" height="200px" style="position:absolute;left:180px;bottom:20px;"/>
-             <img src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="200px"
-                  style="position:absolute;right:180px;bottom:20px;"/>
-         </li>-->
     </ul>
     <details>
         <b>Liste de primitives</b>:<br/>
@@ -461,7 +314,6 @@
             <ul>
                 <li class="next">
                     capacités d'adaptation
-                    <!--<div id="cloud-similarity-adaptation-example">-->
                     <ul>
                         <li>PaaS : Gestion des composants et channels</li>
                         <li>IaaS : Gestion des nœuds de plate-forme</li>
@@ -469,15 +321,11 @@
                             <span class="icon-arrow-right"></span>ajout, démarrage, arrêt, suppression
                         </li>
                     </ul>
-                    <!--</div>-->
                 </li>
-                <li class="next">
-                    Propriétés communes
-                    <!--<div id="cloud-similarity-property-example">-->
+                <li class="next">Propriétés communes
                     <ul>
                         <li>RAM, CPU, OS, ...</li>
                     </ul>
-                    <!--</div>-->
                 </li>
             </ul>
         </li>
@@ -496,39 +344,6 @@
         <h2>Système de type pour le Cloud</h2>
     </header>
     <ul>
-        <!--<li class="next collapse"><span class="colorOrange">Nœud de Cloud (PaaS ou IaaS)</span>
-            <ul>
-                <li class="next">Propriétés spécifiques</li>
-                <li class="next">Capacités d'adaptation spécifiques</li>
-                <li class="next">Implémentations des capacités d'adaptation</li>
-                <li class="next">Implémentation de la planification</li>
-            </ul>
-        </li>
-        <li class="next"><span class="colorOrange">Similarités dans les implémentations de Cloud de même niveau</span>
-            <ul>
-                <li id="cloud-similarity-adaptation" class="next">
-                    capacités d'adaptation communes
-                    <div id="cloud-similarity-adaptation-example">
-                        <ul>
-                            <li>PaaS : Gestion des composants et channels</li>
-                            <li>IaaS : Gestion des nœuds de plate-forme</li>
-                            <li class="hidden">
-                                <span class="icon-arrow-right colorOrange"></span>
-                                <span class="colorOrange">ajout, démarrage, arrêt, suppression</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="cloud-similarity-property" class="next">
-                    Propriétés communes
-                    <div id="cloud-similarity-property-example">
-                        <ul>
-                            <li>RAM, CPU, OS, ...</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>-->
         <li class="next"><span class="colorOrange">Définition de type abstraits de nœud de Cloud</span>
             <img src="figures/contribution/kevoreekloud/KloudAPIClassDiagramSimple.png"
                  style="position:absolute;right:10px;bottom:30px;"
@@ -560,7 +375,7 @@
     <header>
         <h2>Vision globale vs Séparation des niveaux (1)</h2>
     </header>
-    <img src="figures/contribution/kevoreekloud/dissemination.png" style="position:absolute;right:10px;top:150px;" height="200px"/>
+    <img src="figures/contribution/kevoreekloud/dissemination.png" style="position:absolute;right:10px;top:150px;" height="270px"/>
     <ul>
         <li class="next"><span class="colorOrange">Utilisation des groupes pour la dissémination</span>
 
@@ -596,7 +411,7 @@
             </ul>
         </li>
     </ul>
-    <canvas id="c2" width="320" height="220" style="position: absolute;top:140px;right:00px;"></canvas>
+    <canvas id="c2" width="414" height="290" style="position: absolute;top:140px;right:00px;"></canvas>
     <details>
         <b>Tout le monde est capable de tout faire</b> : Dans la réalité, la majorité des fournisseurs, notamment de Cloud public, ne
         souhaitent pas que cela arrive.<br/>
@@ -613,7 +428,7 @@
         <h2>Vision globale vs Séparation des niveaux (2)</h2>
     </header>
     <ul>
-        <li class="hidden next colorOrange">Faire cohabiter
+        <li class="hidden next">Faire cohabiter
             <span class="icon-plus" style="position:relative;top:80px;left:-180px"></span>
             <ul>
                 <li class="hidden">Adaptation comme une problématique transverse</li>

@@ -269,19 +269,17 @@ ul.icons li [class*=" icon-"] {
     height: .75em;
   }
 }.icon-remove:before		{ content: "\f021"; }
-.icon-plus-sign:before		{ content: "\f022"; }
-.icon-minus-sign:before		{ content: "\f023"; }
-.icon-remove-sign:before		{ content: "\f024"; }
-.icon-ok-sign:before		{ content: "\f025"; }
-.icon-arrow-left:before		{ content: "\f026"; }
-.icon-arrow-right:before		{ content: "\f027"; }
-.icon-arrow-up:before		{ content: "\f028"; }
-.icon-arrow-down:before		{ content: "\f029"; }
-.icon-exclamation-sign:before		{ content: "\f02a"; }
-.icon-reorder:before		{ content: "\f02b"; }
-.icon-comment-alt:before		{ content: "\f02c"; }
-.icon-comments-alt:before		{ content: "\f02d"; }
-.icon-angle-left:before		{ content: "\f02e"; }
+.icon-cog:before		{ content: "\f022"; }
+.icon-plus-sign:before		{ content: "\f023"; }
+.icon-minus-sign:before		{ content: "\f024"; }
+.icon-remove-sign:before		{ content: "\f025"; }
+.icon-ok-sign:before		{ content: "\f026"; }
+.icon-arrow-left:before		{ content: "\f027"; }
+.icon-arrow-right:before		{ content: "\f028"; }
+.icon-arrow-up:before		{ content: "\f029"; }
+.icon-arrow-down:before		{ content: "\f02a"; }
+.icon-exclamation-sign:before		{ content: "\f02b"; }
+.icon-reorder:before		{ content: "\f02c"; }
+.icon-comment-alt:before		{ content: "\f02d"; }
+.icon-comments-alt:before		{ content: "\f02e"; }
 .icon-angle-right:before		{ content: "\f02f"; }
-.icon-angle-up:before		{ content: "\f030"; }
-.icon-angle-down:before		{ content: "\f031"; }

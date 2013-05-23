@@ -50,19 +50,19 @@
     <header>
         <h2>Cas d'usage : Gestionnaire de plate-forme</h2>
     </header>
-    <img class="next" style="position:absolute;top:100px;left:100px;" height="300px" src="figures/validation/multi-layer-paas-current.png"/>
+    <img class="next" style="position:absolute;top:150px;left:100px;" height="200px" src="figures/validation/multi-layer-paas-current.png"/>
 
     <div class="next">
         <span class="icon-arrow-right" style="position:absolute;top:275px;left:500px;"></span>
-        <img style="position:absolute;top:100px;right:100px;" height="300px" src="figures/validation/multi-layer-paas-new-iaas.png"/>
+        <img style="position:absolute;top:150px;right:100px;" height="200px" src="figures/validation/multi-layer-paas-new-iaas.png"/>
     </div>
     <div class="next">
-        <span class="icon-arrow-down" style="position:absolute;bottom:245px;right:250px;"></span>
-        <img style="position:absolute;bottom:-10px;right:100px;" height="300px" src="figures/validation/multi-layer-paas-new.png"/>
+        <span class="icon-arrow-down" style="position:absolute;bottom:245px;right:175px;"></span>
+        <img style="position:absolute;bottom:30px;right:100px;" height="200px" src="figures/validation/multi-layer-paas-new.png"/>
     </div>
     <div class="next">
         <span class="icon-arrow-left" style="position:absolute;bottom:155px;left:500px;"></span>
-        <img style="position:absolute;bottom:-10px;left:100px;" height="300px" src="figures/validation/multi-layer-paas-new-next.png"/>
+        <img style="position:absolute;bottom:30px;left:100px;" height="200px" src="figures/validation/multi-layer-paas-new-next.png"/>
     </div>
 </section>
 
@@ -74,6 +74,8 @@
         <h2>Évaluation</h2>
     </header>
     <ul>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
+                class="colorOrange">Faire de l'adaptation multi-niveau</span></li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
     </ul>
@@ -94,10 +96,10 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité</div>
     </div>
     <header>
-        <h2>Notre abstraction est-elle extensible et générique ?</h2>
+        <h2>Notre abstraction est-elle extensible ?</h2>
     </header>
     <ul>
         <li class="hidden">Protocole expérimental
@@ -119,7 +121,7 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité</div>
     </div>
     <header>
         <h2>Cas d'usage</h2>
@@ -143,6 +145,8 @@
             </ul>
         </li>
     </ul>
+    <img style="position:absolute;top:10px;right:10px;" height="200px" src="figures/conclusion/kloud.png"/>
+
     <p class="cite">
         <span>*1</span><a href="http://www.freebsd.org/doc/en/books/handbook/jails.html">http://www.freebsd.org/doc/en/books/handbook/jails.html</a><br/>
         <span>*2</span><a href="http://aws.amazon.com/en/ec2">http://aws.amazon.com/en/ec2</a>
@@ -156,8 +160,13 @@
     <header>
         <h2>Évaluation</h2>
     </header>
+    <ul>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Étendre l'abstraction avec de nouveaux types</span>
+        </li>
+    </ul>
     <img width="600px" src="figures/validation/nbloc-node-type.png"/>
-    <p>Peu de code nécessaire par rapport au code fourni</p>
+    <img height="400px" style="position:absolute;top:150px;right:20px;" src="figures/validation/type-inheritance.png"/>
+
 </section>
 
 <section class="slide">
@@ -167,8 +176,11 @@
     <header>
         <h2>Évaluation</h2>
     </header>
+    <ul>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Étendre l'abstraction avec de nouveaux types</span>
+        </li>
+    </ul>
     <img width="600px" src="figures/validation/nbloc-manager-type.png"/>
-    <p>Peu de code nécessaire par rapport au code fourni</p>
 </section>
 
 <section class="slide">
@@ -181,7 +193,7 @@
     <ul>
         <li class="hidden">Protocole expérimental
             <ul>
-                <li>Soumission de modèle de plate-forme</li>
+                <li>Soumission de modèles de plate-forme</li>
                 <li>Évaluation du temps d'exécution
                     <ol>
                         <li>Définition des nœuds de plate-forme à créer</li>
@@ -255,6 +267,7 @@
                         </li>
                     </ul>
                 </li>
+                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Synthèse de modèle Kevoree</span>
             </ul>
         </li>
     </ul>
@@ -302,39 +315,6 @@
     </details>
 </section>
 
-<!--<section class="slide">
-    <header>
-        <h2>Results</h2>
-    </header>
-    <ul>
-        <li class="next">Execution time: 40min (speedup = 3.40)
-            <ul>
-                <li>The much longer test is around 20 minutes
-                    <ul>
-                        <li class="hidden"><span class="colorOrange icon-arrow-right colorOrange"></span>limit the speedup</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="next">Able to reuse already defined platform
-            <ul>
-                <li>Keep alive platform helps to reduce the time needed to start VMs</li>
-            </ul>
-        </li>
-        <li class="next">Use lightweight virtualization
-            <ul>
-                <li>using user-space virtualization instead of hardware one if possible
-                    <ul>
-                        <li class="hidden"><span class="colorOrange icon-arrow-right"></span>Managed by the IaaS taking into account PaaS
-                            specificities
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</section>-->
-
 <section class="slide">
     <div class="guide">
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
@@ -342,6 +322,8 @@
     <header>
         <h2>Évaluation</h2>
     </header>
+
+    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Tester le passage à l'échelle</span>
     <ul>
         <li><span class="colorOrange">Apache Camel: Premier cas d'usage</span>
             <ul>
@@ -377,8 +359,11 @@
     </header>
     <img height="300px" src="figures/validation/eval_time-new.png"/>
 
-    <p style="line-height: 1;">Surcoût d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
-        (généralement plus de 100s par machine<span class="cite">*</span>)</p>
+    <ul>
+        <li style="line-height: 1;">Surcoût d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
+            (généralement plus de 100s par machine<span class="cite">*</span>)
+        </li>
+    </ul>
 
     <p class="cite"><span>*</span>Mao, M., et al. (2012). A performance study on the vm startup time in the cloud. In Cloud Computing, (pp.
         423-430). IEEE.</p>

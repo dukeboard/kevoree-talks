@@ -12,6 +12,7 @@
         <h2>Cloud Computing</h2>
     </header>
     <ul>
+        <!-- TODO add event on starting a slide  ? -->
         <li class="hidden next collapse">Apparu en 2008 (Amazon EC2)
             <ul>
                 <li>Fournir les ressources informatiques sous forme de services</li>
@@ -92,7 +93,7 @@
             <ul>
                 <li>Variation du nombre d'utilisateur</li>
                 <li>Variation des traitements à effectuer</li>
-                <li>Variation des ressources disponibles</li>
+                <li>Variation des ressources disponibles (pannes)</li>
             </ul>
         </li>
         <li class="hidden next"><span class="icon-arrow-right"></span>Un Cloud doit assurer le bon fonctionnement des applications dans ce
@@ -101,31 +102,7 @@
         </li>
         <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Un Cloud est adaptable</span>
         </li>
-        <!--<li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Élasticité</span>
-            <ul>
-                <li>Modifier la taille d'un système pour assurer son bon fonctionnement</li>
-            </ul>
-        </li>
-        <li class="hidden">Élasticité = adaptation</li>-->
-        <!--<li class="next"><span class="colorOrange">Montée en charge</span>
-            <ul>
-                <li class="hidden">Capacité d'un système à s'adapter aux dimensions du problème qu'il doit traiter
-                    &lt;!&ndash;<span class="cite">*</span>&ndash;&gt;
-                </li>
-            </ul>
-        </li>
-        <li class="next"><span class="colorOrange">Élasticité</span>
-            <ul>
-                <li class="hidden">Aptitude d'un corps à reprendre, après sollicitation, la forme et les dimensions qu'il avait avant
-                    &lt;!&ndash;<span class="cite">*</span></li>&ndash;&gt;
-            </ul>
-        </li>-->
     </ul>
-    <!--<p class="next">
-        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Chaque service/niveau est adaptable</span>
-    </p>-->
-
-    <!--<p class="cite"><span>*</span><a href="http://www.hesge.ch/heg/la-heg/en-images/cloudcomputing/index.html">http://www.hesge.ch/heg/la-heg/en-images/cloudcomputing/index.html</a></p>-->
 </section>
 
 <section class="slide">
@@ -169,6 +146,7 @@
     <div class="next">
         <ul>
             <li class="hidden">Vision d'un système adaptable<span class="cite">*</span></li>
+            <li class="hidden">modèle MAPE</li>
         </ul>
         <img src="figures/domains/adaptation/mapeLoop.png" style="position:absolute;bottom:100px;right:100px;" width="400px"/>
 
@@ -222,72 +200,6 @@
         </li>
     </ul>
 </section>
-
-<!--<section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Contexte<span class="icon-angle-right"></span>Domaines<span
-                class="icon-angle-right"></span>Adaptation & Cloud Computing
-        </div>
-    </div>
-    <header>
-        <h2>Adaptation et Cloud Computing (2)</h2>
-    </header>
-    <ul>
-        <li class="hidden next">Chaque adaptation peut avoir des effets de bords sur les autres niveaux</li>
-    </ul>
-    <div id="parallel-sample" class="next" style="position:absolute;top:200px;left:50px;height:400px;width:500px;">
-        <img height="45%" style="position:relative;top:25%;left:0%;"
-             src="figures/domains/adaptation-cloud/adaptation-current.png">
-
-        <div class="next" style="position:absolute;top:0%;left:20%;height:100%;width:64%;">
-            <div style="top:0%;left:0%;height:50%;width:100%;">
-                <span id="paas-text" style="position:absolute;top:0%;left:0%;">PaaS</span>
-                <img style="position:absolute;top: 17%;left:0%;" height="18%"
-                     src="figures/domains/adaptation-cloud/adaptation-paas-transition.png">
-                <img style="position:absolute;top: 0%;left:22%;" height="45%"
-                     src="figures/domains/adaptation-cloud/adaptation-paas-result.png">
-            </div>
-            <div style="top:50%;left:0%;height:50%;width:100%;">
-                <span id="iaas-text" style="position:absolute;bottom:0%;left:0%;">IaaS</span>
-                <img style="position:absolute;bottom:20%;left:0%;" height="18%"
-                     src="figures/domains/adaptation-cloud/adaptation-iaas-transition.png">
-                <img style="position:absolute;bottom:0%;left:22%;" height="45%"
-                     src="figures/domains/adaptation-cloud/adaptation-iaas-result.png">
-            </div>
-        </div>
-    </div>
-
-    <div id="sequencial-sample" class="next"></div>
-
-    <div class="next">
-        <span class="icon-plus" style="position:absolute;bottom:220px;left:370px;"></span>
-        <span class="icon-minus" style="position:absolute;bottom:225px;left:490px;"></span>
-        <span class="icon-minus" style="position:absolute;bottom:215px;left:490px;"></span>
-        <img style="position:absolute;bottom:150px;right:325px;" height="180px"
-             src="figures/domains/adaptation-cloud/adaptation-both-result.png">
-    </div>
-
-    <div class="next collapse">
-        <span class="icon-remove colorRed" style="position:absolute;bottom:180px;left:550px;font-size:150px;"></span>
-
-        <p class="colorRed" style="position:absolute;bottom:50px;right:125px;">Adaptation peu efficace</p>
-    </div>
-    <div class="next">
-        <img style="position:absolute;bottom:150px;right:50px;" height="180px"
-             src="figures/domains/adaptation-cloud/adaptation-both-better-result.png">
-    </div>
-    <div class="next" style="position:absolute;bottom:40px;right:25px;">
-        <span class="colorGreen">Les adaptations doivent être coordonnées<br/> entre les niveaux</span>
-    </div>
-    <details>
-        <b>Objectif</b> : limiter la bande passante<br/>
-        Même objectifs pour PaaS et IaaS<br/>
-        <b>Adaptation pas efficace</b>:<br/>
-        On préfèrerait avoir seulement la migration du service applicatifs et l'arrêt du nœud de plate-forme devenu inutile<br/>
-        <br/>
-        Cet exemple montre bien le besoin de coordonner les adaptations afin qu'elles soient efficaces
-    </details>
-</section>-->
 
 <section class="slide">
     <div class="guide">
