@@ -2,42 +2,6 @@
     <h2 class="h2-list">Validation</h2>
 </section>
 
-<!--<section class="slide">
-    <header>
-        <h2>Validation</h2>
-    </header>
-    <ul>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span
-                class="colorOrange"> Est-ce extensible et générique ?</span>
-            <ul>
-                <li>Est-ce facile d'intégrer une nouvelle implémentation ?</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange"> Est-ce que cela supporte la montée en charge ?</span>
-            <ul>
-                <li>Quelle taille de modèle?</li>
-                <li>Est-ce que cela correspond à un Cloud réel ?</li>
-            </ul>
-        </li>
-        <li class="next hidden collapse"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange"> Est-ce possible de faire de l'adaptation multi-niveaux ?</span>
-            <ul>
-                <li>Comment utiliser les informations de plusieurs niveaux ?</li>
-                <li>Comment utiliser les capacités d'adaptation d'un niveau pour en adapter un autre ?</li>
-            </ul>
-        </li>
-    </ul>
-</section>-->
-
-
-<!--<section class="slide shout">
-    <header>
-        <h2 style="line-height: 0.3;">
-            <span class="colorOrange" style="font-size: 60px;">Est-ce possible de faire <br/>de l'adaptation multi-niveaux ?</span><br/>
-            <span style="font-size: 40px;">Distribution d'un serveur web</span>
-        </h2>
-    </header>
-</section>-->
-
 <section class="slide">
     <div class="guide">
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Utilisabilité</div>
@@ -47,24 +11,22 @@
     </header>
     <ul>
         <li class="hidden"><span class="colorOrange">Objectif : Gérer l'adaptation de manière transverse</span></li>
+        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
+                class="colorOrange">Faire de l'adaptation multi-niveau efficace</span></li>
         <li class="hidden">Protocole expérimental
             <ul>
-                <li>Implémentation de gestionnaires
+                <li class="next collapse">Utilisation des informations des différents niveaux (infrastructure)
                     <ul>
-                        <li class="next collapse">Infrastructure
-                            <ul>
-                                <li>Objectif : Optimisation de l'utilisation de la bande passante</li>
-                                <li>Solution : Placer les nœuds de plate-forme ayant des composants qui interagissent sur les mêmes nœuds d'infrastructure</li>
-                                <!--<li>Utilisation des informations multi-niveaux</li>-->
-                            </ul>
+                        <li>Objectif : Optimisation de l'utilisation de la bande passante</li>
+                        <li>Solution : Placer les nœuds de plate-forme ayant des composants qui interagissent sur les mêmes nœuds
+                            d'infrastructure
                         </li>
-                        <li class="next collapse">Plate-forme
-                            <ul>
-                                <li>Objectif : Limiter les migrations de nœuds de plate-forme</li>
-                                <li>Solution : remplacer ces migrations par des migrations de composants</li>
-                                <!--<li>Coordination de l'adaptation entre IaaS et PaaS</li>-->
-                            </ul>
-                        </li>
+                    </ul>
+                </li>
+                <li class="next collapse">Coordonner l'adaptation entre les niveaux (Plate-forme)
+                    <ul>
+                        <li>Objectif : Limiter les migrations de nœuds de plate-forme</li>
+                        <li>Solution : remplacer ces migrations par des migrations de composants</li>
                     </ul>
                 </li>
             </ul>
@@ -73,53 +35,35 @@
 </section>
 
 <section class="slide">
-    <div class="guide">
-        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Utilisabilité</div>
-    </div>
     <header>
-        <h2>Cas d'usage</h2>
+        <h2>Cas d'usage : Gestionnaire d'infrastructure</h2>
     </header>
-    <ul>
-       <!-- <li class="hidden next collapse"><span class="colorOrange">Définition d'un serveur web distribué</span>
-            <ul>
-                <li>Définition d'un serveur qui écoute sur un port réseau</li>
-                <li>Définition de page web répondant pour une url spécifique</li>
-                <li>Interconnexion du serveur et des pages grâce aux channels</li>
-            </ul>
-            <div>
-                <img height="150px" src="figures/validation/webserver-onenode.png"/>
-                <img class="next" height="150px" src="figures/validation/webserver-distributed.png"/>
-            </div>
-        </li>-->
-        <li class="hidden next"><span class="colorOrange">Implémentation du gestionnaire d'infrastructure</span>
-            <ul>
-                <li>Utilise les informations provenant du niveau application
-                    <ul>
-                        <li>Connections entre composants</li>
-                    </ul>
-                </li>
-                <!--<li>Tenant compte des interactions au niveau application-->
-                    <!--<ul>-->
-                        <li class="hidden">Pour le positionnement des machines virtuelles</li>
-                        <!--<li class="hidden">Pour rapprocher les machines virtuelles ayant beaucoup d'interactions</li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-            </ul>
-        </li>
-        <li class="hidden next"><span class="colorOrange">Implémentation d'un gestionnaire de plate-forme</span>
-            <ul>
-                <li>Synchronisation des adaptations par l'intermédiaire des groupes</li>
-                <li>Refus des migrations de nœud de plate-forme</li>
-                <li>Remplacement par des migrations de composants</li>
-                <!--<li>Capable de refuser des adaptations provenant de l'infrastructure
-                    <ul>
-                        <li>Pour éviter les migrations de VMs</li>
-                        <li>Pour les remplacer par des adaptations au niveau plate-forme</li>
-                    </ul>
-                </li>-->
-            </ul>
-        </li>
-    </ul>
+    <img class="next" style="position:absolute;top:150px;left:100px;" height="250px" src="figures/validation/multi-layer-iaas-current.png"/>
+
+    <div class="next">
+        <span class="icon-arrow-right" style="position:absolute;top:275px;left:500px;"></span>
+        <img style="position:absolute;top:150px;right:100px;" height="250px" src="figures/validation/multi-layer-iaas-new.png"/>
+    </div>
+</section>
+
+<section class="slide">
+    <header>
+        <h2>Cas d'usage : Gestionnaire de plate-forme</h2>
+    </header>
+    <img class="next" style="position:absolute;top:100px;left:100px;" height="300px" src="figures/validation/multi-layer-paas-current.png"/>
+
+    <div class="next">
+        <span class="icon-arrow-right" style="position:absolute;top:275px;left:500px;"></span>
+        <img style="position:absolute;top:100px;right:100px;" height="300px" src="figures/validation/multi-layer-paas-new-iaas.png"/>
+    </div>
+    <div class="next">
+        <span class="icon-arrow-down" style="position:absolute;bottom:245px;right:250px;"></span>
+        <img style="position:absolute;bottom:-10px;right:100px;" height="300px" src="figures/validation/multi-layer-paas-new.png"/>
+    </div>
+    <div class="next">
+        <span class="icon-arrow-left" style="position:absolute;bottom:155px;left:500px;"></span>
+        <img style="position:absolute;bottom:-10px;left:100px;" height="300px" src="figures/validation/multi-layer-paas-new-next.png"/>
+    </div>
 </section>
 
 <section class="slide">
@@ -133,7 +77,7 @@
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
     </ul>
-    <!--<img height="200px" src="figures/validation/nbloc-new-bis.png"/>-->
+    Peu complexe :
     <table border="1" class="evaluation">
         <tr>
             <td style="width:260px"><b>Gestionnaire</b></td>
@@ -146,34 +90,7 @@
             <td>173</td>
         </tr>
     </table>
-    <ul>
-        <li>Parcours de modèle</li>
-        <li>Test de propriétés</li>
-        <li>Définition d'une nouvelle configuration pour le système
-        <ul>
-            <li>Définition de nœuds de plate-forme dans le modèle globale</li>
-            <li>Positionnement de ces nœuds sur l'infrastructure</li>
-        </ul>
-        </li>
-    </ul>
-    <details>
-        code impératif pour le parcourds de modèle et test de valeur
-
-        permet d'écrire des managers assez complexe sans trop de ligne de code
-    </details>
-    <!--<ul>
-        <li class="hidden"><span class="icon-exclamation-sign"></span>Pas de validation expérimentale</li>
-    </ul>-->
 </section>
-
-<!--<section class="slide shout">
-    <header>
-        <h2 style="line-height: 0.3;">
-            <span class="colorOrange" style="font-size: 60px;">Est-ce extensible et générique ?</span><br/>
-            <span style="font-size: 40px;">Implémentation d'une solution d'infrastructure hybride</span>
-        </h2>
-    </header>
-</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -213,17 +130,9 @@
                 <li class="hidden">
             <span class="colorOrange">Utilisation d'un système de virtualisation d'espace utilisateur
                 (Jails<span class="cite">*1</span>)</span>
-                    <!--<ul>
-                        <li>Partage du système d'exploitation</li>
-                        <li>Séparation de l'espace de stockage</li>
-                        <li>Séparation de l'adressage réseau</li>
-                    </ul>-->
                 </li>
                 <li class="hidden"><span class="colorOrange">Proxy vers un Cloud public
             (Amazon EC2<span class="cite">*2</span>)</span>
-                    <!--<ul>
-                        <li>virtualisation du système d'exploitation</li>
-                    </ul>-->
                 </li>
                 <li class="hidden"><span class="colorOrange">Gestionnaire d'infrastructure</span>
                     <ul>
@@ -240,34 +149,16 @@
     </p>
 </section>
 
-<!--<section class="slide">
+<section class="slide">
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
+    </div>
     <header>
-        <h2>Gestionnaire d'infrastructure</h2>
+        <h2>Évaluation</h2>
     </header>
-    <ol>
-        <li class="next"><span class="colorOrange">Identification des nœuds de plate-forme non hébergés</span></li>
-        <li class="next"><span class="colorOrange">Identification du système d'exploitation demandé</span>
-            <ul>
-                <li class="hidden">Si Windows alors allocation sur le proxy Amazon EC2</li>
-                <li class="hidden">Sinon allocation sur l'une des machines du Cloud privé
-                    <ul>
-                        <li class="hidden">Répartition équitable des nœuds de plate-forme</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="next"><span class="colorOrange">Soumission du nouveau modèle</span>
-            <ul>
-                <li>Dissémination par le(s) groupe(s)</li>
-                <li>Mise en place des nœuds de plate-forme
-                    <ul>
-                        <li>Par les nœuds parents (qui héberge)</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ol>
-</section>-->
+    <img width="600px" src="figures/validation/nbloc-node-type.png"/>
+    <p>Peu de code nécessaire par rapport au code fourni</p>
+</section>
 
 <section class="slide">
     <div class="guide">
@@ -276,69 +167,9 @@
     <header>
         <h2>Évaluation</h2>
     </header>
-    <!--<table border="1" class="evaluation">
-        <tr>
-            <td style="width:110px"><b>Projet</b></td>
-            <td style="width:110px">JailNode</td>
-            <td style="width:110px">EC2Node</td>
-            <td style="width:110px">IaaSManager</td>
-            <td style="width:110px">KevoreeKloud API</td>
-            <td style="width:110px">JavaSENode</td>
-            <td style="width:110px">Kevoree Core</td>
-        </tr>
-        <tr>
-            <td><b>Lignes de code</b></td>
-            <td>529</td>
-            <td>322</td>
-            <td>316</td>
-            <td>967</td>
-            <td>2547</td>
-            <td>21768</td>
-        </tr>
-        <tr>
-            <td><b>Ratio / code réutilisé (%)</b></td>
-            <td>2,17</td>
-            <td>1,32</td>
-            <td>1,29</td>
-            <td>3,97</td>
-        </tr>
-        <tr>
-            <td><b>Ratio / Kloud API(%)</b></td>
-            <td>54,70</td>
-            <td>33,29</td>
-            <td>32,67</td>
-            <td>100</td>
-        </tr>
-    </table>-->
-    <!--<img style="position:absolute;top:200px;left:100px;" width="400px" src="figures/validation/nbloc.png"/>-->
-    <!--<img style="position:absolute;top:100px;right:50px;" width="400px" src="figures/validation/ratio_codereuse.png"/>-->
-    <!--<img style="position:absolute;bottom:100px;right:100px;" width="300px" src="figures/validation/ratio_codeKevoreeKloud.png"/>-->
-    <img width="600px" src="figures/validation/nbloc.png"/>
-    <!--<ul>
-        <li>Peu de nouveau code nécessaire
-            <ul>
-                <li>Gestion du modèle fourni par KevoreeCore</li>
-                <li>Gestion de l'exécution des reconfigurations par KevoreeCore</li>
-                <li>Implémentation de la phase de planification
-                    <ul>
-                        <li>Par JavaSeNode pour les applications</li>
-                        <li>Par KevoreeKloud API pour la gestion des nœuds</li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>-->
+    <img width="600px" src="figures/validation/nbloc-manager-type.png"/>
     <p>Peu de code nécessaire par rapport au code fourni</p>
 </section>
-
-<!--<section class="slide shout">
-    <header>
-        <h2 style="line-height: 0.3;">
-            <span class="colorOrange" style="font-size: 60px;">Est-ce que cela supporte la montée en charge ?</span><br/>
-            <span style="font-size: 40px;">Distribution de l'exécution des tests dans le cadre de l'Intégration Continue</span>
-        </h2>
-    </header>
-</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -367,27 +198,6 @@
         </li>
     </ul>
 </section>
-
-<!--<section class="slide">
-    <header>
-        <h2>Protocole expérimental</h2>
-    </header>
-    <ul>
-        <li>Soumission de modèle de plate-forme</li>
-        <li>Évaluation du temps d'exécution
-            <ol>
-                <li>définition des nœuds de plate-forme à créer</li>
-                <li>transmission du modèle depuis la plate-forme vers l'infrastructure</li>
-                <li>placement des nœuds de plate-forme sur l'infrastructure</li>
-            </ol>
-        </li>
-        <li>Évaluation de la quantité mémoire
-            <ul>
-                <li>pour le stockage du modèle globale</li>
-            </ul>
-        </li>
-    </ul>
-</section>-->
 
 <section class="slide">
     <div class="guide">
@@ -599,16 +409,13 @@
                 </tr>
             </table>
 
-        <li class="hidden next collapse"><span class="colorOrange">Génération du modèle pour Amazon EC2</span><span class="cite">*</span>
+        <li class="hidden next collapse"><span class="colorOrange">Génération du modèle pour Amazon EC2 (2009)</span><span
+                class="cite">*</span>
             <ul>
                 <li class="hidden">507000 nœuds (infrastructure + plate-forme) + 400000 éléments</li>
             </ul>
         </li>
-        <li class="hidden next"><span class="colorOrange">Taille mémoire : 721,21 Mo</span>
-            <ul>
-                <li class="hidden">Sans partitionnement ni filtrage</li>
-            </ul>
-        </li>
+        <li class="hidden next"><span class="colorOrange">Taille mémoire : 721,21 Mo</span> (Sans partitionnement ni filtrage)</li>
     </ul>
     <p class="cite">
         <span>*</span>À partir des informations obtenu dans Rosen, G. (2011). Anatomy of an Amazon EC2 Resource ID. et<br/>
