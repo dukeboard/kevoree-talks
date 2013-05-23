@@ -74,8 +74,9 @@
         <h2>Évaluation</h2>
     </header>
     <ul>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span
-                class="colorOrange">Faire de l'adaptation multi-niveau</span></li>
+        <li class="hidden">Notre abstraction répond-elle à notre objectif ?</li>
+        <li class="hidden">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Faire de l'adaptation multi-niveau</span></li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
     </ul>
@@ -96,10 +97,10 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité</div>
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
     </div>
     <header>
-        <h2>Notre abstraction est-elle extensible ?</h2>
+        <h2>Notre abstraction est-elle extensible et générique ?</h2>
     </header>
     <ul>
         <li class="hidden">Protocole expérimental
@@ -121,7 +122,7 @@
 
 <section class="slide">
     <div class="guide">
-        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité</div>
+        <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Extensibilité & généricité</div>
     </div>
     <header>
         <h2>Cas d'usage</h2>
@@ -161,10 +162,14 @@
         <h2>Évaluation</h2>
     </header>
     <ul>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Étendre l'abstraction avec de nouveaux types</span>
+        <li class="hidden">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction est-elle extensible ?</span>
+            <ul>
+                <li class="hidden">Au niveau des types de nœuds</li>
+            </ul>
         </li>
     </ul>
-    <img width="600px" src="figures/validation/nbloc-node-type.png"/>
+    <img width="600px" style="position:absolute;top:270px;left:100px;" src="figures/validation/nbloc-node-type.png"/>
     <img height="400px" style="position:absolute;top:150px;right:20px;" src="figures/validation/type-inheritance.png"/>
 
 </section>
@@ -177,10 +182,14 @@
         <h2>Évaluation</h2>
     </header>
     <ul>
-        <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Étendre l'abstraction avec de nouveaux types</span>
+        <li class="hidden">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction est-elle générique ?</span>
+            <ul>
+                <li class="hidden">Au niveau des types de gestionnaire</li>
+            </ul>
         </li>
     </ul>
-    <img width="600px" src="figures/validation/nbloc-manager-type.png"/>
+    <img width="600px" style="position:absolute;top:270px;left:100px;" src="figures/validation/nbloc-manager-type.png"/>
 </section>
 
 <section class="slide">
@@ -216,22 +225,46 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Cas d'usage (1)</h2>
+        <h2>Soumission de modèles : Cas d'usage (1)</h2>
     </header>
-    <span class="colorOrange">Intégration Continue</span>
-    <blockquote class="next"><!--Continuous Integration (CI) is the practice of merging all developer workspaces with a shared mainline several
+    <div class="next">
+        <span class="colorOrange">Intégration Continue</span>
+        <blockquote><!--Continuous Integration (CI) is the practice of merging all developer workspaces with a shared mainline several
         times a day. ...CI was originally intended to be used in combination with automated unit tests written through the practices of Test
         driven development.<span class="cite">*1</span>-->
-        L'intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de code
-        source que le résultat des modifications ne produit pas de régression dans l'application développée.<span class="cite">*</span>
-    </blockquote>
+            L'intégration continue est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier à chaque modification de
+            code source que le résultat des modifications ne produit pas de régression dans l'application développée.<span
+                    class="cite">*</span>
+        </blockquote>
+    </div>
     <ul>
-        <li>Cas d'usage important du Cloud : (Travis : 20 000 run/j, 23 102 projets)</li>
+        <!--<li class="next">Bon cas d'usage pour le Cloud
+            <ul>
+                <li>Pas de charge constante et pics de charge ponctuels</li>
+                <li class="hidden next"><span class="colorOrange">Consommatrice en temps et en ressource</span>
+                <li class="hidden next">
+                    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notamment l'exécution des tests</span>
+                </li>
+            </ul>
+        </li>-->
+        <!--<li class="next">CloudBees, Travis, ...
+            <ul>
+                <li class="hidden"><span class="icon-exclamation-sign"></span>Élasticité sur le nombre d'intégration
+                    <ul>
+                        <li class="hidden">Pas sur les environnements d'intégration</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>-->
+        <!--<li class="next collapse">Cas d'usage important du Cloud (Travis : 20 000 run/j, 23 102 projets)
+            <ul>
+                <li>Limiter à la réservation de ressources en fonction des configurations spécificiées</li>
+            </ul>
+        </li>-->
         <li class="hidden next"><span class="colorOrange">Consommatrice en temps</span>
             <ul>
                 <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notamment l'exécution des tests</span>
                 </li>
-                <!--<li class="next">Certains projets nécessite plus de 7 semaines<span class="cite">*2</span></li>-->
             </ul>
         </li>
     </ul>
@@ -252,23 +285,22 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Cas d'usage (2)</h2>
+        <h2>Soumission de modèles : Cas d'usage (2)</h2>
     </header>
     <ul>
-        <li class="hidden">Solution proposée
+        <li class="hidden next">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Effectuer l'exécution des tests sur un Cloud</span>
             <ul>
-                <li class="hidden next"><span class="colorOrange">Effectuer l'exécution des tests sur un Cloud</span>
+                <li class="next">En parallélisant leur exécution</li>
+                <li class="next">En définissant la plate-forme d'exécution nécessaire
                     <ul>
-                        <li class="next">En parallélisant leur exécution</li>
-                        <li class="next">En définissant la plate-forme d'exécution nécessaire
-                            <ul>
-                                <li class="next">En tenant compte des contraintes spécifiques à chaque test</li>
-                            </ul>
-                        </li>
+                        <li class="next">En tenant compte des contraintes spécifiques à chaque test</li>
                     </ul>
                 </li>
-                <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Synthèse de modèle Kevoree</span>
             </ul>
+        </li>
+        <li class="hidden next">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Synthèse de modèle Kevoree</span>
         </li>
     </ul>
 </section>
@@ -278,15 +310,24 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Cas d'usage (3)</h2>
+        <h2>Soumission de modèles : Cas d'usage (3)</h2>
     </header>
     <ul>
-        <li>Application sur un exemple concret : Apache Camel<span style="font-size: 18px;">(<a
+        <li>Exemple concret : Apache Camel<span style="font-size: 18px;">(<a
                 href="http://camel.apache.org/">http://camel.apache.org/</a>)</span>
             <ul>
-                <li class="hidden next collapse">Implémentation de patrons d'intégration <span class="cite">*</span>
+                <li class="hidden next collapse">Projet open source largement utilisé
                     <ul>
-                        <li>facilite l'intégration d'applications en normalisant les communications entre elles</li>
+                        <li class="hidden">Implémentation de patrons d'intégration <span class="cite">*</span>
+                            <ul>
+                                <li>facilite l'intégration d'applications en normalisant les communications entre elles</li>
+                            </ul>
+                            <p class="cite">
+                                <span>*</span>Hohpe, G., et al. (2004). Enterprise integration patterns: Designing, building, and deploying
+                                messaging solutions.
+                                Addison-Wesley Professional.
+                            </p>
+                        </li>
                     </ul>
                 </li>
                 <li class="hidden next">175 modules, 3875 suites de tests, 8084 tests</li>
@@ -304,10 +345,6 @@
             </ul>
         </li>
     </ul>
-    <p class="cite">
-        <span>*</span>Hohpe, G., et al. (2004). Enterprise integration patterns: Designing, building, and deploying messaging solutions.
-        Addison-Wesley Professional.
-    </p>
     <details>
         <b>Sur le Cloud</b>:<br/>
         7 min pour initialiser l'ensemble des nœuds de plate-forme
@@ -320,22 +357,29 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Évaluation</h2>
+        <h2>Évaluation (1)</h2>
     </header>
 
-    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Tester le passage à l'échelle</span>
+    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction passe-t-elle à l'échelle ?</span><br/>
+    <span>En terme de temps d'exécution</span>
     <ul>
         <li><span class="colorOrange">Apache Camel: Premier cas d'usage</span>
             <ul>
-                <li>50 nœuds de plate-forme + 3900 élements applicatifs</li>
+                <li>50 nœuds de plate-forme + 3900 élements applicatifs
+                    <ul>
+                        <li>7 minutes pour la création des nœuds de plate-forme</li>
+                        <li>Environ 1 seconde de surcoût du fait de Kevoree</li>
+                    </ul>
+                </li>
             </ul>
         </li>
-        <li><span class="colorOrange">Génération de plus gros modèle</span>
+        <li><span class="colorOrange">Génération de modèle plus gros</span> (400 000 éléments applicatifs)
             <ul>
+                <li>5 000, 50 000, 100 000 nœuds de plate-formes</li>
                 <!--<li class="hidden">500 nœuds + 40 000 composants</li>-->
-                <li class="hidden">5 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
+                <!--<li class="hidden">5 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
                 <li class="hidden">50 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
-                <li class="hidden">100 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
+                <li class="hidden">100 000 nœuds de plate-forme + 400 000 élements applicatifs</li>-->
             </ul>
         </li>
         <li><span class="colorOrange">Allocation sur 10 nœuds d'infrastructure</span></li>
@@ -355,24 +399,22 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Évaluation : Temps d'exécution</h2>
+        <h2>Évaluation (2)</h2>
     </header>
-    <img height="300px" src="figures/validation/eval_time-new.png"/>
+    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction passe-t-elle à l'échelle ?</span><br/>
+    <span>En terme de temps d'exécution</span>
+    <img height="200px" src="figures/validation/eval_time-new.png"/>
 
     <ul>
-        <li style="line-height: 1;">Surcoût d'exécution acceptable jusqu'à 5000 nœuds comparé au temps nécessaire pour la création des VMs
-            (généralement plus de 100s par machine<span class="cite">*</span>)
+        <li>Surcoût d'exécution acceptable jusqu'à 5000 nœuds<!-- comparé au temps nécessaire pour la création des VMs-->
+            <ul>
+                <li class="hidden">Démarrage d'une machine virtuelle = généralement plus de 100s<span class="cite">*</span></li>
+            </ul>
         </li>
     </ul>
-
-    <p class="cite"><span>*</span>Mao, M., et al. (2012). A performance study on the vm startup time in the cloud. In Cloud Computing, (pp.
-        423-430). IEEE.</p>
-    <details>
-        <b>Création d'une VM</b> = téléchargement de l'image du disque, réservation des ressources, création de la vm, démarrage de la
-        vm<br/>
-        Le temps de création varie selon les impléms d'IaaS ainsi que selon le type de vms à créer et selon la charge de la machine qui doit
-        héberger cette vm
-    </details>
+    <p class="cite">
+        <span>*</span>Mao, M., et al. (2012). A performance study on the vm startup time in the cloud. In Cloud Computing, (pp. 423-430).
+        IEEE.</p>
 </section>
 
 <section class="slide">
@@ -380,13 +422,15 @@
         <div><span class="icon-angle-right"></span>Validation<span class="icon-angle-right"></span>Passage à l'échelle</div>
     </div>
     <header>
-        <h2>Évaluation : Usage mémoire</h2>
+        <h2>Évaluation (3)</h2>
     </header>
+    <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction passe-t-elle à l'échelle ?</span><br/>
+    <span>En terme d'usage mémoire</span>
     <ul>
         <li class="hidden">
             <table>
                 <tr>
-                    <td><img height="260px" src="figures/validation/eval_memory.png"/></td>
+                    <td><img height="200px" src="figures/validation/eval_memory.png"/></td>
                     <td style="vertical-align: top;">
                         <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span><br/>
                         <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>
@@ -403,7 +447,7 @@
         <li class="hidden next"><span class="colorOrange">Taille mémoire : 721,21 Mo</span> (Sans partitionnement ni filtrage)</li>
     </ul>
     <p class="cite">
-        <span>*</span>À partir des informations obtenu dans Rosen, G. (2011). Anatomy of an Amazon EC2 Resource ID. et<br/>
+        <span>*</span>Rosen, G. (2011). Anatomy of an Amazon EC2 Resource ID. et
         <a href="http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/">http://huanliu.wordpress.com/2012/03/13/amazon-data-center-size/</a>
     </p>
 </section>
