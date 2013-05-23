@@ -12,29 +12,29 @@ jQuery(document).ready(function () {
         jQuery("#needs-offline-reflexion-figure").show();
 
         // clear mar runtime on each node
-        var engine = jQuery('#marDengine1');
+//        var engine = jQuery('#marDengine1');
         /*var element = engine.get(0);
          var indexOf = element.className.indexOf(" icon-spin");
          if (indexOf != -1) {
          element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
          }*/
-        engine.show();
+//        engine.show();
 
-        engine = jQuery('#marDengine2');
+//        engine = jQuery('#marDengine2');
         /*element = engine.get(0);
          indexOf = element.className.indexOf(" icon-spin");
          if (indexOf != -1) {
          element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
          }*/
-        engine.show();
+//        engine.show();
 
-        engine = jQuery('#marDengine3');
+//        engine = jQuery('#marDengine3');
         /*element = engine.get(0);
          indexOf = element.className.indexOf(" icon-spin");
          if (indexOf != -1) {
          element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
          }*/
-        engine.show();
+//        engine.show();
 
 
         jQuery("#kevoree-partial-multi-layers").hide();
@@ -53,12 +53,21 @@ jQuery(document).ready(function () {
         jQuery("#coordinatedsystems").show();
         jQuery("#coordinatedsystemsfigure").show();
 
-        /*var model = jQuery("#marmodel");
-         model.css("position", "absolute");
-         model.css("top", "150px");
-         model.css("left", "300px");
-         model.height("200px");
-         model.show();*/
+        var element = jQuery("#kevoree-distributed-engine1").get(0);
+        var indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
+        element = jQuery("#kevoree-distributed-engine2").get(0);
+        indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
+        element = jQuery("#kevoree-distributed-engine3").get(0);
+        indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
 
         // TODO slide Kevoree, Model@Runtime et adaptation => what we need to display in list mode ?
 
@@ -336,7 +345,49 @@ jQuery(document).ready(function () {
         clear();
     });
 
-    element = jQuery("#dmarmodel-process");
+    element = jQuery("#kevoree-distributed-adaptation");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        var element = jQuery("#kevoree-distributed-engine1").get(0);
+        if (element.className.indexOf(" icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        var element = jQuery("#kevoree-distributed-engine1").get(0);
+        var indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
+    });
+    element = jQuery("#kevoree-distributed-remote-adaptation");
+    element.on('currentActive', function () {
+        jQuery.noConflict();
+        var element = jQuery("#kevoree-distributed-engine2").get(0);
+        if (element.className.indexOf(" icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+        var element = jQuery("#kevoree-distributed-engine3").get(0);
+        if (element.className.indexOf(" icon-spin") == -1) {
+            element.className = element.className + " icon-spin";
+        }
+    });
+    element.on('notCurrentActive', function () {
+        jQuery.noConflict();
+        var element = jQuery("#kevoree-distributed-engine2").get(0);
+        var indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
+        element = jQuery("#kevoree-distributed-engine3").get(0);
+        indexOf = element.className.indexOf(" icon-spin");
+        if (indexOf != -1) {
+            element.className = element.className.substring(0, indexOf) + element.className.substring(indexOf + " icon-spin".length);
+        }
+    });
+
+    /*element = jQuery("#dmarmodel-process");
     element.on('currentActive', function () {
         jQuery.noConflict();
         jQuery("#marDengine1").show();
@@ -348,7 +399,7 @@ jQuery(document).ready(function () {
         jQuery("#marDengine1").hide();
         jQuery("#marDengine2").hide();
         jQuery("#marDengine3").hide();
-    });
+    });*/
 
     element = jQuery("#kevoree-node");
     element.on('currentActive', function () {

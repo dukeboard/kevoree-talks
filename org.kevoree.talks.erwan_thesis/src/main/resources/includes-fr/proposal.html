@@ -61,11 +61,13 @@
     </div>
     <header><h2>Model@Runtime et réflexion désynchronisée (1)</h2></header>
     <ul>
-        <li class="hidden next">Un modèle comme <span class="colorOrange">abstraction d'architecture</span> à l'exécution<span class="cite">*</span>
+        <li class="hidden next">
+            Un modèle comme <span class="colorOrange">abstraction d'architecture</span> à l'exécution<span class="cite">*</span>
+            <img src="figures/contribution/model@runtime/model@runtime.png" height="250px" style="position:absolute;top:230px;right:50px;"/>
         </li>
         <li class="hidden next">Réflexion :
             <ul>
-                <li>Capacité de raisonner et d'agir sur lui-même par le biais d'une représentation de lui-même</li>
+                <li>Raisonner et agir sur le système <br/>par le biais d'une représentation de lui-même</li>
                 <li class="next collapse">Lien causal entre le système et sa représentation
                     <ul>
                         <li class="hidden">
@@ -76,10 +78,12 @@
                 </li>
             </ul>
         </li>
-        <li class="hidden next collapse"><span class="colorOrange">Support de réflexion désynchonisée</span></li>
-        <li class="hidden next collapse">
+        <li class="hidden next"><span class="colorOrange">Support de réflexion désynchonisée</span></li>
+        <li class="hidden next">
             <span class="icon-plus-sign colorGreen"></span><span class="colorOrange">Tester et validation d'une configuration avant même de l'appliquer</span>
+            <span style="position:absolute;top:330px;right:5px;font-size:24px;" class="colorGreen">On demand</span>
         </li>
+
     </ul>
     <p class="cite"><span>*</span>Morin, B. et al. (2009). Models@ run. time to support dynamic adaptation. Computer, 42(10), 44-51.</p>
 </section>
@@ -134,7 +138,7 @@
                 </li>
                 <li class="next collapse" id="groupType"><span><strong class="colorOrange">Groupe</strong></span>
                     <ul>
-                        <li><span class="colorOrange">Encapsule la sémantique de dissémination des mises à jour (modèles)</span></li>
+                        <li><span class="colorOrange">Encapsule la sémantique de dissémination des modèles</span></li>
                     </ul>
                 </li>
             </ul>
@@ -180,15 +184,30 @@
     </div>
     <div class="fouquet">Thèse François Fouquet</div>
     <header>
-        <h2>Kevoree et Distribution</h2>
+        <h2>Model@Runtime, Kevoree et Distribution</h2>
     </header>
-    <img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
+    <!--<img class="next" id="dmarmodel" src="figures/contribution/kevoree/dmar_sample.png" style="border-radius: 10px;">
 
     <div class="next" id="dmarmodel-process">
         <span id="marDengine1" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 280px;top:350px;"></span>
         <span id="marDengine2" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:340px;"></span>
         <span id="marDengine3" class="colorOrange icon-cog" style="font-size: 80px; position: absolute; left: 720px;top:180px;"></span>
+    </div>-->
+    <img class="next" src="figures/contribution/kevoree/distribution/mar-distribution-current.png" height="400px" style="position:absolute;top:150px;left:100px">
+    <div class="next">
+        <span id="kevoree-distributed-engine1" class="colorOrange icon-cog" style="font-size: 40px; position: absolute; left: 303px;top:422px;"></span>
+        <span id="kevoree-distributed-engine3" class="colorOrange icon-cog" style="font-size: 40px; position: absolute; right: 17px;top:175px;"></span>
+        <span id="kevoree-distributed-engine2" class="colorOrange icon-cog" style="font-size: 40px; position: absolute; right: 17px;top:400px;"></span>
     </div>
+    <span id="kevoree-distributed-adaptation" class="next icon-arrow-right" style="position:absolute;top:480px;left:130px;"></span>
+    <img class="next" src="figures/contribution/kevoree/distribution/mar-distribution-new-model.png" height="400px" style="position:absolute;top:150px;left:100px">
+    <img class="next" src="figures/contribution/kevoree/distribution/mar-distribution-dissemination.png"height="400px" style="position:absolute;top:150px;left:100px">
+    <span class="next" id="kevoree-distributed-remote-adaptation"></span>
+    <div class="next">
+        <img src="figures/contribution/kevoree/distribution/mar-distribution-new-model.png" height="400px" style="position:absolute;top:150px;left:100px">
+        <img src="figures/contribution/kevoree/distribution/mar-distribution-new-config.png" height="400px" style="position:absolute;top:150px;left:100px">
+    </div>
+
 </section>
 
 <section class="slide">
