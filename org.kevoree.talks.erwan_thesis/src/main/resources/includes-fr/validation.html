@@ -51,14 +51,18 @@
             <ul>
                 <li>Implémentation de gestionnaires
                     <ul>
-                        <li>Infrastructure
+                        <li class="next collapse">Infrastructure
                             <ul>
-                                <li>Utilisation des informations multi-niveaux</li>
+                                <li>Objectif : Optimisation de l'utilisation de la bande passante</li>
+                                <li>Solution : Placer les nœuds de plate-forme ayant des composants qui interagissent sur les mêmes nœuds d'infrastructure</li>
+                                <!--<li>Utilisation des informations multi-niveaux</li>-->
                             </ul>
                         </li>
-                        <li>Plate-forme
+                        <li class="next collapse">Plate-forme
                             <ul>
-                                <li>Coordination de l'adaptation entre IaaS et PaaS</li>
+                                <li>Objectif : Limiter les migrations de nœuds de plate-forme</li>
+                                <li>Solution : remplacer ces migrations par des migrations de composants</li>
+                                <!--<li>Coordination de l'adaptation entre IaaS et PaaS</li>-->
                             </ul>
                         </li>
                     </ul>
@@ -76,7 +80,7 @@
         <h2>Cas d'usage</h2>
     </header>
     <ul>
-        <li class="hidden next collapse"><span class="colorOrange">Définition d'un serveur web distribué</span>
+       <!-- <li class="hidden next collapse"><span class="colorOrange">Définition d'un serveur web distribué</span>
             <ul>
                 <li>Définition d'un serveur qui écoute sur un port réseau</li>
                 <li>Définition de page web répondant pour une url spécifique</li>
@@ -86,25 +90,33 @@
                 <img height="150px" src="figures/validation/webserver-onenode.png"/>
                 <img class="next" height="150px" src="figures/validation/webserver-distributed.png"/>
             </div>
-        </li>
-        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire d'infrastructure</span>
+        </li>-->
+        <li class="hidden next"><span class="colorOrange">Implémentation du gestionnaire d'infrastructure</span>
             <ul>
-                <li>Tenant compte des interactions au niveau application
+                <li>Utilise les informations provenant du niveau application
                     <ul>
-                        <li>Pour le positionnement des machines virtuelles</li>
-                        <li>Pour rapprocher les machines virtuelles ayant beaucoup d'interactions</li>
+                        <li>Connections entre composants</li>
                     </ul>
                 </li>
+                <!--<li>Tenant compte des interactions au niveau application-->
+                    <!--<ul>-->
+                        <li class="hidden">Pour le positionnement des machines virtuelles</li>
+                        <!--<li class="hidden">Pour rapprocher les machines virtuelles ayant beaucoup d'interactions</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
             </ul>
         </li>
-        <li class="hidden next collapse"><span class="colorOrange">Implémentation d'un gestionnaire de plate-forme</span>
+        <li class="hidden next"><span class="colorOrange">Implémentation d'un gestionnaire de plate-forme</span>
             <ul>
-                <li>Capable de refuser des adaptations provenant de l'infrastructure
+                <li>Synchronisation des adaptations par l'intermédiaire des groupes</li>
+                <li>Refus des migrations de nœud de plate-forme</li>
+                <li>Remplacement par des migrations de composants</li>
+                <!--<li>Capable de refuser des adaptations provenant de l'infrastructure
                     <ul>
                         <li>Pour éviter les migrations de VMs</li>
                         <li>Pour les remplacer par des adaptations au niveau plate-forme</li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
         </li>
     </ul>
@@ -121,10 +133,37 @@
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Prise en compte des informations de plusieurs niveaux</li>
         <li class="hidden"><span class="icon-ok-sign colorGreen"></span>Coordination de l'adaptation entre plusieurs niveaux</li>
     </ul>
-    <img height="150px" src="figures/validation/nbloc-new-bis.png"/>
+    <!--<img height="200px" src="figures/validation/nbloc-new-bis.png"/>-->
+    <table border="1" class="evaluation">
+        <tr>
+            <td style="width:260px"><b>Gestionnaire</b></td>
+            <td style="width:150px">Infrastructure</td>
+            <td style="width:130px">Plate-forme</td>
+        </tr>
+        <tr>
+            <td><b>Lignes de code Scala/Java</b></td>
+            <td>364</td>
+            <td>173</td>
+        </tr>
+    </table>
     <ul>
-        <li class="hidden"><span class="icon-exclamation-sign"></span>Pas de validation expérimentale</li>
+        <li>Parcours de modèle</li>
+        <li>Test de propriétés</li>
+        <li>Définition d'une nouvelle configuration pour le système
+        <ul>
+            <li>Définition de nœuds de plate-forme dans le modèle globale</li>
+            <li>Positionnement de ces nœuds sur l'infrastructure</li>
+        </ul>
+        </li>
     </ul>
+    <details>
+        code impératif pour le parcourds de modèle et test de valeur
+
+        permet d'écrire des managers assez complexe sans trop de ligne de code
+    </details>
+    <!--<ul>
+        <li class="hidden"><span class="icon-exclamation-sign"></span>Pas de validation expérimentale</li>
+    </ul>-->
 </section>
 
 <!--<section class="slide shout">
@@ -150,12 +189,7 @@
                 <li>Définition d'un gestionnaire d'infrastructure</li>
                 <li>Évaluation sur la quantité de code nécessaire<span class="cite">*</span>
                     <ul>
-                        <li>Comparaison par rapport au code réutilisé
-                            <ul>
-                                <li>Model@Runtime</li>
-                                <li>JavaSeNode</li>
-                            </ul>
-                        </li>
+                        <li>Comparaison par rapport au code utilisé</li>
                     </ul>
                 </li>
             </ul>
@@ -279,7 +313,7 @@
     <!--<img style="position:absolute;top:200px;left:100px;" width="400px" src="figures/validation/nbloc.png"/>-->
     <!--<img style="position:absolute;top:100px;right:50px;" width="400px" src="figures/validation/ratio_codereuse.png"/>-->
     <!--<img style="position:absolute;bottom:100px;right:100px;" width="300px" src="figures/validation/ratio_codeKevoreeKloud.png"/>-->
-    <img width="700px" src="figures/validation/nbloc-new.png"/>
+    <img width="600px" src="figures/validation/nbloc.png"/>
     <!--<ul>
         <li>Peu de nouveau code nécessaire
             <ul>
@@ -319,14 +353,14 @@
                 <li>Soumission de modèle de plate-forme</li>
                 <li>Évaluation du temps d'exécution
                     <ol>
-                        <li>définition des nœuds de plate-forme à créer</li>
-                        <li>transmission du modèle depuis la plate-forme vers l'infrastructure</li>
-                        <li>placement des nœuds de plate-forme sur l'infrastructure</li>
+                        <li>Définition des nœuds de plate-forme à créer</li>
+                        <li>Dissémination du modèle entre plate-forme et infrastructure</li>
+                        <li>Placement des nœuds de plate-forme sur l'infrastructure</li>
                     </ol>
                 </li>
                 <li>Évaluation de la quantité mémoire
                     <ul>
-                        <li>pour le stockage du modèle globale</li>
+                        <li>Pour le stockage du modèle globale</li>
                     </ul>
                 </li>
             </ul>
@@ -370,6 +404,7 @@
         source que le résultat des modifications ne produit pas de régression dans l'application développée.<span class="cite">*</span>
     </blockquote>
     <ul>
+        <li>Cas d'usage important du Cloud : (Travis : 20 000 run/j, 23 102 projets)</li>
         <li class="hidden next"><span class="colorOrange">Consommatrice en temps</span>
             <ul>
                 <li class="hidden"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notamment l'exécution des tests</span>
@@ -500,20 +535,19 @@
     <ul>
         <li><span class="colorOrange">Apache Camel: Premier cas d'usage</span>
             <ul>
-                <li>50 nœuds + 3845 composants</li>
+                <li>50 nœuds de plate-forme + 3900 élements applicatifs</li>
             </ul>
         </li>
         <li><span class="colorOrange">Génération de plus gros modèle</span>
             <ul>
                 <!--<li class="hidden">500 nœuds + 40 000 composants</li>-->
-                <li class="hidden">5 000 nœuds + 400 000 composants</li>
-                <li class="hidden">50 000 nœuds + 400 000 composants</li>
-                <li class="hidden">100 000 nœuds + 400 000 composants</li>
+                <li class="hidden">5 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
+                <li class="hidden">50 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
+                <li class="hidden">100 000 nœuds de plate-forme + 400 000 élements applicatifs</li>
             </ul>
         </li>
-        <li><span class="colorOrange">Toujours 10 nœuds d'infrastructure</span></li>
+        <li><span class="colorOrange">Allocation sur 10 nœuds d'infrastructure</span></li>
     </ul>
-
     <details>
         environ 4 secondes pour traiter 5000 nœuds du PaaS afin de les distribuer sur une infrastructure
         Ensuite le temps devient assez important mais ce chargement correspond à un chargement complet c'est-à-dire qu'il faut positionner
@@ -557,7 +591,7 @@
         <li class="hidden">
             <table>
                 <tr>
-                    <td><img height="200px" src="figures/validation/eval_memory.png"/></td>
+                    <td><img height="260px" src="figures/validation/eval_memory.png"/></td>
                     <td style="vertical-align: top;">
                         <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span><br/>
                         <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>

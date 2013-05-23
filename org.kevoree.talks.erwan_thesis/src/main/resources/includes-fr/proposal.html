@@ -254,11 +254,11 @@
         <tr>
             <td><b>Kevoree</b></td>
             <td><span class="colorOrange">en partie</span></td>
-            <td><span class="colorGreen">en partie</span></td>
-            <td><span class="colorRed">oui</span></td>
+            <td><span class="colorOrange">en partie</span></td>
             <td><span class="colorGreen">oui</span></td>
             <td><span class="colorGreen">oui</span></td>
-            <td><span class="colorOrange">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
+            <td><span class="colorGreen">oui</span></td>
         </tr>
         </tbody>
     </table>
@@ -311,20 +311,45 @@
     </header>
     <img class="next" id="kevoreehostsample" style="position:absolute;top: 160px;left:120px;" height="200px"
          src="figures/contribution/kevoreekloud/missing-needs-hosting.png"/>
-    <img id="kevoreehostmodel" style="position:absolute;top: 160px;right:10px;" height="120px"
-         src="figures/contribution/kevoreekloud/hosting-example.png"/>
+
+    <div id="kevoreehostmodel">
+        <span style="position:absolute;top:540px;right:190px;" class="icon-arrow-right"></span>
+        <img style="position:absolute;top: 500px;right:10px;" height="100px"
+             src="figures/contribution/kevoreekloud/hosting-example.png"/>
+    </div>
     <ul>
-        <li class="next hidden">Les nœuds Kevoree hébergent
+        <li class="hidden next">Kevoree
             <ul>
-                <li class="next" id="hostComponent">Des composants</li>
-                <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong></li>
+                <li class="next" id="hostComponent">Hébergement de composants</li>
+                <li class="next" id="hostNode"><span class="colorOrange">Hébergement de nœuds</span>
+                    <ul>
+                        <li class="next">Niveaux d'un Cloud <strong class="colorOrange">définissent</strong> une <strong>hiérarchie</strong>
+                            de machines
+                        </li>
+                        <li class="next">Machines <strong class="colorOrange">modélisées par</strong> des conteneurs d'exécution (nœuds)
+                        </li>
+                        <li class="next">Manipulation d'un Cloud <strong class="colorOrange">se ramène à</strong> la manipulation d'arbre
+                        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Définition d'adaptations de Cloud par modifications d'arbre</span>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </li>
+        <!--<li class="next hidden">Les nœuds Kevoree hébergent
+            <ul>
+                <li class="next" id="hostComponent">Des composants</li>
+                <li class="next" id="hostNode"><strong class="colorOrange">Des nœuds</strong>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>-->
     </ul>
-    <img id="kevoreehosts1" style="position:absolute;bottom: 20px;right:10px;"
-         src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg"/>
-    <img id="kevoreehosts2" style="position:absolute;bottom: 20px;right:10px;"
-         src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg"/>
+    <img id="kevoreehosts1" style="position:absolute;top:130px;right:0px;"
+         src="figures/contribution/kevoreekloud/kevoree_hosted_component.svg" width="400px"/>
+    <img id="kevoreehosts2" style="position:absolute;top:130px;right:0px;"
+         src="figures/contribution/kevoreekloud/kevoree_hosted_node.svg" width="400px"/>
 </section>
 
 
@@ -340,11 +365,10 @@
     <ul>
         <li class="hidden next">Le nœud est responsable de l'adaptation des entités qu'il héberge
             <ul>
-                <li class="next collapse">Ajout, démarrage, arrêt, suppression de composants, ...
+                <li class="hidden next">
+                    <span class="icon-exclamation-sign colorOrange"></span>Liste de primitives spécifiques au type de nœud
                     <ul>
-                        <li class="hidden next"><span class="icon-exclamation-sign colorOrange"></span>Liste de primitives spécifiques au
-                            type de nœud
-                        </li>
+                        <li>Le représenter pour permettre d'en tenir compte</li>
                     </ul>
                 </li>
                 <li class="next"><span class="colorOrange">Explicitation des capacités d'adaptation pour les types de nœuds</span><br/>
@@ -353,7 +377,7 @@
             </ul>
         </li>
         <li class="hidden next"><span class="colorOrange">Le nœud est responsable de la comparaison des modèles (planification)</span></li>
-        <li class="hidden next">Isolation entre les nœuds
+        <!--<li class="hidden next">Isolation entre les nœuds
             <ul>
                 <li class="hidden next"><span class="icon-ok-sign colorGreen"></span>IaaS: Déplacer des nœuds de plate-forme</li>
                 <li class="hidden next"><span class="icon-remove-sign colorRed"></span>IaaS: Déplacer des composants d'application</li>
@@ -361,7 +385,7 @@
                         class="colorOrange">Séparation des niveaux</span>
                 </li>
             </ul>
-        </li>
+        </li>-->
         <!-- <li class="hidden next">Le nœud est responsable de la phase de planification et d'exécution
              <img src="figures/domains/adaptation/mapeLoopIBM.png" height="200px" style="position:absolute;left:180px;bottom:20px;"/>
              <img src="figures/contribution/kevoree/modelATruntimeFinal-withoutnode.png" height="200px"
@@ -427,7 +451,8 @@
                 </li>
             </ul>
         </li>
-        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Permettre la réutilisation</span></li>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span
+                class="colorOrange">Envisager la réutilisation</span></li>
     </ul>
 </section>
 
@@ -438,7 +463,7 @@
         </div>
     </div>
     <header>
-        <h2>Système de type</h2>
+        <h2>Système de type pour le Cloud</h2>
     </header>
     <ul>
         <!--<li class="next collapse"><span class="colorOrange">Nœud de Cloud (PaaS ou IaaS)</span>
@@ -474,11 +499,11 @@
                 </li>
             </ul>
         </li>-->
-        <li class="next"><span class="colorOrange">Définition de type abstraits</span>
+        <li class="next"><span class="colorOrange">Définition de type abstraits de nœud de Cloud</span>
             <img src="figures/contribution/kevoreekloud/KloudAPIClassDiagramSimple.png"
-                 style="position:absolute;right:10px;top:5px;"
+                 style="position:absolute;right:10px;bottom:30px;"
                  height="270px"/>
-            </li>
+        </li>
         <li class="next"><span class="colorOrange">Héritage et Composition de types</span>
             <ul>
                 <li class="hidden next">Mutualisation des définitions des capacités d'adaptation</li>
@@ -490,7 +515,8 @@
                 </li>
             </ul>
         </li>
-        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Généricité des systèmes d'adaptation</span></li>
+        <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Généricité des systèmes d'adaptation</span>
+        </li>
         <li class="hidden next"><span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Équivalence de type</span></li>
     </ul>
 </section>
@@ -578,7 +604,8 @@
     </ul>
     <canvas id="c2" width="320" height="220" style="position: absolute;top:140px;right:00px;"></canvas>
     <details>
-        <b>Tout le monde est capable de tout faire</b> : Dans la réalité, la majorité des fournisseurs, notamment de Cloud public, ne souhaitent pas que cela arrive.<br/>
+        <b>Tout le monde est capable de tout faire</b> : Dans la réalité, la majorité des fournisseurs, notamment de Cloud public, ne
+        souhaitent pas que cela arrive.<br/>
     </details>
 </section>
 

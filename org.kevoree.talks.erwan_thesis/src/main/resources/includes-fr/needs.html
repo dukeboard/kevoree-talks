@@ -3,39 +3,48 @@
 </section>
 
 <section class="slide">
-    <div class="guide"><div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstraction</div></div>
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstraction</div>
+    </div>
     <header>
         <h2>De quelle abstraction a-t-on besoin ?</h2>
     </header>
     <ul>
-        <li class="hidden next">Caractéristiques de l'abstraction
+        <li class="hidden next">Propriétés fonctionnelles
             <ul>
                 <li id="needs-multi-layer" class="next collapse"><span class="colorOrange">Multi-niveaux</span>
+
                     <p>Pour représenter l'ensemble des éléments présents dans un Cloud</p>
                 </li>
                 <li id="needs-hosting" class="next collapse"><span class="colorOrange">Hébergement</span>
+
                     <p>Pour localiser l'exécution des services</p>
                 </li>
                 <li id="needs-distribution" class="next collapse"><span class="colorOrange">Distribution</span>
+
                     <p>Pour en tirer parti<span class="cite">*</span></p>
                     <ul>
                         <li>Dans la définition de nouvelles adaptations</li>
                         <li>Dans le fonctionnement des services</li>
                     </ul>
-                    <p class="cite"><span>*</span>Guerraoui, R., et al. (1999). OO distributed programming is not distributed OO programming. Communications of the ACM, 42(4), 101-104.</p>
+                    <p class="cite"><span>*</span>Guerraoui, R., et al. (1999). OO distributed programming is not distributed OO
+                        programming. Communications of the ACM, 42(4), 101-104.</p>
                 </li>
-            </ul>
-        </li>
-        <li class="hidden next">Qualité de l'abstraction
-            <ul>
                 <li id="needs-heterogeneity" class="next collapse"><span class="colorOrange">Hétérogénéité</span>
+
                     <p>Pour représenter de manière équivalente plusieurs implémentations d'un même service tout en explicitant leurs
                         spécificités</p>
                 </li>
+            </ul>
+        </li>
+        <li class="hidden next">Propriétés non fonctionnelles
+            <ul>
                 <li id="needs-extensibility" class="next collapse"><span class="colorOrange">Extensibilité</span>
+
                     <p>Pour pouvoir intégrer les futures implémentations</p>
                 </li>
                 <li id="needs-offline-reflexion" class="next collapse"><span class="colorOrange">Réflexion désynchronisée</span>
+
                     <p>Pour valider une configuration avant de l'appliquer</p>
                 </li>
             </ul>
@@ -43,10 +52,14 @@
     </ul>
     <img id="needs-multi-layer-figure" src="figures/needs/multi-layer.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
     <img id="needs-hosting-figure" src="figures/needs/hosting.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
-    <img id="needs-distribution-figure" src="figures/needs/distribution.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
-    <img id="needs-heterogeneity-figure" src="figures/needs/heterogeneity.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
-    <img id="needs-extensibility-figure" src="figures/needs/extensibility.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
-    <img id="needs-offline-reflexion-figure" src="figures/needs/offline-reflexion.png" height="200px" style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-distribution-figure" src="figures/needs/distribution.png" height="200px"
+         style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-heterogeneity-figure" src="figures/needs/heterogeneity.png" height="200px"
+         style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-extensibility-figure" src="figures/needs/extensibility.png" height="190px"
+         style="position:absolute;top:250px;right:10px;"/>
+    <img id="needs-offline-reflexion-figure" src="figures/needs/offline-reflexion.png" height="200px"
+         style="position:absolute;top:250px;right:10px;"/>
     <details>
         <b>Distribution</b>:<br/>
         - Gerraoui a affirmé que pour faire des systèmes distribués efficaces, il est nécessaire d'expliciter cette notion de distribution
@@ -69,7 +82,9 @@
 <h2 class="h2-list">State of the art</h2>
 </section>-->
 <section class="slide">
-    <div class="guide"><div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstractions existantes</div></div>
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstractions existantes</div>
+    </div>
     <header>
         <h2>Abstractions existantes (1)</h2>
     </header>
@@ -115,7 +130,7 @@
                 </tr>
                 <tr>
                     <td><b>FraSCAti</b></td>
-                    <td>possible</td>
+                    <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
@@ -129,7 +144,7 @@
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorGreen">oui</span></td>
-                    <td>limité</td>
+                    <td><span class="colorOrange">en partie</span></td>
                 </tr>
                 <tr>
                     <td><b>Genie</b></td>
@@ -187,7 +202,7 @@
                     <td><span class="colorOrange">en partie</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
-                    <td>limité</td>
+                    <td><span class="colorOrange">en partie</span></td>
                     <td><span class="colorRed">non</span></td>
                     <td><span class="colorRed">non</span></td>
                 </tr>
@@ -198,7 +213,7 @@
                     <td><span class="colorGreen">oui</span></td>
                     <td><span class="colorGreen">oui</span></td>
                     <td><span class="colorRed">non</span></td>
-                    <td>limité</td>
+                    <td><span class="colorOrange">en partie</span></td>
                 </tr>
                 </tbody>
             </table>
@@ -215,7 +230,9 @@
 </section>
 
 <section class="slide">
-    <div class="guide"><div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstractions existantes</div></div>
+    <div class="guide">
+        <div><span class="icon-angle-right"></span>Besoins<span class="icon-angle-right"></span>Abstractions existantes</div>
+    </div>
     <header>
         <h2>Abstractions existantes (2)</h2>
     </header>

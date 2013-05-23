@@ -66,9 +66,9 @@ jQuery(document).ready(function () {
 
         var figure = jQuery("#kevoreehostsample");
         figure.css("position", "absolute");
-        figure.css("top", "150px");
-        figure.css("left", "500px");
-        figure.height("150px");
+        figure.css("top", "500px");
+        figure.css("left", "750px");
+        figure.height("100px");
         figure.show();
 
         jQuery("#kevoreehostmodel").show();
@@ -396,12 +396,13 @@ jQuery(document).ready(function () {
         jQuery("#kevoreehostmodel").hide();
     });
     element.on('notCurrentActive', function () {
-        var figure = jQuery("#kevoreehostsample");
+        /*var figure = jQuery("#kevoreehostsample");
         figure.css("position", "absolute");
         figure.css("top", "150px");
         figure.css("left", "500px");
-        figure.height("150px");
-        figure.show();
+        figure.height("100px");
+        figure.show();*/
+        jQuery("#kevoreehostsample").hide();
     });
     element = jQuery("#hostComponent");
     element.on('currentActive', function () {
@@ -414,6 +415,12 @@ jQuery(document).ready(function () {
         jQuery.noConflict();
         jQuery("#kevoreehosts1").hide();
         jQuery("#kevoreehosts2").show();
+        var figure = jQuery("#kevoreehostsample");
+        figure.css("position", "absolute");
+        figure.css("top", "500px");
+        figure.css("left", "750px");
+        figure.height("100px");
+        figure.show();
         jQuery("#kevoreehostmodel").show();
     });
 
