@@ -103,3 +103,7 @@ div.progress > div {
     page-break-inside: avoid !important;
     page-break-after: always !important;
 }
+
+.list .slide .next.collapse> *:not(span) {
+    display: none;
+}
