@@ -407,9 +407,9 @@
     </header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction passe-t-elle à l'échelle ?</span><br/>
     <span>En terme de temps d'exécution</span>
-    <img height="200px" src="figures/validation/eval_time-new.png"/>
+    <img style="position:absolute;top:230px;right:15px" height="240px" src="figures/validation/eval_time-new.png"/>
 
-    <ul>
+    <ul style="position:absolute;bottom:20px;">
         <li>Surcoût d'exécution acceptable jusqu'à 5000 nœuds<!-- comparé au temps nécessaire pour la création des VMs-->
             <ul>
                 <li class="hidden">Démarrage d'une machine virtuelle = généralement plus de 100s<span class="cite">*</span></li>
@@ -430,18 +430,14 @@
     </header>
     <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Notre abstraction passe-t-elle à l'échelle ?</span><br/>
     <span>En terme d'usage mémoire</span>
-    <ul>
-        <li class="hidden">
-            <table>
-                <tr>
-                    <td><img height="200px" src="figures/validation/eval_memory.png"/></td>
-                    <td style="vertical-align: top;">
-                        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span><br/>
-                        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>
-                    </td>
-                </tr>
-            </table>
 
+    <img height="300px" style="position:absolute;top:180px;right:5px;" src="figures/validation/eval_memory.png"/>
+    <ul>
+        <li class="hidden" style="height: 100px">
+            <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Dépend des types</span></li>
+        <li class="hidden" style="height: 100px">
+        <span class="icon-arrow-right colorOrange"></span><span class="colorOrange">Linéaire</span>
+        </li>
         <li class="hidden next collapse"><span class="colorOrange">Génération du modèle pour Amazon EC2 (2009)</span><span
                 class="cite">*</span>
             <ul>
