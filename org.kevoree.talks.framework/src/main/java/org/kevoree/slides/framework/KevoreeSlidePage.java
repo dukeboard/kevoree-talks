@@ -12,6 +12,7 @@ import org.kevoree.library.javase.webserver.FileServiceHelper;
 import org.kevoree.library.javase.webserver.KevoreeHttpRequest;
 import org.kevoree.library.javase.webserver.KevoreeHttpResponse;
 import org.kevoree.library.javase.webserver.ParentAbstractPage;
+import org.kevoree.log.Log;
 
 import java.io.InputStream;
 import java.util.HashMap;
@@ -195,7 +196,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+					Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -221,7 +222,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+                    Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -247,7 +248,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+                    Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -283,7 +284,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+                    Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -326,7 +327,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+                    Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -355,7 +356,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 					}
 					return response;
 				} else {
-					logger.error("Multiple elements with the same id: kSlideshow");
+                    Log.error("Multiple elements with the same id: kSlideshow");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

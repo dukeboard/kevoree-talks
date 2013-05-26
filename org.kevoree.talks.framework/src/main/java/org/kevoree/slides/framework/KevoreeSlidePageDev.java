@@ -4,6 +4,7 @@ import org.kevoree.annotation.*;
 import org.kevoree.library.javase.webserver.FileServiceHelper;
 import org.kevoree.library.javase.webserver.KevoreeHttpRequest;
 import org.kevoree.library.javase.webserver.KevoreeHttpResponse;
+import org.kevoree.log.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,7 +33,7 @@ public class KevoreeSlidePageDev extends KevoreeSlidePage {
         useCache = false;
         File f1 = new File((String) super.getDictionary().get("templateFolder"));
         if (f1.isDirectory()) {
-            logger.info(f1.getAbsolutePath());
+            Log.info(f1.getAbsolutePath());
             devDirectory = f1;
         }
     }
@@ -43,7 +44,7 @@ public class KevoreeSlidePageDev extends KevoreeSlidePage {
             try {
                 return new FileInputStream(fr);
             } catch (FileNotFoundException e) {
-                logger.error("", e);
+                Log.error("", e);
             }
         }
         return getClass().getClassLoader().getResourceAsStream(name);
@@ -66,7 +67,7 @@ public class KevoreeSlidePageDev extends KevoreeSlidePage {
             if (!pattern.endsWith("/")) {
                 pattern = pattern + "/";
             }
-            logger.debug(pattern);
+            Log.debug(pattern);
             if (pattern.equals(request.getUrl() + "/") || request.getUrl().endsWith(".html") || request.getUrl().endsWith(".css")) {
                 if (response.getRawContent() != null) {
                     response.setRawContent(new String(response.getRawContent()).replace("{urlpattern}", pattern).getBytes());
