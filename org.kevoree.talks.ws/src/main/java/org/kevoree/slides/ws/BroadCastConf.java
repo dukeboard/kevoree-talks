@@ -2,8 +2,7 @@ package org.kevoree.slides.ws;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.kevoree.log.Log;
 import org.webbitserver.BaseWebSocketHandler;
 import org.webbitserver.WebSocketConnection;
 
@@ -18,7 +17,6 @@ import java.util.Vector;
  * Time: 15:10
  */
 public class BroadCastConf extends BaseWebSocketHandler {
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private Set<WebSocketConnection> connections = new HashSet<WebSocketConnection>();
 	private static String keynoteID = "KEYID";
@@ -35,7 +33,7 @@ public class BroadCastConf extends BaseWebSocketHandler {
 		messageList.add(msg);
 		for (WebSocketConnection connection : connections) {
 			connection.send(msg);
-			logger.debug("Send to WS connection " + connection.toString());
+            Log.debug("Send to WS connection " + connection.toString());
 		}
 	}
 
