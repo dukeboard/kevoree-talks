@@ -19,17 +19,26 @@
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/screenfull.min.js"></script>
     <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/plugins/slide.js"></script>
+    <script type="text/javascript" src="scripts/plugins/active.js"></script>
+    <script type="text/javascript" src="scripts/plugins/progress.js"></script>
     <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
     <script type="text/javascript" src="scripts/plugins/include.js"></script>
     <script type="text/javascript" src="scripts/plugins/h2list.js"></script>
     <!--<script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>-->
     <script type="text/javascript" id="kSlideshow">
-        jQuery(document).ready(function ($) {
+        jQuery(document).ready(function () {
             var ks = new KSlideShow();
+            var slidePlugin = new SlidePlugin(ks);
+            var activePlugin = new ActivePlugin(ks);
+            var progressPlugin = new ProgressPlugin(ks);
             var keyboardPlugin = new KKeyboard(ks);
             var includePlugin = new IncludePlugin(ks);
             var h2list = new H2List(ks, 4);
             // the order the plugins are added defined the order of their initialization and start (needed for include and h2list)
+            ks.addPluginListener(slidePlugin, false);
+            ks.addPluginListener(activePlugin, false);
+            ks.addPluginListener(progressPlugin, false);
             ks.addPluginListener(keyboardPlugin, false);
             ks.addPluginListener(includePlugin, true);
             ks.addPluginListener(h2list, true);
@@ -153,16 +162,16 @@
 <script type="text/javascript" src="scripts/showdown.js"></script>
 <!-- Write some slide in markdown language -->
 <section class="slide markdown" id="markdownSample1">
-    ##MarkDown
+##MarkDown
 
-    Markdown is a very used language for:
+Markdown is a very used language for:
 
-    - Common Wiki engine
-    - GitHub readme file
+- Common Wiki engine
+- GitHub readme file
 
-    See [documentation](http://daringfireball.net/projects/markdown/) for more information
+See [documentation](http://daringfireball.net/projects/markdown/) for more information
 
-    MacOS user ? [This app is 4U](http://mouapp.com/).
+MacOS user ? [This app is 4U](http://mouapp.com/).
 </section>
 
 

@@ -27,5 +27,9 @@ function IncludePlugin(kslide) {
     };
 
     this.start = function () {
+        // following lines allow to display include content instead of black screen in slide mode (and select the slide in list mode)
+        var anchor = kslide.url.hash;
+        kslide.url.hash = '';
+        kslide.url.hash = anchor;
     };
 }

@@ -87,9 +87,9 @@ details {
     display: none;
 }
 
-/* Full
+/* slideMode
 ------------------------------- */
-.full {
+.slideMode {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -99,11 +99,11 @@ details {
     height: 640px;
 }
 
-/*.full .caption {
+/*.slideMode .caption {
     display: none;
 }*/
 
-.full .slide {
+.slideMode .slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -111,39 +111,39 @@ details {
     overflow: hidden;
 }
 
-.full .slide:target {
+.slideMode .slide:target {
     visibility: visible;
 }
 
 /* Next Lists */
-.full .slide .next,
-.full .slide .next > * {
+.slideMode .slide .next,
+.slideMode .slide .next > * {
     opacity: 0;
 }
 
-.full .slide .next.active,
-.full .slide .next.active > :not(.next) {
+.slideMode .slide .next.active,
+.slideMode .slide .next.active > :not(.next) {
     opacity: 1;
 }
 
-.full .slide .next.active.collapse,
-.full .slide .next.active.collapse > *:not(span) {
+.slideMode .slide .next.active.collapse,
+.slideMode .slide .next.active.collapse > *:not(span) {
     opacity: 1;
 }
 
-.full .slide .next.active.collapse.collapsed> *:not(span) {
+.slideMode .slide .next.active.collapse.collapsed> *:not(span) {
     display: none;
 }
 
 /* Progress */
-.full .progress {
+.slideMode .progress {
     position: absolute;
     right: 118px;
     bottom: 15px;
     left: 118px;
 }
 
-.full .progress div {
+.slideMode .progress div {
     width: 0;
     height: 10px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);

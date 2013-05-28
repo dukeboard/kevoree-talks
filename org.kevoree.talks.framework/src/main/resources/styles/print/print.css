@@ -60,34 +60,34 @@ div.progress > div {
 
 .list .slide ol,
 .list .slide ul,
-.full .slide ol,
-.full .slide ul {
+.slideMode .slide ol,
+.slideMode .slide ul {
     counter-reset: list;
 }
 
-.full .slide ol > li:before,
+.slideMode .slide ol > li:before,
 .list .slide ol > li:before {
     counter-increment: list;
     content: counter(list) '.';
 }
 
-.full .slide pre,
+.slideMode .slide pre,
 .list .slide pre {
     counter-reset: code;
 }
 
-.full .slide pre code,
+.slideMode .slide pre code,
 .list .slide pre code {
     display: block;
 }
 
-.full .slide pre code:before,
+.slideMode .slide pre code:before,
 .list .slide pre code:before {
     counter-increment: code;
     content: counter(code, decimal-leading-zero) '.';
 }
 
-.full .slide,
+.slideMode .slide,
 .list .slide {
     visibility: visible !important;
     display: block !important;

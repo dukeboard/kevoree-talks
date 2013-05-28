@@ -59,13 +59,13 @@ body {
     color: #4B86C2;
 }
 
-/* Full
+/* slideMode
 ------------------------------- */
-.full {
+.slideMode {
     background: #000;
 }
 
-.full .slide:after {
+.slideMode .slide:after {
     position: absolute;
     left: 80px;
     bottom: 12px;
@@ -75,8 +75,8 @@ body {
 }
 
 /* Next Lists */
-.full .slide .next.active,
-.full .slide .next.active > :not(.next) {
+.slideMode .slide .next.active,
+.slideMode .slide .next.active > :not(.next) {
     -webkit-transition: opacity 0.5s linear;
     -moz-transition: opacity 0.5s linear;
     -ms-transition: opacity 0.5s linear;
@@ -84,23 +84,23 @@ body {
     transition: opacity 0.5s linear;
 }
 
-.full .slide.cover:after {
+.slideMode .slide.cover:after {
     content: '';
 }
 
-.full .slide.shout:after {
+.slideMode .slide.shout:after {
     content: '';
 }
 
 /* Progress */
-.full .progress {
+.slideMode .progress {
     position: absolute;
     right: 118px;
     bottom: 15px;
     left: 118px;
 }
 
-.full .progress div {
+.slideMode .progress div {
     width: 0;
     height: 10px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);

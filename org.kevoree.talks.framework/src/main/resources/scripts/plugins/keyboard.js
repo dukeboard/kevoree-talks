@@ -20,7 +20,7 @@ function KKeyboard(kslide) {
 
         switch (e.which) {
             case 13: // Enter
-                kslide.sendEvent(self, {"type": "FULL"});
+                kslide.sendEvent(self, {"type": "SLIDE"});
                 break;
 
             case 27: // Esc
@@ -95,7 +95,7 @@ function KKeyboard(kslide) {
         var slideId = getContainingSlideId(event.target);
         if ('' !== slideId && (!kslide.isSlideMode() || kslide.getSlide().slide.id !== slideId)) {
             kslide.sendEvent(self, {"type": "SET_ID", "id": slideId});
-            kslide.sendEvent(self, {"type": "FULL"});
+            kslide.sendEvent(self, {"type": "SLIDE"});
         }
     }
 
@@ -129,7 +129,7 @@ function KKeyboard(kslide) {
         } else if (orgX - newX < -100) {
             kslide.sendEvent(self, {"type": "BACK"});
         } else {
-            kslide.sendEvent(self, {"type": "FULL"})
+            kslide.sendEvent(self, {"type": "SLIDE"})
         }
     }
 
