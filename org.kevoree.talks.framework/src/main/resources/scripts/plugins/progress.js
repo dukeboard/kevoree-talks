@@ -12,19 +12,23 @@ function ProgressPlugin(kslide) {
     var self = this;
     var progress = null;
 
-    this.listener = function (message) {
+    jQuery(kslide.getBody()).on("RUN", start);
+    jQuery(kslide.getBody()).on("NEXT_SLIDE", update);
+    jQuery(kslide.getBody()).on("PREVIOUS_SLIDE", update);
+    jQuery(kslide.getBody()).on("START", update);
+    jQuery(kslide.getBody()).on("END", update);
+
+
+    function update (message) {
         if (kslide.isSlideMode()) {
             updateProgress(kslide.getCurrentSlideNumber());
         }
-    };
+    }
 
-    this.initialize = function () {
-    };
-
-    this.start = function () {
+    function start () {
         progress = jQuery('div.progress div').get(0);
         updateProgress(kslide.getCurrentSlideNumber());
-    };
+    }
 
     function updateProgress(slideNumber) {
         if (null === progress || slideNumber === -1) {

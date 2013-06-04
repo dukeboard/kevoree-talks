@@ -8,10 +8,12 @@
 function IncludePlugin(kslide) {
     var self = this;
 
-    this.listener = function (message) {
-    };
+    jQuery(kslide.getBody()).on("INITIALIZE", function () {
+        self.initialize();
+    });
 
     this.initialize = function () {
+        console.log("initialize include plugin");
         var includes = jQuery(".includeHtml");
         var callbacks = [];
         //Load sub talk slides
@@ -28,8 +30,8 @@ function IncludePlugin(kslide) {
 
     this.start = function () {
         // following lines allow to display include content instead of black screen in slide mode (and select the slide in list mode)
-        var anchor = kslide.url.hash;
-        kslide.url.hash = '';
-        kslide.url.hash = anchor;
+        var anchor = kslide.getUrl().hash;
+        kslide.getUrl().hash = '';
+        kslide.getUrl().hash = anchor;
     };
 }

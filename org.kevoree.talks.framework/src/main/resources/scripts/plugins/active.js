@@ -11,33 +11,55 @@ function ActivePlugin(kslide) {
 
     var self = this;
 
-    this.listener = function (message) {
-        if (message.type === "FORWARD") {
-            forward();
-        } else if (message.type === "BACK") {
-            back();
-        } else if (message.type === "NEXT_SLIDE") {
-            initializeInnerTransition(kslide.getCurrentSlideNumber());
-            initializeCollapseTransition(kslide.getCurrentSlideNumber());
-        } else if (message.type === "PREVIOUS_SLIDE") {
-            rollbackInnerTransition(kslide.getCurrentSlideNumber());
-            rollbackCollapseTransition(kslide.getCurrentSlideNumber());
-        } else if (message.type === "SET_CURSOR") {
-            initializeInnerTransition(message.cursor);
-            initializeInnerTransition(message.cursor);
-        }
-    };
+    jQuery(kslide.getBody()).on("FORWARD", function () {
+        forward();
+    });
+    jQuery(kslide.getBody()).on("BACK", function () {
+        back();
+    });
+    jQuery(kslide.getBody()).on("SET_SLIDE", function () {
+        console.log("active plugin on SET_SLIDE");
+        initializeInnerTransition(kslide.getCurrentSlideNumber());
+        initializeCollapseTransition(kslide.getCurrentSlideNumber());
+    });
+    jQuery(kslide.getBody()).on("PREVIOUS_SLIDE", function () {
+        rollbackInnerTransition(kslide.getCurrentSlideNumber());
+        rollbackCollapseTransition(kslide.getCurrentSlideNumber());
+    });
+    jQuery(kslide.getBody()).on("SET_CURSOR", function (message) {
+        initializeInnerTransition(message.cursor);
+        initializeCollapseTransition(message.cursor);
+    });
 
-    this.initialize = function () {
-    };
+    /*this.listener = function (message) {
+     if (message.type === "FORWARD") {
+     forward();
+     } else if (message.type === "BACK") {
+     back();
+     } else if (message.type === "NEXT_SLIDE") {
+     initializeInnerTransition(kslide.getCurrentSlideNumber());
+     initializeCollapseTransition(kslide.getCurrentSlideNumber());
+     } else if (message.type === "PREVIOUS_SLIDE") {
+     rollbackInnerTransition(kslide.getCurrentSlideNumber());
+     rollbackCollapseTransition(kslide.getCurrentSlideNumber());
+     } else if (message.type === "SET_CURSOR") {
+     initializeInnerTransition(message.cursor);
+     initializeInnerTransition(message.cursor);
+     }
+     };*/
+
+    jQuery(kslide.getBody()).on("RUN", function () {
+        self.start();
+    });
 
     this.start = function () {
+        console.log("Starting active plugin");
         initializeInnerTransition(kslide.getCurrentSlideNumber());
     };
 
     function forward() {
         if (!kslide.hasInnerNavigation(kslide.getCurrentSlideNumber()) || !kslide.isSlideMode()) {
-            kslide.sendEvent(self, {"type": "NEXT_SLIDE"});
+            jQuery(kslide.getBody()).trigger({"type": "NEXT_SLIDE"});
         } else {
             var newInner = getNextInner(kslide.getCurrentSlideNumber());
             if (newInner) {
@@ -61,14 +83,14 @@ function ActivePlugin(kslide) {
                     }
                 }
             } else {
-                kslide.sendEvent(self, {"type": "NEXT_SLIDE"});
+                jQuery(kslide.getBody()).trigger({"type": "NEXT_SLIDE"});
             }
         }
     }
 
     function back() {
         if (!kslide.hasInnerNavigation(kslide.getCurrentSlideNumber()) || !kslide.isSlideMode()) {
-            kslide.sendEvent(self, {"type": "PREVIOUS_SLIDE"});
+            jQuery(kslide.getBody()).trigger({"type": "PREVIOUS_SLIDE", "slideNumber" : kslide.getCurrentSlideNumber() -1});
         } else {
             var activeInners = getActiveInners(kslide.getCurrentSlideNumber());
             var activeInner = activeInners[activeInners.length - 1];
@@ -95,7 +117,7 @@ function ActivePlugin(kslide) {
                     }
                 }
             } else {
-                kslide.sendEvent(self, {"type": "PREVIOUS_SLIDE"});
+                jQuery(kslide.getBody()).trigger({"type": "PREVIOUS_SLIDE", "slideNumber" : kslide.getCurrentSlideNumber() -1});
             }
         }
     }
@@ -123,29 +145,30 @@ function ActivePlugin(kslide) {
     }
 
     function initializeInnerTransition(slideNumber) {
+        console.log(slideNumber);
         if (slideNumber === undefined || slideNumber < 0 || slideNumber > kslide.getLength || !kslide.isSlideMode()) {
+            console.log("unable to active inner transition");
             return;
         }
         if (kslide.hasInnerNavigation(slideNumber)) {
-
-            var innerNodes = jQuery(kslide.getSlide(kslide.getCurrentSlideNumber()).slide).find('.next');
-            for (var i = 0, ii = innerNodes.length; i < ii; i++) {
-                var indexOf = innerNodes[i].className.indexOf("active");
-                if (indexOf != -1) {
-                    innerNodes[i].className = innerNodes[i].className.substring(0, indexOf) + innerNodes[i].className.substring(indexOf + " active".length);
+            console.log("initialize inner transition");
+            var activeNodes = jQuery(kslide.getSlide(kslide.getCurrentSlideNumber()).slide).find('.next');
+            if (activeNodes.length > 0) {
+                for (var i = 0, ii = activeNodes.length; i < ii; i++) {
+                    jQuery(activeNodes[i]).removeClass("active");
                     try {
-                        jQuery(innerNodes[i]).trigger('notActive');
-                        jQuery(innerNodes[i]).trigger('notCurrentActive');
+                        jQuery(activeNodes[i]).trigger('notActive');
+                        jQuery(activeNodes[i]).trigger('notCurrentActive');
                     } catch (e) {
                     }
                 }
-            }
-            innerNodes[0].className = innerNodes[0].className + ' active';
-            try {
-                // create event to trigger listener that can manage animations on the appearing elements
-                jQuery(innerNodes[0]).trigger('active');
-                jQuery(innerNodes[0]).trigger('currentActive');
-            } catch (e) {
+                jQuery(activeNodes[i]).addClass("active");
+                try {
+                    // create event to trigger listener that can manage animations on the appearing elements
+                    jQuery(activeNodes[0]).trigger('active');
+                    jQuery(activeNodes[0]).trigger('currentActive');
+                } catch (e) {
+                }
             }
         }
     }
@@ -158,9 +181,7 @@ function ActivePlugin(kslide) {
         if (kslide.hasInnerNavigation(slideNumber)) {
             var activeNodes = jQuery(kslide.getSlide(kslide.getCurrentSlideNumber()).slide).find('.next');
             for (var i = 0, ii = activeNodes.length; i < ii; i++) {
-                if (activeNodes[i].className.indexOf("active") == -1) {
-                    activeNodes[i].className = activeNodes[i].className + " active";
-                }
+                jQuery(activeNodes[i]).addClass("active");
                 if (i == activeNodes.length - 1) {
                     try {
                         jQuery(activeNodes[i]).trigger('active');
@@ -174,7 +195,6 @@ function ActivePlugin(kslide) {
                     } catch (e) {
                     }
                 }
-
             }
         }
     }

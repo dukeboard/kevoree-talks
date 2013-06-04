@@ -1,9 +1,16 @@
+INITIALIZE
+INITIALIZED (?) => to notify other plugins that a plugin has finished its initialization
+RUN
+
+SLIDE
+LIST
+
 START
 END
 FORWARD
 BACK
-SLIDE
-LIST
+SET_SLIDE
+
 FULLSCREEN
 NOTES
 LENGTH

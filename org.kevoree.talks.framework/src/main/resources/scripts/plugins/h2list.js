@@ -7,10 +7,14 @@
  * @version 1.0
  */
 function H2List(kslide, toDisplayInAddition) {
-    this.listener = function (message) {
-    };
+    var self = this;
+
+    jQuery(kslide.getBody()).on("INITIALIZE", function () {
+        self.initialize();
+    });
 
     this.initialize = function () {
+        console.log("initialize h2list plugin");
         var slides = jQuery('* .slide.shout').has('h2.h2-list');
         var h2s = jQuery('* .slide.shout > h2.h2-list');
         slides.each(function (index, slide) {

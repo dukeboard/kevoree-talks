@@ -9,7 +9,7 @@ merge "mvn:org.kevoree.corelibrary.javase/org.kevoree.library.javase.fakeDomo/{k
 
 addNode node0 : JavaSENode {logLevel = "WARN"}
 addComponent webSrv@node0 : KTinyWebServer { port="8083" }
-addComponent wsSrv@node0 : WsServer
+//addComponent wsSrv@node0 : WsServer
 
 //addComponent webSockGateway@node0 : TalkGateway
 //addComponent fakeS@node0 : FakeSimpleSwitch
@@ -35,5 +35,5 @@ bind webSrv.handler@node0 => req
 bind slideshow.request@node0 => req
 bind slideshow.content@node0 => res
 bind webSrv.response@node0 => res
-addGroup sync : NanoRestGroup
-addToGroup sync node0
+//addGroup sync : NanoRestGroup
+//addToGroup sync node0
