@@ -4,47 +4,50 @@
  * Date: 08/09/12
  * Time: 16:56
  */
-function KTime () {
+function KTime() {
     var self = this;
 
     var talkIsStarted = false;
     var talkStartTime = null;
 
-    this.listener = function () {
+    var talkTimeElement = null;
+    var hoursElement = null;
+    var minutesElement = null;
+    var secondsElement = null;
 
-    };
-
-    function startClock () {
+    function startClock() {
         var addZero = function (num) {
             return num < 10 ? '0' + num : num;
         };
         setInterval(function () {
             var now = new Date();
-            document.querySelector("#hours").innerHTML = addZero(now.getHours());
-            document.querySelector("#minutes").innerHTML = addZero(now.getMinutes());
-            document.querySelector("#seconds").innerHTML = addZero(now.getSeconds());
+            hoursElement.html(addZero(now.getHours()));
+            minutesElement.html(addZero(now.getMinutes()));
+            secondsElement.html(addZero(now.getSeconds()));
             if (talkIsStarted) {
                 var time = now.getTime() - talkStartTime.getTime();
                 var date = new Date(time);
-                document.querySelector("#talk-time").innerHTML = addZero(date.getUTCHours()) + ":" + addZero(date.getUTCMinutes()) + ":" + addZero(date.getUTCSeconds());
+                talkTimeElement.html(addZero(date.getUTCHours()) + ":" + addZero(date.getUTCMinutes()) + ":" + addZero(date.getUTCSeconds()));
             }
         }, 1000);
     }
 
-    function talkTime () {
+    function talkTime() {
         talkIsStarted = !talkIsStarted;
         talkStartTime = new Date();
         if (talkIsStarted) {
-            document.querySelector('#talk-time').innerHTML = "00:00:00";
+            talkTimeElement.html("00:00:00");
         }
     }
 
-    this.start = function () {
+    jQuery(document.body).on("RUN", function () {
+        talkTimeElement = jQuery('#talk-time');
+        hoursElement = jQuery("#hours");
+        minutesElement = jQuery("#minutes");
+        secondsElement = jQuery("#seconds");
         startClock();
-        document.querySelector('#talk-time').addEventListener("touchstart", talkTime, false);
-        document.querySelector('#talk-time').addEventListener("click", talkTime, false);
-    };
-
-    this.initialize = function () {};
+        talkTimeElement.click(talkTime);
+        talkTimeElement.on("touchstart", talkTime, false);
+    });
 
 }

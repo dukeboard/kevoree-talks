@@ -9,12 +9,8 @@
 function H2List(kslide, toDisplayInAddition) {
     var self = this;
 
-    jQuery(kslide.getBody()).on("INITIALIZE", function () {
-        self.initialize();
-    });
-
-    this.initialize = function () {
-        console.log("initialize h2list plugin");
+    jQuery(document.body).on("INITIALIZE", function () {
+//        console.log("initializing h2list plugin");
         var slides = jQuery('* .slide.shout').has('h2.h2-list');
         var h2s = jQuery('* .slide.shout > h2.h2-list');
         slides.each(function (index, slide) {
@@ -28,13 +24,13 @@ function H2List(kslide, toDisplayInAddition) {
                 toNotDisplayAfter = index + Math.ceil(toDisplayInAddition / 2) - toNotDisplayBefore;
             }
             if (toNotDisplayAfter >= h2s.length) {
-                toNotDisplayBefore =  toNotDisplayBefore - (toNotDisplayAfter - h2s.length +1);
+                toNotDisplayBefore = toNotDisplayBefore - (toNotDisplayAfter - h2s.length + 1);
             }
             h2s.each(function (index2, h2) {
                 if (index2 >= toNotDisplayBefore && index2 <= toNotDisplayAfter) {
                     if (!slide.contains(h2)) {
                         var clone = h2.cloneNode(true);
-                        clone.className = clone.className + ' slave';
+                        jQuery(clone).addClass('slave');
                         if (addBefore) {
                             h2ToAddBefore.push(clone);
                         } else {
@@ -53,10 +49,6 @@ function H2List(kslide, toDisplayInAddition) {
                 slide.appendChild(h2ToAddAfter[i]);
             }
         });
-        var callback = jQuery.Deferred();
-        callback.resolve();
-        return callback;
-    };
-    this.start = function () {
-    };
+        jQuery(document.body).trigger("INITIALIZED");
+    });
 }

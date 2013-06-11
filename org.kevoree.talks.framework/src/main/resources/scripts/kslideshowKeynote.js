@@ -1,57 +1,242 @@
-function KSlideShowKeynote() {
 
-    var pluginListeners = [];
+function KSlideShowKeynoteSlave(kslide) {
+    var self = this;
+    var api = new KSlideShowKeynoteAPI();
 
-    this.startKeynote = function () {
-        var callbacks = [];
-        if (pluginListeners) {
-            for (var i = 0; i < pluginListeners.length; i++) {
-                try {
-                    var callback = pluginListeners[i].listener.initialize();
-                    if (callback) {
-                        callbacks.push(callback);
-                    }
+    window.addEventListener("message", manageMessage, false);
 
-                } catch (e) {
-                    console.error(e.message);
-                    console.warn("Unable to execute the method 'initialize' on ", pluginListeners[i].listener);
-                }
+    jQuery(document.body).on("INITIALIZE", function () {
+    });
+
+    jQuery(document.body).on("RUN", function () {
+        window.parent.postMessage(JSON.stringify({"type": "INITIALIZED"}), '*');
+
+        jQuery(document.body).on("NOTES", function (message) {
+            window.parent.postMessage(api.stringify(message), '*');
+        });
+        jQuery(document.body).on("LENGTH", function (message) {
+            window.parent.postMessage(api.stringify(message), '*');
+        });
+        jQuery(document.body).on("POSITION", function (message) {
+            window.parent.postMessage(api.stringify(message), '*');
+        });
+    });
+
+
+    function addEmptySlide(position) {
+        var emptySlide = document.createElement("section");
+        emptySlide.className = "slide";
+        emptySlide.id = "EMPTY_SLIDE_" + position;
+        if (position != undefined) {
+            // look for the position+1 th element on body
+            var node = jQuery(document.body).find(".slide:nth-of-type(" + (+position + 1) + ")");
+            if (node != null) {
+                document.body.insertBefore(emptySlide, node);
+            } else {
+                document.body.appendChild(emptySlide);
+            }
+        } else {
+            document.body.appendChild(emptySlide);
+        }
+    }
+
+    function removeSlide(position) {
+        if (position != undefined) {
+            var node = jQuery(document.body).find(".slide:nth-of-type(" + (+position + 1) + ")");
+            if (node != null) {
+                document.body.removeChild(node.get(0));
             }
         }
-        var promise = jQuery.when.apply(null, callbacks);
-        promise.then(function () {
-            if (pluginListeners) {
-                for (var i = 0; i < pluginListeners.length; i++) {
-                    try {
-                        pluginListeners[i].listener.start();
-                    } catch (e) {
-                        console.error("Unable to execute the method 'start' on " + pluginListeners[i].listener, e)
-                    }
+    }
+
+    function manageMessage(event) {
+        if (window.parent.document != document && window.parent === event.source) {
+            var message = JSON.parse(event.data);
+            if (message.type === "EMPTY_SLIDE") {
+                if (message.position === "START") {
+                    message.position = 0;
+                } else if (message.position === "END") {
+                    message.position = kslide.getLength();
+
                 }
+                addEmptySlide(message.position);
+            } else if (message.type === "REMOVE_SLIDE") {
+                if (message.position === "START") {
+                    message.position = 0;
+                } else if (message.position === "END") {
+                    message.position = kslide.getLength();
+
+                }
+                removeSlide(message.position);
+            } else if (message.type !== "RUN") {
+                jQuery(document.body).trigger(message);
             }
+        }
+    }
+}
+
+function KSlideShowKeynoteMaster(slideURL) {
+    var body = document.body;
+
+
+    var self = this;
+    var api = new KSlideShowKeynoteAPI();
+
+    var presentInitialized = false;
+    var futureInitialized = false;
+
+    var views = {
+        id: null,
+        present: null,
+        future: null
+    };
+
+    var events = "INITIALIZE INITIALIZED RUN SLIDE LIST START END FORWARD BACK SET_SLIDE FULLSCREEN NOTES GET_NOTES LENGTH GET_LENGTH POSITION SET_POSITION GET_POSITION EMPTY_SLIDE REMOVE_SLIDE POSITION";
+    var managedEvents = "START END FORWARD BACK SET_SLIDE GET_NOTES GET_LENGTH SET_POSITION GET_POSITION EMPTY_SLIDE REMOVE_SLIDE";
+
+
+    this.startKeynote = function () {
+        var nbInitializeHandlers = jQuery._data(body, "events").INITIALIZE.length;
+        var nbInitialized = 0;
+
+        jQuery(body).on("INITIALIZED", function () {
+            nbInitialized++;
+            if (nbInitialized == nbInitializeHandlers) {
+                jQuery(body).trigger("RUN");
+            }
+        });
+        jQuery(body).trigger("INITIALIZE");
+    };
+
+    this.stringify = function (message) {
+        return JSON.stringify(message, function (key, value) {
+            if ("currentTarget" == key || "delegateTarget" == key || "target" === key || "handleObj" == key || key.indexOf("jQuery") != -1) {
+                return undefined;
+            }
+            return value;
         });
     };
 
-
-    this.sendEvent = function (listener, message) {
-        if (pluginListeners) {
-            for (var i = 0; i < pluginListeners.length; i++) {
-                if (pluginListeners[i].listener != listener) {
-                    try {
-                        pluginListeners[i].listener.listener(message);
-                    } catch (e) {
-                        console.error("Unable to execute the method 'listener' on " + pluginListeners[i].listener, e)
-                    }
-                }
-
-            }
-        }
+    this.addManagedEvent = function (eventName) {
+// TODO allow to add new message coming from new plugin
     };
 
-    this.addPluginListener = function (f) {
-        pluginListeners.push({
-            id: pluginListeners.length,
-            listener: f
+    jQuery(document.body).on("INITIALIZE", function (message) {
+        window.addEventListener('message', manageMessage, false);
+        var callbackPresent = jQuery.Deferred();
+        var callbackFuture = jQuery.Deferred();
+        views.present = jQuery("#present").find("iframe").get(0);
+        views.future = jQuery("#future").find("iframe").get(0);
+        var url = getUrl();
+        views.present.src = views.future.src = url;
+        jQuery(views.present).load(function () {
+            views.present = this.contentWindow;
+            callbackPresent.resolve();
+        });
+        jQuery(views.future).load(function () {
+            views.future = this.contentWindow;
+            callbackFuture.resolve();
+        });
+
+        var callbacks = [];
+        callbacks.push(callbackPresent);
+        callbacks.push(callbackFuture);
+        jQuery.when.apply(null, callbacks).done(function () {
+            // add an empty slide on views.future and remove the first one
+            views.future.postMessage(JSON.stringify({"type": "EMPTY_SLIDE", "position": "END"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "REMOVE_SLIDE", "position": "START"}), '*');
+
+            // send "INITIALIZE" to views.present and views.future
+            views.present.postMessage(JSON.stringify({"type": "INITIALIZED"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "INITIALIZED"}), '*');
+
+            views.present.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
+            views.future.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
+        });
+    });
+
+    /*jQuery(document.body).on("RUN", function () {
+        views.present.postMessage(JSON.stringify({"type": "GET_NOTES"}), '*');
+        views.present.postMessage(JSON.stringify({"type": "GET_LENGTH"}), '*');
+        views.present.postMessage(JSON.stringify({"type": "GET_POSITION"}), '*');
+    });*/
+
+
+    /*jQuery(document.body).on("START", function () {
+     views.present.postMessage(JSON.stringify({"type": "START"}), '*');
+     views.future.postMessage(JSON.stringify({"type": "START"}), '*');
+     });
+     jQuery(document.body).on("SET_SLIDE", function (message) {
+     views.present.postMessage(JSON.stringify({"type": "SET_SLIDE", "slideNumber": message.slideNumber, "previousSlideNumber": message.previousSlideNumber}), '*');
+     views.future.postMessage(JSON.stringify({"type": "SET_SLIDE", "slideNumber": message.slideNumber, "previousSlideNumber": message.previousSlideNumber}), '*');
+     });
+     jQuery(document.body).on("BACK", function () {
+     views.present.postMessage(JSON.stringify({"type": "BACK"}), '*');
+     views.future.postMessage(JSON.stringify({"type": "BACK"}), '*');
+     });
+     jQuery(document.body).on("FORWARD", function () {
+     views.present.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
+     views.future.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
+     });
+     jQuery(document.body).on("END", function () {
+     views.present.postMessage(JSON.stringify({"type": "END"}), '*');
+     views.future.postMessage(JSON.stringify({"type": "END"}), '*');
+     });
+     jQuery(document.body).on("SET_POSITION", function (message) {
+     views.present.postMessage(api.stringify(message), '*');
+     views.future.postMessage(api.stringify(message), '*');
+     });*/
+
+    jQuery(document.body).on(managedEvents, function (message) {
+        views.present.postMessage(api.stringify(message), '*');
+        views.future.postMessage(api.stringify(message), '*');
+    });
+
+    /* Get url from hash or prompt and store it */
+    function getUrl() {
+        if (slideURL == undefined) {
+            slideURL = window.prompt("What is the URL of the slides?");
+            if (slideURL) {
+                window.location.hash = slideURL.split("#")[0];
+                return slideURL;
+            }
+            slideURL = "<style>body{background-color:white;color:black}</style>";
+            slideURL += "<strong>ERROR:</strong> No URL specified.<br>";
+            slideURL += "Try<em>: " + document.location + "#yourslides.html</em>";
+            slideURL = "data:text/html," + encodeURIComponent(slideURL);
+        }
+        return slideURL + "frame";
+    }
+
+    function manageMessage(event) {
+        if (event.source === views.present || event.source === views.future) {
+            var message = JSON.parse(event.data);
+            if (message.type === "INITIALIZED") {
+                if (event.source === views.present) {
+                    presentInitialized = true;
+                } else if (event.source === views.future) {
+                    futureInitialized = true;
+                }
+                if (presentInitialized && futureInitialized) {
+                    // must be triggered when views.present and views.future have been initialized !!
+                    jQuery(document.body).trigger("INITIALIZED");
+                }
+            } else if (/*(message.type == "POSITION" || message.type == "LENGTH" || message.type == "NOTES") && */event.source == views.present) {
+                jQuery(document.body).trigger(message);
+            }
+        }
+    }
+}
+
+
+function KSlideShowKeynoteAPI() {
+
+    this.stringify = function (message) {
+        return JSON.stringify(message, function (key, value) {
+            if ("currentTarget" == key || "delegateTarget" == key || "target" === key || "handleObj" == key || key.indexOf("jQuery") != -1) {
+                return undefined;
+            }
+            return value;
         });
     };
 }

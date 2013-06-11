@@ -4,25 +4,56 @@
  * Date: 08/09/12
  * Time: 13:15
  */
-function KSlideCount (kslide) {
+function KSlideCountSlave(kslide) {
     var self = this;
-    this.listener = function (message) {
-        if (message.type === "LENGTH") {
-            document.querySelector("#slidecount").innerHTML = message.length;
-        } else if (message.type === "CURSOR") {
-            document.querySelector('#slideidx').innerHTML = +message.cursor + 1;
-            document.querySelector('#nextslideidx').innerHTML = +message.cursor == (+(document.querySelector("#slidecount").innerHTML) - 1) ? "END" : (+message.cursor + 2);
-        }
-    };
+    jQuery(document.body).on("RUN", function () {
+        jQuery(document.body).on("SET_SLIDE", function (message) {
+            if (message.slideNumber < kslide.getLength() && message.slideNumber >= 0) {
+                jQuery(document.body).trigger({type: "POSITION", position: message.slideNumber});
+            }
+        });
+        jQuery(document.body).on("START", function () {
+            jQuery(document.body).trigger({type: "POSITION", position: 0});
+        });
+        jQuery(document.body).on("END", function () {
+            jQuery(document.body).trigger({type: "POSITION", position: kslide.getLength() - 1});
+        });
+        jQuery(document.body).on("GET_LENGTH", function () {
+            jQuery(document.body).trigger({type: "LENGTH", length: kslide.getLength()});
+        });
+        jQuery(document.body).on("GET_POSITION", function () {
+            jQuery(document.body).trigger({type: "POSITION", position: kslide.getCurrentSlideNumber()});
+        });
+        jQuery(document.body).on("SET_POSITION", function (message) {
+            jQuery(document.body).trigger({type: "SET_SLIDE", previousSlideNumber: kslide.getCurrentSlideNumber(), slideNumber: message.position});
+        });
+    });
 
-    this.start = function () {
-        document.querySelector('#slideidx').addEventListener("touchstart", setCursor, false);
-        document.querySelector('#slideidx').addEventListener("click", setCursor, false);
-    };
+}
+function KSlideCountMaster() {
+    var self = this;
 
-    function setCursor () {
-        kslide.sendEvent(this, {"type":"SET_CURSOR", "cursor":+prompt('Go to slide...', '1') - 1});
+    jQuery(document.body).on("RUN", function () {
+        jQuery(document.body).on("LENGTH", function (message) {
+            if (message.length != undefined && message.length != null) {
+                jQuery("#slidecount").html(message.length);
+            }
+        });
+        jQuery(document.body).on("POSITION", function (message) {
+            if (message.position != undefined && message.position != null) {
+                jQuery('#slideidx').html(+message.position + 1);
+                jQuery('#nextslideidx').html(+message.position == (+(jQuery("#slidecount").html()) - 1) ? "END" : (+message.position + 2));
+            }
+        });
+        jQuery(document.body).trigger({"type": "GET_LENGTH"});
+        jQuery(document.body).trigger({"type": "GET_POSITION"});
+        var element = jQuery('#slideidx');
+        element.click(setCursor);
+        element.on("touchstart", setCursor);
+    });
+
+
+    function setCursor() {
+        jQuery(document.body).trigger({"type": "SET_POSITION", "position": +prompt('Go to slide...', '1') - 1});
     }
-
-    this.initialize = function () {};
 }

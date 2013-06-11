@@ -19,29 +19,26 @@
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/screenfull.min.js"></script>
     <script type="text/javascript" src="scripts/kslideshow.js"></script>
+    <script type="text/javascript" src="scripts/kslideshowKeynote.js"></script>
     <script type="text/javascript" src="scripts/plugins/slide.js"></script>
     <script type="text/javascript" src="scripts/plugins/active.js"></script>
     <script type="text/javascript" src="scripts/plugins/progress.js"></script>
     <script type="text/javascript" src="scripts/plugins/keyboard.js"></script>
     <script type="text/javascript" src="scripts/plugins/include.js"></script>
     <script type="text/javascript" src="scripts/plugins/h2list.js"></script>
+    <script type="text/javascript" src="scripts/plugins/notes.js"></script>
+    <script type="text/javascript" src="scripts/plugins/slidecount.js"></script>
     <!--<script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>-->
     <script type="text/javascript" id="kSlideshow">
         jQuery(document).ready(function () {
+            // the order the plugins are added defined the order of their initialization !!
             var ks = new KSlideShow();
-            new SlidePlugin(ks);
+            new IncludePlugin(ks);
+            new H2List(ks, 4);
             new ProgressPlugin(ks);
             new ActivePlugin(ks);
             new KKeyboard(ks);
-            new IncludePlugin(ks);
-            new H2List(ks, 4);
-            // the order the plugins are added defined the order of their initialization and start (needed for include and h2list)
-            /*ks.addPluginListener(slidePlugin, false);
-            ks.addPluginListener(activePlugin, false);
-            ks.addPluginListener(progressPlugin, false);
-            ks.addPluginListener(keyboardPlugin, false);
-            ks.addPluginListener(includePlugin, true);
-            ks.addPluginListener(h2list, true);*/
+            new SlidePlugin(ks);
             ks.startKeynote();
         });
     </script>
@@ -49,7 +46,7 @@
 <body class="list">
 <header class="caption">
     <h1>Kevoree Keynote showcase</h1>
-    <p><a href="http://www.kevoree.org/">Fouquet Francois / Erwan Daubert / Kevoree Team</a></p>
+    <p><a href="http://kevoree.org">Fouquet Francois / Erwan Daubert / Kevoree Team</a></p>
 </header>
 
 <section class="slide cover" id="Cover">
@@ -117,7 +114,6 @@
         </li>
         <li class="next">No child to collapsed</li>
     </ul>
-    <details>Some content for speaker (not display)</details>
 </section>
 
 <section class="slide" id="ol">
@@ -128,7 +124,6 @@
         <li class="next">first number</li>
         <li class="next">second number</li>
     </ol>
-    <details>Some content for speaker (not display)</details>
 </section>
 
 <section class="slide" id="image1">
@@ -299,17 +294,17 @@ addToGroup sync node0
                 jQuery("#divBackground1").css("background-color", "transparent");
                 jQuery("#divBackground2").css("background-color", "transparent");
             });
-            jQuery("#animImg1").on('active', function (event, param1, param2) {
+            jQuery("#animImg1").on('active', function () {
                 jQuery("#animImg1").css("background-color", "blue");
             });
-            jQuery("#divBackground1").on('active', function (event, param1, param2) {
+            jQuery("#divBackground1").on('active', function () {
                 jQuery("#divBackground1").css("background-color", "blue");
             });
             var divBackground2 = jQuery("#divBackground2");
-            divBackground2.on('currentActive', function (event, param1, param2) {
+            divBackground2.on('currentActive', function () {
                 jQuery("#divBackground2").css("background-color", "red");
             });
-            divBackground2.on('notCurrentActive', function (event, param1, param2) {
+            divBackground2.on('notCurrentActive', function () {
                 jQuery("#divBackground2").css("background-color", "green");
             });
         });
@@ -320,10 +315,6 @@ addToGroup sync node0
 <section class="slide shout">
     <h2>Play !</h2>
 </section>
-
-<div class="progress">
-    <div></div>
-</div>
 
 </body>
 </html>

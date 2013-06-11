@@ -1,26 +1,39 @@
 INITIALIZE
-INITIALIZED (?) => to notify other plugins that a plugin has finished its initialization
+INITIALIZED (?) => to notify showcase or keynote that a plugin has finished its initialization
 RUN
 
-SLIDE
-LIST
+SLIDE => enter in slide mode (only one slide is displayed)
+LIST => enter in list mode (all the slide are displayed)
 
-START
-END
+START => go to the first slide
+END => go to the last slide
 FORWARD
 BACK
-SET_SLIDE
+SET_SLIDE => to active a specific slide
+    attributes:
+        slideNumber: the nth slide must be activated
+        previousSlideNumber: the previous slide which was activated
 
 FULLSCREEN
+
 NOTES
+GET_NOTES
 LENGTH
-CURSOR != SET_CURSOR (?)
-SET_ID (?) => translate to SET_CURSOR ?
-EMPTY_SLIDE
+GET_LENGTH
+POSITION
+SET_POSITION
+GET_POSITION
 
-NEXT_SLIDE
-PREVIOUS_SLIDE
+EMPTY_SLIDE => ask to add an empty slide
+    attribute:
+        position: the position where the empty slide must be included
+REMOVE_SLIDE => ask to remove a slide from the presentation
 
-UPDATE_PROGRESS
-INITIALIZE_SLIDE
-ROLLBACK_SLIDE
+//CURSOR != SET_CURSOR (?)
+//SET_ID (?) => translate to SET_CURSOR ?
+//NEXT_SLIDE
+//PREVIOUS_SLIDE
+
+//UPDATE_PROGRESS
+//INITIALIZE_SLIDE
+//ROLLBACK_SLIDE

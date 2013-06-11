@@ -8,30 +8,32 @@
 function IncludePlugin(kslide) {
     var self = this;
 
-    jQuery(kslide.getBody()).on("INITIALIZE", function () {
-        self.initialize();
-    });
-
-    this.initialize = function () {
-        console.log("initialize include plugin");
+    jQuery(document.body).on("INITIALIZE", function () {
+//        console.log("initializing include plugin");
         var includes = jQuery(".includeHtml");
         var callbacks = [];
         //Load sub talk slides
         includes.each(function () {
-            var callback = jQuery.Deferred();
-            callbacks.push(callback);
-            jQuery(this).load(this.id + ".html", function () {
-                callback.resolve();
-            });
+            // avoid multiple load of same include
+            if (jQuery(this).find("*").length == 0) {
+                var callback = jQuery.Deferred();
+                callbacks.push(callback);
+                jQuery(this).load(this.id + ".html", function () {
+                    callback.resolve();
+                });
+            }
         });
-        return jQuery.when.apply(null, callbacks);
+        var promise = jQuery.when.apply(null, callbacks).promise();
+        promise.done(function () {
+            jQuery(document.body).trigger("INITIALIZED");
+        })
 
-    };
+    });
 
-    this.start = function () {
+    jQuery(document.body).on("RUN", function () {
         // following lines allow to display include content instead of black screen in slide mode (and select the slide in list mode)
         var anchor = kslide.getUrl().hash;
         kslide.getUrl().hash = '';
         kslide.getUrl().hash = anchor;
-    };
+    });
 }
