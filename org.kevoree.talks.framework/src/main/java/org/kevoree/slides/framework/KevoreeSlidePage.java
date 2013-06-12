@@ -50,27 +50,30 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowMasterScript = "\n\tjQuery(document).ready(function ($) {\n"
+	private static String kslideshowMasterScript = "\n\tjQuery(document).ready(function () {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
 			+ "\t\tnew KKeyboard(ks);\n"
             + "\t\tnew IncludePlugin(ks);\n"
             + "\t\tnew H2List(ks, 4);\n"
+            + "\t\tnew ProgressPlugin(ks);\n"
+            + "\t\tnew ActivePlugin(ks);\n"
+            + "\t\tnew SlidePlugin(ks);\n"
 			+ "\t\tnew KWebsocketMaster(ks, \"{wsurl}\", \"{roomID}\");\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
+	private static String kslideshowSlaveScript = "\n\tjQuery(document).ready(function () {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
-            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-            + "\t\tvar h2list = new H2List(ks, 4);\n"
-			+ "\t\tvar webSocketPlugin = new KWebsocketSlave(ks, \"{wsurl}\", \"{roomID}\");\n"
+            + "\t\tnew IncludePlugin(ks);\n"
+            + "\t\tnew H2List(ks, 4);\n"
             + "\t\tnew ProgressPlugin(ks);\n"
             + "\t\tnew ActivePlugin(ks);\n"
             + "\t\tnew SlidePlugin(ks);\n"
+			+ "\t\tvar webSocketPlugin = new KWebsocketSlave(ks, \"{wsurl}\", \"{roomID}\");\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowKeynoteSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
+	private static String kslideshowKeynoteSlaveScript = "\n\tjQuery(document).ready(function () {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
             + "\t\tnew IncludePlugin(ks);\n"
             + "\t\tnew H2List(ks, 4);\n"
@@ -83,7 +86,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowPopupSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
+	private static String kslideshowPopupSlaveScript = "\n\tjQuery(document).ready(function () {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
 			+ "\t\tnew KKeyboard(ks);\n"
 			+ "\t\tnew KPopupSlave(ks);\n"
@@ -95,7 +98,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
+		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function () {\n"
 				+ "\t\tvar ks = new KSlideShowKeynote();\n"
                 + "\t\tnew ProgressPlugin(ks);\n"
                 + "\t\tnew ActivePlugin(ks);\n"
