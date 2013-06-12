@@ -5,73 +5,85 @@
  * Time: 14:08
  */
 
-function KPopupSlave (kslide) {
+function KPopupSlave(kslide) {
     var self = this;
+    var api = new KSlideShowKeynoteAPI();
 
-    this.listener = function (message) {
-        if (window.opener != null && message.type != "LIST" && message.type != "FULL") {
-            window.opener.postMessage(JSON.stringify(message), "*");
-        }
-    };
-
-    this.start = function () {
+    jQuery(document.body).on("INITIALIZE", function () {
         if (window.opener != null) {
             window.addEventListener('message', manageMessage, false);
-            kslide.sendEvent(self, {"type":"FULL"});
-            var response = kslide.getCursor();
-            if (response.type === "CURSOR") {
-                window.opener.postMessage(JSON.stringify({"type":"SET_CURSOR", "cursor":response.cursor}), "*");
-            }
         }
-    };
+        jQuery(document.body).trigger("INITIALIZED");
+    });
+    // TODO INITIALIZE => master send the list of events I must forward to it
 
-    this.initialize = function () {};
+    jQuery(document.body).on("RUN", function () {
+        window.opener.postMessage(JSON.stringify({type: "INITIALIZED"}), '*');
+    });
 
-    function manageMessage (event) {
-        var message = JSON.parse(event.data);
+    jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
+
+    function toForward(message) {
+        jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", toForward);
+        window.opener.postMessage(api.stringify(message), '*');
+        jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
+    }
+
+    function manageMessage(event) {
         if (event.source === window.opener) {
-            kslide.sendEvent(self, message);
+            var message = JSON.parse(event.data);
+            jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", toForward);
+            jQuery(document.body).trigger(message);
+            jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
         }
     }
 }
 
-function KPopupMaster (kslide, slideUrl) {
+function KPopupMaster(kslideKeynote, slideUrl) {
 
     var self = this;
     var popup = null;
-
-    this.listener = function (message) {
-        if (popup != null) {
-            popup.postMessage(JSON.stringify(message), '*');
-        }
-    };
+    var api = new KSlideShowKeynoteAPI();
 
     // allow to close the popup when the window is unload
-    function unload () {
+    function unload() {
         if (popup != null) {
             popup.close();
-            window.removeEventListener('message', manageMessage, false);
+            popup = null;
         }
     }
 
-    function createPopup () {
+    function createPopup() {
         unload();
-        window.addEventListener('message', manageMessage, false);
+        window.addEventListener('message', manageMessage);
         popup = window.open(slideUrl + "popup", 'slides', 'width=784px,height=569px,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
     }
 
-    function manageMessage (event) {
-        var message = JSON.parse(event.data);
-        if (popup != null && event.source === popup) {
-            kslide.sendEvent(self, message);
+    jQuery(document.body).on("RUN", function () {
+        window.addEventListener('unload', unload, false);
+        var element = jQuery('#popup-button');
+        element.on("touchstart", createPopup);
+        element.click(createPopup);
+        jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+    });
+
+    function onReceivedEvents(message) {
+        if (popup != null) {
+            popup.postMessage(api.stringify(message), '*');
         }
     }
 
-    this.start = function () {
-        window.addEventListener('unload', unload, false);
-        document.querySelector('#popup-button').addEventListener("touchstart", createPopup, false);
-        document.querySelector('#popup-button').addEventListener("click", createPopup, false);
-    };
-
-    this.initialize = function () {};
+    function manageMessage(event) {
+        if (event.source === popup) {
+            var message = JSON.parse(event.data);
+            if (message.type === "INITIALIZED") {
+                popup.postMessage(JSON.stringify({type: "SLIDE"}), '*');
+                popup.postMessage(JSON.stringify({type: "SET_SLIDE", slideNumber: kslideKeynote.getCurrentSlideNumber(), previsouSlideNumber: kslideKeynote.getCurrentSlideNumber() - 1}), '*');
+            } else {
+                jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+                jQuery(document.body).trigger(message);
+                jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+            }
+        }
+    }
 }

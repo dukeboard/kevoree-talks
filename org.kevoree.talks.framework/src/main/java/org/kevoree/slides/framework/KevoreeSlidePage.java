@@ -41,33 +41,21 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 	private static String kslideshowKeynoteScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShowKeynoteMaster(\"{slideurl}\");\n"
-//            + "\t\tvar iframePlugin = new KIFrameMaster(ks, \"{slideurl}\");\n"
-			+ "\t\tvar keyboardPlugin = new KKeyboardKeynote(ks);\n"
-			+ "\t\tvar popupPlugin = new KPopupMaster(ks, \"{slideurl}\");\n"
-			+ "\t\tvar websocketPlugin = new KWebsocketMaster(ks, \"{wsurl}\");\n"
-			+ "\t\tvar slideCountPlugin = new KSlideCountMaster();\n"
-			+ "\t\tvar notesPlugin = new KNotesMaster();\n"
-			+ "\t\tvar timePlugin = new KTime();\n"
-//			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
-//			+ "\t\tks.addPluginListener(popupPlugin);\n"
-//			+ "\t\tks.addPluginListener(websocketPlugin);\n"
-//			+ "\t\tks.addPluginListener(iframePlugin, true);\n"
-//			+ "\t\tks.addPluginListener(slideCountPlugin);\n"
-//			+ "\t\tks.addPluginListener(notesPlugin);\n"
-//			+ "\t\tks.addPluginListener(timePlugin);\n"
+			+ "\t\tnew KKeyboardKeynote(ks);\n"
+			+ "\t\tnew KPopupMaster(ks, \"{slideurl}\");\n"
+			+ "\t\tnew KWebsocketMaster(ks, \"{wsurl}\");\n"
+			+ "\t\tnew KSlideCountMaster(ks);\n"
+			+ "\t\tnew KNotesMaster();\n"
+			+ "\t\tnew KTime();\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
 	private static String kslideshowMasterScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
-			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
-            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-            + "\t\tvar h2list = new H2List(ks, 4);\n"
-			+ "\t\tvar webSocketPlugin = new KWebsocketMaster(ks, \"{wsurl}\", \"{roomID}\");\n"
-//			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
-//            + "\t\tks.addPluginListener(includePlugin, true);\n"
-//            + "\t\tks.addPluginListener(h2list, true);\n"
-//			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
+			+ "\t\tnew KKeyboard(ks);\n"
+            + "\t\tnew IncludePlugin(ks);\n"
+            + "\t\tnew H2List(ks, 4);\n"
+			+ "\t\tnew KWebsocketMaster(ks, \"{wsurl}\", \"{roomID}\");\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
@@ -76,54 +64,46 @@ public class KevoreeSlidePage extends ParentAbstractPage {
             + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
             + "\t\tvar h2list = new H2List(ks, 4);\n"
 			+ "\t\tvar webSocketPlugin = new KWebsocketSlave(ks, \"{wsurl}\", \"{roomID}\");\n"
-//            + "\t\tks.addPluginListener(includePlugin, true);\n"
-//            + "\t\tks.addPluginListener(h2list, true);\n"
-//			+ "\t\tks.addPluginListener(webSocketPlugin);\n"
             + "\t\tnew ProgressPlugin(ks);\n"
             + "\t\tnew ActivePlugin(ks);\n"
             + "\t\tnew SlidePlugin(ks);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
-	private static String kslideshowFrameScript = "\n\tjQuery(document).ready(function ($) {\n"
+	private static String kslideshowKeynoteSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
-            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-            + "\t\tvar h2list = new H2List(ks, 4);\n"
-//            + "\t\tks.addPluginListener(includePlugin, true);\n"
-//            + "\t\tks.addPluginListener(h2list, true);\n"
-//			+ "\t\tks.addPluginListener(iframePlugin);\n"
+            + "\t\tnew IncludePlugin(ks);\n"
+            + "\t\tnew H2List(ks, 4);\n"
             + "\t\tnew ProgressPlugin(ks);\n"
             + "\t\tnew ActivePlugin(ks);\n"
             + "\t\tnew SlidePlugin(ks);\n"
             + "\t\tnew KSlideShowKeynoteSlave(ks);\n"
-            + "\t\tvar notesPlugin = new KNotesSlave(ks);\n"
-            + "\t\tvar slideCountPlugin = new KSlideCountSlave(ks);\n"
+            + "\t\tnew KNotesSlave(ks);\n"
+            + "\t\tnew KSlideCountSlave(ks);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
 	private static String kslideshowPopupSlaveScript = "\n\tjQuery(document).ready(function ($) {\n"
 			+ "\t\tvar ks = new KSlideShow();\n"
-			+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
-			+ "\t\tvar popupPlugin = new KPopupSlave(ks);\n"
-            + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-            + "\t\tvar h2list = new H2List(ks, 4);\n"
-//			+ "\t\tks.addPluginListener(keyboardPlugin);\n"
-//			+ "\t\tks.addPluginListener(popupPlugin);\n"
-//            + "\t\tks.addPluginListener(includePlugin, true);\n"
-//            + "\t\tks.addPluginListener(h2list, true);\n"
+			+ "\t\tnew KKeyboard(ks);\n"
+			+ "\t\tnew KPopupSlave(ks);\n"
+            + "\t\tnew IncludePlugin(ks);\n"
+            + "\t\tnew H2List(ks, 4);\n"
+            + "\t\tnew ProgressPlugin(ks);\n"
+            + "\t\tnew ActivePlugin(ks);\n"
+            + "\t\tnew SlidePlugin(ks);\n"
 			+ "\t\tks.startKeynote();\n"
 			+ "\t});";
 
 		private static String kslideshowEmbedderScript = "\n\tjQuery(document).ready(function ($) {\n"
 				+ "\t\tvar ks = new KSlideShowKeynote();\n"
-				+ "\t\tvar keyboardPlugin = new KKeyboard(ks);\n"
-                + "\t\tvar includePlugin = new IncludePlugin(ks);\n"
-                + "\t\tvar h2list = new H2List(ks, 4);\n"
-				+ "\t\tvar embedderPlugin = new KEmbedder(ks);\n"
-//				+ "\t\tks.addPluginListener(keyboardPlugin);\n"
-//                + "\t\tks.addPluginListener(includePlugin, true);\n"
-//                + "\t\tks.addPluginListener(h2list, true);\n"
-//				+ "\t\tks.addPluginListener(embedderPlugin);\n"
+                + "\t\tnew ProgressPlugin(ks);\n"
+                + "\t\tnew ActivePlugin(ks);\n"
+                + "\t\tnew SlidePlugin(ks);\n"
+				+ "\t\tnew KKeyboard(ks);\n"
+                + "\t\tnew IncludePlugin(ks);\n"
+                + "\t\tnew H2List(ks, 4);\n"
+				+ "\t\tnew KEmbedder(ks);\n"
 				+ "\t\tks.startKeynote();\n"
 				+ "\t\tks.sendEvent(null, {'type':'RELOAD', 'url':'{slideurl}'});\n"
 				+ "\t});";
@@ -218,10 +198,10 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 				Elements kslideshowElements = document.select("#kSlideshow");
 				if (kslideshowElements.size() == 1) {
-					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/iframe.js\"></script>");
+//					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/iframe.js\"></script>");
 					Node kslideshow = kslideshowElements.first().childNode(0);
 
-					kslideshow.attr("data", kslideshowFrameScript);
+					kslideshow.attr("data", kslideshowKeynoteSlaveScript);
 
 					response.getHeaders().put("Content-Type", "text/html");
 					response.setRawContent(document.html().getBytes());
@@ -244,7 +224,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 				Elements kslideshowElements = document.select("#kSlideshow");
 				if (kslideshowElements.size() == 1) {
-					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/popup.js\"></script>");
+//					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/popup.js\"></script>");
 					Node kslideshow = kslideshowElements.first().childNode(0);
 
 					kslideshow.attr("data", kslideshowPopupSlaveScript);
@@ -321,7 +301,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 				Elements kslideshowElements = document.select("#kSlideshow");
 				if (kslideshowElements.size() == 1) {
-					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
+//					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
 					Node kslideshow = kslideshowElements.first().childNode(0);
 
 					// replace roomID and wsurl on the script
@@ -350,7 +330,7 @@ public class KevoreeSlidePage extends ParentAbstractPage {
 
 				Elements kslideshowElements = document.select("#kSlideshow");
 				if (kslideshowElements.size() == 1) {
-					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
+//					kslideshowElements.first().before("<script type=\"text/javascript\" src=\"scripts/plugins/websocket.js\"></script>");
 					Node kslideshow = kslideshowElements.first().childNode(0);
 
 					// replace roomID and wsurl on the script

@@ -24,13 +24,10 @@ function KSlideCountSlave(kslide) {
         jQuery(document.body).on("GET_POSITION", function () {
             jQuery(document.body).trigger({type: "POSITION", position: kslide.getCurrentSlideNumber()});
         });
-        jQuery(document.body).on("SET_POSITION", function (message) {
-            jQuery(document.body).trigger({type: "SET_SLIDE", previousSlideNumber: kslide.getCurrentSlideNumber(), slideNumber: message.position});
-        });
     });
 
 }
-function KSlideCountMaster() {
+function KSlideCountMaster(kslideKeynote) {
     var self = this;
 
     jQuery(document.body).on("RUN", function () {
@@ -45,8 +42,8 @@ function KSlideCountMaster() {
                 jQuery('#nextslideidx').html(+message.position == (+(jQuery("#slidecount").html()) - 1) ? "END" : (+message.position + 2));
             }
         });
-        jQuery(document.body).trigger({"type": "GET_LENGTH"});
-        jQuery(document.body).trigger({"type": "GET_POSITION"});
+        jQuery(document.body).trigger({type: "GET_LENGTH"});
+        jQuery(document.body).trigger({type: "GET_POSITION"});
         var element = jQuery('#slideidx');
         element.click(setCursor);
         element.on("touchstart", setCursor);
@@ -54,6 +51,6 @@ function KSlideCountMaster() {
 
 
     function setCursor() {
-        jQuery(document.body).trigger({"type": "SET_POSITION", "position": +prompt('Go to slide...', '1') - 1});
+        jQuery(document.body).trigger({type: "SET_SLIDE", slideNumber: +prompt('Go to slide...', '1') - 1, previousSlideNumber : kslideKeynote.getCurrentSlideNumber()});
     }
 }

@@ -1,4 +1,3 @@
-
 function KSlideShowKeynoteSlave(kslide) {
     var self = this;
     var api = new KSlideShowKeynoteAPI();
@@ -17,10 +16,12 @@ function KSlideShowKeynoteSlave(kslide) {
         jQuery(document.body).on("LENGTH", function (message) {
             window.parent.postMessage(api.stringify(message), '*');
         });
-        jQuery(document.body).on("POSITION", function (message) {
-            window.parent.postMessage(api.stringify(message), '*');
-        });
+        jQuery(document.body).on("POSITION", onPositionEvent);
     });
+
+    function onPositionEvent(message) {
+        window.parent.postMessage(api.stringify(message), '*');
+    }
 
 
     function addEmptySlide(position) {
@@ -69,7 +70,13 @@ function KSlideShowKeynoteSlave(kslide) {
                 }
                 removeSlide(message.position);
             } else if (message.type !== "RUN") {
+                if (message.type === "POSITION") {
+                    jQuery(document.body).off("POSITION", onPositionEvent);
+                }
                 jQuery(document.body).trigger(message);
+                if (message.type === "POSITION") {
+                    jQuery(document.body).on("POSITION", onPositionEvent);
+                }
             }
         }
     }
@@ -88,12 +95,16 @@ function KSlideShowKeynoteMaster(slideURL) {
     var views = {
         id: null,
         present: null,
-        future: null
+        future: null,
+        currentSlideNumber: -1
     };
 
-    var events = "INITIALIZE INITIALIZED RUN SLIDE LIST START END FORWARD BACK SET_SLIDE FULLSCREEN NOTES GET_NOTES LENGTH GET_LENGTH POSITION SET_POSITION GET_POSITION EMPTY_SLIDE REMOVE_SLIDE POSITION";
-    var managedEvents = "START END FORWARD BACK SET_SLIDE GET_NOTES GET_LENGTH SET_POSITION GET_POSITION EMPTY_SLIDE REMOVE_SLIDE";
+    var events = "INITIALIZE INITIALIZED RUN SLIDE LIST START END FORWARD BACK SET_SLIDE FULLSCREEN NOTES GET_NOTES LENGTH GET_LENGTH POSITION GET_POSITION EMPTY_SLIDE REMOVE_SLIDE POSITION";
+    var managedEvents = "START END FORWARD BACK SET_SLIDE GET_NOTES GET_LENGTH GET_POSITION EMPTY_SLIDE REMOVE_SLIDE";
 
+    this.getManagedEvents = function () {
+        return managedEvents;
+    };
 
     this.startKeynote = function () {
         var nbInitializeHandlers = jQuery._data(body, "events").INITIALIZE.length;
@@ -146,46 +157,15 @@ function KSlideShowKeynoteMaster(slideURL) {
             views.future.postMessage(JSON.stringify({"type": "EMPTY_SLIDE", "position": "END"}), '*');
             views.future.postMessage(JSON.stringify({"type": "REMOVE_SLIDE", "position": "START"}), '*');
 
-            // send "INITIALIZE" to views.present and views.future
+            // send "INITIALIZED" to views.present and views.future
             views.present.postMessage(JSON.stringify({"type": "INITIALIZED"}), '*');
             views.future.postMessage(JSON.stringify({"type": "INITIALIZED"}), '*');
-
-            views.present.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
-            views.future.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
         });
     });
-
-    /*jQuery(document.body).on("RUN", function () {
-        views.present.postMessage(JSON.stringify({"type": "GET_NOTES"}), '*');
-        views.present.postMessage(JSON.stringify({"type": "GET_LENGTH"}), '*');
-        views.present.postMessage(JSON.stringify({"type": "GET_POSITION"}), '*');
-    });*/
-
-
-    /*jQuery(document.body).on("START", function () {
-     views.present.postMessage(JSON.stringify({"type": "START"}), '*');
-     views.future.postMessage(JSON.stringify({"type": "START"}), '*');
-     });
-     jQuery(document.body).on("SET_SLIDE", function (message) {
-     views.present.postMessage(JSON.stringify({"type": "SET_SLIDE", "slideNumber": message.slideNumber, "previousSlideNumber": message.previousSlideNumber}), '*');
-     views.future.postMessage(JSON.stringify({"type": "SET_SLIDE", "slideNumber": message.slideNumber, "previousSlideNumber": message.previousSlideNumber}), '*');
-     });
-     jQuery(document.body).on("BACK", function () {
-     views.present.postMessage(JSON.stringify({"type": "BACK"}), '*');
-     views.future.postMessage(JSON.stringify({"type": "BACK"}), '*');
-     });
-     jQuery(document.body).on("FORWARD", function () {
-     views.present.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
-     views.future.postMessage(JSON.stringify({"type": "FORWARD"}), '*');
-     });
-     jQuery(document.body).on("END", function () {
-     views.present.postMessage(JSON.stringify({"type": "END"}), '*');
-     views.future.postMessage(JSON.stringify({"type": "END"}), '*');
-     });
-     jQuery(document.body).on("SET_POSITION", function (message) {
-     views.present.postMessage(api.stringify(message), '*');
-     views.future.postMessage(api.stringify(message), '*');
-     });*/
+    jQuery(document.body).on("RUN", function () {
+        views.present.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
+        views.future.postMessage(JSON.stringify({"type": "SLIDE"}), '*');
+    });
 
     jQuery(document.body).on(managedEvents, function (message) {
         views.present.postMessage(api.stringify(message), '*');
@@ -221,10 +201,17 @@ function KSlideShowKeynoteMaster(slideURL) {
                     // must be triggered when views.present and views.future have been initialized !!
                     jQuery(document.body).trigger("INITIALIZED");
                 }
-            } else if (/*(message.type == "POSITION" || message.type == "LENGTH" || message.type == "NOTES") && */event.source == views.present) {
+            } else if (event.source == views.present) {
+                if (message.type === "POSITION") {
+                    views.currentSlideNumber = message.position;
+                }
                 jQuery(document.body).trigger(message);
             }
         }
+    }
+
+    this.getCurrentSlideNumber = function() {
+        return views.currentSlideNumber;
     }
 }
 

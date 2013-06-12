@@ -37,12 +37,12 @@ function KKeyboard(kslide) {
 
         switch (e.which) {
             case 13: // Enter
-                jQuery(document.body).trigger({"type": "SLIDE"});
-                jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": kslide.getCurrentSlideNumber(), "previousSlideNumber": kslide.getCurrentSlideNumber()});
+                jQuery(document.body).trigger({type: "SLIDE"});
+                jQuery(document.body).trigger({type: "SET_SLIDE", slideNumber: kslide.getCurrentSlideNumber(), previousSlideNumber: kslide.getCurrentSlideNumber()});
                 break;
 
             case 27: // Esc
-                jQuery(document.body).trigger({"type": "LIST"});
+                jQuery(document.body).trigger({type: "LIST"});
                 break;
 
             case 33: // PgUp
@@ -51,7 +51,7 @@ function KKeyboard(kslide) {
             case 72: // h
             case 75: // k
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "BACK"});
+                jQuery(document.body).trigger({type: "BACK"});
                 break;
 
             case 34: // PgDown
@@ -60,31 +60,31 @@ function KKeyboard(kslide) {
             case 76: // l
             case 74: // j
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "FORWARD"});
+                jQuery(document.body).trigger({type : "FORWARD"});
                 break;
 
             case 36: // Home
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "START"});
+                jQuery(document.body).trigger({type : "START"});
                 break;
 
             case 35: // End
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "END"});
+                jQuery(document.body).trigger({type : "END"});
                 break;
 
             case 9: // Tab = +1; Shift + Tab = -1
             case 32: // Space = +1; Shift + Space = -1
                 e.preventDefault();
                 if (!e.shiftKey) {
-                        jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": kslide.getCurrentSlideNumber() + 1, "previousSlideNumber": kslide.getCurrentSlideNumber() + 1});
+                        jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() + 1, previousSlideNumber : kslide.getCurrentSlideNumber() + 1});
                 } else {
-                    jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": kslide.getCurrentSlideNumber() - 1, "previousSlideNumber": kslide.getCurrentSlideNumber() - 1});
+                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() - 1, previousSlideNumber : kslide.getCurrentSlideNumber() - 1});
                 }
                 break;
             case 70: // f
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "FULLSCREEN"});
+                jQuery(document.body).trigger({type : "FULLSCREEN"});
                 break;
             default:
             // Behave as usual
@@ -98,8 +98,8 @@ function KKeyboard(kslide) {
             var previousSlideNumber = kslide.getCurrentSlideNumber();
             kslide.getUrl().hash = slideId;
             var slideNumber = kslide.getCurrentSlideNumber();
-            jQuery(document.body).trigger({"type": "SLIDE"});
-            jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": slideNumber, "previousSlideNumber" : previousSlideNumber});
+            jQuery(document.body).trigger({type : "SLIDE"});
+            jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : slideNumber, previousSlideNumber : previousSlideNumber});
         }
     }
 
@@ -129,11 +129,11 @@ function KKeyboard(kslide) {
         newX = aEvent.changedTouches[0].pageX;
         tracking = false;
         if (orgX - newX > 100) {
-            jQuery(document.body).trigger({"type": "FORWARD"});
+            jQuery(document.body).trigger({type : "FORWARD"});
         } else if (orgX - newX < -100) {
-            jQuery(document.body).trigger({"type": "BACK"});
+            jQuery(document.body).trigger({type : "BACK"});
         } else {
-            jQuery(document.body).trigger({"type": "SLIDE"});
+            jQuery(document.body).trigger({type : "SLIDE"});
         }
     }
 
@@ -158,7 +158,7 @@ function KKeyboardKeynote(kslide) {
             case 72: // h
             case 75: // k
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "BACK"});
+                jQuery(document.body).trigger({type : "BACK"});
                 break;
 
             case 34: // PgDown
@@ -167,26 +167,26 @@ function KKeyboardKeynote(kslide) {
             case 76: // l
             case 74: // j
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "FORWARD"});
+                jQuery(document.body).trigger({type : "FORWARD"});
                 break;
 
             case 36: // Home
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "START"});
+                jQuery(document.body).trigger({type : "START"});
                 break;
 
             case 35: // End
                 e.preventDefault();
-                jQuery(document.body).trigger({"type": "END"});
+                jQuery(document.body).trigger({type : "END"});
                 break;
 
             case 9: // Tab = +1; Shift + Tab = -1
             case 32: // Space = +1; Shift + Space = -1
                 e.preventDefault();
                 if (!e.shiftKey) {
-                    jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": kslide.getCurrentSlideNumber() + 1, "previousSlideNumber": kslide.getCurrentSlideNumber() + 1});
+                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() + 1, previousSlideNumber : kslide.getCurrentSlideNumber() + 1});
                 } else {
-                    jQuery(document.body).trigger({"type": "SET_SLIDE", "slideNumber": kslide.getCurrentSlideNumber() - 1, "previousSlideNumber": kslide.getCurrentSlideNumber() - 1});
+                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() - 1, previousSlideNumber : kslide.getCurrentSlideNumber() - 1});
                 }
                 break;
             default:

@@ -9,17 +9,17 @@ function KNotesSlave(kslide) {
     jQuery(document.body).on("RUN", function () {
         jQuery(document.body).on("SET_SLIDE", function (message) {
             if (message.slideNumber < kslide.getLength() && message.slideNumber >= 0) {
-                jQuery(document.body).trigger({"type": "NOTES", "notes": getDetails(message.slideNumber)});
+                jQuery(document.body).trigger({type : "NOTES", notes: getDetails(message.slideNumber)});
             }
         });
         jQuery(document.body).on("START", function () {
-            jQuery(document.body).trigger({"type": "NOTES", "notes": getDetails(0)});
+            jQuery(document.body).trigger({type : "NOTES", notes: getDetails(0)});
         });
         jQuery(document.body).on("END", function () {
-            jQuery(document.body).trigger({"type": "NOTES", "notes": getDetails(kslide.getLength() - 1)});
+            jQuery(document.body).trigger({type : "NOTES", notes: getDetails(kslide.getLength() - 1)});
         });
         jQuery(document.body).on("GET_NOTES", function () {
-            jQuery(document.body).trigger({"type": "NOTES", "notes": getDetails(kslide.getCurrentSlideNumber())});
+            jQuery(document.body).trigger({type : "NOTES", notes: getDetails(kslide.getCurrentSlideNumber())});
         });
     });
 
@@ -46,6 +46,6 @@ function KNotesMaster() {
             }
         });
 
-        jQuery(document.body).trigger({"type": "GET_NOTES"});
+        jQuery(document.body).trigger({type : "GET_NOTES"});
     });
 }

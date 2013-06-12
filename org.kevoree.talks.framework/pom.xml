@@ -58,16 +58,17 @@
                                 <jsSourceFile>kslideshowKeynote.js</jsSourceFile>
 
                                 <jsSourceFile>plugins/embedder.js</jsSourceFile>
-                                <jsSourceFile>plugins/iframe.js</jsSourceFile>
                                 <jsSourceFile>plugins/include.js</jsSourceFile>
                                 <jsSourceFile>plugins/h2list.js</jsSourceFile>
+                                <jsSourceFile>plugins/slide.js</jsSourceFile>
+                                <jsSourceFile>plugins/active.js</jsSourceFile>
+                                <jsSourceFile>plugins/progress.js</jsSourceFile>
                                 <jsSourceFile>plugins/keyboard.js</jsSourceFile>
                                 <jsSourceFile>plugins/notes.js</jsSourceFile>
                                 <jsSourceFile>plugins/popup.js</jsSourceFile>
                                 <jsSourceFile>plugins/slidecount.js</jsSourceFile>
                                 <jsSourceFile>plugins/time.js</jsSourceFile>
                                 <jsSourceFile>plugins/websocket.js</jsSourceFile>
-                                <jsSourceFile>plugins/collapse.js</jsSourceFile>
                             </jsSourceFiles>
                             <jsTargetDir>scripts</jsTargetDir>
                             <jsFinalFile>kslideshow.merged.js</jsFinalFile>
