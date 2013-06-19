@@ -11,10 +11,14 @@
     <!-- Kevoree Keynote Framework -->
     <script type="text/javascript" src="scripts/kslideshow.merged.min.js"></script>
     <script type="text/javascript" id="kSlideshow">
-        jQuery(document).ready(function ($) {
+        jQuery(document).ready(function () {
             var ks = new KSlideShow();
-            var keyboardPlugin = new KKeyboard(ks);
-            ks.addPluginListener(keyboardPlugin);
+            new IncludePlugin(ks);
+            new H2List(ks, 4);
+            new ProgressPlugin(ks);
+            new ActivePlugin(ks);
+            new KKeyboard(ks);
+            new SlidePlugin(ks);
             ks.startKeynote();
         });
     </script>
