@@ -12,6 +12,11 @@ function KNotesSlave(kslide) {
                 jQuery(document.body).trigger({type : "NOTES", notes: getDetails(message.slideNumber)});
             }
         });
+        jQuery(document.body).on("SET_POSITION", function (message) {
+            if (message.slideNumber < kslide.getLength() && message.slideNumber >= 0) {
+                jQuery(document.body).trigger({type : "NOTES", notes: getDetails(message.slideNumber)});
+            }
+        });
         jQuery(document.body).on("START", function () {
             jQuery(document.body).trigger({type : "NOTES", notes: getDetails(0)});
         });

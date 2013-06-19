@@ -13,12 +13,6 @@ function ProgressPlugin(kslide) {
     var progress = null;
 
     jQuery(document.body).on("RUN", start);
-    jQuery(document.body).on("SET_SLIDE", update);
-    jQuery(document.body).on("PREVIOUS_SLIDE", update);
-    jQuery(document.body).on("START", update);
-    jQuery(document.body).on("END", update);
-    jQuery(document.body).on("SLIDE", update);
-
 
     function update (message) {
         if (kslide.isSlideMode() || message.type == "SLIDE") {
@@ -31,6 +25,12 @@ function ProgressPlugin(kslide) {
         jQuery(document.body).append("<div class='progress'><div></div></div>");
         progress = jQuery('div.progress div').get(0);
         updateProgress(kslide.getCurrentSlideNumber());
+        jQuery(document.body).on("SET_SLIDE", update);
+        jQuery(document.body).on("SET_POSITION", update);
+        jQuery(document.body).on("PREVIOUS_SLIDE", update);
+        jQuery(document.body).on("START", update);
+        jQuery(document.body).on("END", update);
+        jQuery(document.body).on("SLIDE", update);
     }
 
     function updateProgress(slideNumber) {

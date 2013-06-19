@@ -21,20 +21,20 @@ function KPopupSlave(kslide) {
         window.opener.postMessage(JSON.stringify({type: "INITIALIZED"}), '*');
     });
 
-    jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
+    jQuery(document.body).on("START END SET_POSITION FORWARD BACK", toForward);
 
     function toForward(message) {
-        jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", toForward);
+        jQuery(document.body).off("START END SET_POSITION FORWARD BACK", toForward);
         window.opener.postMessage(api.stringify(message), '*');
-        jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
+        jQuery(document.body).on("START END SET_POSITION FORWARD BACK", toForward);
     }
 
     function manageMessage(event) {
         if (event.source === window.opener) {
             var message = JSON.parse(event.data);
-            jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", toForward);
+            jQuery(document.body).off("START END SET_POSITION FORWARD BACK", toForward);
             jQuery(document.body).trigger(message);
-            jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", toForward);
+            jQuery(document.body).on("START END SET_POSITION FORWARD BACK", toForward);
         }
     }
 }
@@ -64,7 +64,7 @@ function KPopupMaster(kslideKeynote, slideUrl) {
         var element = jQuery('#popup-button');
         element.on("touchstart", createPopup);
         element.click(createPopup);
-        jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+        jQuery(document.body).on("START END SET_POSITION FORWARD BACK", onReceivedEvents);
     });
 
     function onReceivedEvents(message) {
@@ -78,11 +78,11 @@ function KPopupMaster(kslideKeynote, slideUrl) {
             var message = JSON.parse(event.data);
             if (message.type === "INITIALIZED") {
                 popup.postMessage(JSON.stringify({type: "SLIDE"}), '*');
-                popup.postMessage(JSON.stringify({type: "SET_SLIDE", slideNumber: kslideKeynote.getCurrentSlideNumber(), previsouSlideNumber: kslideKeynote.getCurrentSlideNumber() - 1}), '*');
+                popup.postMessage(JSON.stringify({type: "SET_POSITION", position: kslideKeynote.getCurrentSlideNumber()}), '*');
             } else {
-                jQuery(document.body).off("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+                jQuery(document.body).off("START END SET_POSITION FORWARD BACK", onReceivedEvents);
                 jQuery(document.body).trigger(message);
-                jQuery(document.body).on("START END SET_SLIDE FORWARD BACK", onReceivedEvents);
+                jQuery(document.body).on("START END SET_POSITION FORWARD BACK", onReceivedEvents);
             }
         }
     }

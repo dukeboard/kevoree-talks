@@ -51,6 +51,6 @@ function KSlideCountMaster(kslideKeynote) {
 
 
     function setCursor() {
-        jQuery(document.body).trigger({type: "SET_SLIDE", slideNumber: +prompt('Go to slide...', '1') - 1, previousSlideNumber : kslideKeynote.getCurrentSlideNumber()});
+        jQuery(document.body).trigger({type: "SET_POSITION", slideNumber: +prompt('Go to slide...', '1') - 1});
     }
 }

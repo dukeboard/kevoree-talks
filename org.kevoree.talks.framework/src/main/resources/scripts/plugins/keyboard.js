@@ -38,7 +38,7 @@ function KKeyboard(kslide) {
         switch (e.which) {
             case 13: // Enter
                 jQuery(document.body).trigger({type: "SLIDE"});
-                jQuery(document.body).trigger({type: "SET_SLIDE", slideNumber: kslide.getCurrentSlideNumber(), previousSlideNumber: kslide.getCurrentSlideNumber()});
+                jQuery(document.body).trigger({type: "SET_POSITION", slideNumber: kslide.getCurrentSlideNumber()});
                 break;
 
             case 27: // Esc
@@ -77,9 +77,9 @@ function KKeyboard(kslide) {
             case 32: // Space = +1; Shift + Space = -1
                 e.preventDefault();
                 if (!e.shiftKey) {
-                        jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() + 1, previousSlideNumber : kslide.getCurrentSlideNumber() + 1});
+                        jQuery(document.body).trigger({type : "SET_POSITION", position : kslide.getCurrentSlideNumber() + 1});
                 } else {
-                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() - 1, previousSlideNumber : kslide.getCurrentSlideNumber() - 1});
+                    jQuery(document.body).trigger({type : "SET_POSITION", position : kslide.getCurrentSlideNumber() - 1});
                 }
                 break;
             case 70: // f
@@ -95,11 +95,10 @@ function KKeyboard(kslide) {
     function click (event) {
         var slideId = getContainingSlideId(event.target);
         if ('' !== slideId && (!kslide.isSlideMode() || kslide.getSlide(kslide.getCurrentSlideNumber()).id !== slideId)) {
-            var previousSlideNumber = kslide.getCurrentSlideNumber();
             kslide.getUrl().hash = slideId;
             var slideNumber = kslide.getCurrentSlideNumber();
             jQuery(document.body).trigger({type : "SLIDE"});
-            jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : slideNumber, previousSlideNumber : previousSlideNumber});
+            jQuery(document.body).trigger({type : "SET_POSITION", position : slideNumber});
         }
     }
 
@@ -184,9 +183,9 @@ function KKeyboardKeynote(kslide) {
             case 32: // Space = +1; Shift + Space = -1
                 e.preventDefault();
                 if (!e.shiftKey) {
-                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() + 1, previousSlideNumber : kslide.getCurrentSlideNumber() + 1});
+                    jQuery(document.body).trigger({type : "SET_POSITION", position : kslide.getCurrentSlideNumber() + 1});
                 } else {
-                    jQuery(document.body).trigger({type : "SET_SLIDE", slideNumber : kslide.getCurrentSlideNumber() - 1, previousSlideNumber : kslide.getCurrentSlideNumber() - 1});
+                    jQuery(document.body).trigger({type : "SET_POSITION", position : kslide.getCurrentSlideNumber() - 1});
                 }
                 break;
             default:

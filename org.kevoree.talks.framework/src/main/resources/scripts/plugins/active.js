@@ -28,9 +28,11 @@ function ActivePlugin(kslide) {
             }
         }
     });
-    jQuery(document.body).on("SET_CURSOR", function (message) {
-        initializeInnerTransition(message.cursor);
-        initializeCollapseTransition(message.cursor);
+    jQuery(document.body).on("SET_POSITION", function (message) {
+        if (message.position >= 0 && message.position  < kslide.getLength()) {
+                initializeInnerTransition(message.position );
+                initializeCollapseTransition(message.position);
+        }
     });
 
     jQuery(document.body).on("LIST", function (message) {

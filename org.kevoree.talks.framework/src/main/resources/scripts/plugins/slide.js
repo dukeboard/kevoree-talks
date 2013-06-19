@@ -22,6 +22,15 @@ function SlidePlugin(kslide) {
             }
         });
 
+        jQuery(document.body).on("SET_POSITION", function (event) {
+            // we do nothing if the current slide is the last one
+            if (event.position === undefined || event.position < 0) {
+                goToSlide(0);
+            } else if (event.position < kslide.getLength()) {
+                goToSlide(event.position);
+            }
+        });
+
         jQuery(document.body).on("START", goToStart);
 
         jQuery(document.body).on("END", goToEnd);

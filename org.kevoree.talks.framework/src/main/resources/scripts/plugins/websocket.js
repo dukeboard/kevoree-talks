@@ -70,7 +70,7 @@ function KWebsocketMaster(kslideKeynote, wsUrl, roomID) {
         }
     });
 
-    jQuery(document.body).on("START END FORWARD BACK SET_SLIDE", function (message) {
+    jQuery(document.body).on("START END FORWARD BACK SET_POSITION", function (message) {
         if (ws != null) {
             ws.send(api.stringify(message));
         }
@@ -89,8 +89,8 @@ function KWebsocketMaster(kslideKeynote, wsUrl, roomID) {
                 ws.onopen = function () {
                     console.log('* Connected!');
                     ws.send(JSON.stringify({"type": "JOIN", "id": roomID}));
-                    jQuery(document.body).trigger({type: "SET_SLIDE", slideNumber: kslideKeynote.getCurrentSlideNumber(), previousSlideNumber: -1});
-                    ws.send(JSON.stringify({type: "SET_SLIDE", slideNumber: kslideKeynote.getCurrentSlideNumber(), previousSlideNumber: -1}));
+                    jQuery(document.body).trigger({type: "SET_POSITION", position: kslideKeynote.getCurrentSlideNumber()});
+                    ws.send(JSON.stringify({type: "SET_POSITION", position: kslideKeynote.getCurrentSlideNumber()}));
                     var slideurl = document.URL.replace("keynote", "slave");
                     if (slideurl.indexOf(roomID) == slideurl.length - roomID.length) {
                         slideurl = slideurl.substring(0, slideurl.length - roomID.length)
