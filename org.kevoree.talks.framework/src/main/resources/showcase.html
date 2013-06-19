@@ -14,6 +14,8 @@
     <link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.css" media="screen"/>
     <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.print.merged.css" media="print"/>-->
     <!--<link type="text/css" rel="stylesheet" href="styles/themes/default/default.screen.merged.css" media="screen"/>-->
+
+    <!-- stylesheet for SyntaxHighlighter -->
     <link type="text/css" rel="stylesheet" href="styles/brush/shCoreKev.css"/>
     <!-- Kevoree Keynote Framework -->
     <script src="scripts/jquery.min.js"></script>
@@ -175,14 +177,13 @@ MacOS user ? [This app is 4U](http://mouapp.com/).
 <!-- Add SynthaxHighlighter -->
 <script type="text/javascript" src="scripts/brush/shCore.js"></script>
 <script type="text/javascript" src="scripts/brush/shBrushJava.js"></script>
-<script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
-<script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 <!-- Write some code in side .... -->
 
 <section class="slide">
     <h2>You can also Highlight some code</h2>
 
+    <p>Using <a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a> </p>
     <p>This is a very complex code</p>
     <pre class="brush: java toolbar:false;">
     public class MyClass {
@@ -193,6 +194,7 @@ MacOS user ? [This app is 4U](http://mouapp.com/).
     </pre>
 </section>
 
+<script type="text/javascript" src="scripts/brush/shBrushXml.js"></script>
 <section class="slide" id="brushXML">
     <h2>It also work for plain XML code</h2>
 
@@ -217,6 +219,7 @@ MacOS user ? [This app is 4U](http://mouapp.com/).
 </plugin></pre>
 </section>
 
+<script type="text/javascript" src="scripts/brush/shBrushKevs.js"></script>
 <section class="slide" id="kevsCode">
     <h2>It also work for KevScript</h2>
 
@@ -246,11 +249,9 @@ addToGroup sync node0
 </section>
 
 <div id="include" class="includeHtml"></div>
-<div id="include2" class="includeHtml"></div>
-<div id="include3" class="includeHtml"></div>
 
 <section class="slide shout">
-    <h2 class="h2-list">A new shout</h2>
+    <h2 class="h2-list">A new h2-list shout</h2>
 </section>
 
 
@@ -266,29 +267,28 @@ addToGroup sync node0
     <h2 class="h2-list">A new shout 3</h2>
 </section>
 
-
 <section class="slide shout">
-    <h2 class="h2-list">A new shout 4</h2>
-</section>
-
-<section class="slide shout">
-    <h2>One more thing !</h2>
+    <h2 class="h2-list">One more thing !</h2>
 </section>
 
 <section class="slide" id="Anim1">
     <header>
         <h2>Extend by yourself</h2>
     </header>
+    <p>Using javascript on specific events:</p>
+    <ul>
+        <li class="hidden"><code>active</code>, <code>currentActive</code>, <code>notCurrentActive</code>, <code>notActive</code></li>
+    </ul>
     <img class="next" src="figures/kevoree-logo.png" width="300px" id="animImg1"/>
 
     <div class="next" id="divBackground1">
         Some information
     </div>
     <div class="next" id="divBackground2">
-        some other info
+        Some other info
     </div>
     <div class="next" id="divBackground3">
-        some not used info
+        Some not used info
     </div>
     <script type="text/javascript">
         jQuery(document).ready(function () {
