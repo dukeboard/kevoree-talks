@@ -112,3 +112,12 @@ body {
     -o-transition: width 0.2s linear;
     transition: width 0.2s linear;
 }
+
+.slideMode code {
+    padding: 3px 8px;
+    border-radius: 8px;
+    background-color: rgba(223, 157, 41, 0.4);
+    color: #000;
+    line-height: 1;
+    font-family: 'PT Mono', monospace;
+}
