@@ -1,22 +1,13 @@
-/*@import url(fonts.css);*/
-
-/*body {
-    counter-reset: paging;
-    font: 25px/2 'PT Sans', sans-serif;
-}*/
-
 /* Slide
 ------------------------------- */
 .slide {
-    padding: 71px 120px 0;
-    background: #FFF /*url(../images/minikev.png) 865px 0 no-repeat*/;
+    background: #FFF;
     color: #000;
 }
 
 .slide:after {
     position: absolute;
     counter-increment: paging;
-    /*content: counter(paging, decimal-leading-zero);*/
     line-height: 1;
 }
 
@@ -31,10 +22,6 @@
 .slide p {
     margin: 0 0 10px;
 }
-
-/*.slide p.note {
-    color: #999;
-}*/
 
 .slide a {
     border-bottom: 0.1em solid;
@@ -193,4 +180,14 @@
     -ms-transform: translateY(0%);
     -o-transform: translateY(0%);
     transform: translateY(0%);
+}
+
+
+code {
+    padding: 3px 8px;
+    border-radius: 8px;
+    background-color: rgba(223, 157, 41, 0.4);
+    color: #000;
+    line-height: 1;
+    font-family: 'PT Mono', monospace;
 }

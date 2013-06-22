@@ -33,6 +33,7 @@
 html {
     width: 784px !important;
     height: 569px !important;
+    margin: 0 !important;
 }
 
 body {
@@ -40,6 +41,8 @@ body {
     height: 569px !important;
     background: #FFF;
     counter-reset: paging;
+
+    margin: 0 !important;
 }
 
 .caption {
@@ -58,42 +61,23 @@ div.progress > div {
     display: none !important;
 }
 
-.list .slide ol,
-.list .slide ul,
-.slideMode .slide ol,
-.slideMode .slide ul {
+.slide ol,
+.slide ul {
     counter-reset: list;
 }
 
-.slideMode .slide ol > li:before,
-.list .slide ol > li:before {
+.slide ol > li:before {
     counter-increment: list;
     content: counter(list) '.';
 }
 
-.slideMode .slide pre,
-.list .slide pre {
-    counter-reset: code;
-}
-
-.slideMode .slide pre code,
-.list .slide pre code {
-    display: block;
-}
-
-.slideMode .slide pre code:before,
-.list .slide pre code:before {
-    counter-increment: code;
-    content: counter(code, decimal-leading-zero) '.';
-}
-
-.slideMode .slide,
-.list .slide {
+.slide {
     visibility: visible !important;
     display: block !important;
 
     width: 784px !important;
     height: 569px !important;
+    padding: 71px 80px 0;
 
     position: relative !important;
     float: left !important;
@@ -102,6 +86,8 @@ div.progress > div {
 
     page-break-inside: avoid !important;
     page-break-after: always !important;
+
+    margin: 0 !important;
 }
 
 .list .slide .next.collapse> *:not(span) {

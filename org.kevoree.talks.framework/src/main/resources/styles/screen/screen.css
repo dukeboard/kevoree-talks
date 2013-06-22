@@ -27,20 +27,6 @@ details {
     counter-reset: list;
 }
 
-/* Code */
-/*.slide pre {
-    counter-reset: code;
-}
-
-.slide pre code {
-    display: block;
-}
-
-.slide pre code:before {
-    counter-increment: code;
-    content: counter(code, decimal-leading-zero) '.';
-}*/
-
 /* Slide */
 .list .slide {
     position: relative;
