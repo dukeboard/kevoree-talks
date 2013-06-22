@@ -12,26 +12,39 @@ function ProgressPlugin(kslide) {
     var self = this;
     var progress = null;
 
-    jQuery(document.body).on("RUN", start);
-
-    function update (message) {
-        if (kslide.isSlideMode() || message.type == "SLIDE") {
-            updateProgress(message.slideNumber);
-        }
-    }
-
-    function start () {
+    jQuery(document.body).on("RUN", function () {
 //        console.log("starting progress plugin");
         jQuery(document.body).append("<div class='progress'><div></div></div>");
         progress = jQuery('div.progress div').get(0);
         updateProgress(kslide.getCurrentSlideNumber());
-        jQuery(document.body).on("SET_SLIDE", update);
-        jQuery(document.body).on("SET_POSITION", update);
-        jQuery(document.body).on("PREVIOUS_SLIDE", update);
-        jQuery(document.body).on("START", update);
-        jQuery(document.body).on("END", update);
-        jQuery(document.body).on("SLIDE", update);
-    }
+        jQuery(document.body).on("SET_SLIDE", function (message) {
+            if (kslide.isSlideMode()) {
+                updateProgress(message.slideNumber);
+            }
+        });
+        jQuery(document.body).on("SET_POSITION", function (message) {
+            if (kslide.isSlideMode()) {
+                updateProgress(message.position);
+            }
+        });
+        jQuery(document.body).on("START", function () {
+            if (kslide.isSlideMode()) {
+                updateProgress(0);
+            }
+        });
+        jQuery(document.body).on("END", function () {
+            if (kslide.isSlideMode()) {
+                updateProgress(kslide.getLength());
+            }
+        });
+        jQuery(document.body).on("SLIDE", function () {
+            if (kslide.isSlideMode()) {
+                updateProgress(kslide.getCurrentSlideNumber());
+            }
+        });
+    });
+
+
 
     function updateProgress(slideNumber) {
         if (null === progress || slideNumber === -1) {
