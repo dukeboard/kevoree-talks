@@ -1,6 +1,7 @@
 /*@import url(../reset/reset.css);*/
 
 @page {
+    /*size: 1024px 640px;*/
     size: 784px 569px;
     margin: 0;
     border: 0;
@@ -44,7 +45,6 @@ body {
 
     margin: 0 !important;
 }
-
 .caption {
     display: none !important;
 }
@@ -52,16 +52,16 @@ body {
 details {
     display: none !important;
 }
-
+/*
 div.progress {
     display: none !important;
 }
 
 div.progress > div {
     display: none !important;
-}
+}*/
 
-.slide ol,
+/*.slide ol,
 .slide ul {
     counter-reset: list;
 }
@@ -69,12 +69,14 @@ div.progress > div {
 .slide ol > li:before {
     counter-increment: list;
     content: counter(list) '.';
-}
+}*/
 
 .slide {
     visibility: visible !important;
     display: block !important;
 
+    /*width: 1024px !important;
+    height: 640px !important;*/
     width: 784px !important;
     height: 569px !important;
     padding: 71px 80px 0;

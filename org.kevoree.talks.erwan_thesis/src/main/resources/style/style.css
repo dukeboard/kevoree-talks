@@ -29,15 +29,13 @@ div.guide * {
     margin: 4px;
 }
 
-
-.full .slide:after {
+.slideMode .slide:after {
     color: rgba(100, 100, 100, 0.7);
 }
 
-.full .progress div {
+.slideMode .progress div {
     background: rgba(177, 177, 177, 0.7);
 }
-
 
 a:link.team,
 a:visited.team,

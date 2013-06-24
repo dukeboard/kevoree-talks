@@ -120,7 +120,7 @@
 .slide.cover h1 {
     font-size: 1.6em;
     margin: 0.3em 0;
-    position: absolute;
+    position: absolute;/*relative ?*/
     top: 10%;
     left: 30%;
     color: #FFFFFF;
@@ -129,7 +129,7 @@
 .slide.cover h2 {
     font-size: 1.4em;
     margin: 0.3em 0;
-    position: absolute;
+    position: absolute;/*relative ?*/
     top: 10%;
     left: 30%;
     color: #FFFFFF;
@@ -164,6 +164,8 @@
     position: relative;
     top: 15%;
     line-height: 1;
+    padding: 0 0 10px;
+    margin: 10px 0 10px 0;
     -webkit-transform: translateY(0%);
     -moz-transform: translateY(0%);
     -ms-transform: translateY(0%);
